@@ -1191,6 +1191,25 @@ to Boost::Python AsFer VIRGO system calls invocations.
 ------------------------------------------------------------------------------------------------
 Analysis of VIRGO memory cache primitives reveal more inconsistencies in cacheline flushes between CPU and GPU.
 
+---------------------------------------------------------------------------------------------------
+Commits - 20 March 2017 and 21 March 2017 - VIRGO Linux 64-bit build based on 4.10.3 kernel
+---------------------------------------------------------------------------------------------------
+*) moved virgoeventnetclient_driver_build.sh to virgoutils_driver_build.sh in utils/ driver
+*) Updated VIRGO Linux Build Steps for 4.10.3
+*) New repository has been created for 64-bit VIRGO Linux kernel based on 4.10.3 mainline kernel in GitHub and imported in SourceForge:
+        https://github.com/shrinivaasanka/virgo64-linux-github-code
+        https://sourceforge.net/p/virgo64-linux/
+*) Though it could have been branched off from existing VIRGO repository (32-bit) which is based on 4.1.5 mainline kernel, creating a
+separate repository for 64-bit 4.10.3 VIRGO kernel code was simpler because:
+        - there have been directory path changes for syscall entries in 4.10.3 and some other KBuild entities
+        - Some script changes done for 4.1.5 in modpost and vmlinux phases are not required
+        - having two VIRGO branches one with 4.1.5 code and 32-bit driver .ko binaries and other with 4.10.3 code and 64-bit driver .ko
+binaries could be unmanageable and commits could go into wrong branch
+        - 4.10.3 64-bit VIRGO kernel build is still in experimental phase and it is not known if 64-bit 4.10.3 build solves earlier panic
+problems in 4.1.5
+        - If necessary one of these two repositories could be made branch of the other later
+
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
