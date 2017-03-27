@@ -1209,6 +1209,27 @@ binaries could be unmanageable and commits could go into wrong branch
 problems in 4.1.5
         - If necessary one of these two repositories could be made branch of the other later
 
+------------------------------------------------------------------------------------------------------
+Commits - 27 March 2017 Ongoing analysis of VIRGO 64 bit linux kernel based on 4.10.3 kernel mainline
+------------------------------------------------------------------------------------------------------
+*) Prima facie, 64 bit kernel is quite finicky and importunate compared to 32 bit and 64 bit specific idiosyncrasies are to the fore.
+*) During the past 1 week, quite a few variants of kernel and drivers builds were tried with KASAN enabled and without KASAN (Google Kernel Address Sanitizer)
+*) KASAN shows quite huge number of user memory accesses which later translate to panics.
+*) Most nagging of these was kernel_recvmsg() panic.
+*) Added and updated skbuff socket debug utility driver with a new debug function and to print more fields of skbuff
+*) KASAN was complaining about _asan_load8 (loading 8 userspace bytes)
+*) All erroneous return data types in VIRGO mempool ops structure have been corrected in VIRGO headers
+*) all type casts have been sanitized
+*) Changed all kernel stack allocations to kernel heap kzallocs
+*) This later caused a crash in inet_sendmsg in kernel_sendmsg()
+*) gdb64 disassemble showed a trapping instruction:
+testb $0x6,0x91(%14) with corresponding source line:
+sg = !!(sk->sk_route_caps & NETIF_F_SG)
+in tcp_sendmsg() (net/ipv4/tcp.c)
+*) changed kernel_sendmsg() to sock->ops->sendmsg()
+*) These commits are still ongoing analysis only.
+*) Screenshots for these have been added to debug-info/
+
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
