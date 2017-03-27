@@ -1,29 +1,28 @@
-	/***************************************************************************************
-VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
---------------------------------------------------------------------------------------------------
-Copyright(C):
-Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Independent Open Source Developer, Researcher and Consultant
-Ph: 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
-Personal website(research): https://sites.google.com/site/kuja27/
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
---------------------------------------------------------------------------------------------------
-
+/***************************************************************************************
+#-------------------------------------------------------------------------------------------------------
+#NEURONRAIN VIRGO - Cloud, Machine Learning and Queue augmented Linux Kernel Fork-off
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#--------------------------------------------------------------------------------------------------------
+#Copyleft (Copyright+):
+#Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+#Ph: 9791499106, 9003082186
+#Krishna iResearch Open Source Products Profiles:
+#http://sourceforge.net/users/ka_shrinivaasan,
+#https://github.com/shrinivaasanka,
+#https://www.openhub.net/accounts/ka_shrinivaasan
+#Personal website(research): https://sites.google.com/site/kuja27/
+#emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com,
+#kashrinivaasan@live.com
+#--------------------------------------------------------------------------------------------------------
 *****************************************************************************************/
 
 /* 
@@ -46,7 +45,8 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/pm.h>
 #include <linux/atomic.h>
 #include <linux/ratelimit.h>
-#include <asm/device.h>
+/*#include <asm/device.h>*/
+#include <linux/device.h>
 #include <linux/time.h>
 
 #include <linux/kernel.h>
@@ -73,8 +73,14 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <net/ipv6.h>
 #include <net/tcp.h>
 #include <net/tcp_states.h>
+/*
 #include <asm/uaccess.h>
 #include <asm/ioctls.h>
+*/
+#include <linux/uaccess.h>
+/*
+#include <ioctls.h>
+*/
 #include <trace/events/skb.h>
 
 #include <linux/module.h>
@@ -175,7 +181,7 @@ FPTR toFuncPtr(char*);
 struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction);
 /*struct virgo_mempool_args* parse_virgomempool_command(void* args);*/
 
-int virgocloudexec_mempool_create(void);
+struct socket* virgocloudexec_mempool_create(void);
 void* virgocloudexec_mempool_recvfrom(struct socket*);
 int virgocloudexec_mempool_sendto(struct socket*, void* virgo_mempool_ret);
 
@@ -189,7 +195,7 @@ extern void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args);
 extern char* toKernelAddress(const char* str);
 
 struct virgo_mempool_ops_t {
-	int (*virgo_mempool_create)(void);
+	struct socket* (*virgo_mempool_create)(void);
 	void* (*virgo_mempool_recvfrom)(struct socket*);
 	int (*virgo_mempool_sendto)(struct socket*,void* virgo_mempool_ret);
 };

@@ -46,28 +46,119 @@ virgo_generic_kernelsock_client_init(void)
 }
 EXPORT_SYMBOL(virgo_generic_kernelsock_client_init);
 
+void skbuff_kernel_socket_debug2(struct socket* sock)
+{
+	int len=1000;
+	int header_len=300;
+	int user_data_len=500;
+	printk(KERN_INFO "in skbuff_kernel_socket_debug2() \n");
+	if(sock)
+	{
+		printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock = %x \n",sock);
+		if(sock->sk)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk is not NULL : %x \n",sock->sk);
+		}
+		else
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk is NULL \n");
+		}
+		if(sock->ops)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->ops is not NULL : %x \n", sock->ops);
+		}
+		else
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->ops is NULL : %x \n");
+		}
+		if(sock->sk->sk_route_caps)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_route_caps is not NULL : %ull \n", sock->sk->sk_route_caps);
+		}
+		else
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_route_caps is NULL \n");
+		}
+	}
+	else
+	{
+		printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock is NULL \n");
+	}
+	if(!sock->sk->sk_send_head)
+	{
+		printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_send_head is NULL \n");
+	}
+	else
+	{
+		printk(KERN_INFO "initializing sk_buff \n");
+		struct sk_buff *skb=sock->sk->sk_send_head;
+		printk(KERN_INFO "iterating through the sk buffer queue \n");
+		while(skb)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_send_head : %x \n", skb);
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_send_head->head : %s \n", kstrdup(skb->head,GFP_KERNEL));
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_send_head->data : %s \n", kstrdup(skb->data,GFP_KERNEL));
+			skb=skb->next;
+		}
+	}
+}
+EXPORT_SYMBOL(skbuff_kernel_socket_debug2);
+
+
 void skbuff_kernel_socket_debug(struct socket* sock)
 {
 	int len=1000;
 	int header_len=300;
 	int user_data_len=500;
 	printk(KERN_INFO "in skbuff_kernel_socket_debug() \n");
+	if(sock)
+	{
+		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock = %x \n",sock);
+		if(sock->sk)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk is not NULL : %x \n",sock->sk);
+		}
+		else
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk is NULL \n");
+		}
+		if(sock->ops)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->ops is not NULL : %x \n", sock->ops);
+		}
+		else
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->ops is NULL : %x \n");
+		}
+			
+	}
+	else
+	{
+		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock is NULL \n");
+	}
 	if(!sock->sk->sk_send_head)
 	{
-		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head is NULL, allocating new skb with alloc_skb() to it \n");
+		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head is NULL, doing alloc_skb() to sk_send_head \n");
 		sock->sk->sk_send_head=alloc_skb(len,GFP_KERNEL);
 	}
-	struct sk_buff *skb=sock->sk->sk_send_head;
-	skb_reserve(skb,header_len);
-	char *user_data=skb_put(skb,user_data_len);
-	memcpy(user_data,"skbuff_data_24February2016",user_data_len);
-	printk(KERN_INFO "iterating through the sk buffer queue \n");
-	while(skb)
+	else
 	{
-		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head : %x \n", skb);
-		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head->head : %s \n", kstrdup(skb->head,GFP_KERNEL));
-		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head->data : %s \n", kstrdup(skb->data,GFP_KERNEL));
-		skb=skb->next;
+		printk(KERN_INFO "initializing sk_buff \n");
+		struct sk_buff *skb=sock->sk->sk_send_head;
+		printk(KERN_INFO "doing skb_reserve() \n");
+		skb_reserve(skb,header_len);
+		printk(KERN_INFO "doing skb_put() for user_data \n");
+		char *user_data=skb_put(skb,user_data_len);
+		printk(KERN_INFO "memcpy() user_data\n");
+		memcpy(user_data,"skbuff_data_24February2016",user_data_len);
+		printk(KERN_INFO "iterating through the sk buffer queue \n");
+		while(skb)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head : %x \n", skb);
+			printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head->head : %s \n", kstrdup(skb->head,GFP_KERNEL));
+			printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head->data : %s \n", kstrdup(skb->data,GFP_KERNEL));
+			skb=skb->next;
+		}
 	}
 }
 EXPORT_SYMBOL(skbuff_kernel_socket_debug);

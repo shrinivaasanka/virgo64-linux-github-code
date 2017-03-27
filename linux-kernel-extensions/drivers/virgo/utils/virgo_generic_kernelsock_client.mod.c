@@ -17,28 +17,21 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0xb2be4cbd, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0x1d595dc0, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
+	{ 0x8c7d229d, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x3a6754b0, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
 	{ 0x754d539c, __VMLINUX_SYMBOL_STR(strlen) },
-	{ 0x73475f93, __VMLINUX_SYMBOL_STR(__asan_handle_no_return) },
-	{ 0xe2d9a697, __VMLINUX_SYMBOL_STR(sock_create_kern) },
+	{ 0x5d7bf8b5, __VMLINUX_SYMBOL_STR(sock_create_kern) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
-	{ 0x75ed2f4e, __VMLINUX_SYMBOL_STR(kernel_connect) },
+	{ 0x59508e0f, __VMLINUX_SYMBOL_STR(kernel_connect) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
-	{ 0xeb2006be, __VMLINUX_SYMBOL_STR(__asan_unregister_globals) },
-	{ 0xfbd0896e, __VMLINUX_SYMBOL_STR(__asan_store8_noabort) },
-	{ 0x3bba77f0, __VMLINUX_SYMBOL_STR(init_net) },
-	{ 0x8dcfe1d8, __VMLINUX_SYMBOL_STR(__asan_register_globals) },
+	{ 0xcfba9ac1, __VMLINUX_SYMBOL_STR(init_net) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
-	{ 0xbb535cf2, __VMLINUX_SYMBOL_STR(__alloc_skb) },
+	{ 0xafce4a68, __VMLINUX_SYMBOL_STR(__alloc_skb) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
 	{ 0xaccabc6a, __VMLINUX_SYMBOL_STR(in4_pton) },
 	{ 0xbdfb6dbb, __VMLINUX_SYMBOL_STR(__fentry__) },
-	{ 0x4adbd693, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
-	{ 0x69acdf38, __VMLINUX_SYMBOL_STR(memcpy) },
-	{ 0x8510d20e, __VMLINUX_SYMBOL_STR(skb_put) },
-	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
-	{ 0x961155d1, __VMLINUX_SYMBOL_STR(__asan_load4_noabort) },
+	{ 0x3b342717, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
+	{ 0xf09d25c3, __VMLINUX_SYMBOL_STR(skb_put) },
 	{ 0xe914e41e, __VMLINUX_SYMBOL_STR(strcpy) },
 };
 
@@ -48,4 +41,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "A81B30A38EDD69429CB5737");
+MODULE_INFO(srcversion, "36F91772C4447EB2DEBEF0A");

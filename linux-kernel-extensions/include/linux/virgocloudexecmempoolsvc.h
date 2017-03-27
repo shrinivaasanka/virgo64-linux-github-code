@@ -52,8 +52,10 @@ int virgo_cloudexec_mempool_service(void* args)
 		struct task_struct *task;
 		void* args=clsock;
 		int woken_up=0;
+		printk(KERN_INFO "virgo_cloudexec_mempool_service(): before skbuff_kernel_socket_debug() \n");
+		skbuff_kernel_socket_debug2(clsock);
 		printk(KERN_INFO "virgo_cloudexec_mempool_service(): virgo mempool client thread per request \n");
-                task=kthread_create(virgo_mempool_client_thread, (void*)args, "virgo memorypool client thread per virgo_clone request");
+                task=kthread_create(virgo_mempool_client_thread, args, "virgo memorypool client thread per virgo_<memory> request");
 		woken_up=wake_up_process(task);
 
 		/*
@@ -73,8 +75,10 @@ int virgo_mempool_client_thread(void* args)
 {
 		/*mutex_lock(&virgo_mempool_mutex);*/
 		struct socket* clientsock=(struct socket*)args;
+		printk(KERN_INFO "virgo_mempool_client_thread(): before skbuff_kernel_socket_debug()\n");
+		skbuff_kernel_socket_debug(clientsock);
 		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()\n");
-		char *virgo_mempool_ret=(char*)virgo_mempool_ops.virgo_mempool_recvfrom(clientsock);
+		void *virgo_mempool_ret=(char*)virgo_mempool_ops.virgo_mempool_recvfrom(clientsock);
 		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()\n");
 		virgo_mempool_ops.virgo_mempool_sendto(clientsock, virgo_mempool_ret);
 		/*mutex_unlock(&virgo_mempool_mutex);*/
