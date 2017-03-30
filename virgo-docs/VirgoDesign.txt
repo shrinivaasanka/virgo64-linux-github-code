@@ -1230,6 +1230,35 @@ in tcp_sendmsg() (net/ipv4/tcp.c)
 *) These commits are still ongoing analysis only.
 *) Screenshots for these have been added to debug-info/
 
+-------------------------------------------------------------------------------------------------------------------------------
+Continued analysis of VIRGO 64-bit linux kernel built on 4.10.3 mainline - Commits - 30 March 2017
+-------------------------------------------------------------------------------------------------------------------------------
+*) Previous commit was crashing inside tcp_sendmsg()
+*) GDB64 disassembly shows NULL values for register R12 which is added with an offset 91 and is an operand in testb
+*) Protected all kernel_sendmsg() and kernel_recvmsg() in both system calls side and drivers side with
+	oldfs=get_fs(), set_ds(KERNEL_DS) and set_fs(oldfs)
+blocks without which there are random kernel_sendmsg and kernel_recvmsg hangs
+*) Removed init_net and sock_create_kern usage everywhere and replaced them with sock_create calls
+*) Tried MSG_FASTOPEN flags but it does not help much in resolving tcp_sendmsg() NULL pointer dereference issue. MSG_FASTOPEN just
+speedsup the message delivery by piggybacking the message payload before complete handshake is established(SYN, SYN-ACK, SYN-ACK-ACK) in
+SYN-ACK itself. But eventually it has to be enabled as fast open is becoming a standard.
+*) Kasan reports have been enabled.
+*) Added more debug code in skbuff debug utility functions in utils driver to check if sk->prot is a problem.
+*) Replaced kernel_sendmsg with a sock->ops->sendmsg() in mempool sendto function which otherwise crashes in tcp_sendmsg().
+*) With sock->ops->sendmsg() systemcalls <-----> drivers two-way request-reply works but still there are random -32 (broken pipe) and -104
+(Connection Reset by Peer) errors
+*) Logs for working sys_virgo_malloc() call with correctly returned VIRGO Unique ID for memory allocated has been committed to test_logs in
+virgocloudexecmempool
+*) sock->ops->sendmsg() in mempool driver sendto function requires a MSG_NOSIGNAL flag which prevents SIGPIPE signal though not fully
+*) Reason for random broken pipe and connection reset by peer errors in mempool sendto is unknown. Both sides have connections open and
+there is no noticeable traffic.
+*) While socket communications in 32 bit VIRGO kernel syscalls and drivers work with no issues, why 64-bit has so many hurdles is puzzling.
+Reasons could be 64 bit address alignment issues, 64 bit specific #ifdefs in kernel code flow, major changes from 4.1.5 to 4.10.3 kernels etc.,
+*) NULL values for register R12 indicate already freed skbuff data which are accessed/double-freed. Kernel TCP engine has a circular linked list of skbuff write queue which is iterated in skbuff utils driver debug functions.
+*) TCP engine clones the head data of skbuff queue, transmits it and waits for an ACK or timeout. Data is freed only if ACK or timeout occurs.
+And head of the queue is advanced to next element in write queue and this continues till write queue is empty waiting for more messages.
+*) If ACK is not received, head data is cloned again and retransmitted by sequence number flow control.
+
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
