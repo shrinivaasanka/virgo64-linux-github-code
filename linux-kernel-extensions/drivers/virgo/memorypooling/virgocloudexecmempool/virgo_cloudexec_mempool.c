@@ -394,7 +394,7 @@ struct socket* virgocloudexec_mempool_create(void)
 }
 EXPORT_SYMBOL(virgocloudexec_mempool_create);
 
-void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
+char* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 {
 	char* mempoolFunction;
 	struct sockaddr_in sin;
@@ -425,8 +425,6 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 	if(clientsock != NULL )
 	{
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()\n");
-		/*
-		memset(buffer, 0, BUF_SIZE);
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -437,13 +435,11 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 #endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
-		msg.msg_flags=MSG_NOSIGNAL;
-
-		len  = kernel_recvmsg(clientsock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-		*/
+		msg.msg_flags=0;
 		iov.iov_base=buffer;
 		iov.iov_len=BUF_SIZE;
 		skbuff_kernel_socket_debug2(clientsock);
+
 		oldfs=get_fs();
 		set_fs(KERNEL_DS);
 		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, 0);
@@ -493,7 +489,7 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 		and circuitous to do with kthread. Instead the mempool_func is directly invoked.
 		*/
 		/*task=kthread_create(mempool_func, (void*)args, "mempool_func thread");*/
-		virgo_mempool_func_ret=(void*)mempool_func((void*)args);
+		virgo_mempool_func_ret=mempool_func((void*)args);
 
 		/*
 		int woken_up=wake_up_process(task);
@@ -518,7 +514,7 @@ void print_buffer(char* buffer)
 	printk(KERN_INFO "\n");
 }
 
-int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret)
+int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret)
 {
 
 	/*
@@ -571,12 +567,14 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret
 		msg.msg_flags=MSG_NOSIGNAL;
 		int ret;
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: %s\n", iov.iov_base);
+
 		oldfs=get_fs();
 		set_fs(KERNEL_DS);
 		skbuff_kernel_socket_debug2(clientsock);
 		/*ret = kernel_sendmsg(clientsock, &msg, &iov, 1, iov.iov_len);*/
 		ret = sock->ops->sendmsg(sock,&msg,msg_data_left(&msg));
 		set_fs(oldfs);
+
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
 
 		/*

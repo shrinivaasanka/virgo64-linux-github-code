@@ -1,5 +1,5 @@
 0x1ced2f04	virgo_eventnet_log	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/utils/virgo_generic_kernelsock_client	EXPORT_SYMBOL
 0x3944f775	virgo_generic_kernelsock_client_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/utils/virgo_generic_kernelsock_client	EXPORT_SYMBOL
 0xbca27734	virgo_generic_kernelsock_client_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/utils/virgo_generic_kernelsock_client	EXPORT_SYMBOL
-0xea650725	skbuff_kernel_socket_debug	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/utils/virgo_generic_kernelsock_client	EXPORT_SYMBOL
-0x8eed8a60	skbuff_kernel_socket_debug2	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/utils/virgo_generic_kernelsock_client	EXPORT_SYMBOL
+0x397f129e	skbuff_kernel_socket_debug	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/utils/virgo_generic_kernelsock_client	EXPORT_SYMBOL
+0x59fe5d4a	skbuff_kernel_socket_debug2	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/utils/virgo_generic_kernelsock_client	EXPORT_SYMBOL

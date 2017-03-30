@@ -182,8 +182,8 @@ struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction);
 /*struct virgo_mempool_args* parse_virgomempool_command(void* args);*/
 
 struct socket* virgocloudexec_mempool_create(void);
-void* virgocloudexec_mempool_recvfrom(struct socket*);
-int virgocloudexec_mempool_sendto(struct socket*, void* virgo_mempool_ret);
+char* virgocloudexec_mempool_recvfrom(struct socket*);
+int virgocloudexec_mempool_sendto(struct socket*, char* virgo_mempool_ret);
 
 int virgo_cloudexec_mempool_service(void* args);
 void do_virgocloudexec_init(void);
@@ -196,8 +196,8 @@ extern char* toKernelAddress(const char* str);
 
 struct virgo_mempool_ops_t {
 	struct socket* (*virgo_mempool_create)(void);
-	void* (*virgo_mempool_recvfrom)(struct socket*);
-	int (*virgo_mempool_sendto)(struct socket*,void* virgo_mempool_ret);
+	char* (*virgo_mempool_recvfrom)(struct socket*);
+	int (*virgo_mempool_sendto)(struct socket*,char* virgo_mempool_ret);
 };
 
 static struct virgo_mempool_ops_t virgo_mempool_ops = {

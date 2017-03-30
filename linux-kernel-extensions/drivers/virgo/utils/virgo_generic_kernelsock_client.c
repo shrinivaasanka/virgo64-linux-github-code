@@ -79,6 +79,14 @@ void skbuff_kernel_socket_debug2(struct socket* sock)
 		{
 			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_route_caps is NULL \n");
 		}
+		if(sock->sk->sk_prot)
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->sk_prot is not NULL, sock->sk->sk_prot->no_autobind=%d \n",sock->sk->sk_prot->no_autobind);
+		}
+		else
+		{
+			printk(KERN_INFO "skbuff_kernel_socket_debug2(): sock->sk->prot is NULL \n");
+		}
 	}
 	else
 	{

@@ -157,6 +157,7 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	char iovbuf[BUF_SIZE];
+	mm_segment_t oldfs;
 	/*char *buf;*/
 
 	virgofs_read_virgo_config_client();
@@ -194,13 +195,18 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	nr=1;
 
 	strcpy(iov.iov_base,buf);	
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_read() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_read() syscall: connected kernel client to virgo cloudexec kernel service\n ");
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 	printk(KERN_INFO "virgo_read() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "virgo_read() syscall: received message: %s \n", iovbuf);
 
 	le32_to_cpus(buf);
@@ -230,6 +236,7 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	/*char* buf;*/
 	char data[BUF_SIZE];
 	char iovbuf[BUF_SIZE];
+	mm_segment_t oldfs;
 
 	virgofs_read_virgo_config_client();
 	printk(KERN_INFO "virgo_write() system_call: before memcpy()\n");
@@ -273,13 +280,18 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	nr=1;
 	
 	strcpy(iov.iov_base, buf);
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_write() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_write() syscall: connected kernel client to virgo cloudexec kernel service\n ");
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 	printk(KERN_INFO "virgo_write() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "virgo_write() syscall: received message: %s \n", iovbuf);
 
 	le32_to_cpus(buf);
@@ -298,6 +310,7 @@ asmlinkage long sys_virgo_open(char* filepath)
 {
 	virgofs_read_virgo_config_client();
 	int i=0;
+	mm_segment_t oldfs;
 
 	/*
 	Mutex lock and unlock also causes a kernel panic, hence commented as of now
@@ -362,13 +375,18 @@ asmlinkage long sys_virgo_open(char* filepath)
 	nr=1;
 	
 	strcpy(iov.iov_base, buf);
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_open() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_open() syscall: connected kernel client to virgo cloudexec kernel service\n ");
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 	printk(KERN_INFO "virgo_open() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, iovbuf);
        	len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "virgo_open() syscall: recv len=%d; received message buf: [%s] \n", len, iovbuf);
 	printk(KERN_INFO "virgo_open() syscall: received iov.iov_base: %s \n", iov.iov_base);
 
@@ -413,6 +431,7 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	char iovbuf[BUF_SIZE];
 	/*char* buf;*/
 	char* close_cmd;
+	mm_segment_t oldfs;
 
 	virgofs_read_virgo_config_client();
 	sin.sin_family=AF_INET;
@@ -444,13 +463,18 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	nr=1;
 	
 	strcpy(iov.iov_base, buf);
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_close() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_close() syscall: connected kernel client to virgo cloudexec kernel service\n ");
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 	printk(KERN_INFO "virgo_close() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "virgo_close() syscall: received message: %s \n", iovbuf);
 	
 	le32_to_cpus(buf);

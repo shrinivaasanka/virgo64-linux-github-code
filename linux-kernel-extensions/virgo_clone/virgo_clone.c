@@ -195,6 +195,7 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
         size_t len;
         ssize_t nread;
         char buf[BUF_SIZE];
+	mm_segment_t oldfs;
 
 	/*
         memset(&hints, 0, sizeof(struct addrinfo));
@@ -231,13 +232,18 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 
 
 	strcpy(iov.iov_base, func_signature);
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_clone() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service\n ");
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 	printk(KERN_INFO "virgo_clone() syscall: sent message: %s \n", buf);
         len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "virgo_clone() syscall: received message: %s \n", buf);
         le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_clone() syscall: le32_to_cpus(buf): %s \n", buf);
