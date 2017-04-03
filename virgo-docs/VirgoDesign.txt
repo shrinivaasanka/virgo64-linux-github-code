@@ -1259,6 +1259,22 @@ Reasons could be 64 bit address alignment issues, 64 bit specific #ifdefs in ker
 And head of the queue is advanced to next element in write queue and this continues till write queue is empty waiting for more messages.
 *) If ACK is not received, head data is cloned again and retransmitted by sequence number flow control.
 
+-------------------------------------------------------------------------------------------------------
+Continued Analysis of VIRGO 64 bit based on 4.10.3 linux kernel - Commits - 1 April 2017, 3 April 2017
+-------------------------------------------------------------------------------------------------------
+*) kernel_sendmsg() has been replaced with sock->ops->sendmsg() because
+kernel_sendmsg() is quite erratic in 4.10.3 64 bit
+*) There were connection reset errors in system calls side for virgo_malloc/. This was probably because
+sock->ops->sendmsg() requires MSG_DONTWAIT and MSG_NOSIGNAL flags and sendmsg does not block.
+*) sock release happens and virgo_malloc syscalls receives -104 error
+*) Temporarily sock_release has been commented. Rather socket timeout should be relied upon which should
+do automatic release of socket resources
+*) Similar flags have been applied in virgo_malloc syscalls too.
+*) Logs with above changes do not have reset errors as earlier.
+*) virgo set/get still crashes because 64 bit id is truncated which would require data type changes for
+64 bit
+*) test_virgo_malloc test case has been rebuilt with -m64 flag for invocation of 64 bit syscalls by
+numeric ids
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
