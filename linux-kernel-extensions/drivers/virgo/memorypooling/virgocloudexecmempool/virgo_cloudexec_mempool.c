@@ -564,7 +564,7 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 #endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
-		msg.msg_flags=MSG_NOSIGNAL;
+		msg.msg_flags= MSG_DONTWAIT | MSG_NOSIGNAL;
 		int ret;
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: %s\n", iov.iov_base);
 
@@ -572,7 +572,7 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 		set_fs(KERNEL_DS);
 		skbuff_kernel_socket_debug2(clientsock);
 		/*ret = kernel_sendmsg(clientsock, &msg, &iov, 1, iov.iov_len);*/
-		ret = sock->ops->sendmsg(sock,&msg,msg_data_left(&msg));
+		ret = sock->ops->sendmsg(clientsock,&msg,msg_data_left(&msg));
 		set_fs(oldfs);
 
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
@@ -580,9 +580,9 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 		/*
 		kernel_sock_shutdown(clientsock,SOCK_WAKE_URG);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg \n");
-		*/
 		sock_release(clientsock);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): sock_release invoked on client socket \n");
+		*/
 	}
 	else
 	{

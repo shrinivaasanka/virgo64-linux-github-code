@@ -412,7 +412,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 #endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
-		msg.msg_flags = 0;
+		msg.msg_flags = MSG_NOSIGNAL | MSG_DONTWAIT;
 		nr=1;
 
 		strcpy(iov.iov_base, buf); 	
@@ -424,6 +424,10 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		set_fs(KERNEL_DS);
 		len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s, iovbuf=%s \n", len, iov.iov_base, buf, iovbuf);
+		set_fs(oldfs);
+
+		oldfs=get_fs();
+		set_fs(KERNEL_DS);
        		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message iovbuf: [%s] \n", len, iovbuf);
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
