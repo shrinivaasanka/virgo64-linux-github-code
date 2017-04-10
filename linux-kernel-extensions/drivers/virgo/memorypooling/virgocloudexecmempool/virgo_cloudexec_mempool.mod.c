@@ -20,6 +20,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xb2be4cbd, __VMLINUX_SYMBOL_STR(module_layout) },
 	{ 0xaaef6d9d, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
 	{ 0x405c1144, __VMLINUX_SYMBOL_STR(get_seconds) },
+	{ 0xafcf32c7, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
 	{ 0xb3ac8151, __VMLINUX_SYMBOL_STR(virgo_cloud_set_kernelspace) },
 	{ 0x397f129e, __VMLINUX_SYMBOL_STR(skbuff_kernel_socket_debug) },
 	{ 0x37932bc7, __VMLINUX_SYMBOL_STR(filp_close) },
@@ -61,4 +62,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace,virgo_generic_kernelsock_client    EXPORT_SYMBOL,virgo_kernel_analytics,virgo_generic_kernelsock_client";
 
 
-MODULE_INFO(srcversion, "9B2043340BA46018942C735");
+MODULE_INFO(srcversion, "C5284FF74611865B9FA250B");

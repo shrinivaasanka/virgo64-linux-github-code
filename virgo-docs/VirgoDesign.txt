@@ -1276,6 +1276,27 @@ do automatic release of socket resources
 *) test_virgo_malloc test case has been rebuilt with -m64 flag for invocation of 64 bit syscalls by
 numeric ids
 
+----------------------------------------------------------------------------------------------------------
+Continued Analysis of VIRGO 64 bit 4.10.3 kernel - commits - 10 April 2017
+----------------------------------------------------------------------------------------------------------
+*) There is something seriously wrong with 4.10.3 kernel sockets in 64 bit build VIRGO send/recv messages and even accept/listen too.
+*) All kernel socket functionalities which work well in 4.1.5 32 bit VIRGO , have random hangs, panics in 4.10.3 VIRGO64 build mostly
+in inet_recvmsg/sendmsg code path
+*) KASAN shows attempts to access user address which occurs despite set_fs(KERNEL_DS)
+*) Crash stack is similar to previous crashes in tcp_sendmsg() 
+*) Tried different address and protocol families for kernel socket accept (TCP,UDP,RAW sockets)
+*) With Datagram sockets, kernel_listen() mysteriously fails with -95 error in kernel_bind(operation not supported)
+*) With RAW sockets, kernel_listen() fails with -93 error for AF_PACKET (protocol not supported)
+*) tcpdump pcap sniffer doesn't show anything unruly.
+*) This could either be a problem with kernel build (unlikely), Kbuild .config or could have extraneous reasons. But .config for
+4.1.5 and 4.10.3 are similar. 
+*) Only major difference between 4.10.3 and 4.1.5 is init_net added in sock_create_kern() internally
+*) datatype of VIRGO Unique ID has been changed to unsigned long long (_u64) 
+*) tried with INADDR_LOOPBACK in place of INADDR_ANY 
+*) also tried with disabled multi(homing) in /etc/hosts.conf
+*) Above random kernel socket hangs occur across all VIRGO system calls and drivers transport. 
+*) Utils kernel socket client to EventNet kernel service also has similar inet_recvmsg/inet_sendmsg panic problems.
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27

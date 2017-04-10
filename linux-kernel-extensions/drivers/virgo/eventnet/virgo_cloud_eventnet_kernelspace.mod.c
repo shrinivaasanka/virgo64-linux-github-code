@@ -18,7 +18,7 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0xb2be4cbd, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0xe60eb9af, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
+	{ 0xaaef6d9d, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
 	{ 0x754d539c, __VMLINUX_SYMBOL_STR(strlen) },
 	{ 0x73475f93, __VMLINUX_SYMBOL_STR(__asan_handle_no_return) },
 	{ 0x37932bc7, __VMLINUX_SYMBOL_STR(filp_close) },
@@ -35,7 +35,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
 	{ 0xbdfb6dbb, __VMLINUX_SYMBOL_STR(__fentry__) },
-	{ 0x51f5ea28, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
+	{ 0x8dd13fa1, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
 	{ 0xcfb82bbc, __VMLINUX_SYMBOL_STR(__asan_load1_noabort) },
 	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
 	{ 0x961155d1, __VMLINUX_SYMBOL_STR(__asan_load4_noabort) },

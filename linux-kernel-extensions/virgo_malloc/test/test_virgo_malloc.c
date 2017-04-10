@@ -60,24 +60,23 @@ int main(int argc, char* argv[])
 
 	/* virgo_malloc */
 	/*syscall(384,100,&virgo_unique_id);*/
-	/*syscall(549,100,&virgo_unique_id);
+	syscall(549,100,&virgo_unique_id);
 	printf("vuid malloc-ed : %llu \n",virgo_unique_id);
-	vaddr=(struct virgo_address*)virgo_unique_id;*/
+	/*vaddr=(struct virgo_address*)virgo_unique_id;*/
 
 	/* virgo_set */
 	char set_data[256];
 	strcpy(set_data,"DataSet");
-	/*long set_ret=syscall(385,virgo_unique_id,set_data);
-	long set_ret=syscall(550,virgo_unique_id,set_data);*/
-	long set_ret=syscall(550,18446744071911138112u,set_data);
+	/*long set_ret=syscall(385,virgo_unique_id,set_data);*/
+	long set_ret=syscall(550,virgo_unique_id,set_data);
 
 	/*virgo_get*/
 	char get_data[256];
-	/*long get_ret=syscall(386,virgo_unique_id,get_data);
-	long get_ret=syscall(551,virgo_unique_id,get_data);*/
+	/*long get_ret=syscall(386,virgo_unique_id,get_data);*/
+	long get_ret=syscall(551,virgo_unique_id,get_data);
 
 	/*virgo_free*/
-	/*long free_ret=syscall(387,virgo_unique_id);
-	long free_ret=syscall(552,virgo_unique_id);*/
+	/*long free_ret=syscall(387,virgo_unique_id);*/
+	long free_ret=syscall(552,virgo_unique_id);
 	return 0;
 }

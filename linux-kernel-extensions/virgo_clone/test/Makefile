@@ -3,6 +3,6 @@
 #
 
 all:
-	g++ -g -I/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-4.1.5/include -I/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-4.1.5/arch/x86/include/generated/uapi/asm test_virgo_clone.c -o test_virgo_clone
+	g++ -m64 -march=x86-64 -g -I/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/include test_virgo_clone.c -o test_virgo_clone
 clean:
 	rm test_virgo_clone

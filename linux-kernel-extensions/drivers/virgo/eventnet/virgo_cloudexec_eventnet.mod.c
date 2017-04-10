@@ -18,16 +18,15 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0xb2be4cbd, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0xe60eb9af, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
-	{ 0x1d595dc0, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
+	{ 0xaaef6d9d, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
+	{ 0xafcf32c7, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
 	{ 0x754d539c, __VMLINUX_SYMBOL_STR(strlen) },
 	{ 0x4a1b0a43, __VMLINUX_SYMBOL_STR(virgo_cloud_eventnet_edgemsg_kernelspace) },
 	{ 0x73475f93, __VMLINUX_SYMBOL_STR(__asan_handle_no_return) },
-	{ 0x170282d1, __VMLINUX_SYMBOL_STR(sock_release) },
+	{ 0x3b0e9dc9, __VMLINUX_SYMBOL_STR(sock_release) },
 	{ 0x37932bc7, __VMLINUX_SYMBOL_STR(filp_close) },
-	{ 0xe2d9a697, __VMLINUX_SYMBOL_STR(sock_create_kern) },
 	{ 0x85df9b6c, __VMLINUX_SYMBOL_STR(strsep) },
-	{ 0xdb648bd1, __VMLINUX_SYMBOL_STR(kernel_listen) },
+	{ 0xee11bf7a, __VMLINUX_SYMBOL_STR(kernel_listen) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x7843bc0f, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
 	{ 0xe2d5255a, __VMLINUX_SYMBOL_STR(strcmp) },
@@ -39,20 +38,19 @@ __attribute__((section("__versions"))) = {
 	{ 0xeb2006be, __VMLINUX_SYMBOL_STR(__asan_unregister_globals) },
 	{ 0xc5fdef94, __VMLINUX_SYMBOL_STR(call_usermodehelper) },
 	{ 0xfbd0896e, __VMLINUX_SYMBOL_STR(__asan_store8_noabort) },
-	{ 0x3bba77f0, __VMLINUX_SYMBOL_STR(init_net) },
 	{ 0x8dcfe1d8, __VMLINUX_SYMBOL_STR(__asan_register_globals) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
-	{ 0x647deba3, __VMLINUX_SYMBOL_STR(wake_up_process) },
+	{ 0xbbb98d54, __VMLINUX_SYMBOL_STR(wake_up_process) },
 	{ 0xbdfb6dbb, __VMLINUX_SYMBOL_STR(__fentry__) },
-	{ 0x51f5ea28, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
-	{ 0x4adbd693, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
-	{ 0x4b1d1814, __VMLINUX_SYMBOL_STR(kernel_accept) },
+	{ 0x8dd13fa1, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
+	{ 0xcdb5adfc, __VMLINUX_SYMBOL_STR(kernel_accept) },
 	{ 0xcfb82bbc, __VMLINUX_SYMBOL_STR(__asan_load1_noabort) },
 	{ 0x69acdf38, __VMLINUX_SYMBOL_STR(memcpy) },
 	{ 0x3e7695d4, __VMLINUX_SYMBOL_STR(fd_install) },
 	{ 0xfb42789d, __VMLINUX_SYMBOL_STR(__asan_store1_noabort) },
-	{ 0xb310b798, __VMLINUX_SYMBOL_STR(kernel_bind) },
+	{ 0x4dc5f81f, __VMLINUX_SYMBOL_STR(sock_create) },
+	{ 0x24050c72, __VMLINUX_SYMBOL_STR(kernel_bind) },
 	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
 	{ 0xd638be0b, __VMLINUX_SYMBOL_STR(try_module_get) },
 	{ 0xe914e41e, __VMLINUX_SYMBOL_STR(strcpy) },
@@ -65,4 +63,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_eventnet_kernelspace";
 
 
-MODULE_INFO(srcversion, "60E40AB5CF554E8E66230EF");
+MODULE_INFO(srcversion, "C102B49764D4EBBF90BA813");

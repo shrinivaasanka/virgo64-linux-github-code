@@ -164,12 +164,15 @@ struct hostport* get_least_loaded_hostport_from_cloud_mempool();
 char* get_host_from_cloud_Loadtrack_mempool();
 char* get_host_from_cloud_PRG_mempool();
 char* int_to_str(int);
-char* addr_to_str(char*);
-char* str_to_addr(char*);
-char* str_to_addr2(char* straddr);
 
-unsigned long addr_to_virgo_unique_id(struct virgo_address* vaddr);
-struct virgo_address* virgo_unique_id_to_addr(unsigned long virgo_unique_id);
+/*char* addr_to_str(char*);*/
+char* addr_to_str(void*);
+
+char* str_to_addr(char*);
+void* str_to_addr2(char* straddr);
+
+unsigned long long addr_to_virgo_unique_id(struct virgo_address* vaddr);
+struct virgo_address* virgo_unique_id_to_addr(unsigned long long virgo_unique_id);
 
 typedef void* (*FPTR)(struct virgo_mempool_args* args);
 

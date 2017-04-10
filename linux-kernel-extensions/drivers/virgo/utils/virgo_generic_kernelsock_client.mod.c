@@ -21,13 +21,12 @@ __attribute__((section("__versions"))) = {
 	{ 0xafcf32c7, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
 	{ 0x754d539c, __VMLINUX_SYMBOL_STR(strlen) },
 	{ 0x73475f93, __VMLINUX_SYMBOL_STR(__asan_handle_no_return) },
-	{ 0x2ad9e8e0, __VMLINUX_SYMBOL_STR(sock_create_kern) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x63d6b21f, __VMLINUX_SYMBOL_STR(kernel_connect) },
+	{ 0x66fae6e1, __VMLINUX_SYMBOL_STR(current_task) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xeb2006be, __VMLINUX_SYMBOL_STR(__asan_unregister_globals) },
 	{ 0xfbd0896e, __VMLINUX_SYMBOL_STR(__asan_store8_noabort) },
-	{ 0x11c74d95, __VMLINUX_SYMBOL_STR(init_net) },
 	{ 0x8dcfe1d8, __VMLINUX_SYMBOL_STR(__asan_register_globals) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
 	{ 0x3fa0b220, __VMLINUX_SYMBOL_STR(__alloc_skb) },
@@ -37,6 +36,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x146e4775, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
 	{ 0xcfb82bbc, __VMLINUX_SYMBOL_STR(__asan_load1_noabort) },
 	{ 0x69acdf38, __VMLINUX_SYMBOL_STR(memcpy) },
+	{ 0x4dc5f81f, __VMLINUX_SYMBOL_STR(sock_create) },
 	{ 0xd257b532, __VMLINUX_SYMBOL_STR(skb_put) },
 	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
 	{ 0x961155d1, __VMLINUX_SYMBOL_STR(__asan_load4_noabort) },
@@ -49,4 +49,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "C1545046396641E0B91ADB2");
+MODULE_INFO(srcversion, "FC9155E7C3EAFE5B3A6B42B");

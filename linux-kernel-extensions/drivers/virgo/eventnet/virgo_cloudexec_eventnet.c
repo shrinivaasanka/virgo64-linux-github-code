@@ -223,16 +223,18 @@ virgocloudexec_eventnet_init(void)
 
 	memset(&sin, 0, sizeof(struct sockaddr_in));
 	sin.sin_family=AF_INET;
-	sin.sin_addr.s_addr=htonl(INADDR_ANY);
+	/*sin.sin_addr.s_addr=htonl(INADDR_ANY);*/
+	sin.sin_addr.s_addr=htonl(INADDR_LOOPBACK);
 	sin.sin_port=htons(20000);
 
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+
 	printk(KERN_INFO "virgocloudexec_eventnet_init(): sock_create() returns error code: %d\n",error);
 
-	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
+	error = kernel_bind(sock, (struct sockaddr_in*)&sin, sizeof(struct sockaddr_in));
 	printk(KERN_INFO "virgocloudexec_eventnet_init(): kernel_bind() returns error code: %d\n",error);
 
-	error = kernel_listen(sock, 2);
+	error = kernel_listen(sock, 10);
 	printk(KERN_INFO "virgocloudexec_eventnet_init(): kernel_listen() returns error code: %d\n", error);
 
 	virgo_cloudexec_eventnet_service(NULL);
@@ -286,6 +288,7 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 	char* eventnetFunction;
 	struct sockaddr_in sin;
 	void* virgo_eventnet_func_ret;
+	mm_segment_t oldfs;
 
 	/* example virgo eventnet_log */
 	/*virgo_eventnet_log("eventnet_edgemsg#1#2#");*/
@@ -296,11 +299,7 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 	*/
 	struct socket *clientsock=clsock;
 	struct kvec iov;
-#ifdef LINUX_KERNEL_4_x_x
-	struct user_msghdr msg = { NULL, };
-#else
 	struct msghdr msg = { NULL, };
-#endif
 	int buflen=BUF_SIZE;
 	void *args=NULL;
 	int nr=1;
@@ -321,15 +320,24 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 		memset(buffer, 0, BUF_SIZE);
 		iov.iov_base=(void*)buffer;
 		iov.iov_len=BUF_SIZE;	
-		msg.msg_name = (struct sockaddr *) &sin;
-		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
+		msg.msg_name = (struct sockaddr_in *) &sin;
+		msg.msg_namelen = sizeof(struct sockaddr_in);
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags=MSG_NOSIGNAL;
 
-		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);
+		oldfs=get_fs();
+		set_fs(KERNEL_DS);
+		/*len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);*/
+		sock->ops->recvmsg(clientsock,&msg,msg_data_left(&msg),msg.msg_flags);
+		set_fs(oldfs);
+
 		printk(KERN_INFO "virgocloudexec_eventnet_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
 		/*
 			parse the message and invoke kthread_create()
@@ -384,14 +392,11 @@ int virgocloudexec_eventnet_sendto(struct socket* clsock, void* virgo_eventnet_r
 	struct sockaddr_in sin;
 	struct socket *clientsock=clsock;
 	struct kvec iov;
-#ifdef LINUX_KERNEL_4_x_x
-	struct user_msghdr msg = { NULL, };
-#else
 	struct msghdr msg = { NULL, };
-#endif
 	int buflen=BUF_SIZE;
 	void *args=NULL;
 	int nr=1;
+	mm_segment_t oldfs;
 
 	struct task_struct *task;
 	int error;
@@ -409,17 +414,26 @@ int virgocloudexec_eventnet_sendto(struct socket* clsock, void* virgo_eventnet_r
 		}
 		iov.iov_base=buffer;	
 		iov.iov_len=BUF_SIZE;
-		msg.msg_name = (struct sockaddr *) &sin;
-		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
+		msg.msg_name = (struct sockaddr_in *) &sin;
+		msg.msg_namelen = sizeof(struct sockaddr_in);
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
-		msg.msg_flags=0;
+		msg.msg_flags=MSG_NOSIGNAL;
 
 		int ret;
 		printk(KERN_INFO "virgocloudexec_eventnet_sendto(): before kernel_sendmsg() for send buffer: %s\n", buffer);
+
+		oldfs=get_fs();
+		set_fs(KERNEL_DS);
 		ret = kernel_sendmsg(clientsock, &msg, &iov, 1, buflen);
+		set_fs(oldfs);
+
 		printk(KERN_INFO "virgocloudexec_eventnet_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
 		sock_release(clientsock);
 		printk(KERN_INFO "virgocloudexec_eventnet_sendto(): sock_release invoked on client socket \n");

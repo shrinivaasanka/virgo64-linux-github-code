@@ -105,7 +105,7 @@ int clone_func(void* args)
 			struct virgo_request *vrq=kmalloc(sizeof(struct virgo_request),GFP_ATOMIC);
 			vrq->data=kstrdup(args,GFP_ATOMIC);
 			vrq->next=NULL;
-			push_request(vrq);
+			/* push_request(vrq);*/
 			/*
 			task=kthread_create(push_request, (void*)args, "KingCobra push_request() thread");
 			woken_up_2=wake_up_process(task);
@@ -303,7 +303,7 @@ virgocloudexec_init(void)
 	sin.sin_port=htons(10000);
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgocloudexec_init(): sock_create() returns error code: %d\n",error);
 
 	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
@@ -376,6 +376,7 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 	int buflen=BUF_SIZE;
 	void *args=NULL;
 	int nr=1;
+	mm_segment_t oldfs;
 
 	struct task_struct *task;
 	int error;
@@ -411,7 +412,11 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 		/*
 		len  = kernel_recvmsg(clientsock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 		*/
+		oldfs=get_fs();
+		set_fs(KERNEL_DS);
 		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);
+		set_fs(oldfs);
+
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
 		/*
 			parse the message and invoke kthread_create()
@@ -487,6 +492,7 @@ int virgocloudexec_sendto(struct socket* clsock)
 	int buflen=BUF_SIZE;
 	void *args=NULL;
 	int nr=1;
+	mm_segment_t oldfs;
 
 	struct task_struct *task;
 	int error;
@@ -518,7 +524,12 @@ int virgocloudexec_sendto(struct socket* clsock)
 
 		int ret;
 		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: %s\n", buffer);
+
+		oldfs=get_fs();
+		set_fs(KERNEL_DS);
 		ret = kernel_sendmsg(clientsock, &msg, &iov, 1, buflen);
+		set_fs(oldfs);
+
 		/*len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);*/
 		/*ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);*/
 		printk(KERN_INFO "virgocloudexec_sendto(): kernel_sendmsg() returns ret: %d\n",ret);

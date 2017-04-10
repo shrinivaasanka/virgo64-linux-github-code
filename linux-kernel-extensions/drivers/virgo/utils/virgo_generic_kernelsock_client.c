@@ -178,14 +178,12 @@ void virgo_eventnet_log(char* logmsg)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
-#ifdef LINUX_KERNEL_4_x_x
-	struct user_msghdr msg;
-#else
 	struct msghdr msg;
-#endif
 	int error;
 	int nr;
 	struct kvec iov;
+	mm_segment_t oldfs;
+
 	char* hostip = eventnet_kernel_service_host;
 	int port=20000;
 	struct socket *sock;
@@ -200,21 +198,35 @@ void virgo_eventnet_log(char* logmsg)
 	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
-	msg.msg_iov = (struct iovec *) &iov;
-	msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
-	msg.msg_flags = 0;
+	msg.msg_flags = MSG_NOSIGNAL;
 	nr=1;
 	
 	/*strcpy(iov.iov_base, buf);*/
-	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "eventnet_log() : created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "eventnet_log() : connected kernel client to virgo cloudexec EventNet kernel service\n ");
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "eventnet_log() : sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
        	len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "eventnet_log() : recv len=%d; received message buf: [%s] \n", len, buf);
 	printk(KERN_INFO "eventnet_log() : received iov.iov_base: %s \n", iov.iov_base);
 
