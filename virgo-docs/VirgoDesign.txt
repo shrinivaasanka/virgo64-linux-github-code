@@ -1297,6 +1297,17 @@ in inet_recvmsg/sendmsg code path
 *) Above random kernel socket hangs occur across all VIRGO system calls and drivers transport. 
 *) Utils kernel socket client to EventNet kernel service also has similar inet_recvmsg/inet_sendmsg panic problems.
 
+---------------------------------------------------------------------------------------------------------------
+Commits - 11 April 2017 - EventNet and Utils Drivers 64bit
+---------------------------------------------------------------------------------------------------------------
+*) EventNet driver works in 64 bit VIRGO Linux
+*) An example eventnet logging with utils virgo_eventnet_log() works now without tcp_sendmsg() related stalls in previous builds
+*) Return Datatypes for all EventNet operations have been sanitized (struct socket* was returned as int in 32 build and reinterpret-cast to
+struct socket*. This reinterpret cast does not work in 64 bit) in eventnet header.
+*) utils eventnet log in init() has been updated with a meaningful edge update message
+*) kern.log for this has been added to eventnet/testlogs
+
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
