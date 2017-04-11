@@ -1,4 +1,4 @@
-0xab9b9aed	virgocloudexec_eventnet_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/eventnet/virgo_cloudexec_eventnet	EXPORT_SYMBOL
+0x3df90fff	virgocloudexec_eventnet_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/eventnet/virgo_cloudexec_eventnet	EXPORT_SYMBOL
 0x8583c7c8	virgocloudexec_eventnet_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/eventnet/virgo_cloudexec_eventnet	EXPORT_SYMBOL
 0x7e313423	virgocloudexec_eventnet_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/eventnet/virgo_cloudexec_eventnet	EXPORT_SYMBOL
 0xcd9de1d7	virgo_cloud_eventnet_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/eventnet/virgo_cloud_eventnet_kernelspace	EXPORT_SYMBOL

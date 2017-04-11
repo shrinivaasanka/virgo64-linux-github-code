@@ -44,6 +44,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xbbb98d54, __VMLINUX_SYMBOL_STR(wake_up_process) },
 	{ 0xbdfb6dbb, __VMLINUX_SYMBOL_STR(__fentry__) },
 	{ 0x8dd13fa1, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
+	{ 0x146e4775, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
 	{ 0xcdb5adfc, __VMLINUX_SYMBOL_STR(kernel_accept) },
 	{ 0xcfb82bbc, __VMLINUX_SYMBOL_STR(__asan_load1_noabort) },
 	{ 0x69acdf38, __VMLINUX_SYMBOL_STR(memcpy) },
@@ -63,4 +64,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_eventnet_kernelspace";
 
 
-MODULE_INFO(srcversion, "C102B49764D4EBBF90BA813");
+MODULE_INFO(srcversion, "3BED9BCF5817CE48D7521B4");

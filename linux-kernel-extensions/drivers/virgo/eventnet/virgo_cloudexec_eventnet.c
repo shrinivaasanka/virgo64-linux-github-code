@@ -243,7 +243,7 @@ virgocloudexec_eventnet_init(void)
 }
 EXPORT_SYMBOL(virgocloudexec_eventnet_init);
 
-int virgocloudexec_eventnet_create(void)
+struct socket* virgocloudexec_eventnet_create(void)
 {
 	int error;
 
@@ -318,10 +318,10 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 	{
 		printk(KERN_INFO "virgocloudexec_eventnet_recvfrom(): before kernel_recvmsg()\n");
 		memset(buffer, 0, BUF_SIZE);
-		iov.iov_base=(void*)buffer;
+		iov.iov_base=buffer;
 		iov.iov_len=BUF_SIZE;	
-		msg.msg_name = (struct sockaddr_in *) &sin;
-		msg.msg_namelen = sizeof(struct sockaddr_in);
+		msg.msg_name = (struct sockaddr *) &sin;
+		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
                 msg.msg_iter.iov = &iov;
 #else
@@ -334,8 +334,8 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 
 		oldfs=get_fs();
 		set_fs(KERNEL_DS);
-		/*len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);*/
-		sock->ops->recvmsg(clientsock,&msg,msg_data_left(&msg),msg.msg_flags);
+		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);
+		/*sock->ops->recvmsg(clientsock,&msg,msg_data_left(&msg),msg.msg_flags);*/
 		set_fs(oldfs);
 
 		printk(KERN_INFO "virgocloudexec_eventnet_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
@@ -414,8 +414,8 @@ int virgocloudexec_eventnet_sendto(struct socket* clsock, void* virgo_eventnet_r
 		}
 		iov.iov_base=buffer;	
 		iov.iov_len=BUF_SIZE;
-		msg.msg_name = (struct sockaddr_in *) &sin;
-		msg.msg_namelen = sizeof(struct sockaddr_in);
+		msg.msg_name = (struct sockaddr *) &sin;
+		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
                 msg.msg_iter.iov = &iov;
 #else

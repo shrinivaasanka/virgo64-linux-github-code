@@ -41,7 +41,7 @@ static int __init
 virgo_generic_kernelsock_client_init(void)
 {
 	printk(KERN_INFO "virgo_generic_kernelsock_client_init(): initialising virgo cloud test kernel space module \n");
-	virgo_eventnet_log("virgo_generic_kernelsock_client_init(): sample log message for virgo_eventnet_log() \n");
+	virgo_eventnet_log("eventnet_edgemsg#1#2#");
 	return 0;
 }
 EXPORT_SYMBOL(virgo_generic_kernelsock_client_init);
