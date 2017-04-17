@@ -1322,6 +1322,14 @@ Commits - 17 April 2017 - VIRGO64 Memory, CPU, FileSystem, EventNet kernel modul
 socket release crashes within skbuff related kernel functions.
 *) To make socket state immutable, in VIRGO memory driver header files, client socket has been declared as const type.
 
+---------------------------------------------------------------------------------------------------------------
+Commits - KingCobra 64 bit and VIRGO Queue + KingCobra telnet requests - 17 April 2017
+---------------------------------------------------------------------------------------------------------------
+*) Rebuilt KingCobra 64bit kernel module
+*) telnet requests to VIRGO64 Queueing module listener driver are serviced by KingCobra servicerequest
+*) Request_Reply queue persisted for this VIRGO Queue + KingCobra routing has been committed to c-src/testlogs.
+*) kern.log for this routing has been committed in VIRGO64 queueing directory
+*) Similar to other drivers struct socket* reinterpret cast to int has been removed and has been made const in queuesvc kernel thread
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
