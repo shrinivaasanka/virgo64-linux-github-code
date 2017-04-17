@@ -105,12 +105,12 @@
 
 #define LINUX_KERNEL_4_x_x
 
-int virgoqueue_create(void);
+struct socket* virgoqueue_create(void);
 int virgoqueue_recvfrom(struct socket*);
 int virgoqueue_sendto(struct socket*);
 
 struct virgoqueue_ops_t {
-        int (*virgo_queue_create)(void);
+        struct socket* (*virgo_queue_create)(void);
         int (*virgo_queue_recvfrom)(struct socket*);
         int (*virgo_queue_sendto)(struct socket*);
 };

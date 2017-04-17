@@ -220,7 +220,7 @@ virgoqueue_init(void)
 }
 EXPORT_SYMBOL(virgoqueue_init);
 
-int virgoqueue_create(void)
+struct socket* virgoqueue_create(void)
 {
 	/*
 	Blocking mode works in this commit again. No changes were made in virgo_clone() or driver code. 
@@ -268,7 +268,7 @@ int virgoqueue_recvfrom(struct socket* clsock)
 	*/
 	char* queueFunction;
 	struct socket *clientsock=clsock;
-	struct iovec iov;
+	struct kvec iov;
 	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
@@ -288,14 +288,14 @@ int virgoqueue_recvfrom(struct socket* clsock)
 	{
 		printk(KERN_INFO "virgoqueue_recvfrom(): before kernel_recvmsg()\n");
 		memset(buffer, 0, BUF_SIZE);
-		iov.iov_base=(void*)buffer;
+		iov.iov_base=buffer;
 		iov.iov_len=BUF_SIZE;	
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
                 msg.msg_iter.iov = &iov;
 #else
-		msg.msg_iov = (struct iovec *) &iov;
+		msg.msg_iov = (struct kvec *) &iov;
 		msg.msg_iovlen = 1;
 #endif
 		msg.msg_control = NULL;
@@ -421,66 +421,6 @@ int virgoqueue_sendto(struct socket* clsock)
 		printk(KERN_INFO "virgoqueue_sendto(): sock_release invoked on client socket \n");
 	}
 	return 0;
-
-	/*
-	   struct task_struct *task;
-	   int error;
-           struct addrinfo hints;
-	   struct socket* sock;
-	   struct socket* client_sock;
-           struct addrinfo *result, *rp;
-           int sfd, s;
-           struct sockaddr_storage peer_addr;
-           socklen_t peer_addr_len;
-           ssize_t nread;
-           char buf[BUF_SIZE];
-           struct kvec iov;
-	   struct msghdr msg = {
-			.msg_flags = MSG_DONTWAIT,
-	   };
-
-           memset(&hints, 0, sizeof(struct addrinfo));
-           hints.ai_family = AF_UNSPEC;    / Allow IPv4 or IPv6 /
-           hints.ai_socktype = SOCK_STREAM; / Datagram socket /
-           hints.ai_flags = AI_PASSIVE;    / For wildcard IP address /
-           hints.ai_protocol = 0;          / Any protocol /
-           hints.ai_canonname = NULL;
-           hints.ai_addr = NULL;
-           hints.ai_next = NULL;
-
-	   char* cloud_clone_port=60000;
-
-	   stack=kmalloc(65536, GFP_KERNEL);
-	   iov.iov_base=(void*)buf;
-	   iov.iov_len=BUF_SIZE;	
-           s = getaddrinfo(NULL, cloud_clone_port, &hints, &result);
-
-           sock_create(rp->ai_family, rp->ai_socktype,
-                       rp->ai_protocol, sock);
-
-           kernel_bind(sock, rp->ai_addr, rp->ai_addrlen);
-	   kernel_listen(sock,64);
-
-           freeaddrinfo(result);           / No longer needed /
-
-           error = kernel_accept(sock, clientsock, O_NONBLOCK);
-
-           for (;;) {
-		nread  = kernel_recvmsg(clientsock, &msg, buflen, &iov, nr, msg.msg_flags);
-
-		char* queueFunction = kstrdup(iov.iov_base,GFP_KERNEL);
-
-		int ((*queueFunction_ptr)(void*));
-		queueFunction_ptr = get_function_ptr_from_str(queueFunction);
-		int *args=0;
-		task=kthread_create(queueFunction_ptr, (void*)args, "cloudclonethread");
-		strcpy(buffer,"cloudclonethread executed");
-		iov.iov_base=(void*)buf;
-		iov.iov_len=BUF_SIZE;
-		kernel_sendmsg(clientsock, &msg, buflen, &iov, nr);
-           }
-	*/
-	
 }
 EXPORT_SYMBOL(virgoqueue_sendto);
 

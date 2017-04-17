@@ -28,6 +28,8 @@
 
 #/bin/bash
 
-#make -C /lib/modules/`uname -r`/build/ M=`pwd` clean
+mv Module.symvers Module.symvers.1
+make -C /lib/modules/`uname -r`/build/ M=`pwd` clean
+mv Module.symvers.1 Module.symvers
 make -C /lib/modules/`uname -r`/build/ M=`pwd` 
 make -C /lib/modules/`uname -r`/build/ M=`pwd` modules_install

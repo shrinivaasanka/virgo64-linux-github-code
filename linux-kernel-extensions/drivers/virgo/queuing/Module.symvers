@@ -1,14 +1,14 @@
 0xe3fe0694	kingcobra_servicerequest_kernelspace	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
-0x5773170b	virgokernel_analytics_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
 0x939829f2	virgokernel_analytics_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
+0x5773170b	virgokernel_analytics_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
 0x70958967	virgoqueue_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0xe4de3087	kingcobra_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
 0x20350e7e	kingcobra_kernelspace_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
-0xcca7bb85	virgoqueue_sendto	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0xe4de3087	kingcobra_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
+0x723cf726	virgoqueue_sendto	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
 0x81c90249	push_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0xd466a06f	virgoqueue_recvfrom	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x975a245a	virgoqueue_recvfrom	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
 0x9a410671	read_virgo_kernel_analytics_config	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
 0x5f58edf1	pop_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
 0x69e59c53	virgo_kernel_analytics_conf	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
 0x8045952f	virgoqueue_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x202141ea	virgoqueue_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0xa8a199f4	virgoqueue_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
