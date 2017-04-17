@@ -43,7 +43,7 @@
 * - Ka.Shrinivaasan
 */
  
-int fs_func(void* args)
+void* fs_func(void* args)
 {
 	/*
 	 * Lack of reflection kind of facilities requires map of function_names to pointers_to_functions to be executed
@@ -106,7 +106,7 @@ int fs_func(void* args)
 		/*task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->fs_cmd,"_kernelspace"),GFP_KERNEL)), (void*)vmargs, "fsFunction kernelspace thread");*/
 		virgo_fs_ret=toFuncPtr(kstrdup(strcat(kstrdup(vmargs->fs_cmd,GFP_KERNEL),"_kernelspace"),GFP_KERNEL))(vmargs);
 
-		printk(KERN_INFO "fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=%p\n", (char*)virgo_fs_ret);
+		printk(KERN_INFO "fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=%s\n", (char*)virgo_fs_ret);
 		/*
 		woken_up_2=wake_up_process(task);
 		*/
@@ -298,7 +298,7 @@ virgocloudexec_fs_init(void)
 }
 EXPORT_SYMBOL(virgocloudexec_fs_init);
 
-int virgocloudexec_fs_create(void)
+struct socket* virgocloudexec_fs_create(void)
 {
 	int error;
 
@@ -353,7 +353,7 @@ void* virgocloudexec_fs_recvfrom(struct socket* clsock)
 	----------------------------------
 	*/
 	struct socket *clientsock=clsock;
-	struct iovec iov;
+	struct kvec iov;
 	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
@@ -373,14 +373,14 @@ void* virgocloudexec_fs_recvfrom(struct socket* clsock)
 	{
 		printk(KERN_INFO "virgocloudexec_fs_recvfrom(): before kernel_recvmsg()\n");
 		memset(buffer, 0, BUF_SIZE);
-		iov.iov_base=(void*)buffer;
+		iov.iov_base=buffer;
 		iov.iov_len=BUF_SIZE;	
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
                 msg.msg_iter.iov = &iov;
 #else
-                msg.msg_iov = (struct iovec *) &iov;
+                msg.msg_iov = (struct kvec *) &iov;
                 msg.msg_iovlen = 1;
 #endif
 		msg.msg_control = NULL;
@@ -396,8 +396,10 @@ void* virgocloudexec_fs_recvfrom(struct socket* clsock)
 		fsFunction = strip_control_M(kstrdup(buffer,GFP_KERNEL));
 		
 		printk(KERN_INFO "virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=%s, buffer: %s\n", iov.iov_base, buffer);
+		/*
 		print_buffer(buffer);
 		le32_to_cpus(buffer);
+		*/
 		printk(KERN_INFO "virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", buffer);
 		printk(KERN_INFO "virgocloudexec_fs_recvfrom(): fsFunction : %s \n", fsFunction);
 		args=(void*)fsFunction;
@@ -439,7 +441,7 @@ int virgocloudexec_fs_sendto(struct socket* clsock, void* virgo_fs_ret)
 
 	struct sockaddr_in sin;
 	struct socket *clientsock=clsock;
-	struct iovec iov;
+	struct kvec iov;
 	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
@@ -453,7 +455,7 @@ int virgocloudexec_fs_sendto(struct socket* clsock, void* virgo_fs_ret)
 	if(clientsock != NULL)
 	{
 	
-		printk(KERN_INFO "virgocloudexec_fs_sendto(): virgo_fs_ret=%s\n",virgo_fs_ret);
+		printk(KERN_INFO "virgocloudexec_fs_sendto(): virgo_fs_ret=%s\n",(char*)virgo_fs_ret);
 		if(virgo_fs_ret != NULL)
 		{
 			/* 
@@ -461,7 +463,7 @@ int virgocloudexec_fs_sendto(struct socket* clsock, void* virgo_fs_ret)
 				subsequent read/write calls
 				- Ka.Shrinivaasan 4 May 2014
 			*/	
-			printk(KERN_INFO "virgocloudexec_fs_sendto(): data sent=%s\n",virgo_fs_ret);
+			printk(KERN_INFO "virgocloudexec_fs_sendto(): data sent=%s\n",(char*)virgo_fs_ret);
 			strcpy(buffer,virgo_fs_ret);
 		}
 		iov.iov_base=buffer;	
@@ -471,12 +473,12 @@ int virgocloudexec_fs_sendto(struct socket* clsock, void* virgo_fs_ret)
 #ifdef LINUX_KERNEL_4_x_x
                 msg.msg_iter.iov = &iov;
 #else
-                msg.msg_iov = (struct iovec *) &iov;
+                msg.msg_iov = (struct kvec *) &iov;
                 msg.msg_iovlen = 1;
 #endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
-		msg.msg_flags=0;
+		msg.msg_flags=MSG_NOSIGNAL;
 
 		int ret;
 		printk(KERN_INFO "virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: %s\n", buffer);

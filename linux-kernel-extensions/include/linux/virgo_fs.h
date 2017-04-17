@@ -130,7 +130,7 @@ struct mutex virgo_fs_mutex;
 FPTR toFuncPtr(char*);
 struct virgo_fs_args* parse_virgofs_command(char* fsFunction);
 
-int virgocloudexec_fs_create(void);
+struct socket* virgocloudexec_fs_create(void);
 void* virgocloudexec_fs_recvfrom(struct socket*);
 int virgocloudexec_fs_sendto(struct socket*, void* virgo_fs_ret);
 
@@ -144,7 +144,7 @@ extern void* virgo_cloud_write_kernelspace(struct virgo_fs_args* args);
 extern char* toKernelAddress(const char* str);
 
 struct virgo_fs_ops_t {
-	int (*virgo_fs_create)(void);
+	struct socket* (*virgo_fs_create)(void);
 	void* (*virgo_fs_recvfrom)(struct socket*);
 	int (*virgo_fs_sendto)(struct socket*,void* virgo_fs_ret);
 };
@@ -158,7 +158,7 @@ static struct virgo_fs_ops_t virgo_fs_ops = {
 struct virgo_fs_class_t {
 	const char* m_virgo_name;
 	struct module* m_virgo_owner;
-	struct virgo_ops_t* m_virgo_ops;	
+	struct virgo_fs_ops_t* m_virgo_ops;	
 };
 
 static struct virgo_fs_class_t virgo_fs_class = {
@@ -182,9 +182,6 @@ int virgo_fs_client_thread(void* args);
 
 extern int virgo_cloud_test_kernelspace(void* args);
 
-
-/* File segment for virgo_fs syscalls serverside that invoke VFS kernel functions*/
-mm_segment_t fs;
 
 /* Array to keep track of number of open files and generate unique VFS file descriptor for the client */
 int no_of_openfiles=-1;

@@ -95,27 +95,31 @@ int clone_func(void* args)
 		int (*virgo_cloud_test_kernelspace)(void*);
 		virgo_cloud_test_kernelspace=kallsyms_lookup_name(cloneFunction);
 		*/
+		/*
 		if(use_as_kingcobra_service==1)
                 {
-			/*
+			/
 				Incoming request data from telnet/virgo_clone() system call into cpupooling kernel service reactor pattern
 				is treated as generic string and handed over to VIRGO queue and KingCobra which publishes it
-			*/
+			/
                         printk("clone_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",args);
 			struct virgo_request *vrq=kmalloc(sizeof(struct virgo_request),GFP_ATOMIC);
 			vrq->data=kstrdup(args,GFP_ATOMIC);
 			vrq->next=NULL;
-			/* push_request(vrq);*/
-			/*
+			push_request(vrq);
+			/
 			task=kthread_create(push_request, (void*)args, "KingCobra push_request() thread");
 			woken_up_2=wake_up_process(task);
-			*/
+			/
                 }
 		else
 		{
+		*/
 			task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "cloneFunction thread");
 			woken_up_2=wake_up_process(task);
+		/*
 		}
+		*/
 	}
 	else if(parameterIsExecutable==1)
 	{
@@ -323,7 +327,7 @@ virgocloudexec_init(void)
 }
 EXPORT_SYMBOL(virgocloudexec_init);
 
-int virgocloudexec_create(void)
+struct socket* virgocloudexec_create(void)
 {
 	/*
 	Blocking mode works in this commit again. No changes were made in virgo_clone() or driver code. 
@@ -530,8 +534,6 @@ int virgocloudexec_sendto(struct socket* clsock)
 		ret = kernel_sendmsg(clientsock, &msg, &iov, 1, buflen);
 		set_fs(oldfs);
 
-		/*len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);*/
-		/*ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);*/
 		printk(KERN_INFO "virgocloudexec_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
 		/*
 		printk(KERN_INFO "virgocloudexec_sendto(): kernel_recvmsg() returns len: %d\n",len);
@@ -543,66 +545,6 @@ int virgocloudexec_sendto(struct socket* clsock)
 		printk(KERN_INFO "virgocloudexec_sendto(): sock_release invoked on client socket \n");
 	}
 	return 0;
-
-	/*
-	   struct task_struct *task;
-	   int error;
-           struct addrinfo hints;
-	   struct socket* sock;
-	   struct socket* client_sock;
-           struct addrinfo *result, *rp;
-           int sfd, s;
-           struct sockaddr_storage peer_addr;
-           socklen_t peer_addr_len;
-           ssize_t nread;
-           char buf[BUF_SIZE];
-           struct kvec iov;
-	   struct msghdr msg = {
-			.msg_flags = MSG_DONTWAIT,
-	   };
-
-           memset(&hints, 0, sizeof(struct addrinfo));
-           hints.ai_family = AF_UNSPEC;    / Allow IPv4 or IPv6 /
-           hints.ai_socktype = SOCK_STREAM; / Datagram socket /
-           hints.ai_flags = AI_PASSIVE;    / For wildcard IP address /
-           hints.ai_protocol = 0;          / Any protocol /
-           hints.ai_canonname = NULL;
-           hints.ai_addr = NULL;
-           hints.ai_next = NULL;
-
-	   char* cloud_clone_port=60000;
-
-	   stack=kmalloc(65536, GFP_KERNEL);
-	   iov.iov_base=(void*)buf;
-	   iov.iov_len=BUF_SIZE;	
-           s = getaddrinfo(NULL, cloud_clone_port, &hints, &result);
-
-           sock_create(rp->ai_family, rp->ai_socktype,
-                       rp->ai_protocol, sock);
-
-           kernel_bind(sock, rp->ai_addr, rp->ai_addrlen);
-	   kernel_listen(sock,64);
-
-           freeaddrinfo(result);           / No longer needed /
-
-           error = kernel_accept(sock, clientsock, O_NONBLOCK);
-
-           for (;;) {
-		nread  = kernel_recvmsg(clientsock, &msg, buflen, &iov, nr, msg.msg_flags);
-
-		char* cloneFunction = kstrdup(iov.iov_base,GFP_KERNEL);
-
-		int ((*cloneFunction_ptr)(void*));
-		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
-		int *args=0;
-		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
-		strcpy(buffer,"cloudclonethread executed");
-		iov.iov_base=(void*)buf;
-		iov.iov_len=BUF_SIZE;
-		kernel_sendmsg(clientsock, &msg, buflen, &iov, nr);
-           }
-	*/
-	
 }
 EXPORT_SYMBOL(virgocloudexec_sendto);
 

@@ -1307,6 +1307,21 @@ struct socket*. This reinterpret cast does not work in 64 bit) in eventnet heade
 *) utils eventnet log in init() has been updated with a meaningful edge update message
 *) kern.log for this has been added to eventnet/testlogs
 
+-------------------------------------------------------------------------------------------------------------------
+Commits - 17 April 2017 - VIRGO64 Memory, CPU, FileSystem, EventNet kernel module drivers 
+-------------------------------------------------------------------------------------------------------------------
+*) telnet requests to VIRGO memory(kernelmemcache), cpu and filesystem modules work after resolving issues with return value types
+*) commented le32_to_cpu() and print_buffer() which was suppressing lot of log messages.
+*) VIRGO <driver> ops structures have been updated with correct datatypes.
+*) reinterpret cast of struct socket* to int has been completely done away with which could have caused 64bit specific panics
+*) lot of kern.log(s) and screen captures have been added for telnet requests in testlogs/ of respective <driver> directory
+*) Prima facie 64bit telnet requests to VIRGO module listeners are relatively stabler than 32bit 
+*) Previous code changes should be relevant to 32 bit VIRGO kernel too.
+*) tcp_sendmsg()/tcp_recvmsg() related hangs could be mostly related to corrupted skbuff queue within each socket.
+*) This is because replacing kernel_<send/recv>msg() with sock_<send/recv>msg() causes return value to be 0 while
+socket release crashes within skbuff related kernel functions.
+*) To make socket state immutable, in VIRGO memory driver header files, client socket has been declared as const type.
+
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan

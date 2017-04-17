@@ -44,7 +44,7 @@
 * - Ka.Shrinivaasan
 */
  
-void* mempool_func(void* args)
+char* mempool_func(void* args)
 {
 	/*
 	 * Lack of reflection kind of facilities requires map of function_names to pointers_to_functions to be executed
@@ -331,10 +331,10 @@ virgocloudexec_mempool_init(void)
 	error = kernel_setsockopt(AF_INET, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(int));
 	*/
 
-	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
+	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr));
 	printk(KERN_INFO "virgocloudexec_mempool_init(): kernel_bind() returns error code: %d\n",error);
 
-	error = kernel_listen(sock, 5);
+	error = kernel_listen(sock, 10);
 	printk(KERN_INFO "virgocloudexec_mempool_init(): kernel_listen() returns error code: %d\n", error);
 
 	virgo_cloudexec_mempool_service(NULL);
@@ -370,7 +370,7 @@ struct socket* virgocloudexec_mempool_create(void)
 	error = kernel_accept(sock, &clientsock, 0);
 	/*error = sock->ops->accept(sock, clientsock, 0);*/
 	printk(KERN_INFO "virgocloudexec_mempool_create(): after kernel_accept() : error = %d \n", error);
-	skbuff_kernel_socket_debug2(clientsock);
+	/*skbuff_kernel_socket_debug2(clientsock);*/
 	printk(KERN_INFO "virgocloudexec_mempool_create(): after skbuff_kernel_socket_debug2() \n");
 	
 	/*
@@ -400,7 +400,7 @@ struct socket* virgocloudexec_mempool_create(void)
 }
 EXPORT_SYMBOL(virgocloudexec_mempool_create);
 
-char* virgocloudexec_mempool_recvfrom(struct socket* clsock)
+void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 {
 	char* mempoolFunction;
 	struct sockaddr_in sin;
@@ -420,7 +420,7 @@ char* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 
 	struct task_struct *task;
 	int error;
-	void *buffer=kzalloc(BUF_SIZE,GFP_ATOMIC);
+	char buffer[BUF_SIZE];
 	int len=0;
 
 	char* client_ip_str;
@@ -430,7 +430,11 @@ char* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 	*/
 	if(clientsock != NULL )
 	{
+		memset(buffer, 0, BUF_SIZE);
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()\n");
+
+		iov.iov_base=buffer;
+		iov.iov_len=BUF_SIZE;
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -442,8 +446,6 @@ char* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags=MSG_NOSIGNAL;
-		iov.iov_base=buffer;
-		iov.iov_len=BUF_SIZE;
 		skbuff_kernel_socket_debug2(clientsock);
 
 		oldfs=get_fs();
@@ -479,11 +481,11 @@ char* virgocloudexec_mempool_recvfrom(struct socket* clsock)
                 }
 		*/
 
-		
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=%s, buffer: %s\n", iov.iov_base, buffer);
+		/*
 		print_buffer(buffer);
 		le32_to_cpus(buffer);
-		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", buffer);
+		*/
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): mempoolFunction : %s \n", mempoolFunction);
 		/*mempoolFunction_ptr = get_function_ptr_from_str(mempoolFunction);*/
 		/*task=kthread_run(mempoolFunction_ptr, (void*)args, "cloudclonethread");*/
@@ -520,7 +522,7 @@ void print_buffer(char* buffer)
 	printk(KERN_INFO "\n");
 }
 
-int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret)
+int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret)
 {
 
 	/*
@@ -531,7 +533,7 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 	struct sockaddr_in sin;
 	struct socket *clientsock=clsock;
 	struct kvec iov;
-	struct msghdr msg;
+	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
 	int nr=1;
@@ -539,7 +541,7 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 
 	struct task_struct *task;
 	int error;
-	void* buffer=kzalloc(BUF_SIZE,GFP_ATOMIC);
+	char buffer[BUF_SIZE];
 	int len=0;
 
 	if(clientsock != NULL && virgo_mempool_ret != NULL)
@@ -550,13 +552,14 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 		{
 			/* data retrieved by virgo_get */
 			printk(KERN_INFO "virgocloudexec_mempool_sendto(): data sent=%s\n",virgo_mempool_ret+10);
-			strcpy((char*)buffer,kstrdup(virgo_mempool_ret+10,GFP_KERNEL));
+			strcpy(buffer,kstrdup(virgo_mempool_ret+10,GFP_KERNEL));
 		}
 		else
 		{
 			/* address alloc-ed by virgo_malloc, or return value of virgo_set or virgo_free */	
 			printk(KERN_INFO "virgocloudexec_mempool_sendto(): address sent=%p\n",virgo_mempool_ret);
-			strcpy((char*)buffer,toAddressString(virgo_mempool_ret));
+			strcpy(buffer,toAddressString(virgo_mempool_ret));
+			/*sprintf(buffer,"%p",virgo_mempool_ret);*/
 		}
 		iov.iov_base=buffer;
 		iov.iov_len=BUF_SIZE;
@@ -572,12 +575,13 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 		msg.msg_controllen = 0;
 		msg.msg_flags= MSG_NOSIGNAL;
 		int ret;
-		printk(KERN_INFO "virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: %s\n", iov.iov_base);
+		printk(KERN_INFO "virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: %s\n", buffer);
+
+		/*skbuff_kernel_socket_debug2(clientsock);*/
 
 		oldfs=get_fs();
 		set_fs(KERNEL_DS);
-		skbuff_kernel_socket_debug2(clientsock);
-		ret = kernel_sendmsg(clientsock, &msg, &iov, 1, iov.iov_len);
+		ret = kernel_sendmsg(clientsock, &msg, &iov, 1, buflen);
 		/*ret = sock->ops->sendmsg(clientsock,&msg,msg_data_left(&msg));*/
 		set_fs(oldfs);
 
@@ -586,9 +590,9 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, char* virgo_mempool_ret
 		/*
 		kernel_sock_shutdown(clientsock,SOCK_WAKE_URG);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg \n");
+		*/
 		sock_release(clientsock);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): sock_release invoked on client socket \n");
-		*/
 	}
 	else
 	{

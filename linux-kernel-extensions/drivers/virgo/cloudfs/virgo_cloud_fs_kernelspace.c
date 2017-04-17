@@ -64,17 +64,18 @@ EXPORT_SYMBOL(virgo_cloud_fs_kernelspace_exit);
 
 void* virgo_cloud_open_kernelspace(struct virgo_fs_args* args)
 {
+	mm_segment_t oldfs;
 	struct virgo_fs_args* vmargs=(struct virgo_fs_args*)args;
 	printk(KERN_INFO "virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): file path to open=%s\n",vmargs->fs_args[0]);
-        fs=get_fs();
-        set_fs(get_ds());
+        oldfs=get_fs();
+        set_fs(KERNEL_DS);
         struct file* f=NULL;
         f=filp_open(vmargs->fs_args[0], O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0755);
         /*f=filp_open(vmargs->fs_args[0], O_RDWR|O_APPEND, 0);*/
         /*f=filp_open("/var/log/virgo_fs/virgofstest.txt", O_RDWR|O_APPEND, 0);*/
 	if(IS_ERR(f))
 		printk(KERN_INFO "virgo_cloud_open_kernelspace(): filp_open return value is error code : %p", f);
-	set_fs(fs);
+	set_fs(oldfs);
 	no_of_openfiles++;
 	open_VFS_files[no_of_openfiles]=f;
 	printk(KERN_INFO "virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): f=%p, no_of_openfiles=%d, file struct=%p\n",f,no_of_openfiles, open_VFS_files[no_of_openfiles]);
@@ -86,6 +87,7 @@ EXPORT_SYMBOL(virgo_cloud_open_kernelspace);
 
 void* virgo_cloud_read_kernelspace(struct virgo_fs_args* args)
 {
+	mm_segment_t oldfs;
 	struct virgo_fs_args* vmargs=args;
 	char *buf=kmalloc(sizeof(char)*500,GFP_KERNEL);
 	printk(KERN_INFO "virgo_cloud_fs_kernelspace.c: virgo_cloud_read_kernelspace(): vmargs->fs_cmd=%s, vmargs->fs_args[0] = %s\n, vmargs->fs_args[1]=%s, vmargs->fs_args[2]=%s, vmargs->fs_args[3]=%s \n",vmargs->fs_cmd, vmargs->fs_args[0],vmargs->fs_args[1],vmargs->fs_args[2],vmargs->fs_args[3]);
@@ -103,11 +105,11 @@ void* virgo_cloud_read_kernelspace(struct virgo_fs_args* args)
 	printk(KERN_INFO "virgo_cloud_read_kernelspace(): cnt=%d\n", cnt);
 	printk(KERN_INFO "virgo_cloud_read_kernelspace(): pos=%d\n", pos);
 	printk(KERN_INFO "virgo_cloud_read_kernelspace(): open_VFS_files[vfsdesc]=%p\n", open_VFS_files[vfsdesc]);
-        fs=get_fs();
-        set_fs(get_ds());
+        oldfs=get_fs();
+        set_fs(KERNEL_DS);
         loff_t bytesread=vfs_read(open_VFS_files[vfsdesc], buf, cnt, &pos);
 	printk(KERN_INFO "virgo_cloud_read_kernelspace(): after vfs_read(): bytesread=%d, buf=%s\n", bytesread, buf);
-	set_fs(fs);
+	set_fs(oldfs);
 	return buf;
 }
 EXPORT_SYMBOL(virgo_cloud_read_kernelspace);
@@ -116,6 +118,7 @@ EXPORT_SYMBOL(virgo_cloud_read_kernelspace);
 
 void* virgo_cloud_write_kernelspace(struct virgo_fs_args* args)
 {
+	mm_segment_t oldfs;
 	struct virgo_fs_args* vmargs=args;
 	printk(KERN_INFO "virgo_cloud_fs_kernelspace.c: virgo_cloud_write_kernelspace(): vmargs->fs_cmd=%s, vmargs->fs_args[0] = %s\n, vmargs->fs_args[1]=%s, vmargs->fs_args[2]=%d, vmargs->fs_args[3]=%d \n",vmargs->fs_cmd, vmargs->fs_args[0],vmargs->fs_args[1],vmargs->fs_args[2],vmargs->fs_args[3]);
 	unsigned long long ll;
@@ -133,10 +136,10 @@ void* virgo_cloud_write_kernelspace(struct virgo_fs_args* args)
 	printk(KERN_INFO "virgo_cloud_read_kernelspace(): cnt=%d\n", cnt);
 	printk(KERN_INFO "virgo_cloud_read_kernelspace(): pos=%d\n", pos);
 	printk(KERN_INFO "virgo_cloud_read_kernelspace(): open_VFS_files[vfsdesc]=%p\n", open_VFS_files[vfsdesc]);
-        fs=get_fs();
-        set_fs(get_ds());
+        oldfs=get_fs();
+        set_fs(KERNEL_DS);
         vfs_write(open_VFS_files[(int)ll], vmargs->fs_args[1], cnt, &pos);
-	set_fs(fs);
+	set_fs(oldfs);
 	return NULL;
 }
 EXPORT_SYMBOL(virgo_cloud_write_kernelspace);
@@ -145,11 +148,15 @@ EXPORT_SYMBOL(virgo_cloud_write_kernelspace);
 
 void* virgo_cloud_close_kernelspace(struct virgo_fs_args* args)
 {
+	mm_segment_t oldfs;
 	struct virgo_fs_args* vmargs=(struct virgo_fs_args*)args;
 	printk(KERN_INFO "virgo_cloud_fs_kernelspace.c: virgo_cloud_close_kernelspace(): vmargs->fs_args[0]=%s\n",vmargs->fs_args[0]);
 	unsigned long long ll;
         virgo_parse_integer(vmargs->fs_args[0],10,&ll);
+        oldfs=get_fs();
+        set_fs(KERNEL_DS);
 	filp_close(open_VFS_files[(int)ll],NULL);
+	set_fs(oldfs);
 	return NULL;
 }
 EXPORT_SYMBOL(virgo_cloud_close_kernelspace);

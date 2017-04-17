@@ -45,8 +45,7 @@
 #include <linux/pm.h>
 #include <linux/atomic.h>
 #include <linux/ratelimit.h>
-/*#include <asm/device.h>*/
-#include <linux/device.h>
+#include <asm/device.h>
 #include <linux/time.h>
 
 #include <linux/kernel.h>
@@ -73,21 +72,14 @@
 #include <net/ipv6.h>
 #include <net/tcp.h>
 #include <net/tcp_states.h>
-/*
 #include <asm/uaccess.h>
 #include <asm/ioctls.h>
-*/
-#include <linux/uaccess.h>
-/*
-#include <ioctls.h>
-*/
 #include <trace/events/skb.h>
 
 #include <linux/module.h>
 #include <linux/types.h>
 #include <linux/uio.h>
 #include <linux/unistd.h>
-/*#include <linux/init.h>*/
 
 #include <linux/sunrpc/types.h>
 #include <linux/sunrpc/clnt.h>
@@ -96,9 +88,7 @@
 #include <linux/sunrpc/svcsock.h>
 #include <linux/sunrpc/stats.h>
 #include <linux/sunrpc/xprt.h>
-/*#include "sunrpc.h"*/
 #include <linux/sunrpc/xprt.h>
-/*#include "netns.h"*/
 
 #define BUF_SIZE 500
 
@@ -185,8 +175,8 @@ struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction);
 /*struct virgo_mempool_args* parse_virgomempool_command(void* args);*/
 
 struct socket* virgocloudexec_mempool_create(void);
-char* virgocloudexec_mempool_recvfrom(struct socket*);
-int virgocloudexec_mempool_sendto(struct socket*, char* virgo_mempool_ret);
+void* virgocloudexec_mempool_recvfrom(struct socket*);
+int virgocloudexec_mempool_sendto(struct socket*, void* virgo_mempool_ret);
 
 int virgo_cloudexec_mempool_service(void* args);
 void do_virgocloudexec_init(void);
@@ -199,8 +189,8 @@ extern char* toKernelAddress(const char* str);
 
 struct virgo_mempool_ops_t {
 	struct socket* (*virgo_mempool_create)(void);
-	char* (*virgo_mempool_recvfrom)(struct socket*);
-	int (*virgo_mempool_sendto)(struct socket*,char* virgo_mempool_ret);
+	void* (*virgo_mempool_recvfrom)(struct socket*);
+	int (*virgo_mempool_sendto)(struct socket*,void* virgo_mempool_ret);
 };
 
 static struct virgo_mempool_ops_t virgo_mempool_ops = {
@@ -212,7 +202,7 @@ static struct virgo_mempool_ops_t virgo_mempool_ops = {
 struct virgo_mempool_class_t {
 	const char* m_virgo_name;
 	struct module* m_virgo_owner;
-	struct virgo_ops_t* m_virgo_ops;	
+	struct virgo_mempool_ops_t* m_virgo_ops;	
 };
 
 static struct virgo_mempool_class_t virgo_mempool_class = {

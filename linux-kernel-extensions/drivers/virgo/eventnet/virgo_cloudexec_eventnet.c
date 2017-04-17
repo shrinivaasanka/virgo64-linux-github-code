@@ -231,7 +231,7 @@ virgocloudexec_eventnet_init(void)
 
 	printk(KERN_INFO "virgocloudexec_eventnet_init(): sock_create() returns error code: %d\n",error);
 
-	error = kernel_bind(sock, (struct sockaddr_in*)&sin, sizeof(struct sockaddr_in));
+	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr));
 	printk(KERN_INFO "virgocloudexec_eventnet_init(): kernel_bind() returns error code: %d\n",error);
 
 	error = kernel_listen(sock, 10);
@@ -325,7 +325,7 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 #ifdef LINUX_KERNEL_4_x_x
                 msg.msg_iter.iov = &iov;
 #else
-                msg.msg_iov = &iov;
+                msg.msg_iov = (struct kvec*) &iov;
                 msg.msg_iovlen = 1;
 #endif
 		msg.msg_control = NULL;
