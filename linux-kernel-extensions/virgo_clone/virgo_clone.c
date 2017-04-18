@@ -149,74 +149,28 @@ char* get_host_from_cloud_PRG()
 
 asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int flags, void *arg)
 {
-	/*
-	int error;
-	char buffer[3000];
-	int family=PF_INET;
-	int type=SOCK_STREAM;
-	int protocol=IPPROTO_TCP;
-	struct socket *sock;	
-	struct sockaddr_in server;
-	int len;
-	struct kvec iov;
-	struct msghdr msg = {
-		.msg_flags = MSG_DONTWAIT,
-	};
-	int buflen;
-	int nr;
-
-	char* leastloadedhost = get_least_loaded_host_from_cloud();
-	struct hostent* remotehost=gethostbyname(leastloadedhost);
-	server.sin_family=PF_INET;
-	server.sin_addr.s_addr=htonl(INADDR_ANY);
-	server.sin_port=htons(60000);
-	iov.iov_base=(void*)buffer;
-	iov.iov_len=3000;	
-	strcpy(iov.iov_base, func_signature);
-	*/	
 
 	virgocpupooling_read_virgo_config_client();	
 	int nr;
 	struct iovec iov;
-	/*
-	struct msghdr msg = {
-		.msg_flags = MSG_EOF,
-	};
-	*/
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
 	struct sockaddr_in sin;
-	/*
-        struct addrinfo hints;
-        struct addrinfo *result, *rp;
-	*/
-        int sfd, s, j;
+	int sfd, s, j;
         size_t len;
         ssize_t nread;
         char buf[BUF_SIZE];
 	mm_segment_t oldfs;
 
-	/*
-        memset(&hints, 0, sizeof(struct addrinfo));
-        hints.ai_family = AF_UNSPEC;    / Allow IPv4 or IPv6 /
-        hints.ai_socktype = SOCK_STREAM; / Datagram socket /
-        hints.ai_flags = 0;
-        hints.ai_protocol = 0;          / Any protocol /
-	*/
-
-	/*
-	struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud();
-        s = getaddrinfo(leastloadedhostport->host, leastloadedhostport->port, &hints, &result);
-	*/
-
 	struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud();
 	sin.sin_family=AF_INET;
 	in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
         sin.sin_port=htons(leastloadedhostport->port);
+	strcpy(buf, func_signature);
 
 	iov.iov_base=buf;
-	iov.iov_len=sizeof(buf);	
+	iov.iov_len=strlen(buf);	
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -227,11 +181,9 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 #endif
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
-	msg.msg_flags = 0;
+	msg.msg_flags = MSG_NOSIGNAL;
 	nr=1;
 
-
-	strcpy(iov.iov_base, func_signature);
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_clone() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -240,13 +192,21 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	oldfs=get_fs();
 	set_fs(KERNEL_DS);
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+	set_fs(oldfs);
+
 	printk(KERN_INFO "virgo_clone() syscall: sent message: %s \n", buf);
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
         len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 	set_fs(oldfs);
 
+	
 	printk(KERN_INFO "virgo_clone() syscall: received message: %s \n", buf);
+	/*
         le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_clone() syscall: le32_to_cpus(buf): %s \n", buf);
+	*/
 	sock_release(sock);
 	printk(KERN_INFO "virgo_clone() syscall: virgo_clone() client socket_release() invoked\n");
 	

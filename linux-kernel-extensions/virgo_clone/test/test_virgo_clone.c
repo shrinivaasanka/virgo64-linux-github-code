@@ -41,15 +41,12 @@ int main(int argc, char* argv[])
 	upcall to userspace to invoke the function (within libvirgo.so) in remote cloud node. Kernel upcall usermode helper 
 	requires mangled names for dlsym(). This also is a unique id for a function. Library libvirgo.so needs to be prebuilt
 	with all functions that need to be on cloud and should be replicated in all cloud nodes.
-	For executable parameter, complete path to binary is passed in.
-	\r\n or " " padded is stripped off by kernel recv code in virgo_cloudexec by strsep tokenizer. It is intriguing that telnet 
-	connection works without any padding.
 
 	- Ka.Shrinivaasan
 	*/
 
 
-	long int ret=syscall(548,"virgo_cloud_test_kernelspace ");
+	long int ret=syscall(548,"virgo_cloud_test_kernelspace");
 	/*long int ret=syscall(350,"_Z16virgo_cloud_testPv ",NULL,0,NULL);*/
 	/*long int ret=syscall(350,"/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main ",NULL,0,NULL);*/
 	/*long int ret=syscall(350,argv[1],NULL,0,NULL);*/
