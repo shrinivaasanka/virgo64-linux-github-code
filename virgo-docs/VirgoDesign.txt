@@ -1331,6 +1331,18 @@ Commits - KingCobra 64 bit and VIRGO Queue + KingCobra telnet requests - 17 Apri
 *) kern.log for this routing has been committed in VIRGO64 queueing directory
 *) Similar to other drivers struct socket* reinterpret cast to int has been removed and has been made const in queuesvc kernel thread
 
+--------------------------------------------------------------------------------------------------------------
+Commits - VIRGO64 system calls - kernel module listeners - testcases and system calls updates - 18 April 2017
+--------------------------------------------------------------------------------------------------------------
+*) All testcases have been rebuilt
+*) VIRGO kernel memcache,cpu and filesystem system calls have been updated with set_fs()/get_fs() blocks for kernel_sendmsg()
+and kernel_recvmsg()
+*) Of these virgo_clone() system call testcase (test_virgo_clone) works flawlessly and there are no tcp_sendmsg()/tcp_recvmsg() related
+kernel panics.
+*) VIRGO memcache and filesystem system call testcases have usual tcp_sendmsg()/tcp_recvmsg() despite the kernel socket code
+being similar to VIRGO clone system call
+*) Logs for VIRGO clone system call to CPU kernel driver module have been committed to virgo_clone/test/testlogs
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
