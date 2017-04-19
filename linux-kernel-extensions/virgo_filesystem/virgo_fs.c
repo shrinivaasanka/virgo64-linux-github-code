@@ -146,7 +146,7 @@ char* get_host_from_cloud_PRG_fs()
 asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, int pos)
 {
 	int nr;
-	struct iovec iov;
+	struct kvec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
@@ -160,6 +160,7 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	mm_segment_t oldfs;
 
 	virgofs_read_virgo_config_client();
+	memset(buf,0,BUF_SIZE);
 	sin.sin_family=AF_INET;
 	struct hostport* leastloadedhostip=get_least_loaded_hostport_from_cloud_fs();
 	in4_pton(leastloadedhostip->hostip, strlen(leastloadedhostip->hostip), &sin.sin_addr.s_addr, '\0',NULL);
@@ -180,7 +181,7 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	printk(KERN_INFO "virgo_read() system call: iov.iov_base=%s\n",iov.iov_base);
 
 	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -229,7 +230,7 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, int pos)
 {
 	int nr;
-	struct iovec iov;
+	struct kvec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
@@ -245,9 +246,10 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	mm_segment_t oldfs;
 
 	virgofs_read_virgo_config_client();
+	memset(buf,0,BUF_SIZE);
 	printk(KERN_INFO "virgo_write() system_call: before memcpy()\n");
-	/*long ret=copy_from_user(buf,data_in,strlen(data_in));*/
-	memcpy(data,data_in,sizeof(data)-1);
+	long ret=copy_from_user(data,data_in,strlen(data_in));
+	/*memcpy(data,data_in,sizeof(data)-1);*/
 	printk(KERN_INFO "virgo_write() system_call: after memcpy()\n");
 	printk(KERN_INFO "virgo_write() system call: data to set=%s\n", data);
 	sin.sin_family=AF_INET;
@@ -271,7 +273,7 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	printk(KERN_INFO "virgo_write() system call: iov.iov_base=%s\n",iov.iov_base);
 
 	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -341,10 +343,12 @@ asmlinkage long sys_virgo_open(char* filepath)
 	struct msghdr msg;
 	int error;
 	int nr;
-	struct iovec iov;
+	struct kvec iov;
 	struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_fs();
 	struct socket *sock;
 	struct sockaddr_in sin;
+	memset(buf,0,BUF_SIZE);
+
 	if(leastloadedhostport->hostip==NULL)
 	{
 		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->hostip == NULL, hardcoding it to loopback address");
@@ -372,7 +376,7 @@ asmlinkage long sys_virgo_open(char* filepath)
 	printk(KERN_INFO "virgo_open() syscall: buf=%s, open_cmd=%s\n",buf, open_cmd);
 
 	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	printk(KERN_INFO "virgo_open() syscall: iov.iov_base=%s\n",iov.iov_base);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
@@ -430,7 +434,7 @@ asmlinkage long sys_virgo_open(char* filepath)
 asmlinkage long sys_virgo_close(long vfsdesc)
 {
 	int nr;
-	struct iovec iov;
+	struct kvec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
@@ -446,6 +450,7 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	mm_segment_t oldfs;
 
 	virgofs_read_virgo_config_client();
+	memset(buf,0,BUF_SIZE);
 	sin.sin_family=AF_INET;
 	struct hostport* leastloadedhostip=get_least_loaded_hostport_from_cloud_fs();
 	in4_pton(leastloadedhostip->hostip, strlen(leastloadedhostip->hostip), &sin.sin_addr.s_addr, '\0',NULL);
@@ -459,7 +464,7 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	printk(KERN_INFO "virgo_close() system call: tempbuf=%d, buf=%s, close_cmd=%s \n",tempbuf, buf, close_cmd);
 
         iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	printk(KERN_INFO "virgo_close() system call: iov.iov_base=%s\n",iov.iov_base);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);

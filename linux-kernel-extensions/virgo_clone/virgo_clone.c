@@ -152,7 +152,7 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 
 	virgocpupooling_read_virgo_config_client();	
 	int nr;
-	struct iovec iov;
+	struct kvec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;

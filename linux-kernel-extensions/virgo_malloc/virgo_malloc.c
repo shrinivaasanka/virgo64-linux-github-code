@@ -157,6 +157,7 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
 	mm_segment_t oldfs;
 
 	virgomemorypooling_read_virgo_config_client();
+	memset(buf,0,BUF_SIZE);
 	int chunk_size=0;
 	int sum_alloc_size=0;
 
@@ -179,7 +180,7 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
 	printk(KERN_INFO "virgo_get() system call: iov.iov_base=%s\n",iov.iov_base);
 
         iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -244,6 +245,7 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 	mm_segment_t oldfs;
 
 	virgomemorypooling_read_virgo_config_client();
+	memset(buf,0,BUF_SIZE);
 	/*char* buf;*/
 	printk(KERN_INFO "virgo_set() system call: before virgo_unique_id_to_addr()\n");	
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
@@ -290,7 +292,7 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 	printk(KERN_INFO "virgo_set() system call: tempbuf=%s, buf=%s, virgo_set_cmd = %s\n",tempbuf, buf, virgo_set_cmd);
 
 	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -354,7 +356,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 	mm_segment_t oldfs;
 	
 	virgomemorypooling_read_virgo_config_client();
-
+	memset(buf,0,BUF_SIZE);
 	/*
 	Mutex lock and unlock also causes a kernel panic, hence commented as of now
 	- Ka.Shrinivaasan 22October2013
@@ -411,7 +413,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 		}
 
 		iov.iov_base=buf;
-		iov.iov_len=strlen(buf);
+		iov.iov_len=BUF_SIZE;
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -524,6 +526,7 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
 	mm_segment_t oldfs;
 
 	virgomemorypooling_read_virgo_config_client();
+	memset(buf,0,BUF_SIZE);
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 
 	sin.sin_family=AF_INET;
@@ -540,7 +543,7 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
 	printk(KERN_INFO "virgo_free() system call: iov.iov_base=%s\n",iov.iov_base);
 
 	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
