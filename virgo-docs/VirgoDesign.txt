@@ -1343,6 +1343,26 @@ kernel panics.
 being similar to VIRGO clone system call
 *) Logs for VIRGO clone system call to CPU kernel driver module have been committed to virgo_clone/test/testlogs
 
+-----------------------------------------------------------------------------------------------------------------------------
+Commits - VIRGO64 Kernel MemCache and FileSystem system calls to VIRGO Memory and FileSystem Drivers - 19 April 2017
+-----------------------------------------------------------------------------------------------------------------------------
+*) Changed iovec in virgo_clone.c to kvec
+*) test_virgo_filesystem.c and test_virgo_malloc.c VIRGO system calls testcases have been changed with some additional printf(s) in userspace
+*) virgo_malloc.c has been updated with BUF_SIZE in iov_len and memset to zero initialize the buffer. tcp_sendmsg()/tcp_recvmsg() pair were
+getting stuck in copy_from_iter_full() memcpy with a NULL Dereference. memcpy() was reading past the buffer bound causing an overrun. strlen()
+didnot work for iov_len.
+*) virgo_fs.c virgo_write() memcpy has been changed back to copy_from_user() thereby restoring status quo ante (commented more than 3 years ago
+because of a kernel panic in older versions of 32 bit VIRGO kernel)
+*) Logs for VIRGO kmemcache and filesystem system calls have been committed to respective system call directories.
+*) With this all VIRGO64 functionalities work in both telnet and system calls requests routes end-to-end from clients to kernel modules with
+kernel sockets issues resolved fully.
+*) Major findings are:
+- VIRGO 4.10.3 64 bit kernel is very much stable compared to 32 bit 4.1.5 kernel
+- there are no i915 related errors which happened in VIRGO 32 bit 4.1.5 kernel
+- Repetitive telnet and system calls requests to VIRGO modules are stable and there are no kernel panics like 4.1.5 32 bit kernel.
+- Google Kernel Address Sanitizer is quite helpful in finding stack overruns, null derefs, user memory accesses etc.,
+- 64 bit kernel is visibly faster than 32 bit.
+- Virgo Unique ID is now extended to 2^64 with unsigned long long.
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
