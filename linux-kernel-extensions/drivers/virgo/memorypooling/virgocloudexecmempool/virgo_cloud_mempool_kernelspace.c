@@ -155,7 +155,7 @@ void* virgo_cloud_free_kernelspace(struct virgo_mempool_args* args)
 	char* ptr=toKernelAddress(vmargs->mempool_args[0]);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_free_kernelspace(): address=%p\n",ptr);
 	kfree(ptr);
-	return 0;
+	return "kernel memory freed";
 }
 EXPORT_SYMBOL(virgo_cloud_free_kernelspace);
 
