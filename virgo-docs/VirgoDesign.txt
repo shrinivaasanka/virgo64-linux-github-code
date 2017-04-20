@@ -1364,6 +1364,13 @@ kernel sockets issues resolved fully.
 - 64 bit kernel is visibly faster than 32 bit.
 - Virgo Unique ID is now extended to 2^64 with unsigned long long.
 
+-------------------------------------------------------------------------------------------------------------------------
+Commits - VIRGO64 memory and filesystem calls to memory and filesystem drivers requests routing - 20 April 2017
+-------------------------------------------------------------------------------------------------------------------------
+*) Changed return value of virgo_cloud_free_kernelspace() to a string literal "kernel memory freed"
+*) Logs for VIRGO64 memory and filesystem calls to memory and filesystem drivers requests routing have been committed in test_logs of
+both driver directories
+
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
 
