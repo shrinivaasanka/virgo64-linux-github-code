@@ -1371,6 +1371,12 @@ Commits - VIRGO64 memory and filesystem calls to memory and filesystem drivers r
 *) Logs for VIRGO64 memory and filesystem calls to memory and filesystem drivers requests routing have been committed in test_logs of
 both driver directories
 
+-------------------------------------------------------------------------------------------------
+Commits - 27 April 2017
+-------------------------------------------------------------------------------------------------
+Residual logs for VIRGO 64 bit 4.10.3 kernel committed.
+
+
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
 
