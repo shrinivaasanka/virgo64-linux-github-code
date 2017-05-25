@@ -1376,6 +1376,13 @@ Commits - 27 April 2017
 -------------------------------------------------------------------------------------------------
 Residual logs for VIRGO 64 bit 4.10.3 kernel committed.
 
+-------------------------------------------------------------------------------------------------
+Commits - 25 May 2017
+-------------------------------------------------------------------------------------------------
+*) Changed LOOPBACK to INADDR_ANY for VIRGO64 kernel memcache listen port
+*) All VIRGO64 RPC, kernel memcache, cloud filesystem primitives have been retested
+*) VIRGO64 mempool binaries have been rebuilt
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
