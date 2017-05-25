@@ -318,8 +318,8 @@ virgocloudexec_mempool_init(void)
 
 	memset(&sin, 0, sizeof(struct sockaddr_in));
 	sin.sin_family=AF_INET;
-	/*sin.sin_addr.s_addr=htonl(INADDR_ANY);*/
-	sin.sin_addr.s_addr=htonl(INADDR_LOOPBACK);
+	sin.sin_addr.s_addr=htonl(INADDR_ANY);
+	/*sin.sin_addr.s_addr=htonl(INADDR_LOOPBACK);*/
 	sin.sin_port=htons(30000);
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
