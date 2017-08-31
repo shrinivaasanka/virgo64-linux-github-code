@@ -1383,6 +1383,14 @@ Commits - 25 May 2017
 *) All VIRGO64 RPC, kernel memcache, cloud filesystem primitives have been retested
 *) VIRGO64 mempool binaries have been rebuilt
 
+---------------------------------------------------------------------------------------------------
+Commits - 31 August 2017 - NeuronRain ReadTheDocs Documentation - VIRGO64 System calls and Drivers
+---------------------------------------------------------------------------------------------------
+(*) New directory systemcalls_drivers/ has been added to virgo-docs/ and representative VIRGO64
+system calls and drivers functionality logs have been committed for demonstration purpose.
+(*) VIRGO64 cloudfs driver has been rebuilt after changing virgofstest.txt file creation filp_open() call
+(*) Screenshots and logs for VIRGO64 Clone, Kernel MemCache and Cloud FS SystemCalls-Drivers interaction, socket transport debug messages and Kernel Address Sanitizer have been committed in virgo-docs/systemcalls_drivers
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
