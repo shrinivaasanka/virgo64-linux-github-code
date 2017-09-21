@@ -23,6 +23,7 @@ Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO
 	- copy linux-kernel-extensions/virgo_<syscalls> to linux-4.10.3
 	- copy linux-kernel-extensions/drivers/virgo to linux-4.10.3/drivers
 	- copy linux-kernel-extensions/drivers/kingcobra to linux-4.10.3/drivers
+	- copy VIRGO header files in linux-kernel-extensions/include to linux-4.10.3/include
 	- Build each driver in linux-4.10.3/drivers/virgo/<driver> with <drivername>_driver_build.sh
 	- Some drivers require Module.symvers to be copied from other exporting drivers e.g kingcobra, virgo/kernel_analytics
 	- Copy Module.symvers from exporting driver to importing driver
@@ -64,3 +65,5 @@ possibility that VIRGO kernel completely becomes a self-sufficient kernel with n
 reason for 64-bit of VIRGO on 4.10.3 is the randomly witnessed i915 related panics in 4.1.5 virgo system calls and drivers. Mainline
 4.10.3 kernel has major updates to i915 intel graphics drivers. It is still to be verified if upgrade to 4.10.3 and 64-bit addressing in any
 way resolves these random virgo_<syscall> panics.
+
+10. More information and FAQ on NeuronRain VIRGO architecture is at: http://neuronrain-documentation.readthedocs.io/en/latest/. 64-bit Linux kernel version 4.10.3 has been found to be stabler in system calls-kernel module listeners end-to-end testing. Recent kernel mainline version 4.13 has in-built security for kernel sockets (KTLS) which integrates standalone af_ktls module into kernel tree at net/tls/.
