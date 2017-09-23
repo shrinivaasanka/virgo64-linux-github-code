@@ -1392,6 +1392,28 @@ system calls and drivers functionality logs have been committed for demonstratio
 (*) VIRGO64 cloudfs driver has been rebuilt after changing virgofstest.txt file creation filp_open() call
 (*) Screenshots and logs for VIRGO64 Clone, Kernel MemCache and Cloud FS SystemCalls-Drivers interaction, socket transport debug messages and Kernel Address Sanitizer have been committed in virgo-docs/systemcalls_drivers
 
+---------------------------------------------------------------------------------------------------------------------------------------
+Commits - 23 September 2017 - Major VIRGO mainline kernel version Upgrade for Kernel Transport Layer Security - 4.10.3 to 4.13.3
+---------------------------------------------------------------------------------------------------------------------------------------
+(*) Recently released mainline kernel version 4.13 integrates SSL/TLS into kernelspace- KTLS - for the first time.
+(*) KTLS is a standalone kernel module af_ktls (https://github.com/ktls) implemented by RedHat and Facebook for optimizing SSL handshake
+within kernelspace itself and reduce userspace-kernelspace switches.
+(*) sendfile() system call in linux which is used for file transmission (combining read+write) from one fd to another uses this
+KTLS optimization in kernelspace in af_ktls codebase (af_ktls tool)
+(*) VIRGO Linux kernel fork-off requires this kernelspace TLS functionality to fully secure traffic from system call client to remote
+ cloud node's kernel module listeners
+(*) Hence VIRGO64 linux kernel mainline base is urgently upgraded from 4.10.3 to 4.13.3
+(*) All system calls and kernel module code in VIRGO64 now have #include(s) for tls.h and invoke kernel_setsockopt() on the client-server
+kernelspace sockets for SOL_TLS and TLS_TX options and have been rebuilt.
+(*) VIRGO64 RPC clone/kmemcache/cloudfs system calls to kernel module listeners have been tested with this new KTLS socket option,
+on rebuilt VIRGO64 kernel overlay-ed on 4.13.3 64-bit linux kernel
+(*) 4.13 mainline kernel also has SMB CIFS bug fixes for recent malware attacks (WannaCry etc.,) which further ensures security of
+VIRGO64 linux fork-off kernelspace traffic.
+(*) New buildscript for 4.13.3 linux kernel has been committed
+(*) testlogs for VIRGO64 system calls and driver listeners KTLS transport have been committed in virgo-docs/systemcalls_drivers/kern.log.VIRGO64_SystemCalls_Drivers.4.13.3_KTLS_kernelsockets.22September2017
+(*) After this upgrade, complete system calls to driver listener traffic is SSL enabled implicitly.
+(*) Updated kernel object files for 4.13.3 build are part of this commit.
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
