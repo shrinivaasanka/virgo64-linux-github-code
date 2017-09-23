@@ -32,6 +32,8 @@
 
 #include <linux/string.h>
 #include <linux/kallsyms.h>
+#include <linux/timekeeping.h>
+#include <net/tls.h>
 
 /*
 	VIRGO Memory Pooling Driver for virgo_malloc(), virgo_free(),virgo_set(),virgo_get()
@@ -324,6 +326,8 @@ virgocloudexec_mempool_init(void)
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "virgocloudexec_mempool_init(): sock_create() returns error code: %d, sock=%x\n",error,sock);
 
 	/*
@@ -446,7 +450,7 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags=MSG_NOSIGNAL;
-		skbuff_kernel_socket_debug2(clientsock);
+		/*skbuff_kernel_socket_debug2(clientsock);*/
 
 		oldfs=get_fs();
 		set_fs(KERNEL_DS);
@@ -680,7 +684,8 @@ char* generate_logical_timestamp(void)
 	{
 		logicaltimestamp=kmalloc(BUF_SIZE, GFP_KERNEL);
 		/* generates a hash terminated timestamp string*/
-		sprintf(logicaltimestamp,"%ld:%ld#",CURRENT_TIME,CURRENT_TIME_SEC);
+		/*sprintf(logicaltimestamp,"%ld:%ld#",CURRENT_TIME,CURRENT_TIME_SEC);*/
+                sprintf(logicaltimestamp,"%lld:%lld",ktime_to_ns(ktime_get()),ktime_to_ns(ktime_get()));
 		printk(KERN_INFO "generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as %s",logicaltimestamp);
 		return logicaltimestamp;
 		

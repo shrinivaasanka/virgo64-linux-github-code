@@ -3,6 +3,7 @@
 #include <linux/compiler.h>
 
 MODULE_INFO(vermagic, VERMAGIC_STRING);
+MODULE_INFO(name, KBUILD_MODNAME);
 
 __visible struct module __this_module
 __attribute__((section(".gnu.linkonce.this_module"))) = {
@@ -17,7 +18,7 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0xb2be4cbd, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x939d23c1, __VMLINUX_SYMBOL_STR(module_layout) },
 	{ 0xd2b09ce5, __VMLINUX_SYMBOL_STR(__kmalloc) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x3c80c06c, __VMLINUX_SYMBOL_STR(kstrtoull) },

@@ -31,6 +31,7 @@
 
 #include <linux/string.h>
 #include <linux/kallsyms.h>
+#include <net/tls.h>
 
 /*
 	VIRGO File Systems Driver for virgo_open(), virgo_close(),virgo_read(),virgo_write()
@@ -284,6 +285,8 @@ virgocloudexec_fs_init(void)
 	sin.sin_port=htons(50000);
 
 	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "virgocloudexec_fs_init(): sock_create() returns error code: %d\n",error);
 
 	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));

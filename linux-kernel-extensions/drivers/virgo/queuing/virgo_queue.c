@@ -30,6 +30,8 @@
 #include <linux/virgo_config.h>
 #include <linux/string.h>
 #include <linux/kallsyms.h>
+#include <net/tls.h>
+#include <linux/timekeeping.h>
 
 
 int queue_func(void* args)
@@ -193,6 +195,8 @@ virgoqueue_init(void)
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	error = sock_create_kern(&init_net, AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "virgoqueue_init(): sock_create() returns error code: %d\n",error);
 
 	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
@@ -445,7 +449,8 @@ char* generate_logical_timestamp(void)
         {
                 logicaltimestamp=kmalloc(BUF_SIZE, GFP_KERNEL);
                 /* generates a hash terminated timestamp string*/
-                sprintf(logicaltimestamp,"%ld:%ld#",CURRENT_TIME,CURRENT_TIME_SEC);
+                /*sprintf(logicaltimestamp,"%ld:%ld#",CURRENT_TIME,CURRENT_TIME_SEC);*/
+                sprintf(logicaltimestamp,"%lld:%lld",ktime_to_ns(ktime_get()),ktime_to_ns(ktime_get()));
                 printk(KERN_INFO "generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as %s",logicaltimestamp);
                 return logicaltimestamp;
 

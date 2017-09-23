@@ -6,17 +6,17 @@
 0x20350e7e	kingcobra_kernelspace_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
 0xcca7bb85	virgoqueue_sendto	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
 0x81c90249	push_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x05e84970	virgo_cloud_test_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
-0x01ac0c2f	virgo_cloud_test_kernelspace_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
+0x05e84970	virgo_cloud_test_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
+0x01ac0c2f	virgo_cloud_test_kernelspace_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
 0xd466a06f	virgoqueue_recvfrom	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x5cbdbccf	virgo_cloud_test_kernelspace	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
-0x20e50d12	virgocloudexec_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0x5cbdbccf	virgo_cloud_test_kernelspace	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
+0xab4196f7	virgocloudexec_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
 0x9a410671	read_virgo_kernel_analytics_config	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
 0x5f58edf1	pop_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x493a3dba	virgocloudexec_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0x493a3dba	virgocloudexec_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
 0x69e59c53	virgo_kernel_analytics_conf	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
-0xa2cb48c6	virgocloudexec_recvfrom	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0xc2158b17	virgocloudexec_recvfrom	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
 0x8045952f	virgoqueue_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
 0x202141ea	virgoqueue_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x2bbe1dc8	virgocloudexec_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
-0x02f979d5	virgocloudexec_sendto	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0x2bbe1dc8	virgocloudexec_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0x1b6ff60a	virgocloudexec_sendto	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL

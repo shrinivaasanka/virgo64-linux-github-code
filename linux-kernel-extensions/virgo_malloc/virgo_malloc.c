@@ -63,6 +63,7 @@
 
 #include <linux/virgo_mempool.h>
 #include <linux/socket.h>
+#include <net/tls.h>
 
 #define BUF_SIZE 3000
 
@@ -196,6 +197,8 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
 
 	/*strcpy(iov.iov_base,buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "virgo_get() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 
@@ -308,6 +311,8 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 
 	/*strcpy(iov.iov_base,buf);*/	
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "virgo_set() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 
@@ -429,6 +434,8 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 
 		/*strcpy(iov.iov_base, buf);*/ 	
 		error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 		printk(KERN_INFO "virgo_malloc() syscall: created client kernel socket\n");
 		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 
@@ -559,6 +566,8 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
 
 	strcpy(iov.iov_base,buf);	
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "virgo_free() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 

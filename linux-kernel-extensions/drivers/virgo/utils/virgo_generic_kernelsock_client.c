@@ -34,8 +34,10 @@
 #include <linux/ctype.h>
 #include <linux/skbuff.h>
 #include <linux/netdevice.h>
+#include <net/tls.h>
+#include <linux/net.h>
 
-char *eventnet_kernel_service_host="127.0.0.1";
+char *eventnet_kernel_service_host="192.168.2.80";
 
 static int __init
 virgo_generic_kernelsock_client_init(void)
@@ -211,6 +213,8 @@ void virgo_eventnet_log(char* logmsg)
 	
 	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "eventnet_log() : created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "eventnet_log() : connected kernel client to virgo cloudexec EventNet kernel service\n ");

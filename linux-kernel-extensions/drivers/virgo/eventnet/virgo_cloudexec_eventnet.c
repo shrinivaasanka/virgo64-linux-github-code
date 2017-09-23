@@ -31,6 +31,8 @@
 
 #include <linux/string.h>
 #include <linux/kallsyms.h>
+#include <net/tls.h>
+#include <linux/net.h>
 
 extern void virgo_eventnet_log(char*);
 
@@ -223,11 +225,11 @@ virgocloudexec_eventnet_init(void)
 
 	memset(&sin, 0, sizeof(struct sockaddr_in));
 	sin.sin_family=AF_INET;
-	/*sin.sin_addr.s_addr=htonl(INADDR_ANY);*/
-	sin.sin_addr.s_addr=htonl(INADDR_LOOPBACK);
+	sin.sin_addr.s_addr=htonl(INADDR_ANY);
 	sin.sin_port=htons(20000);
 
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
 
 	printk(KERN_INFO "virgocloudexec_eventnet_init(): sock_create() returns error code: %d\n",error);
 

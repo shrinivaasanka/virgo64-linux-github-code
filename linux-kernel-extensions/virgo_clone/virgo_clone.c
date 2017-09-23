@@ -61,6 +61,7 @@
 
 #include <linux/random.h>
 #include <linux/socket.h>
+#include <net/tls.h>
 
 /*
 #include "netns.h"
@@ -185,6 +186,8 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	nr=1;
 
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
 	printk(KERN_INFO "virgo_clone() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service\n ");
