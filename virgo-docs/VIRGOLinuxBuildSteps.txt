@@ -19,20 +19,20 @@ VIRGO Linux Build Steps
 
 Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO codebase
 -------------------------------------------------------------------------------------------------------------------------
-7. Changes required for building overlayed 4.10.3 VIRGO 64-bit linux kernel:
-	- copy linux-kernel-extensions/virgo_<syscalls> to linux-4.10.3
-	- copy linux-kernel-extensions/drivers/virgo to linux-4.10.3/drivers
-	- copy linux-kernel-extensions/drivers/kingcobra to linux-4.10.3/drivers
-	- copy VIRGO header files in linux-kernel-extensions/include to linux-4.10.3/include
-	- Build each driver in linux-4.10.3/drivers/virgo/<driver> with <drivername>_driver_build.sh
+7. Changes required for building overlayed 4.13.3 VIRGO 64-bit linux kernel:
+	- copy linux-kernel-extensions/virgo_<syscalls> to linux-4.13.3
+	- copy linux-kernel-extensions/drivers/virgo to linux-4.13.3/drivers
+	- copy linux-kernel-extensions/drivers/kingcobra to linux-4.13.3/drivers (for Module.symvers if use_as_kingcobra_service is enabled)
+	- copy VIRGO header files (virgo*.h,syscalls.h,init.h,kingcobra.h) in linux-kernel-extensions/include/linux to linux-4.13.3/include/linux
+	- Build each driver in linux-4.13.3/drivers/virgo/<driver> with <drivername>_driver_build.sh
 	- Some drivers require Module.symvers to be copied from other exporting drivers e.g kingcobra, virgo/kernel_analytics
 	- Copy Module.symvers from exporting driver to importing driver
 	- Comment clean make target and compile with driver build script.
 	- This appends symbols to Module.symvers
-	- sock_create_kern() compilation errors have been fixed by additional &init_net parameter to it (mainline added it in 2015)
-	- changes in linux-4.10.3/Makefile:
+	- (NOT RELEVANT - ASIDE: sock_create_kern() compilation errors have been fixed by additional &init_net parameter to it (mainline added it in 2015))
+	- changes in linux-4.13.3/Makefile:
 		- core-y          := usr/ virgo_clone/ virgo_malloc/ virgo_filesystem/
-	- changes in linux-4.10.3/arch/x86/entry/syscalls/syscall_64.tbl:
+	- changes in linux-4.13.3/arch/x86/entry/syscalls/syscall_64.tbl:
 		#VIRGO system calls
 		548     64    virgo_clone             sys_virgo_clone
 		549     64    virgo_malloc            sys_virgo_malloc
@@ -43,7 +43,7 @@ Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO
 		554     64    virgo_close             sys_virgo_close
 		555     64    virgo_read              sys_virgo_read
 		556     64    virgo_write             sys_virgo_write
-	- changes in linux-4.10.3/include/linux/syscalls.h:
+	- changes in linux-4.13.3/include/linux/syscalls.h:
 		asmlinkage long sys_virgo_clone(char* func, void *child_stack, int flags, void *arg);
 		asmlinkage long sys_virgo_malloc(int size,unsigned long __user *vuid);
 		asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in);
@@ -57,13 +57,8 @@ Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO
 8. Additional information on linux build and grub issues have been updated in GRAFIT Open Learning Course Notes at:
 https://github.com/shrinivaasanka/Grafit/blob/master/course_material/NeuronRain/LinuxKernelAndCloud/LinuxKernelAndCloud.txt
 
-9. Presently VIRGO Linux Kernel is based on mainline 4.1.5 kernel (32-bit) and 4.10.3 kernel (64-bit). As newer kernel versions are
+9. Presently VIRGO Linux Kernel is based on mainline 4.1.5 kernel (32-bit) and 4.13.3 kernel (64-bit). As newer kernel versions are
 released , there are changes in kernel functions and data structures. This could cause a working VIRGO linux build in version v to
-break in version v+delta (For example sock_create_kern() changes from 4.1.5 to 4.10.3). Certifying and Porting VIRGO linux code base
-on each and every kernel version is beyond the scope of NeuronRain design goals - it is left to the end-user of NeuronRain. There is a
-possibility that VIRGO kernel completely becomes a self-sufficient kernel with no need for overlay build on linux mainline. Crucial
-reason for 64-bit of VIRGO on 4.10.3 is the randomly witnessed i915 related panics in 4.1.5 virgo system calls and drivers. Mainline
-4.10.3 kernel has major updates to i915 intel graphics drivers. It is still to be verified if upgrade to 4.10.3 and 64-bit addressing in any
-way resolves these random virgo_<syscall> panics.
+break in version v+delta . Certifying and Porting VIRGO linux code base on each and every kernel version is beyond the scope of NeuronRain design goals - it is left to the end-user of NeuronRain. There is a possibility that VIRGO kernel completely becomes a self-sufficient kernel with no need for overlay build on linux mainline. Crucial reason for 64-bit of VIRGO on 4.10.3 and now on 4.13.3 is the randomly witnessed i915 related panics in 4.1.5 virgo system calls and drivers. Mainline 4.10.3 kernel has major updates to i915 intel graphics drivers. It has been verified upgrade to 4.10.3 and 64-bit addressing resolves these random virgo_<syscall> panics almost completely. Recent upgrade to 4.13.3 further strengthens the stability of VIRGO64 and has is more secure.
 
-10. More information and FAQ on NeuronRain VIRGO architecture is at: http://neuronrain-documentation.readthedocs.io/en/latest/. 64-bit Linux kernel version 4.10.3 has been found to be stabler in system calls-kernel module listeners end-to-end testing. Recent kernel mainline version 4.13 has in-built security for kernel sockets (KTLS) which integrates standalone af_ktls module into kernel tree at net/tls/.
+10. More information and FAQ on NeuronRain VIRGO architecture is at: http://neuronrain-documentation.readthedocs.io/en/latest/. 64-bit Linux kernel versions 4.10.3 and 4.13.3 have been found to be stabler in system calls-kernel module listeners end-to-end testing. Recent kernel mainline version 4.13 has in-built security for kernel sockets (KTLS) which integrates standalone af_ktls module into kernel tree at net/tls/. Because of its importance, base kernel version of VIRGO64 has been upgraded from 4.10.3 to 4.13.3 and all system calls and drivers code has been rebuilt inducting setsockopt(TX_TLS) encrypting all client-server kernel sockets traffic throughout.
