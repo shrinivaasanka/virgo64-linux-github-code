@@ -1414,6 +1414,12 @@ VIRGO64 linux fork-off kernelspace traffic.
 (*) After this upgrade, complete system calls to driver listener traffic is SSL enabled implicitly.
 (*) Updated kernel object files for 4.13.3 build are part of this commit.
 
+--------------------------------------------------------------------------------------------
+Commits - Remnant commits for 4.13.3 upgrade - 24 September 2017
+--------------------------------------------------------------------------------------------
+Updated init.h and syscalls.h headers for virgo system calls
+
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
