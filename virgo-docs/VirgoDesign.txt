@@ -1419,6 +1419,16 @@ Commits - Remnant commits for 4.13.3 upgrade - 24 September 2017
 --------------------------------------------------------------------------------------------
 Updated init.h and syscalls.h headers for virgo system calls
 
+-------------------------------------------------------------------------------------------------------------------------------------------
+Commits - VIRGO64 4.13.3 KTLS Upgrade - System Calls-Driver Listeners End-to-End encrypted traffic testing - 25 September 2017
+-------------------------------------------------------------------------------------------------------------------------------------------
+(*) VIRGO64 CPU/KMemCache/CloudFS system calls have been invoked by userspace testcases and all primitives work after 4.13.3 KTLS upgrade
+(*) Some small modifications to system calls code have been made and rebuilt to remove redundant iovbuf variables in printk(s)
+(*) test_virgo_filesystem.c testcase has been updated and rebuilt
+(*) kern.log(s) for CPU/KMemCache/CloudFS systemcalls to driver listeners invocations have been committed to respective system call
+directories
+(*) virgofstest.txt written to by virgo_write() has also been committed. But a weird behaviour is still observed similar to previous linux kernel versions (4.1.5 and 4.10.3): Repetitive invocations are required to flush the filesystem buffer to force write the file.
+(*) No DRM GEM i915 panics are observed and stability of VIRGO64 + 4.13.3 linux kernel is more or equal to VIRGO64 + 4.10.3 linux kernel
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
