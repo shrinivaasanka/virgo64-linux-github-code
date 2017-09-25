@@ -1429,7 +1429,12 @@ Commits - VIRGO64 4.13.3 KTLS Upgrade - System Calls-Driver Listeners End-to-End
 directories
 (*) virgofstest.txt written to by virgo_write() has also been committed. But a weird behaviour is still observed similar to previous linux kernel versions (4.1.5 and 4.10.3): Repetitive invocations are required to flush the filesystem buffer to force write the file.
 (*) No DRM GEM i915 panics are observed and stability of VIRGO64 + 4.13.3 linux kernel is more or equal to VIRGO64 + 4.10.3 linux kernel
-
+------------------------------------------
+(*) VIRGO64 Queueing Kernel Module to KingCobra64 pub-sub kernel module telnet invocation has been tested (telnet - VIRGO64Queue - KingCobra64)
+(*) Despite KTLS, telnet connections are still accepted by KTLS enabled VIRGO64 queueing kernel socket listener and this could be a feature
+of KTLS defaulting to normal transport. All kernel sockets have default crypto_info set to string "tls".
+(*) VIRGO64 Queue, CPU, KMemCache now use the ktime_get() and ktime_to_ns() current time primitives in lieu of deprecated CURRENT_TIME macros.
+Advantage is ktime_to_ns() prints timestamp in nanoseconds in place of epochal microseconds in earlier versions.
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
