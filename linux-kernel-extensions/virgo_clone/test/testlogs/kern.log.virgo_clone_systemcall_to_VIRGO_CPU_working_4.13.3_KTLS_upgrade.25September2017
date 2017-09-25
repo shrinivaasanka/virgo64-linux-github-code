@@ -1,0 +1,149 @@
+Sep 25 11:55:28 localhost kernel: [  503.641523] virgo_cloud_test_kernelspace: loading out-of-tree module taints kernel.
+Sep 25 11:55:28 localhost kernel: [  503.641982] virgo_cloud_test_kernelspace: module verification failed: signature and/or required key missing - tainting kernel
+Sep 25 11:55:28 localhost kernel: [  503.644893] virgo_cloud_test_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Sep 25 11:55:36 localhost kernel: [  511.545204] virgo_cloudexec: Unknown symbol virgo_kernel_analytics_conf (err 0)
+Sep 25 11:55:51 localhost kernel: [  527.035663] virgokernel_analytics_init(): initializing virgo kernel_analytics kernel module 
+Sep 25 11:55:51 localhost kernel: [  527.035668] virgokernel_analytics_init(): invoking read_virgo_kernel_analytics()
+Sep 25 11:55:51 localhost kernel: [  527.035671] virgo kernel_analytics kernel service: read_virgo_kernel_analytics(): virgo_cloud kernel_analytics being read... 
+Sep 25 11:55:51 localhost kernel: [  527.035855] read_virgo_kernel_analytics(): virgo_cloud kernel_analytics file being read 
+Sep 25 11:55:51 localhost kernel: [  527.053040] read_virgo_kernel_analytics_config() parsed analytics variable: kernel_analytics1 = v1 
+Sep 25 11:55:51 localhost kernel: [  527.053094] read_virgo_kernel_analytics_config() parsed analytics variable: kernel_analytics2 = v2 
+Sep 25 11:55:51 localhost kernel: [  527.053145] read_virgo_kernel_analytics_config() parsed analytics variable: kernel_analytics3 = v3
+Sep 25 11:55:51 localhost kernel: [  527.053145]  
+Sep 25 11:55:51 localhost kernel: [  527.053954] insmod (2373) used greatest stack depth: 22920 bytes left
+Sep 25 11:56:09 localhost kernel: [  544.110189] virgocloudexec_init(): doing init() of virgocloudexec kernel module
+Sep 25 11:56:09 localhost kernel: [  544.110193] virgocloudexec_init(): starting virgo cloudexec service kernel thread
+Sep 25 11:56:09 localhost kernel: [  544.110197] virgocloudexec_init(): exported kernel_analytics variable: kernel_analytics1 = v1 
+Sep 25 11:56:09 localhost kernel: [  544.110201] virgocloudexec_init(): exported kernel_analytics variable: kernel_analytics2 = v2 
+Sep 25 11:56:09 localhost kernel: [  544.110204] virgocloudexec_init(): exported kernel_analytics variable: kernel_analytics3 = v3
+Sep 25 11:56:09 localhost kernel: [  544.110204]  
+Sep 25 11:56:09 localhost kernel: [  544.110208] virgocloudexec_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 11:56:09 localhost kernel: [  544.110211] virgocloudexec_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 11:56:09 localhost kernel: [  544.110214] virgocloudexec_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 11:56:09 localhost kernel: [  544.110217] virgocloudexec_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 11:56:09 localhost kernel: [  544.110220] virgocloudexec_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 11:56:09 localhost kernel: [  544.110223] virgocloudexec_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 11:56:09 localhost kernel: [  544.110226] virgocloudexec_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 11:56:09 localhost kernel: [  544.110228] virgocloudexec_init(): invoking read_virgo_config()
+Sep 25 11:56:09 localhost kernel: [  544.110403] read_virgo_config(): virgo_cloud config file being read 
+Sep 25 11:56:09 localhost kernel: [  544.119353] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 192.168.2.80
+Sep 25 11:56:09 localhost kernel: [  544.119353]  
+Sep 25 11:56:09 localhost kernel: [  544.119376] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 25 11:56:09 localhost kernel: [  544.119376] 
+Sep 25 11:56:09 localhost kernel: [  544.119380] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 25 11:56:09 localhost kernel: [  544.119380] 
+Sep 25 11:56:09 localhost kernel: [  544.119400] tokenize_list_of_ip_addrs(): virgocpupooling_node_ip_addrs_in_cloud[0] = 192.168.2.80
+Sep 25 11:56:09 localhost kernel: [  544.119400] 
+Sep 25 11:56:09 localhost kernel: [  544.125034] virgocloudexec_init(): sock_create() returns error code: 0
+Sep 25 11:56:09 localhost kernel: [  544.125061] virgocloudexec_init(): kernel_bind() returns error code: 0
+Sep 25 11:56:09 localhost kernel: [  544.125069] virgocloudexec_init(): kernel_listen() returns error code: 0
+Sep 25 11:56:09 localhost kernel: [  544.125072] virgo_cloudexec_service(): virgo_ops.virgo_create() 
+Sep 25 11:56:59 localhost kernel: [  594.467235] read_virgo_config(): virgo_client.config file being read 
+Sep 25 11:56:59 localhost kernel: [  594.473832] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 192.168.2.80
+Sep 25 11:56:59 localhost kernel: [  594.473832]  
+Sep 25 11:56:59 localhost kernel: [  594.473852] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 25 11:56:59 localhost kernel: [  594.473852] 
+Sep 25 11:56:59 localhost kernel: [  594.473855] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 25 11:56:59 localhost kernel: [  594.473855] 
+Sep 25 11:56:59 localhost kernel: [  594.473870] tokenize_list_of_ip_addrs(): virgocpupooling_node_ip_addrs_in_client[0] = 192.168.2.80
+Sep 25 11:56:59 localhost kernel: [  594.473870] 
+Sep 25 11:56:59 localhost kernel: [  594.473888] get_host_from_cloud_PRG() - get_random_int() returned 3654977216 
+Sep 25 11:56:59 localhost kernel: [  594.473893] get_host_from_cloud_PRG() range mapping for 1 cloud nodes(virgocpupooling_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 192.168.2.80
+Sep 25 11:56:59 localhost kernel: [  594.473893]  
+Sep 25 11:56:59 localhost kernel: [  594.473897] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() - cloud_host(before kstrdup): 192.168.2.80
+Sep 25 11:56:59 localhost kernel: [  594.473897]  
+Sep 25 11:56:59 localhost kernel: [  594.473910] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: 192.168.2.80
+Sep 25 11:56:59 localhost kernel: [  594.473910]  
+Sep 25 11:56:59 localhost kernel: [  594.473914] ==================================================================
+Sep 25 11:56:59 localhost kernel: [  594.473933] BUG: KASAN: user-memory-access in strcpy+0x23/0x50
+Sep 25 11:56:59 localhost kernel: [  594.473942] Read of size 1 at addr 00000000004005e4 by task test_virgo_clon/2410
+Sep 25 11:56:59 localhost kernel: [  594.473947] 
+Sep 25 11:56:59 localhost kernel: [  594.473957] CPU: 0 PID: 2410 Comm: test_virgo_clon Tainted: G           OE   4.13.3 #2
+Sep 25 11:56:59 localhost kernel: [  594.473961] Hardware name: Dell Inc. Inspiron 1545                   /0J037P, BIOS A14 12/07/2009
+Sep 25 11:56:59 localhost kernel: [  594.473964] Call Trace:
+Sep 25 11:56:59 localhost kernel: [  594.473974]  dump_stack+0x63/0x8d
+Sep 25 11:56:59 localhost kernel: [  594.473982]  kasan_report+0x10b/0x370
+Sep 25 11:56:59 localhost kernel: [  594.473988]  ? strcpy+0x23/0x50
+Sep 25 11:56:59 localhost kernel: [  594.473995]  __asan_load1+0x47/0x50
+Sep 25 11:56:59 localhost kernel: [  594.474000]  strcpy+0x23/0x50
+Sep 25 11:56:59 localhost kernel: [  594.474008]  sys_virgo_clone+0x13a/0x360
+Sep 25 11:56:59 localhost kernel: [  594.474016]  ? virgocpupooling_read_virgo_config_client+0x310/0x310
+Sep 25 11:56:59 localhost kernel: [  594.474023]  ? ___slab_alloc.constprop.64+0x462/0x4b0
+Sep 25 11:56:59 localhost kernel: [  594.474028]  ? ___slab_alloc.constprop.64+0x462/0x4b0
+Sep 25 11:56:59 localhost kernel: [  594.474034]  ? mempool_alloc_slab+0x15/0x20
+Sep 25 11:56:59 localhost kernel: [  594.474041]  ? kasan_unpoison_shadow+0x36/0x50
+Sep 25 11:56:59 localhost kernel: [  594.474047]  ? kasan_kmalloc+0xad/0xe0
+Sep 25 11:56:59 localhost kernel: [  594.474054]  ? kasan_slab_alloc+0x12/0x20
+Sep 25 11:56:59 localhost kernel: [  594.474059]  ? kmem_cache_alloc+0xc0/0x1f0
+Sep 25 11:56:59 localhost kernel: [  594.474065]  ? mempool_kmalloc+0x20/0x20
+Sep 25 11:56:59 localhost kernel: [  594.474071]  ? mempool_alloc_slab+0x15/0x20
+Sep 25 11:56:59 localhost kernel: [  594.474076]  ? mempool_alloc+0x116/0x280
+Sep 25 11:56:59 localhost kernel: [  594.474083]  ? sg_next+0x35/0x60
+Sep 25 11:56:59 localhost kernel: [  594.474090]  ? blk_rq_map_sg+0x6fc/0xba0
+Sep 25 11:56:59 localhost kernel: [  594.474098]  ? blk_recount_segments+0x270/0x270
+Sep 25 11:56:59 localhost kernel: [  594.474103]  ? __sg_alloc_table+0x135/0x1f0
+Sep 25 11:56:59 localhost kernel: [  594.474110]  ? sg_free_table_chained+0x50/0x50
+Sep 25 11:56:59 localhost kernel: [  594.474119]  ? scsi_init_sgtable+0xcc/0x110
+Sep 25 11:56:59 localhost kernel: [  594.474126]  ? scsi_init_io+0x131/0x320
+Sep 25 11:56:59 localhost kernel: [  594.474135]  ? sd_init_command+0xa9e/0x1b30
+Sep 25 11:56:59 localhost kernel: [  594.474142]  ? ata_build_rw_tf+0x18a/0x440
+Sep 25 11:56:59 localhost kernel: [  594.474148]  ? ata_tf_to_fis+0x21f/0x240
+Sep 25 11:56:59 localhost kernel: [  594.474152]  ? sg_next+0x22/0x60
+Sep 25 11:56:59 localhost kernel: [  594.474169]  ? ahci_qc_prep+0x1b6/0x2e0 [libahci]
+Sep 25 11:56:59 localhost kernel: [  594.474183]  ? ahci_qc_issue+0x1f7/0x2a0 [libahci]
+Sep 25 11:56:59 localhost kernel: [  594.474190]  ? ata_qc_issue+0x3fb/0x4e0
+Sep 25 11:56:59 localhost kernel: [  594.474199]  ? ata_scsi_translate+0x163/0x2a0
+Sep 25 11:56:59 localhost kernel: [  594.474205]  ? __calc_delta+0xa4/0x120
+Sep 25 11:56:59 localhost kernel: [  594.474212]  ? deadline_dispatch_requests+0x1fb/0x360
+Sep 25 11:56:59 localhost kernel: [  594.474217]  ? update_min_vruntime+0x5d/0xc0
+Sep 25 11:56:59 localhost kernel: [  594.474223]  ? __accumulate_pelt_segments+0x47/0xe0
+Sep 25 11:56:59 localhost kernel: [  594.474229]  ? update_cfs_shares+0x182/0x1b0
+Sep 25 11:56:59 localhost kernel: [  594.474235]  ? dequeue_entity+0x566/0x10f0
+Sep 25 11:56:59 localhost kernel: [  594.474242]  ? pick_next_task_fair+0x3c2/0xa20
+Sep 25 11:56:59 localhost kernel: [  594.474248]  ? __asan_storeN+0x12/0x20
+Sep 25 11:56:59 localhost kernel: [  594.474255]  ? native_load_sp0+0x29/0x40
+Sep 25 11:56:59 localhost kernel: [  594.474262]  ? __switch_to+0x39f/0x700
+Sep 25 11:56:59 localhost kernel: [  594.474269]  ? compat_start_thread+0x60/0x60
+Sep 25 11:56:59 localhost kernel: [  594.474276]  ? finish_task_switch+0x94/0x2f0
+Sep 25 11:56:59 localhost kernel: [  594.474282]  ? put_prev_task_fair+0x3d/0x50
+Sep 25 11:56:59 localhost kernel: [  594.474289]  ? __schedule+0x6b4/0xd60
+Sep 25 11:56:59 localhost kernel: [  594.474296]  ? pci_mmcfg_check_reserved+0xd0/0xd0
+Sep 25 11:56:59 localhost kernel: [  594.474304]  ? finish_wait+0xc1/0xd0
+Sep 25 11:56:59 localhost kernel: [  594.474311]  ? __lock_page_or_retry+0x334/0x4d0
+Sep 25 11:56:59 localhost kernel: [  594.474317]  ? wait_on_page_bit_killable+0x270/0x270
+Sep 25 11:56:59 localhost kernel: [  594.474323]  ? radix_tree_lookup_slot+0x67/0xb0
+Sep 25 11:56:59 localhost kernel: [  594.474329]  ? __radix_tree_lookup+0x160/0x160
+Sep 25 11:56:59 localhost kernel: [  594.474336]  ? move_freepages_block+0x260/0x260
+Sep 25 11:56:59 localhost kernel: [  594.474342]  ? unwind_get_return_address+0x36/0x50
+Sep 25 11:56:59 localhost kernel: [  594.474348]  ? page_cache_tree_insert+0x220/0x220
+Sep 25 11:56:59 localhost kernel: [  594.474355]  ? lock_page_memcg+0x30/0xe0
+Sep 25 11:56:59 localhost kernel: [  594.474361]  ? __mod_node_page_state+0x23/0x70
+Sep 25 11:56:59 localhost kernel: [  594.474367]  ? unlock_page_memcg+0x2b/0x80
+Sep 25 11:56:59 localhost kernel: [  594.474373]  ? native_set_pte_at+0x27/0x40
+Sep 25 11:56:59 localhost kernel: [  594.474380]  ? alloc_set_pte+0x4c6/0x8e0
+Sep 25 11:56:59 localhost kernel: [  594.474385]  ? unlock_page+0x16/0x40
+Sep 25 11:56:59 localhost kernel: [  594.474391]  ? filemap_map_pages+0x208/0x580
+Sep 25 11:56:59 localhost kernel: [  594.474397]  ? add_to_page_cache_lru+0x190/0x190
+Sep 25 11:56:59 localhost kernel: [  594.474406]  ? ext4_filemap_fault+0x57/0x60
+Sep 25 11:56:59 localhost kernel: [  594.474413]  ? __handle_mm_fault+0xd60/0x1430
+Sep 25 11:56:59 localhost kernel: [  594.474419]  ? __pmd_alloc+0x1b0/0x1b0
+Sep 25 11:56:59 localhost kernel: [  594.474426]  ? rcu_segcblist_enqueue+0x76/0x90
+Sep 25 11:56:59 localhost kernel: [  594.474433]  ? memset+0x31/0x40
+Sep 25 11:56:59 localhost kernel: [  594.474440]  ? handle_mm_fault+0x1fa/0x2e0
+Sep 25 11:56:59 localhost kernel: [  594.474447]  ? __do_page_fault+0x551/0x650
+Sep 25 11:56:59 localhost kernel: [  594.474456]  entry_SYSCALL_64_fastpath+0x1e/0xa9
+Sep 25 11:56:59 localhost kernel: [  594.474461] RIP: 0033:0x7f703caaf1f9
+Sep 25 11:56:59 localhost kernel: [  594.474465] RSP: 002b:00007ffca8ee73d8 EFLAGS: 00000206 ORIG_RAX: 0000000000000224
+Sep 25 11:56:59 localhost kernel: [  594.474472] RAX: ffffffffffffffda RBX: 0000000000000000 RCX: 00007f703caaf1f9
+Sep 25 11:56:59 localhost kernel: [  594.474476] RDX: 0000000000000000 RSI: 00007ffca8ee74f8 RDI: 00000000004005e4
+Sep 25 11:56:59 localhost kernel: [  594.474481] RBP: 00007ffca8ee7400 R08: 00000000f7cf4940 R09: 00007ffca8ee74e8
+Sep 25 11:56:59 localhost kernel: [  594.474485] R10: 00000000004005d0 R11: 0000000000000206 R12: 0000000000400430
+Sep 25 11:56:59 localhost kernel: [  594.474489] R13: 00007ffca8ee74e0 R14: 0000000000000000 R15: 0000000000000000
+Sep 25 11:56:59 localhost kernel: [  594.474494] ==================================================================
+Sep 25 11:56:59 localhost kernel: [  594.474500] Disabling lock debugging due to kernel taint
+Sep 25 11:56:59 localhost kernel: [  594.474565] virgo_clone() syscall: created client kernel socket
+Sep 25 11:56:59 localhost kernel: [  594.474573] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 25 11:56:59 localhost kernel: [  594.474573]  
+Sep 25 11:56:59 localhost kernel: [  594.474581] virgo_clone() syscall: sent message: virgo_cloud_test_kernelspace 
+Sep 25 11:56:59 localhost kernel: [  594.474587] virgo_clone() syscall: received message: virgo_cloud_test_kernelspace 
+Sep 25 11:56:59 localhost kernel: [  594.474621] virgo_clone() syscall: virgo_clone() client socket_release() invoked

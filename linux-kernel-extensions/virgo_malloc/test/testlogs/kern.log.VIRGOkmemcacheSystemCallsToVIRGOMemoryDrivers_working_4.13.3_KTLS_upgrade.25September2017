@@ -1,0 +1,374 @@
+root@localhost:/media/ka_shrinivaasan/6944b01d-ff0d-43eb-8699-cca469511742/home/shrinivaasanka/Krishna_iResearch_OpenSource/GitHub/virgo64-linux-github-code/linux-kernel-extensions/virgo_malloc/test# ./test_virgo_malloc 
+vuid malloc-ed : 18446744072448348992 
+virgo_set() data to set: DataSet
+virgo_get() data : DataSet
+===================================================================================================================================
+Sep 25 12:01:24 localhost kernel: [  859.168625] ---[ end trace 5ab36bf430820fc0 ]---
+Sep 25 12:01:44 localhost kernel: [  880.017321] virgo_cloud_mempool_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Sep 25 12:01:44 localhost kernel: [  880.017336] virgo_cloud_mempool_kernelspace_init(): test_str=ef098363, test_ul=4010378083
+Sep 25 12:01:49 localhost kernel: [  885.038839] virgo_cloudexec_mempool: Unknown symbol skbuff_kernel_socket_debug2 (err 0)
+Sep 25 12:02:02 localhost kernel: [  897.600570] virgo_generic_kernelsock_client_init(): initialising virgo cloud test kernel space module 
+Sep 25 12:02:02 localhost kernel: [  897.600589] eventnet_log() : after in4_pton and htons, hostip=192.168.2.80, port=20000, sin.sin_addr.s_addr=5002a8c0, sin.sin_port=204e
+Sep 25 12:02:02 localhost kernel: [  897.600677] eventnet_log() : created client kernel socket
+Sep 25 12:02:02 localhost kernel: [  897.600691] eventnet_log() : connected kernel client to virgo cloudexec EventNet kernel service
+Sep 25 12:02:02 localhost kernel: [  897.600691]  
+Sep 25 12:02:02 localhost kernel: [  897.600700] eventnet_log() : sent len=-32; iov.iov_base=eventnet_edgemsg#1#2#, sent message: eventnet_edgemsg#1#2# 
+Sep 25 12:02:02 localhost kernel: [  897.600715] eventnet_log() : recv len=-107; received message buf: [eventnet_edgemsg#1#2#] 
+Sep 25 12:02:02 localhost kernel: [  897.600721] eventnet_log() : received iov.iov_base: eventnet_edgemsg#1#2# 
+Sep 25 12:02:02 localhost kernel: [  897.600727] eventnet_log() : le32_to_cpus(buf): eventnet_edgemsg#1#2# 
+Sep 25 12:02:02 localhost kernel: [  897.600732] eventnet_log() : invoking skbuff utility debug function ... 
+Sep 25 12:02:02 localhost kernel: [  897.600737] in skbuff_kernel_socket_debug() 
+Sep 25 12:02:02 localhost kernel: [  897.600742] skbuff_kernel_socket_debug(): sock = 8943e680 
+Sep 25 12:02:02 localhost kernel: [  897.600748] skbuff_kernel_socket_debug(): sock->sk is not NULL : 572be1c0 
+Sep 25 12:02:02 localhost kernel: [  897.600754] skbuff_kernel_socket_debug(): sock->ops is not NULL : b41e4a20 
+Sep 25 12:02:02 localhost kernel: [  897.600759] skbuff_kernel_socket_debug(): sock->sk->sk_send_head is NULL, doing alloc_skb() to sk_send_head 
+Sep 25 12:02:09 localhost kernel: [  904.879487] virgocloudexec_mempool_init(): doing init() of virgocloudexec_mempool kernel module
+Sep 25 12:02:09 localhost kernel: [  904.879499] virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread
+Sep 25 12:02:09 localhost kernel: [  904.879507] virgocloudexec_mempool_init(): exported kernel_analytics variable: kernel_analytics1 = v1 
+Sep 25 12:02:09 localhost kernel: [  904.879513] virgocloudexec_mempool_init(): exported kernel_analytics variable: kernel_analytics2 = v2 
+Sep 25 12:02:09 localhost kernel: [  904.879520] virgocloudexec_mempool_init(): exported kernel_analytics variable: kernel_analytics3 = v3
+Sep 25 12:02:09 localhost kernel: [  904.879520]  
+Sep 25 12:02:09 localhost kernel: [  904.879528] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 12:02:09 localhost kernel: [  904.879534] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 12:02:09 localhost kernel: [  904.879540] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 12:02:09 localhost kernel: [  904.879546] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 12:02:09 localhost kernel: [  904.879552] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 12:02:09 localhost kernel: [  904.879558] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 12:02:09 localhost kernel: [  904.879564] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null) 
+Sep 25 12:02:09 localhost kernel: [  904.879569] virgocloudexec_mempool_init(): invoking read_virgo_config()
+Sep 25 12:02:09 localhost kernel: [  904.879667] read_virgo_config(): virgo_cloud config file being read 
+Sep 25 12:02:09 localhost kernel: [  904.879685] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 192.168.2.80
+Sep 25 12:02:09 localhost kernel: [  904.879685]  
+Sep 25 12:02:09 localhost kernel: [  904.879709] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 25 12:02:09 localhost kernel: [  904.879709] 
+Sep 25 12:02:09 localhost kernel: [  904.879717] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 25 12:02:09 localhost kernel: [  904.879717] 
+Sep 25 12:02:09 localhost kernel: [  904.879741] tokenize_list_of_ip_addrs(): virgomemorypooling_node_ip_addrs_in_cloud[0] = 192.168.2.80
+Sep 25 12:02:09 localhost kernel: [  904.879741] 
+Sep 25 12:02:09 localhost kernel: [  904.879821] virgocloudexec_mempool_init(): sock_create() returns error code: 0, sock=80bbbbc0
+Sep 25 12:02:09 localhost kernel: [  904.879849] virgocloudexec_mempool_init(): kernel_bind() returns error code: 0
+Sep 25 12:02:09 localhost kernel: [  904.879858] virgocloudexec_mempool_init(): kernel_listen() returns error code: 0
+Sep 25 12:02:09 localhost kernel: [  904.879864] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Sep 25 12:02:09 localhost kernel: [  904.879870] virgocloudexec_mempool_create(): before kernel_accept(); sock=80bbbbc0 ... 
+Sep 25 12:02:23 localhost kernel: [  918.625403] read_virgo_config(): virgo_client.config file being read 
+Sep 25 12:02:23 localhost kernel: [  918.625426] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625426]  
+Sep 25 12:02:23 localhost kernel: [  918.625447] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625447] 
+Sep 25 12:02:23 localhost kernel: [  918.625455] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625455] 
+Sep 25 12:02:23 localhost kernel: [  918.625474] tokenize_list_of_ip_addrs(): virgomemorypooling_node_ip_addrs_in_cloud_client[0] = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625474] 
+Sep 25 12:02:23 localhost kernel: [  918.625497] get_host_from_cloud_PRG_mempool() - get_random_int() returned 3003796411 
+Sep 25 12:02:23 localhost kernel: [  918.625505] get_host_from_cloud_PRG_mempool() range mapping for 1 cloud nodes(virgomemorypooling_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625505]  
+Sep 25 12:02:23 localhost kernel: [  918.625514] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625514]  
+Sep 25 12:02:23 localhost kernel: [  918.625532] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625532]  
+Sep 25 12:02:23 localhost kernel: [  918.625540] virgo_malloc() syscall: leastloadedhostport->port=30000
+Sep 25 12:02:23 localhost kernel: [  918.625544] virgo_malloc() syscall: leastloadedhostport->hostip=192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625557] virgo_malloc() syscall: after in4_pton and htons, leastloadedhostport->hostip=192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.625557] , leastloadedhostport->port=30000, sin.sin_addr.s_addr=0, sin.sin_port=3075
+Sep 25 12:02:23 localhost kernel: [  918.625566] virgo_malloc() syscall: size=1000, sum_alloc_size=0 
+Sep 25 12:02:23 localhost kernel: [  918.625572] 1. virgo_malloc() syscall: size=1000, sum_alloc_size=0, chunk_size=1000
+Sep 25 12:02:23 localhost kernel: [  918.625643] virgo_malloc() syscall: created client kernel socket
+Sep 25 12:02:23 localhost kernel: [  918.626236] virgocloudexec_mempool_create(): after kernel_accept() : error = 0 
+Sep 25 12:02:23 localhost kernel: [  918.626243] virgocloudexec_mempool_create(): after skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.626249] virgo_cloudexec_mempool_service(): before skbuff_kernel_socket_debug() 
+Sep 25 12:02:23 localhost kernel: [  918.626254] in skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.626259] skbuff_kernel_socket_debug2(): sock = 80bb8040 
+Sep 25 12:02:23 localhost kernel: [  918.626265] skbuff_kernel_socket_debug2(): sock->sk is not NULL : 572bd800 
+Sep 25 12:02:23 localhost kernel: [  918.626271] skbuff_kernel_socket_debug2(): sock->ops is not NULL : b41e4a20 
+Sep 25 12:02:23 localhost kernel: [  918.626277] skbuff_kernel_socket_debug2(): sock->sk->sk_route_caps is not NULL : 2151382121ll 
+Sep 25 12:02:23 localhost kernel: [  918.626283] skbuff_kernel_socket_debug2(): sock->sk->sk_prot is not NULL, sock->sk->sk_prot->no_autobind=1 
+Sep 25 12:02:23 localhost kernel: [  918.626288] skbuff_kernel_socket_debug2(): sock->sk->sk_send_head is NULL 
+Sep 25 12:02:23 localhost kernel: [  918.626293] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Sep 25 12:02:23 localhost kernel: [  918.626517] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000)
+Sep 25 12:02:23 localhost kernel: [  918.626708] virgo_malloc() syscall: sent len=3000; iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000), iovbuf= 
+Sep 25 12:02:23 localhost kernel: [  918.626986] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Sep 25 12:02:23 localhost kernel: [  918.626994] virgocloudexec_mempool_create(): before kernel_accept(); sock=80bbbbc0 ... 
+Sep 25 12:02:23 localhost kernel: [  918.627065] virgo_mempool_client_thread(): before skbuff_kernel_socket_debug()
+Sep 25 12:02:23 localhost kernel: [  918.627071] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Sep 25 12:02:23 localhost kernel: [  918.627076] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Sep 25 12:02:23 localhost kernel: [  918.627087] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 25 12:02:23 localhost kernel: [  918.627109] strip_control_M(): str=virgo_cloud_malloc(1000) before strsep
+Sep 25 12:02:23 localhost kernel: [  918.627129] strip_control_M(): newstr=virgo_cloud_malloc(1000) after carriage return newline strsep
+Sep 25 12:02:23 localhost kernel: [  918.627136] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_malloc(1000), buffer: virgo_cloud_malloc(1000)
+Sep 25 12:02:23 localhost kernel: [  918.627143] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_malloc(1000) 
+Sep 25 12:02:23 localhost kernel: [  918.627196] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_malloc
+Sep 25 12:02:23 localhost kernel: [  918.627218] parse_virgomempool_command: vmargs->mempool_args[0]: 1000
+Sep 25 12:02:23 localhost kernel: [  918.627224] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Sep 25 12:02:23 localhost kernel: [  918.627232] Creating Kernel Thread for virgo_cloud_malloc in virgo_cloud_mempool_kernelspace mempool driver module with mempool_args[0]=1000, mempool_args[1]=(null)
+Sep 25 12:02:23 localhost kernel: [  918.627266] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_malloc_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Sep 25 12:02:23 localhost kernel: [  918.627273] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size str=1000
+Sep 25 12:02:23 localhost kernel: [  918.627281] toInteger(): strInt=[1000], integer=1000
+Sep 25 12:02:23 localhost kernel: [  918.627287] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size=1000
+Sep 25 12:02:23 localhost kernel: [  918.627318] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): ptr=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.627324] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): setting ptr=ffff88001ef6d608 in vmargs as an out arg
+Sep 25 12:02:23 localhost kernel: [  918.627331] mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.627336] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Sep 25 12:02:23 localhost kernel: [  918.627357] virgocloudexec_mempool_sendto(): virgo_mempool_ret=kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+Sep 25 12:02:23 localhost kernel: [  918.627372] virgocloudexec_mempool_sendto(): address sent=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.627402] toAddressString(): address=ffff88001ef6d608, sprintf strAddress=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.627409] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.627510] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Sep 25 12:02:23 localhost kernel: [  918.627643] virgo_malloc() syscall: recv len=500 
+Sep 25 12:02:23 localhost kernel: [  918.627650] virgo_malloc() syscall: received iov.iov_base: ffff88001ef6d608 
+Sep 25 12:02:23 localhost kernel: [  918.627658] str_to_addr2(): straddr=[ffff88001ef6d608], lltovoidptr = ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.627665] virgo_malloc() syscall: vtranstable.vtable[0].addr=ffff88001ef6d608 
+Sep 25 12:02:23 localhost kernel: [  918.627676] virgo_malloc() syscall: next_vtable_entry=0, vtranstable.vtable[next_vtable_entry].node_id=0, vtranstable.vtable[next_vtable_entry].addr=ffff88001ef6d608, vtranstable.vtable[next_vtable_entry].hstprt->hostip=192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.627676] , vtranstable.vtable[next_vtable_entry].hstprt->port=30000 
+Sep 25 12:02:23 localhost kernel: [  918.627771] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Sep 25 12:02:23 localhost kernel: [  918.627778] virgo_malloc() syscall: size to be allocated = 1000, sum_alloc_size = 1000 
+Sep 25 12:02:23 localhost kernel: [  918.627783] virgo_malloc() syscall: sum_alloc_size == size, breaking while loop
+Sep 25 12:02:23 localhost kernel: [  918.627790] virgo_malloc() syscall: returning &(vtranstable.vtable[this_allocation_start_entry]) == ffffffffb4d39340
+Sep 25 12:02:23 localhost kernel: [  918.627797] addr_to_virgo_unique_id(): vaddr=ffffffffb4d39340, uvid=18446744072448348992
+Sep 25 12:02:23 localhost kernel: [  918.627802] virgo_malloc() system_call: before vuid memcpy()
+Sep 25 12:02:23 localhost kernel: [  918.627808] virgo_malloc() system_call: after vuid memcpy()
+Sep 25 12:02:23 localhost kernel: [  918.640272] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Sep 25 12:02:23 localhost kernel: [  918.645067] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.645067] 
+Sep 25 12:02:23 localhost kernel: [  918.645082] read_virgo_config(): virgo_client.config file being read 
+Sep 25 12:02:23 localhost kernel: [  918.645098] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.645098]  
+Sep 25 12:02:23 localhost kernel: [  918.645120] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.645120] 
+Sep 25 12:02:23 localhost kernel: [  918.645128] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.645128] 
+Sep 25 12:02:23 localhost kernel: [  918.645148] tokenize_list_of_ip_addrs(): virgomemorypooling_node_ip_addrs_in_cloud_client[0] = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.645148] 
+Sep 25 12:02:23 localhost kernel: [  918.645158] virgo_set() system call: before virgo_unique_id_to_addr()
+Sep 25 12:02:23 localhost kernel: [  918.645167] virgo_unique_id_to_addr(): vaddr=ffffffffb4d39340, virgo_unique_id=18446744072448348992
+Sep 25 12:02:23 localhost kernel: [  918.645174] virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=ffffffffb4d39340
+Sep 25 12:02:23 localhost kernel: [  918.645181] virgo_set() system call: vuid=18446744072448348992, virgo address to set is vaddr=ffffffffb4d39340
+Sep 25 12:02:23 localhost kernel: [  918.645187] virgo_set() system call: vaddr->addr=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.645192] virgo_set() system_call: before memcpy()
+Sep 25 12:02:23 localhost kernel: [  918.645199] virgo_set() system_call: after memcpy()
+Sep 25 12:02:23 localhost kernel: [  918.645205] virgo_set() system call: vuid=18446744072448348992, data to set=DataSet
+Sep 25 12:02:23 localhost kernel: [  918.645227] addr_to_str(): addr=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.645233] addr_to_str(): ret=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.645238] virgo_set() system call: vaddr_addr_str=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.645242] virgo_set() system call: 1. virgo_set_cmd=virgo_cloud_set(ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.645249] virgo_set() system call: 2. virgo_set_cmd=virgo_cloud_set(ffff88001ef6d608,,data=DataSet
+Sep 25 12:02:23 localhost kernel: [  918.645256] virgo_set() system call: 3. virgo_set_cmd=virgo_cloud_set(ffff88001ef6d608,DataSet
+Sep 25 12:02:23 localhost kernel: [  918.645262] virgo_set() system call: 4. virgo_set_cmd=virgo_cloud_set(ffff88001ef6d608,DataSet)
+Sep 25 12:02:23 localhost kernel: [  918.645271] virgo_set() system call: tempbuf=virgo_cloud_set(ffff88001ef6d608,DataSet), buf=virgo_cloud_set(ffff88001ef6d608,DataSet), virgo_set_cmd = virgo_cloud_set(ffff88001ef6d608,DataSet)
+Sep 25 12:02:23 localhost kernel: [  918.645337] virgo_set() syscall: created client kernel socket
+Sep 25 12:02:23 localhost kernel: [  918.645871] virgo_set() syscall: connected kernel client to virgo cloudexec kernel service; before kernel_sendmsg(): iov.iov_base = virgo_cloud_set(ffff88001ef6d608,DataSet)
+Sep 25 12:02:23 localhost kernel: [  918.645871]  
+Sep 25 12:02:23 localhost kernel: [  918.646122] virgocloudexec_mempool_create(): after kernel_accept() : error = 0 
+Sep 25 12:02:23 localhost kernel: [  918.646135] virgocloudexec_mempool_create(): after skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.646140] virgo_cloudexec_mempool_service(): before skbuff_kernel_socket_debug() 
+Sep 25 12:02:23 localhost kernel: [  918.646147] in skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.646152] skbuff_kernel_socket_debug2(): sock = 847ceac0 
+Sep 25 12:02:23 localhost kernel: [  918.646158] skbuff_kernel_socket_debug2(): sock->sk is not NULL : 572bce40 
+Sep 25 12:02:23 localhost kernel: [  918.646163] skbuff_kernel_socket_debug2(): sock->ops is not NULL : b41e4a20 
+Sep 25 12:02:23 localhost kernel: [  918.646169] skbuff_kernel_socket_debug2(): sock->sk->sk_route_caps is not NULL : 2151382121ll 
+Sep 25 12:02:23 localhost kernel: [  918.646176] skbuff_kernel_socket_debug2(): sock->sk->sk_prot is not NULL, sock->sk->sk_prot->no_autobind=1 
+Sep 25 12:02:23 localhost kernel: [  918.646181] skbuff_kernel_socket_debug2(): sock->sk->sk_send_head is NULL 
+Sep 25 12:02:23 localhost kernel: [  918.646186] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Sep 25 12:02:23 localhost kernel: [  918.649693] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Sep 25 12:02:23 localhost kernel: [  918.649706] virgocloudexec_mempool_create(): before kernel_accept(); sock=80bbbbc0 ... 
+Sep 25 12:02:23 localhost kernel: [  918.649780] virgo_mempool_client_thread(): before skbuff_kernel_socket_debug()
+Sep 25 12:02:23 localhost kernel: [  918.649786] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Sep 25 12:02:23 localhost kernel: [  918.649791] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Sep 25 12:02:23 localhost kernel: [  918.649805] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 25 12:02:23 localhost kernel: [  918.649830] strip_control_M(): str=virgo_cloud_set(ffff88001ef6d608,DataSet) before strsep
+Sep 25 12:02:23 localhost kernel: [  918.649852] strip_control_M(): newstr=virgo_cloud_set(ffff88001ef6d608,DataSet) after carriage return newline strsep
+Sep 25 12:02:23 localhost kernel: [  918.649860] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_set(ffff88001ef6d608,DataSet), buffer: virgo_cloud_set(ffff88001ef6d608,DataSet)
+Sep 25 12:02:23 localhost kernel: [  918.649867] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_set(ffff88001ef6d608,DataSet) 
+Sep 25 12:02:23 localhost kernel: [  918.649924] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_set
+Sep 25 12:02:23 localhost kernel: [  918.649963] parse_virgomempool_command: vmargs->mempool_args[0]: ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.649969] parse_virgomempool_command: vmargs->mempool_args[1]: DataSet
+Sep 25 12:02:23 localhost kernel: [  918.649974] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Sep 25 12:02:23 localhost kernel: [  918.649982] Creating Kernel Thread for virgo_cloud_set in virgo_cloud_mempool_kernelspace mempool driver module with mempool_args[0]=ffff88001ef6d608, mempool_args[1]=DataSet
+Sep 25 12:02:23 localhost kernel: [  918.650019] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_set_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Sep 25 12:02:23 localhost kernel: [  918.650032] virgo_cloud_set_kernelspace(): vmargs->mempool_cmd=virgo_cloud_set, vmargs->mempool_args[0] = ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.650032] , vmargs->mempool_args[1]=DataSet 
+Sep 25 12:02:23 localhost kernel: [  918.650041] virgo_parse_integer(): *s=f, res=0
+Sep 25 12:02:23 localhost kernel: [  918.650046] virgo_parse_integer(): *s=f, res=15
+Sep 25 12:02:23 localhost kernel: [  918.650051] virgo_parse_integer(): *s=f, res=255
+Sep 25 12:02:23 localhost kernel: [  918.650057] virgo_parse_integer(): *s=f, res=4095
+Sep 25 12:02:23 localhost kernel: [  918.650062] virgo_parse_integer(): *s=8, res=65535
+Sep 25 12:02:23 localhost kernel: [  918.650067] virgo_parse_integer(): *s=8, res=1048568
+Sep 25 12:02:23 localhost kernel: [  918.650073] virgo_parse_integer(): *s=0, res=16777096
+Sep 25 12:02:23 localhost kernel: [  918.650078] virgo_parse_integer(): *s=0, res=268433536
+Sep 25 12:02:23 localhost kernel: [  918.650084] virgo_parse_integer(): *s=1, res=4294936576
+Sep 25 12:02:23 localhost kernel: [  918.650089] virgo_parse_integer(): *s=e, res=68718985217
+Sep 25 12:02:23 localhost kernel: [  918.650095] virgo_parse_integer(): *s=f, res=1099503763486
+Sep 25 12:02:23 localhost kernel: [  918.650105] virgo_parse_integer(): *s=6, res=17592060215791
+Sep 25 12:02:23 localhost kernel: [  918.650110] virgo_parse_integer(): *s=d, res=281472963452662
+Sep 25 12:02:23 localhost kernel: [  918.650116] virgo_parse_integer(): *s=6, res=4503567415242605
+Sep 25 12:02:23 localhost kernel: [  918.650122] virgo_parse_integer(): *s=0, res=72057078643881686
+Sep 25 12:02:23 localhost kernel: [  918.650127] virgo_parse_integer(): *s=8, res=1152913258302106976
+Sep 25 12:02:23 localhost kernel: [  918.650137] toKernelAddress(): virgo_parse_integer: ll3=-131940875839992, (char*)ll3=ffff88001ef6d608, (void*)ll3=ffff88001ef6d608, strAddress=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.650160] toKernelAddress(): virgo_parse_integer: data at (char*)ll3=[kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+Sep 25 12:02:23 localhost kernel: [  918.650179] virgo_cloud_set_kernelspace(): address set by toKernelAddress=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.650203] virgo_cloud_set_kernelspace(): address=ffff88001ef6d608, data to be set=DataSet, data pointed to after set=DataSet
+Sep 25 12:02:23 localhost kernel: [  918.650209] mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.650215] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Sep 25 12:02:23 localhost kernel: [  918.650220] virgocloudexec_mempool_sendto(): virgo_mempool_ret=DataSet
+Sep 25 12:02:23 localhost kernel: [  918.650226] virgocloudexec_mempool_sendto(): address sent=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.650255] toAddressString(): address=ffff88001ef6d608, sprintf strAddress=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.650262] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.650407] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Sep 25 12:02:23 localhost kernel: [  918.650536] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Sep 25 12:02:23 localhost kernel: [  918.650661] virgo_set() syscall: received message: ffff88001ef6d608 
+Sep 25 12:02:23 localhost kernel: [  918.650693] virgo_set() syscall: virgo_set() client socket_release() invoked
+Sep 25 12:02:23 localhost kernel: [  918.650801] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.650801] 
+Sep 25 12:02:23 localhost kernel: [  918.650810] read_virgo_config(): virgo_client.config file being read 
+Sep 25 12:02:23 localhost kernel: [  918.650824] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.650824]  
+Sep 25 12:02:23 localhost kernel: [  918.650843] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.650843] 
+Sep 25 12:02:23 localhost kernel: [  918.650851] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.650851] 
+Sep 25 12:02:23 localhost kernel: [  918.650869] tokenize_list_of_ip_addrs(): virgomemorypooling_node_ip_addrs_in_cloud_client[0] = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.650869] 
+Sep 25 12:02:23 localhost kernel: [  918.650881] virgo_get() system call: before virgo_unique_id_to_addr()
+Sep 25 12:02:23 localhost kernel: [  918.650888] virgo_unique_id_to_addr(): vaddr=ffffffffb4d39340, virgo_unique_id=18446744072448348992
+Sep 25 12:02:23 localhost kernel: [  918.650896] virgo_get() system call: vuid=-1261202624, virgo address to retrieve data from is vaddr=ffffffffb4d39340
+Sep 25 12:02:23 localhost kernel: [  918.650920] addr_to_str(): addr=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.650925] addr_to_str(): ret=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.650934] virgo_get() system call: tempbuf=virgo_cloud_get(ffff88001ef6d608), buf=virgo_cloud_get(ffff88001ef6d608), virgo_get_cmd=virgo_cloud_get(ffff88001ef6d608)
+Sep 25 12:02:23 localhost kernel: [  918.650940] virgo_get() system call: iov.iov_base=(null)
+Sep 25 12:02:23 localhost kernel: [  918.650994] virgo_get() syscall: created client kernel socket
+Sep 25 12:02:23 localhost kernel: [  918.651460] virgo_get() syscall: connected kernel client to virgo cloudexec kernel service; iov.iov_base=virgo_cloud_get(ffff88001ef6d608)
+Sep 25 12:02:23 localhost kernel: [  918.651460]  
+Sep 25 12:02:23 localhost kernel: [  918.651482] virgocloudexec_mempool_create(): after kernel_accept() : error = 0 
+Sep 25 12:02:23 localhost kernel: [  918.651494] virgocloudexec_mempool_create(): after skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.651499] virgo_cloudexec_mempool_service(): before skbuff_kernel_socket_debug() 
+Sep 25 12:02:23 localhost kernel: [  918.651505] in skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.651510] skbuff_kernel_socket_debug2(): sock = 847ce680 
+Sep 25 12:02:23 localhost kernel: [  918.651516] skbuff_kernel_socket_debug2(): sock->sk is not NULL : 572bc480 
+Sep 25 12:02:23 localhost kernel: [  918.651522] skbuff_kernel_socket_debug2(): sock->ops is not NULL : b41e4a20 
+Sep 25 12:02:23 localhost kernel: [  918.651528] skbuff_kernel_socket_debug2(): sock->sk->sk_route_caps is not NULL : 2151382121ll 
+Sep 25 12:02:23 localhost kernel: [  918.651534] skbuff_kernel_socket_debug2(): sock->sk->sk_prot is not NULL, sock->sk->sk_prot->no_autobind=1 
+Sep 25 12:02:23 localhost kernel: [  918.651540] skbuff_kernel_socket_debug2(): sock->sk->sk_send_head is NULL 
+Sep 25 12:02:23 localhost kernel: [  918.651545] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Sep 25 12:02:23 localhost kernel: [  918.651801] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Sep 25 12:02:23 localhost kernel: [  918.651810] virgocloudexec_mempool_create(): before kernel_accept(); sock=80bbbbc0 ... 
+Sep 25 12:02:23 localhost kernel: [  918.651875] virgo_mempool_client_thread(): before skbuff_kernel_socket_debug()
+Sep 25 12:02:23 localhost kernel: [  918.651881] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Sep 25 12:02:23 localhost kernel: [  918.651886] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Sep 25 12:02:23 localhost kernel: [  918.651895] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 25 12:02:23 localhost kernel: [  918.651916] strip_control_M(): str=virgo_cloud_get(ffff88001ef6d608) before strsep
+Sep 25 12:02:23 localhost kernel: [  918.651938] strip_control_M(): newstr=virgo_cloud_get(ffff88001ef6d608) after carriage return newline strsep
+Sep 25 12:02:23 localhost kernel: [  918.651946] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_get(ffff88001ef6d608), buffer: virgo_cloud_get(ffff88001ef6d608)
+Sep 25 12:02:23 localhost kernel: [  918.651953] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_get(ffff88001ef6d608) 
+Sep 25 12:02:23 localhost kernel: [  918.652073] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_get
+Sep 25 12:02:23 localhost kernel: [  918.654480] parse_virgomempool_command: vmargs->mempool_args[0]: ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.654489] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Sep 25 12:02:23 localhost kernel: [  918.654497] Creating Kernel Thread for virgo_cloud_get in virgo_cloud_mempool_kernelspace mempool driver module with mempool_args[0]=ffff88001ef6d608, mempool_args[1]=(null)
+Sep 25 12:02:23 localhost kernel: [  918.654535] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_get_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Sep 25 12:02:23 localhost kernel: [  918.654543] virgo_parse_integer(): *s=f, res=0
+Sep 25 12:02:23 localhost kernel: [  918.654549] virgo_parse_integer(): *s=f, res=15
+Sep 25 12:02:23 localhost kernel: [  918.654554] virgo_parse_integer(): *s=f, res=255
+Sep 25 12:02:23 localhost kernel: [  918.654559] virgo_parse_integer(): *s=f, res=4095
+Sep 25 12:02:23 localhost kernel: [  918.654565] virgo_parse_integer(): *s=8, res=65535
+Sep 25 12:02:23 localhost kernel: [  918.654570] virgo_parse_integer(): *s=8, res=1048568
+Sep 25 12:02:23 localhost kernel: [  918.654576] virgo_parse_integer(): *s=0, res=16777096
+Sep 25 12:02:23 localhost kernel: [  918.654581] virgo_parse_integer(): *s=0, res=268433536
+Sep 25 12:02:23 localhost kernel: [  918.654586] virgo_parse_integer(): *s=1, res=4294936576
+Sep 25 12:02:23 localhost kernel: [  918.654592] virgo_parse_integer(): *s=e, res=68718985217
+Sep 25 12:02:23 localhost kernel: [  918.654598] virgo_parse_integer(): *s=f, res=1099503763486
+Sep 25 12:02:23 localhost kernel: [  918.654603] virgo_parse_integer(): *s=6, res=17592060215791
+Sep 25 12:02:23 localhost kernel: [  918.654609] virgo_parse_integer(): *s=d, res=281472963452662
+Sep 25 12:02:23 localhost kernel: [  918.654614] virgo_parse_integer(): *s=6, res=4503567415242605
+Sep 25 12:02:23 localhost kernel: [  918.654620] virgo_parse_integer(): *s=0, res=72057078643881686
+Sep 25 12:02:23 localhost kernel: [  918.654626] virgo_parse_integer(): *s=8, res=1152913258302106976
+Sep 25 12:02:23 localhost kernel: [  918.654636] toKernelAddress(): virgo_parse_integer: ll3=-131940875839992, (char*)ll3=ffff88001ef6d608, (void*)ll3=ffff88001ef6d608, strAddress=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.654642] toKernelAddress(): virgo_parse_integer: data at (char*)ll3=[DataSet]
+Sep 25 12:02:23 localhost kernel: [  918.654649] virgo_cloud_mempool_kernelspace.c: virgo_cloud_get_kernelspace(): data at ptr parsed by toKernelAddress() = [DataSet]
+Sep 25 12:02:23 localhost kernel: [  918.654672] virgo_cloud_mempool_kernelspace.c: virgo_cloud_get_kernelspace(): address=ffff88001ef6d608, data=DataSet, data with added prefix=virgodata:DataSet
+Sep 25 12:02:23 localhost kernel: [  918.654679] mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=ffff880070737b08
+Sep 25 12:02:23 localhost kernel: [  918.654684] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Sep 25 12:02:23 localhost kernel: [  918.654690] virgocloudexec_mempool_sendto(): virgo_mempool_ret=virgodata:DataSet
+Sep 25 12:02:23 localhost kernel: [  918.654696] virgocloudexec_mempool_sendto(): data sent=DataSet
+Sep 25 12:02:23 localhost kernel: [  918.654715] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: DataSet
+Sep 25 12:02:23 localhost kernel: [  918.654854] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Sep 25 12:02:23 localhost kernel: [  918.654977] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Sep 25 12:02:23 localhost kernel: [  918.655111] virgo_get() syscall: received message: DataSet 
+Sep 25 12:02:23 localhost kernel: [  918.655142] virgo_get() syscall: virgo_get() client socket_release() invoked
+Sep 25 12:02:23 localhost kernel: [  918.655148] virgo_get() system_call: before data_out memcpy()
+Sep 25 12:02:23 localhost kernel: [  918.655154] virgo_get() system_call: after data_out memcpy()
+Sep 25 12:02:23 localhost kernel: [  918.655160] virgo_get() syscall:  data_out=DataSet
+Sep 25 12:02:23 localhost kernel: [  918.655301] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.655301] 
+Sep 25 12:02:23 localhost kernel: [  918.655310] read_virgo_config(): virgo_client.config file being read 
+Sep 25 12:02:23 localhost kernel: [  918.655324] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.655324]  
+Sep 25 12:02:23 localhost kernel: [  918.655344] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.655344] 
+Sep 25 12:02:23 localhost kernel: [  918.655353] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.655353] 
+Sep 25 12:02:23 localhost kernel: [  918.655371] tokenize_list_of_ip_addrs(): virgomemorypooling_node_ip_addrs_in_cloud_client[0] = 192.168.2.80
+Sep 25 12:02:23 localhost kernel: [  918.655371] 
+Sep 25 12:02:23 localhost kernel: [  918.655383] virgo_unique_id_to_addr(): vaddr=ffffffffb4d39340, virgo_unique_id=18446744072448348992
+Sep 25 12:02:23 localhost kernel: [  918.655406] addr_to_str(): addr=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.655411] addr_to_str(): ret=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.655420] virgo_free() system call: tempbuf=1941140288, buf=virgo_cloud_free(ffff88001ef6d608), free_cmd=virgo_cloud_free(ffff88001ef6d608) 
+Sep 25 12:02:23 localhost kernel: [  918.655427] virgo_free() system call: iov.iov_base=virgo_cloud_free(ffff88001ef6d608)
+Sep 25 12:02:23 localhost kernel: [  918.655483] virgo_free() syscall: created client kernel socket
+Sep 25 12:02:23 localhost kernel: [  918.655975] virgo_free() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 25 12:02:23 localhost kernel: [  918.655975]  
+Sep 25 12:02:23 localhost kernel: [  918.655981] virgo_free() syscall: sending message: virgo_cloud_free(ffff88001ef6d608) 
+Sep 25 12:02:23 localhost kernel: [  918.656230] virgo_free() syscall: sent message: virgo_cloud_free(ffff88001ef6d608) 
+Sep 25 12:02:23 localhost kernel: [  918.656276] virgocloudexec_mempool_create(): after kernel_accept() : error = 0 
+Sep 25 12:02:23 localhost kernel: [  918.656282] virgocloudexec_mempool_create(): after skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.656287] virgo_cloudexec_mempool_service(): before skbuff_kernel_socket_debug() 
+Sep 25 12:02:23 localhost kernel: [  918.656292] in skbuff_kernel_socket_debug2() 
+Sep 25 12:02:23 localhost kernel: [  918.656298] skbuff_kernel_socket_debug2(): sock = 847ce240 
+Sep 25 12:02:23 localhost kernel: [  918.656304] skbuff_kernel_socket_debug2(): sock->sk is not NULL : 572bbac0 
+Sep 25 12:02:23 localhost kernel: [  918.656309] skbuff_kernel_socket_debug2(): sock->ops is not NULL : b41e4a20 
+Sep 25 12:02:23 localhost kernel: [  918.656316] skbuff_kernel_socket_debug2(): sock->sk->sk_route_caps is not NULL : 2151382121ll 
+Sep 25 12:02:23 localhost kernel: [  918.656322] skbuff_kernel_socket_debug2(): sock->sk->sk_prot is not NULL, sock->sk->sk_prot->no_autobind=1 
+Sep 25 12:02:23 localhost kernel: [  918.656327] skbuff_kernel_socket_debug2(): sock->sk->sk_send_head is NULL 
+Sep 25 12:02:23 localhost kernel: [  918.656332] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Sep 25 12:02:23 localhost kernel: [  918.656629] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Sep 25 12:02:23 localhost kernel: [  918.656638] virgocloudexec_mempool_create(): before kernel_accept(); sock=80bbbbc0 ... 
+Sep 25 12:02:23 localhost kernel: [  918.656714] virgo_mempool_client_thread(): before skbuff_kernel_socket_debug()
+Sep 25 12:02:23 localhost kernel: [  918.656720] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Sep 25 12:02:23 localhost kernel: [  918.656726] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Sep 25 12:02:23 localhost kernel: [  918.656739] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 25 12:02:23 localhost kernel: [  918.656763] strip_control_M(): str=virgo_cloud_free(ffff88001ef6d608) before strsep
+Sep 25 12:02:23 localhost kernel: [  918.656786] strip_control_M(): newstr=virgo_cloud_free(ffff88001ef6d608) after carriage return newline strsep
+Sep 25 12:02:23 localhost kernel: [  918.656794] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_free(ffff88001ef6d608), buffer: virgo_cloud_free(ffff88001ef6d608)
+Sep 25 12:02:23 localhost kernel: [  918.656801] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_free(ffff88001ef6d608) 
+Sep 25 12:02:23 localhost kernel: [  918.656858] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_free
+Sep 25 12:02:23 localhost kernel: [  918.656879] parse_virgomempool_command: vmargs->mempool_args[0]: ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.656885] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Sep 25 12:02:23 localhost kernel: [  918.656893] Creating Kernel Thread for virgo_cloud_free in virgo_cloud_mempool_kernelspace mempool driver module with mempool_args[0]=ffff88001ef6d608, mempool_args[1]=(null)
+Sep 25 12:02:23 localhost kernel: [  918.656929] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_free_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Sep 25 12:02:23 localhost kernel: [  918.656937] virgo_parse_integer(): *s=f, res=0
+Sep 25 12:02:23 localhost kernel: [  918.656942] virgo_parse_integer(): *s=f, res=15
+Sep 25 12:02:23 localhost kernel: [  918.656948] virgo_parse_integer(): *s=f, res=255
+Sep 25 12:02:23 localhost kernel: [  918.656953] virgo_parse_integer(): *s=f, res=4095
+Sep 25 12:02:23 localhost kernel: [  918.656958] virgo_parse_integer(): *s=8, res=65535
+Sep 25 12:02:23 localhost kernel: [  918.656964] virgo_parse_integer(): *s=8, res=1048568
+Sep 25 12:02:23 localhost kernel: [  918.656970] virgo_parse_integer(): *s=0, res=16777096
+Sep 25 12:02:23 localhost kernel: [  918.656975] virgo_parse_integer(): *s=0, res=268433536
+Sep 25 12:02:23 localhost kernel: [  918.656981] virgo_parse_integer(): *s=1, res=4294936576
+Sep 25 12:02:23 localhost kernel: [  918.656987] virgo_parse_integer(): *s=e, res=68718985217
+Sep 25 12:02:23 localhost kernel: [  918.656993] virgo_parse_integer(): *s=f, res=1099503763486
+Sep 25 12:02:23 localhost kernel: [  918.656999] virgo_parse_integer(): *s=6, res=17592060215791
+Sep 25 12:02:23 localhost kernel: [  918.657004] virgo_parse_integer(): *s=d, res=281472963452662
+Sep 25 12:02:23 localhost kernel: [  918.657010] virgo_parse_integer(): *s=6, res=4503567415242605
+Sep 25 12:02:23 localhost kernel: [  918.657016] virgo_parse_integer(): *s=0, res=72057078643881686
+Sep 25 12:02:23 localhost kernel: [  918.657022] virgo_parse_integer(): *s=8, res=1152913258302106976
+Sep 25 12:02:23 localhost kernel: [  918.657032] toKernelAddress(): virgo_parse_integer: ll3=-131940875839992, (char*)ll3=ffff88001ef6d608, (void*)ll3=ffff88001ef6d608, strAddress=[ffff88001ef6d608]
+Sep 25 12:02:23 localhost kernel: [  918.657039] toKernelAddress(): virgo_parse_integer: data at (char*)ll3=[DataSet]
+Sep 25 12:02:23 localhost kernel: [  918.657045] virgo_cloud_mempool_kernelspace.c: virgo_cloud_free_kernelspace(): address=ffff88001ef6d608
+Sep 25 12:02:23 localhost kernel: [  918.657059] mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=ffffffffc11c9ac1
+Sep 25 12:02:23 localhost kernel: [  918.657064] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Sep 25 12:02:23 localhost kernel: [  918.657070] virgocloudexec_mempool_sendto(): virgo_mempool_ret=kernel memory freed
+Sep 25 12:02:23 localhost kernel: [  918.657077] virgocloudexec_mempool_sendto(): address sent=ffffffffc11c9ac1
+Sep 25 12:02:23 localhost kernel: [  918.657112] toAddressString(): address=ffffffffc11c9ac1, sprintf strAddress=[ffffffffc11c9ac1]
+Sep 25 12:02:23 localhost kernel: [  918.657119] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: ffffffffc11c9ac1
+Sep 25 12:02:23 localhost kernel: [  918.657300] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Sep 25 12:02:23 localhost kernel: [  918.657481] virgo_free() syscall: received message: ffffffffc11c9ac1 
+Sep 25 12:02:23 localhost kernel: [  918.657605] virgo_free() syscall: virgo_free() client socket_release() invoked
+Sep 25 12:02:23 localhost kernel: [  918.658659] test_virgo_mall (2490) used greatest stack depth: 18920 bytes left
+Sep 25 12:02:23 localhost kernel: [  918.664329] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 

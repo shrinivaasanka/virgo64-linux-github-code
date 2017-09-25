@@ -152,7 +152,6 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
-	char iovbuf[BUF_SIZE];
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	mm_segment_t oldfs;
@@ -242,7 +241,6 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
         int sfd, s, j;
         size_t len;
         ssize_t nread;
-	char iovbuf[BUF_SIZE];
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	mm_segment_t oldfs;
@@ -342,7 +340,6 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 /*asmlinkage struct virgo_address* sys_virgo_malloc(int size)*/
 asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 {
-	char iovbuf[BUF_SIZE];
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	char *malloc_cmd;
@@ -446,7 +443,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 		len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 		set_fs(oldfs);
 
-		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s, iovbuf=%s \n", len, iov.iov_base, buf, iovbuf);
+		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
 
 		oldfs=get_fs();
 		set_fs(KERNEL_DS);
@@ -525,7 +522,6 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
-	char iovbuf[BUF_SIZE];
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	/*char* buf;*/

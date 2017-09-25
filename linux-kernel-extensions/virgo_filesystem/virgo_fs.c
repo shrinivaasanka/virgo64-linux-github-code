@@ -157,7 +157,6 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
         ssize_t nread;
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
-	char iovbuf[BUF_SIZE];
 	mm_segment_t oldfs;
 
 	virgofs_read_virgo_config_client();
@@ -178,9 +177,6 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	virgo_read_cmd=strcat(tempbuf, ")");
 	strcpy(buf,virgo_read_cmd);			
 
-	printk(KERN_INFO "virgo_read() system call: tempbuf=%s, buf=%s, virgo_read_cmd=%s\n",tempbuf,buf,virgo_read_cmd);
-	printk(KERN_INFO "virgo_read() system call: iov.iov_base=%s\n",iov.iov_base);
-
 	iov.iov_base=buf;
 	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
@@ -196,6 +192,9 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	msg.msg_flags = MSG_NOSIGNAL;
 	nr=1;
 
+	printk(KERN_INFO "virgo_read() system call: tempbuf=%s, buf=%s, virgo_read_cmd=%s\n",tempbuf,buf,virgo_read_cmd);
+	printk(KERN_INFO "virgo_read() system call: iov.iov_base=%s\n",iov.iov_base);
+
 	/*strcpy(iov.iov_base,buf);*/	
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
         kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
@@ -209,14 +208,14 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 	set_fs(oldfs);
 
-	printk(KERN_INFO "virgo_read() syscall: sent message: %s \n", iovbuf);
+	printk(KERN_INFO "virgo_read() syscall: sent message: %s \n", iov.iov_base);
 
 	oldfs=get_fs();
 	set_fs(KERNEL_DS);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 	set_fs(oldfs);
 
-	printk(KERN_INFO "virgo_read() syscall: received message: %s \n", iovbuf);
+	printk(KERN_INFO "virgo_read() syscall: received message: %s \n", iov.iov_base);
 
 	/*
 	le32_to_cpus(buf);
@@ -245,7 +244,6 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	char tempbuf[BUF_SIZE];
 	/*char* buf;*/
 	char data[BUF_SIZE];
-	char iovbuf[BUF_SIZE];
 	mm_segment_t oldfs;
 
 	virgofs_read_virgo_config_client();
@@ -339,7 +337,6 @@ asmlinkage long sys_virgo_open(char* filepath)
 	/*mutex_lock(&vtranstable.vtable_fragment_mutex);*/
 	/*char *buf;*/
         char buf[BUF_SIZE];
-	char iovbuf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	char *open_cmd;
         int sfd, s, j;
@@ -451,7 +448,6 @@ asmlinkage long sys_virgo_close(long vfsdesc)
         ssize_t nread;
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
-	char iovbuf[BUF_SIZE];
 	/*char* buf;*/
 	char* close_cmd;
 	mm_segment_t oldfs;
@@ -499,14 +495,14 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 	set_fs(oldfs);
 
-	printk(KERN_INFO "virgo_close() syscall: sent message: %s \n", iovbuf);
+	printk(KERN_INFO "virgo_close() syscall: sent message: %s \n", iov.iov_base);
 
 	oldfs=get_fs();
 	set_fs(KERNEL_DS);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 	set_fs(oldfs);
 
-	printk(KERN_INFO "virgo_close() syscall: received message: %s \n", iovbuf);
+	printk(KERN_INFO "virgo_close() syscall: received message: %s \n", iov.iov_base);
 
 	/*	
 	le32_to_cpus(buf);
