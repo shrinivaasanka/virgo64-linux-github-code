@@ -1436,6 +1436,18 @@ of KTLS defaulting to normal transport. All kernel sockets have default crypto_i
 (*) VIRGO64 Queue, CPU, KMemCache now use the ktime_get() and ktime_to_ns() current time primitives in lieu of deprecated CURRENT_TIME macros.
 Advantage is ktime_to_ns() prints timestamp in nanoseconds in place of epochal microseconds in earlier versions.
 
+---------------------------------------------------------------------------------------------------------------------------------------
+(FEATURE-NOTES) Kernel Transport Layer Security in VIRGO64 and its limitations - 26 September 2017
+---------------------------------------------------------------------------------------------------------------------------------------
+Present upgrade to 4.13.3 for VIRGO64 just sets the kernel_setsockopt() for TLS default option. Rider to mention is this is just the kernel
+side of it. KTLS code and KTLS tool in https://github.com/Mellanox/tls-af_ktls_tool/blob/master/ktls.c split the GNU TLS handshake into user
+and kernel spaces. KTLS tool initializes GNU TLS handshake and sets IV,Sequence Number,Cipher,Keys in crypto_info in userspace. This crypto_info is passed on to setsockopt(). VIRGO64 just sets kernel_setsockopt() and does not care about userspace GNUTLS crypto_info which is a limitation as described later. VIRGO64 system calls have a unusual requirement that all sockets are abstracted within system calls. Because of this there is no userspace component for TLS handshake within VIRGO64 system calls as done before sendfile() in KTLS userspace tool. Therefore GNUTLS handshake has to be done:
+	(*) either within VIRGO64 system calls itself to initialize crypto_info (requires GNUTLS integration in kernel) or
+	(*) alternatively, crypto_info has to be set by VIRGO KMemCache system calls in local cloud nodes by a separate user program after a GNUTLS handshake (this is a precise usecase for KMemCache's indispensability) similar to KTLS tool. This kernel memory containining userspace crypto_info (pointed by a VIRGO unique id) has to be read by the system call clients in runtime. It requires non-trivial work by a user code and significant changes to VIRGO64 system calls to read crypto_info.
+
+Present VIRGO64 implementation can not assume any crypto_info which is created dynamically for each session and thats why it has been initialized to "tls". KTLS is just a facility to transmit cryptographic keys from userspace to kernelspace after handshake. User still has to do TLS handshake. Best way to secure kernel is probably integrating SSL/TLS in kernel itself and there does not seem to be any major effort in this direction by kernel community.
+
+
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
 
