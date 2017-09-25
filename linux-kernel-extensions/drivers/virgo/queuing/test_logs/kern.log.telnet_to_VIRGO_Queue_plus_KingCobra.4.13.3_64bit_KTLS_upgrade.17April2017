@@ -1,0 +1,64 @@
+Sep 25 16:08:35 localhost kernel: [ 4972.753911] virgoqueue_create(): kernel_accept() returns error code: 0
+Sep 25 16:08:35 localhost kernel: [ 4972.753924] virgoqueue_create(): kernel_accept() clientsock: 2426946688
+Sep 25 16:08:35 localhost kernel: [ 4972.753931] virgoqueue_cloudexec_service(): virgoqueue_ops.virgo_queue_create() returns 2426946688 
+Sep 25 16:08:35 localhost kernel: [ 4972.753936] virgoqueue_cloudexec_service(): virgo client thread per request 
+Sep 25 16:08:35 localhost kernel: [ 4972.754344] virgoqueue_cloudexec_service(): virgoqueue_ops.virgoqueue_create() 
+Sep 25 16:08:35 localhost kernel: [ 4972.754365] virgoqueue_client_thread(): virgoqueue_ops.virgo_recvfrom()
+Sep 25 16:08:35 localhost kernel: [ 4972.754374] virgoqueue_recvfrom(): before kernel_recvmsg()
+Sep 25 16:08:35 localhost kernel: [ 4972.754404] virgoqueue_cpupool_recvfrom(): client_ip_str = 1005a5a
+Sep 25 16:08:35 localhost kernel: [ 4972.754424] virgoqueue_cpupool_recvfrom(): client_ip_str with # appended = 1005a5a#
+Sep 25 16:08:35 localhost kernel: [ 4972.754485] generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as 4972754480880:4972754479763
+Sep 25 16:08:35 localhost kernel: [ 4972.754504] virgoqueue_recvfrom(): after appending logical timestamp, request_header=REQUEST#1005a5a#4972754480880:4972754479763
+Sep 25 16:08:35 localhost kernel: [ 4972.754514] virgoqueue_recvfrom(); clientsocket state = 3
+Sep 25 16:09:08 localhost kernel: [ 5006.255896] virgoqueue_recvfrom(): kernel_recvmsg() returns len: 43
+Sep 25 16:09:08 localhost kernel: [ 5006.255959] virgoqueue_recvfrom(): use_as_kingcobra_service=1, queueFunction with prepended request header and client ip=REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.255968] virgoqueue_recvfrom(): kernel_recvmsg() returns in recv buffer: VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.255968] 
+Sep 25 16:09:08 localhost kernel: [ 5006.255975] print_buffer(): 
+Sep 25 16:09:08 localhost kernel: [ 5006.255978] V
+Sep 25 16:09:08 localhost kernel: [ 5006.255982] I
+Sep 25 16:09:08 localhost kernel: [ 5006.255986] R
+Sep 25 16:09:08 localhost kernel: [ 5006.255990] G
+Sep 25 16:09:08 localhost kernel: [ 5006.255994] O
+Sep 25 16:09:08 localhost kernel: [ 5006.255997] 6
+Sep 25 16:09:08 localhost kernel: [ 5006.256052] 4
+Sep 25 16:09:08 localhost kernel: [ 5006.256057] Q
+Sep 25 16:09:08 localhost kernel: [ 5006.256061] 
+Sep 25 16:09:08 localhost kernel: [ 5006.256069] virgoqueue_recvfrom(): kernel_recvmsg() le32 to cpu VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.256069] 
+Sep 25 16:09:08 localhost kernel: [ 5006.256078] virgoqueue_recvfrom(): queueFunction : REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017 
+Sep 25 16:09:08 localhost kernel: [ 5006.256107] queue_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Sep 25 16:09:08 localhost kernel: [ 5006.256125] queue_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.256214] push_request(): use_workqueue=1, enqueueing req in the kernel workqueue which will invoke handler, req->data = REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017, vwqreq->work=ffff88005a1b5870, vwqreq->data = REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.256228] virgoqueue_client_thread(): virgoqueue_ops.virgo_sendto()
+Sep 25 16:09:08 localhost kernel: [ 5006.256235] virgoqueue_sendto(): before kernel_sendmsg() for send buffer: 
+Sep 25 16:09:08 localhost kernel: [ 5006.256439] virgoqueue_sendto(): kernel_sendmsg() returns ret: 500
+Sep 25 16:09:08 localhost kernel: [ 5006.256446] virgoqueue_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Sep 25 16:09:08 localhost kernel: [ 5006.256547] virgoqueue_sendto(): sock_release invoked on client socket 
+Sep 25 16:09:08 localhost kernel: [ 5006.258407] virgo_workqueue_handler(): invoked for work_struct w=ffff88005a1b5870, dequeueing enqueued vwqrq->data=REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.258413] virgo_workqueue_handler(): kingcobra_in_userspace=0, before invoking kingcobra_servicerequest_kernelspace()
+Sep 25 16:09:08 localhost kernel: [ 5006.258428] kingcobra_servicerequest_kernelspace(): KingCobra service request received from kernel KingCobra workqueue: REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.258439] kingcobra_servicerequest_kernelspace(): disk persistence enabled, writing incoming request to KingCobra disk file:REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017 $$
+Sep 25 16:09:08 localhost kernel: [ 5006.258439] 
+Sep 25 16:09:08 localhost kernel: [ 5006.258591] parse_ip_address(): request_dup = REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017
+Sep 25 16:09:08 localhost kernel: [ 5006.258599] parse_ip_address(): request_header= REQUEST
+Sep 25 16:09:08 localhost kernel: [ 5006.258604] parse_ip_address(): token = 1005a5a
+Sep 25 16:09:08 localhost kernel: [ 5006.258611] parse_ip_address(): ll2=16800346
+Sep 25 16:09:08 localhost kernel: [ 5006.258646] parse_timestamp(): request = REQUEST#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017 $$
+Sep 25 16:09:08 localhost kernel: [ 5006.258646] 
+Sep 25 16:09:08 localhost kernel: [ 5006.258655] parse_timestamp(): requestheader parsed = REQUEST
+Sep 25 16:09:08 localhost kernel: [ 5006.258660] parse_timestamp(): ipaddr parsed  = 1005a5a
+Sep 25 16:09:08 localhost kernel: [ 5006.258666] parse_timestamp(): timestamp parsed  = 4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017 $$
+Sep 25 16:09:08 localhost kernel: [ 5006.258666] 
+Sep 25 16:09:08 localhost kernel: [ 5006.258769] reply_to_publisher() : created client kernel socket
+Sep 25 16:09:08 localhost kernel: [ 5006.258780] reply_to_publisher() : connected kernel client to virgo cloudexec kernel service
+Sep 25 16:09:08 localhost kernel: [ 5006.258780]  
+Sep 25 16:09:08 localhost kernel: [ 5006.258817] reply_to_publisher() : sent message: REPLY#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017 $$
+Sep 25 16:09:08 localhost kernel: [ 5006.258817]  :--- from kingcobra_servicerequest_kernelspace() to client 
+Sep 25 16:09:08 localhost kernel: [ 5006.258835] reply_to_publisher() : received message: REPLY#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017 $$
+Sep 25 16:09:08 localhost kernel: [ 5006.258835]  :--- from kingcobra_servicerequest_kernelspace() to client 
+Sep 25 16:09:08 localhost kernel: [ 5006.258846] reply_to_publisher() : le32_to_cpus(buf): REPLY#1005a5a#4972754480880:4972754479763VIRGO64QueueToKingCobra64_25September2017 $$
+Sep 25 16:09:08 localhost kernel: [ 5006.258846]  :--- from kingcobra_servicerequest_kernelspace() to client 
+Sep 25 16:09:08 localhost kernel: [ 5006.258881] reply_to_publisher() : reply_to_publisher() client socket_release() invoked
+Sep 25 16:09:08 localhost kernel: [ 5006.258887] virgo_workqueue_handler(): after invoking kingcobra_servicerequest_kernelspace()
+
