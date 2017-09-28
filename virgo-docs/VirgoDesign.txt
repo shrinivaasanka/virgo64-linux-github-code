@@ -1448,6 +1448,26 @@ and kernel spaces. KTLS tool initializes GNU TLS handshake and sets IV,Sequence 
 
 Present VIRGO64 implementation can not assume any crypto_info which is created dynamically for each session and thats why it has been initialized to "tls". KTLS is just a facility to transmit cryptographic keys from userspace to kernelspace after handshake. User still has to do TLS handshake. Best way to secure kernel is probably integrating SSL/TLS in kernel itself and there does not seem to be any major effort in this direction by kernel community.
 
+------------------------------------------------------------------------------------------------------------------------------------------
+(FEATURE-DONE) VIRGO64 + 4.13.3 linux kernel 64-bit KTLS update - rewrite - 28 September 2017
+------------------------------------------------------------------------------------------------------------------------------------------
+(#) Deficiencies of KTLS option in kernel sockets have already been mentioned in VIRGO64 Design Document previously.
+(#) Many solutions/workarounds to percolate down crypto_info from userspace to kernelspace sockets have been described
+(#) One of the solutions is to write the userspace GNUTLS handshake (iv,sequencenumber,cipher,salt) tuples into a config file which can be
+read by the kernelspace and crypto_info can be initialized before kernel_setsockopt(). This is somewhat easier compared to doing a virgo_set() from userspace, letting the kernel know of this VIRGO unique id(VUID), and retrieving the kernel memory for this VUID from kernelspace.
+(#) Earlier it was thought of to write the crypto_info tuples to kernel_analytics config file along with other userspace analytics variables. But virgo_kernel_analytics.conf is intended to be a very dynamic memory mapped file because analytics variables are written in huge frequency (e.g Driverless Vehicle could write thousands of analytics variables per second).
+(#) This realtime dynamism could interfere in KTLS config. Because of this separate config file /etc/virgo_ktls.conf has been created
+(#) All VIRGO64 system calls and driver listeners have been updated with a #ifdef block for compiling KTLS crypto_info initializationcode. This block is compiled by setting Makefile variable -DVIRGO_KTLS. This VIRGO_KTLS #ifdef block reads the KTLS config variables read from /etc/virgo_ktls.conf and initializes crypto_info and invokes 2 kernel_setsockopt()s for TCP_ULP and TLS_TX options.
+(#) New kernel module ktls/ has been added in drivers/virgo which reads from /etc/virgo_ktls.conf similat to virgo_kernel_analytics/ and exports them kernelwide for all listeners
+(#) In system call clients, /etc/virgo_ktls.conf is read by new VFS handling function everytime system call is invoked (because previous KTLS export kernelwide is only for server side and clients have to independently set the KTLS config)
+(#) New header files virgo_clone_syscall.h,virgo_kmemcache_syscall.h have been created to define the ktls client side config variables and virgo_fs_syscall.h has been updated for ktls client config definitions.
+(#) All drivers have been rebuilt and kernel has been rebuilt for updated VIRGO system calls enabling VIRGO_KTLS.
+(#) Complete end-to-end test for all system calls and drivers were carried out by setting ktls values (only example strings - these are not GNUTLS handshake strings) and logs printing the crypto_info have been committed hereby.
+(#) Logs show only the ktls crypto_info imported into kernelspace from /etc/virgo_ktls.conf and socket connections fail which is intentional because the TLS tuples are not created by GNU TLS handshake.
+(#) User has to set the /etc/virgo_ktls.conf key-value pairs from a GNU TLS application to enable KTLS in VIRGO64
+(#) crypto_info in KTLS uses 128-bit AES GCM encryption
+(#) This commit will be superseded by a next commit which comments VIRGO_KTLS in Makefile and a rebuild, thereby making non-TLS sockets as default VIRGO64 behaviour. This is because VIRGO_KTLS is just a peripheral supporting feature for conforming to cloud security standards.
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
