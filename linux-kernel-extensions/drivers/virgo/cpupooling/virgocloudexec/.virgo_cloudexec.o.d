@@ -676,4 +676,6 @@ virgo_cloudexec.o: \
  /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/linux/sunrpc/svc_xprt.h \
  /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/linux/virgocloudexecsvc.h \
  /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/linux/virgo_config.h \
- /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/linux/kallsyms.h
+ /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/linux/kallsyms.h \
+ /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/net/tls.h \
+ /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/uapi/linux/tls.h

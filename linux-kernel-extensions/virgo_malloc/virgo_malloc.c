@@ -64,6 +64,8 @@
 #include <linux/virgo_mempool.h>
 #include <linux/socket.h>
 #include <net/tls.h>
+#include <linux/virgo_kmemcache_syscall.h>
+
 
 #define BUF_SIZE 3000
 
@@ -74,6 +76,7 @@ int virgomemorypooling_num_cloud_nodes_client;
 char* virgomemorypooling_node_ip_addrs_in_cloud_client[3000];
 
 void virgomemorypooling_read_virgo_config_client();
+void virgomemorypooling_read_virgo_ktls_config();
 
 
 struct hostport* get_least_loaded_hostport_from_cloud_mempool()
@@ -157,6 +160,7 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
 	mm_segment_t oldfs;
 
 	virgomemorypooling_read_virgo_config_client();
+	virgomemorypooling_read_virgo_ktls_config();
 	memset(buf,0,BUF_SIZE);
 	int chunk_size=0;
 	int sum_alloc_size=0;
@@ -196,7 +200,19 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
 
 	/*strcpy(iov.iov_base,buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	/************************ KTLS *****************************************/
+#ifdef VIRGO_KTLS
+        struct tls12_crypto_info_aes_gcm_128 crypto_info;
+        crypto_info.info.version = TLS_1_2_VERSION;
+        crypto_info.info.cipher_type = TLS_CIPHER_AES_GCM_128;
+        memcpy(crypto_info.iv, virgo_kmemcache_ktls_conf[0].value, TLS_CIPHER_AES_GCM_128_IV_SIZE);
+        memcpy(crypto_info.rec_seq, virgo_kmemcache_ktls_conf[1].value, TLS_CIPHER_AES_GCM_128_REC_SEQ_SIZE);
+        memcpy(crypto_info.key, virgo_kmemcache_ktls_conf[2].value, TLS_CIPHER_AES_GCM_128_KEY_SIZE);
+        memcpy(crypto_info.salt, virgo_kmemcache_ktls_conf[3].value, TLS_CIPHER_AES_GCM_128_SALT_SIZE);
+        kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, &crypto_info, sizeof(crypto_info));
+#endif
+        /************************ KTLS *****************************************/
 
 	printk(KERN_INFO "virgo_get() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -246,6 +262,7 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 	mm_segment_t oldfs;
 
 	virgomemorypooling_read_virgo_config_client();
+	virgomemorypooling_read_virgo_ktls_config();
 	memset(buf,0,BUF_SIZE);
 	/*char* buf;*/
 	printk(KERN_INFO "virgo_set() system call: before virgo_unique_id_to_addr()\n");	
@@ -309,7 +326,19 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 
 	/*strcpy(iov.iov_base,buf);*/	
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	/************************ KTLS *****************************************/
+#ifdef VIRGO_KTLS
+        struct tls12_crypto_info_aes_gcm_128 crypto_info;
+        crypto_info.info.version = TLS_1_2_VERSION;
+        crypto_info.info.cipher_type = TLS_CIPHER_AES_GCM_128;
+        memcpy(crypto_info.iv, virgo_kmemcache_ktls_conf[0].value, TLS_CIPHER_AES_GCM_128_IV_SIZE);
+        memcpy(crypto_info.rec_seq, virgo_kmemcache_ktls_conf[1].value, TLS_CIPHER_AES_GCM_128_REC_SEQ_SIZE);
+        memcpy(crypto_info.key, virgo_kmemcache_ktls_conf[2].value, TLS_CIPHER_AES_GCM_128_KEY_SIZE);
+        memcpy(crypto_info.salt, virgo_kmemcache_ktls_conf[3].value, TLS_CIPHER_AES_GCM_128_SALT_SIZE);
+        kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, &crypto_info, sizeof(crypto_info));
+#endif
+        /************************ KTLS *****************************************/
 
 	printk(KERN_INFO "virgo_set() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -358,6 +387,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 	mm_segment_t oldfs;
 	
 	virgomemorypooling_read_virgo_config_client();
+	virgomemorypooling_read_virgo_ktls_config();
 	memset(buf,0,BUF_SIZE);
 	/*
 	Mutex lock and unlock also causes a kernel panic, hence commented as of now
@@ -431,7 +461,19 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 
 		/*strcpy(iov.iov_base, buf);*/ 	
 		error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+  		/************************ KTLS *****************************************/
+#ifdef VIRGO_KTLS
+        struct tls12_crypto_info_aes_gcm_128 crypto_info;
+        crypto_info.info.version = TLS_1_2_VERSION;
+        crypto_info.info.cipher_type = TLS_CIPHER_AES_GCM_128;
+        memcpy(crypto_info.iv, virgo_kmemcache_ktls_conf[0].value, TLS_CIPHER_AES_GCM_128_IV_SIZE);
+        memcpy(crypto_info.rec_seq, virgo_kmemcache_ktls_conf[1].value, TLS_CIPHER_AES_GCM_128_REC_SEQ_SIZE);
+        memcpy(crypto_info.key, virgo_kmemcache_ktls_conf[2].value, TLS_CIPHER_AES_GCM_128_KEY_SIZE);
+        memcpy(crypto_info.salt, virgo_kmemcache_ktls_conf[3].value, TLS_CIPHER_AES_GCM_128_SALT_SIZE);
+        kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, &crypto_info, sizeof(crypto_info));
+#endif
+        	/************************ KTLS *****************************************/
 
 		printk(KERN_INFO "virgo_malloc() syscall: created client kernel socket\n");
 		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -529,6 +571,7 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
 	mm_segment_t oldfs;
 
 	virgomemorypooling_read_virgo_config_client();
+	virgomemorypooling_read_virgo_ktls_config();
 	memset(buf,0,BUF_SIZE);
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 
@@ -562,7 +605,19 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
 
 	strcpy(iov.iov_base,buf);	
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	/************************ KTLS *****************************************/
+#ifdef VIRGO_KTLS
+        struct tls12_crypto_info_aes_gcm_128 crypto_info;
+        crypto_info.info.version = TLS_1_2_VERSION;
+        crypto_info.info.cipher_type = TLS_CIPHER_AES_GCM_128;
+        memcpy(crypto_info.iv, virgo_kmemcache_ktls_conf[0].value, TLS_CIPHER_AES_GCM_128_IV_SIZE);
+        memcpy(crypto_info.rec_seq, virgo_kmemcache_ktls_conf[1].value, TLS_CIPHER_AES_GCM_128_REC_SEQ_SIZE);
+        memcpy(crypto_info.key, virgo_kmemcache_ktls_conf[2].value, TLS_CIPHER_AES_GCM_128_KEY_SIZE);
+        memcpy(crypto_info.salt, virgo_kmemcache_ktls_conf[3].value, TLS_CIPHER_AES_GCM_128_SALT_SIZE);
+        kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, &crypto_info, sizeof(crypto_info));
+#endif
+        /************************ KTLS *****************************************/
 
 	printk(KERN_INFO "virgo_free() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -699,6 +754,59 @@ struct virgo_address* virgo_unique_id_to_addr(unsigned long long virgo_unique_id
 	return vaddr;
 }
 
+void virgomemorypooling_read_virgo_ktls_config()
+{
+	/* virgo_ktls.conf contains key-value pairs of GNUTLS created crypto_info required by kernel transport layer security */
+
+	loff_t bytesread=0;
+	loff_t pos=0;
+	mm_segment_t fs;
+
+	printk(KERN_INFO "virgo_malloc: virgomemorypooling_read_virgo_ktls_config(): virgo_cloud KTLS config being read... \n");
+	fs=get_fs();
+	set_fs(get_ds());
+	struct file* f=NULL;
+	f=filp_open("/etc/virgo_ktls.conf", O_RDONLY, 0);
+
+	if(IS_ERR(f))
+		printk(KERN_INFO, "virgomemorypooling_read_virgo_ktls_config(): error opening virgo_ktls.conf");
+
+	char buf[3000];
+	int i=0;
+
+	int k=0;
+	for(k=0;k<256;k++)
+		buf[k]=0;
+
+
+	char* key;
+	char* value;
+
+	pos=0;
+        if(f !=NULL)
+        {
+                bytesread=vfs_read(f, buf, 3000, &pos);
+                pos=pos+bytesread;
+        }
+        char* confdelim=",";
+	char* keyvaluedelim="=";
+        char* confvar=NULL;
+        char* bufdup=kstrdup(buf,GFP_KERNEL);
+        while(bufdup != NULL)
+        {
+                confvar=strsep(&bufdup, confdelim);
+		char* confvardup=kstrdup(confvar,GFP_ATOMIC);
+		char* confkey=strsep(&confvardup, keyvaluedelim);
+		char* confvalue=confvardup;	
+                virgo_kmemcache_ktls_conf[i].key=kstrdup(confkey,GFP_KERNEL);
+                virgo_kmemcache_ktls_conf[i].value=kstrdup(confvalue,GFP_KERNEL);
+		printk(KERN_INFO "virgomemorypooling_read_virgo_ktls_config() parsed GNUTLS crypto info variable: %s = %s \n",virgo_kmemcache_ktls_conf[i].key,virgo_kmemcache_ktls_conf[i].value);
+                i++;
+        }
+
+	set_fs(fs);
+	filp_close(f,NULL);	
+}
 
 void virgomemorypooling_read_virgo_config_client()
 {

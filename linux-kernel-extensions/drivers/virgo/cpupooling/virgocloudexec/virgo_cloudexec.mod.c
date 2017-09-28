@@ -33,6 +33,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x69e59c53, __VMLINUX_SYMBOL_STR(virgo_kernel_analytics_conf) },
 	{ 0xbecdd3e7, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
 	{ 0xdeb8291b, __VMLINUX_SYMBOL_STR(vfs_read) },
+	{ 0xc32f2bf0, __VMLINUX_SYMBOL_STR(kernel_setsockopt) },
 	{ 0xfb578fc5, __VMLINUX_SYMBOL_STR(memset) },
 	{ 0x57d0bb67, __VMLINUX_SYMBOL_STR(current_task) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
@@ -56,7 +57,9 @@ __attribute__((section("__versions"))) = {
 	{ 0xfb42789d, __VMLINUX_SYMBOL_STR(__asan_store1_noabort) },
 	{ 0x8fb63660, __VMLINUX_SYMBOL_STR(sock_create) },
 	{ 0x90de9ccd, __VMLINUX_SYMBOL_STR(kernel_bind) },
+	{ 0x86d38e51, __VMLINUX_SYMBOL_STR(__asan_loadN_noabort) },
 	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
+	{ 0xa541b17e, __VMLINUX_SYMBOL_STR(virgo_ktls_conf) },
 	{ 0x961155d1, __VMLINUX_SYMBOL_STR(__asan_load4_noabort) },
 	{ 0x783459e8, __VMLINUX_SYMBOL_STR(try_module_get) },
 	{ 0xd6227451, __VMLINUX_SYMBOL_STR(filp_open) },
@@ -65,7 +68,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_kernel_analytics  EXPORT_SYMBOL,virgo_cloud_test_kernelspace";
+"depends=virgo_kernel_analytics,virgo_cloud_test_kernelspace,virgo_ktls";
 
 
-MODULE_INFO(srcversion, "328D2C392A811BA2C3B5D47");
+MODULE_INFO(srcversion, "AE5DB501498CD67CDCC12AB");

@@ -63,6 +63,8 @@
 #include <linux/socket.h>
 #include <net/tls.h>
 
+#include <linux/virgo_clone_syscall.h>
+
 /*
 #include "netns.h"
 */
@@ -83,6 +85,7 @@ char* virgocpupooling_node_ip_addrs_in_client[3000];
 char* get_host_from_cloud_Loadtrack();
 char* get_host_from_cloud_PRG();
 void virgocpupooling_read_virgo_config_client();
+void virgocpupooling_read_virgo_ktls_config();
 
 struct hostport* get_least_loaded_hostport_from_cloud()
 {
@@ -151,7 +154,8 @@ char* get_host_from_cloud_PRG()
 asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int flags, void *arg)
 {
 
-	virgocpupooling_read_virgo_config_client();	
+	virgocpupooling_read_virgo_config_client();
+	virgocpupooling_read_virgo_ktls_config();
 	int nr;
 	struct kvec iov;
 	struct msghdr msg;
@@ -186,7 +190,19 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	nr=1;
 
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	/************************ KTLS *****************************************/
+#ifdef VIRGO_KTLS
+        struct tls12_crypto_info_aes_gcm_128 crypto_info;
+        crypto_info.info.version = TLS_1_2_VERSION;
+        crypto_info.info.cipher_type = TLS_CIPHER_AES_GCM_128;
+        memcpy(crypto_info.iv, virgo_clone_ktls_conf[0].value, TLS_CIPHER_AES_GCM_128_IV_SIZE);
+        memcpy(crypto_info.rec_seq, virgo_clone_ktls_conf[1].value, TLS_CIPHER_AES_GCM_128_REC_SEQ_SIZE);
+        memcpy(crypto_info.key, virgo_clone_ktls_conf[2].value, TLS_CIPHER_AES_GCM_128_KEY_SIZE);
+        memcpy(crypto_info.salt, virgo_clone_ktls_conf[3].value, TLS_CIPHER_AES_GCM_128_SALT_SIZE);
+        kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, &crypto_info, sizeof(crypto_info));
+#endif
+        /************************ KTLS *****************************************/
 
 	printk(KERN_INFO "virgo_clone() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -215,6 +231,61 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	
 	return len;
 }
+
+void virgocpupooling_read_virgo_ktls_config()
+{
+	/* virgo_ktls.conf contains key-value pairs of GNUTLS created crypto_info required by kernel transport layer security */
+
+	loff_t bytesread=0;
+	loff_t pos=0;
+	mm_segment_t fs;
+
+	printk(KERN_INFO "virgo_clone(): virgocpupooling_read_virgo_ktls_config(): virgo_cloud KTLS config being read... \n");
+	fs=get_fs();
+	set_fs(get_ds());
+	struct file* f=NULL;
+	f=filp_open("/etc/virgo_ktls.conf", O_RDONLY, 0);
+
+	if(IS_ERR(f))
+		printk(KERN_INFO, "virgocpupooling_read_virgo_ktls_config(): error opening virgo_ktls.conf");
+
+	char buf[3000];
+	int i=0;
+
+	int k=0;
+	for(k=0;k<256;k++)
+		buf[k]=0;
+
+
+	char* key;
+	char* value;
+
+	pos=0;
+        if(f !=NULL)
+        {
+                bytesread=vfs_read(f, buf, 3000, &pos);
+                pos=pos+bytesread;
+        }
+        char* confdelim=",";
+	char* keyvaluedelim="=";
+        char* confvar=NULL;
+        char* bufdup=kstrdup(buf,GFP_KERNEL);
+        while(bufdup != NULL)
+        {
+                confvar=strsep(&bufdup, confdelim);
+		char* confvardup=kstrdup(confvar,GFP_ATOMIC);
+		char* confkey=strsep(&confvardup, keyvaluedelim);
+		char* confvalue=confvardup;	
+                virgo_clone_ktls_conf[i].key=kstrdup(confkey,GFP_KERNEL);
+                virgo_clone_ktls_conf[i].value=kstrdup(confvalue,GFP_KERNEL);
+		printk(KERN_INFO "virgocpupooling_read_virgo_ktls_config() parsed GNUTLS crypto info variable: %s = %s \n",virgo_clone_ktls_conf[i].key,virgo_clone_ktls_conf[i].value);
+                i++;
+        }
+
+	set_fs(fs);
+	filp_close(f,NULL);	
+}
+
 
 void virgocpupooling_read_virgo_config_client()
 {

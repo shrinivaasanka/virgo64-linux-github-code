@@ -37,6 +37,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xc32f2bf0, __VMLINUX_SYMBOL_STR(kernel_setsockopt) },
 	{ 0x4c62fd7, __VMLINUX_SYMBOL_STR(__memset) },
 	{ 0x57d0bb67, __VMLINUX_SYMBOL_STR(current_task) },
+	{ 0xecac8407, __VMLINUX_SYMBOL_STR(__memcpy) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0x5a921311, __VMLINUX_SYMBOL_STR(strncmp) },
 	{ 0xa7eedcc4, __VMLINUX_SYMBOL_STR(call_usermodehelper) },
@@ -52,6 +53,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x8fb63660, __VMLINUX_SYMBOL_STR(sock_create) },
 	{ 0x90de9ccd, __VMLINUX_SYMBOL_STR(kernel_bind) },
 	{ 0x68405e88, __VMLINUX_SYMBOL_STR(skbuff_kernel_socket_debug2) },
+	{ 0xa541b17e, __VMLINUX_SYMBOL_STR(virgo_ktls_conf) },
 	{ 0x783459e8, __VMLINUX_SYMBOL_STR(try_module_get) },
 	{ 0xe914e41e, __VMLINUX_SYMBOL_STR(strcpy) },
 	{ 0xd6227451, __VMLINUX_SYMBOL_STR(filp_open) },
@@ -63,4 +65,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace,virgo_kernel_analytics,virgo_generic_kernelsock_client";
 
 
-MODULE_INFO(srcversion, "A0C977DE5BB85247F85B4EC");
+MODULE_INFO(srcversion, "4CF871D396DD8670467EDE0");

@@ -139,6 +139,10 @@ virgoconfig_init(void)
         {
                 printk(KERN_INFO "virgo_config_init() exported kernel_analytics variable: %s = %s \n",virgo_kernel_analytics_conf[i].key,virgo_kernel_analytics_conf[i].value);
         }
+	for(i=0; i < 10; i++)
+        {
+                printk(KERN_INFO "virgo_config_init() exported ktls variable: %s = %s \n",virgo_ktls_conf[i].key,virgo_ktls_conf[i].value);
+        }
 
 	return 0;
 }

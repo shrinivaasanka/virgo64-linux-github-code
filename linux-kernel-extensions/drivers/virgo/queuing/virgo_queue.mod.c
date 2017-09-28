@@ -61,7 +61,9 @@ __attribute__((section("__versions"))) = {
 	{ 0xfb42789d, __VMLINUX_SYMBOL_STR(__asan_store1_noabort) },
 	{ 0x90de9ccd, __VMLINUX_SYMBOL_STR(kernel_bind) },
 	{ 0x2e0d2f7f, __VMLINUX_SYMBOL_STR(queue_work_on) },
+	{ 0x86d38e51, __VMLINUX_SYMBOL_STR(__asan_loadN_noabort) },
 	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
+	{ 0xa541b17e, __VMLINUX_SYMBOL_STR(virgo_ktls_conf) },
 	{ 0x961155d1, __VMLINUX_SYMBOL_STR(__asan_load4_noabort) },
 	{ 0x783459e8, __VMLINUX_SYMBOL_STR(try_module_get) },
 	{ 0xd6227451, __VMLINUX_SYMBOL_STR(filp_open) },
@@ -70,7 +72,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_kernel_analytics  EXPORT_SYMBOL,kingcobra_main_kernelspace";
+"depends=virgo_kernel_analytics,kingcobra_main_kernelspace,virgo_ktls";
 
 
-MODULE_INFO(srcversion, "8F6D00AE0DC235322ECF807");
+MODULE_INFO(srcversion, "7D7C8E5DCC084C5DA0EE191");

@@ -26,12 +26,13 @@ __attribute__((section("__versions"))) = {
 	{ 0x8dcfe1d8, __VMLINUX_SYMBOL_STR(__asan_register_globals) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
 	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
+	{ 0xa541b17e, __VMLINUX_SYMBOL_STR(virgo_ktls_conf) },
 };
 
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_kernel_analytics";
+"depends=virgo_kernel_analytics,virgo_ktls";
 
 
-MODULE_INFO(srcversion, "D380C114EBE48DB71977D63");
+MODULE_INFO(srcversion, "ED3DFAFF394E18CFA32A5D3");

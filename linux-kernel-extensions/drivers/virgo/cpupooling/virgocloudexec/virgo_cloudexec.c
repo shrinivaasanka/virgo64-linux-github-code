@@ -298,6 +298,11 @@ virgocloudexec_init(void)
         for(i=0; i < 10; i++)
         {
                 printk(KERN_INFO "virgocloudexec_init(): exported kernel_analytics variable: %s = %s \n",virgo_kernel_analytics_conf[i].key,virgo_kernel_analytics_conf[i].value);
+	}
+
+        for(i=0; i < 10; i++)
+        {
+                printk(KERN_INFO "virgocloudexec_init(): exported ktls variable: %s = %s \n",virgo_ktls_conf[i].key,virgo_ktls_conf[i].value);
         }
 	
 	printk(KERN_INFO "virgocloudexec_init(): invoking read_virgo_config()\n");
@@ -310,7 +315,19 @@ virgocloudexec_init(void)
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /************************ KTLS *****************************************/
+#ifdef VIRGO_KTLS
+        struct tls12_crypto_info_aes_gcm_128 crypto_info;
+        crypto_info.info.version = TLS_1_2_VERSION;
+        crypto_info.info.cipher_type = TLS_CIPHER_AES_GCM_128;
+        memcpy(crypto_info.iv, virgo_ktls_conf[0].value, TLS_CIPHER_AES_GCM_128_IV_SIZE);
+        memcpy(crypto_info.rec_seq, virgo_ktls_conf[1].value, TLS_CIPHER_AES_GCM_128_REC_SEQ_SIZE);
+        memcpy(crypto_info.key, virgo_ktls_conf[2].value, TLS_CIPHER_AES_GCM_128_KEY_SIZE);
+        memcpy(crypto_info.salt, virgo_ktls_conf[3].value, TLS_CIPHER_AES_GCM_128_SALT_SIZE);
+        kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, &crypto_info, sizeof(crypto_info));
+#endif
+        /************************ KTLS *****************************************/
 
 	printk(KERN_INFO "virgocloudexec_init(): sock_create() returns error code: %d\n",error);
 

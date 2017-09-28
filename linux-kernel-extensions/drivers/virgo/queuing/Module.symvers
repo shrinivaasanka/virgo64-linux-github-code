@@ -1,14 +1,18 @@
-0xe3fe0694	kingcobra_servicerequest_kernelspace	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
-0x5773170b	virgokernel_analytics_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
-0x939829f2	virgokernel_analytics_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
+0xe3fe0694	kingcobra_servicerequest_kernelspace	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
+0x5773170b	virgokernel_analytics_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x939829f2	virgokernel_analytics_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
 0x70958967	virgoqueue_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0xe4de3087	kingcobra_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
-0x20350e7e	kingcobra_kernelspace_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
+0x20350e7e	kingcobra_kernelspace_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
+0xe4de3087	kingcobra_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
 0x147e9cfc	virgoqueue_sendto	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0xf571f87e	virgoktls_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL
 0x81c90249	push_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0xa541b17e	virgo_ktls_conf	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL
+0xc5e0fc76	virgoktls_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL
 0x2d944a7b	virgoqueue_recvfrom	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x9a410671	read_virgo_kernel_analytics_config	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
+0x9a410671	read_virgo_kernel_analytics_config	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
 0x5f58edf1	pop_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x69e59c53	virgo_kernel_analytics_conf	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
+0x69e59c53	virgo_kernel_analytics_conf	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
 0x8045952f	virgoqueue_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
 0x8dc7daa8	virgoqueue_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x65cc0b2d	read_virgo_ktls_config	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL

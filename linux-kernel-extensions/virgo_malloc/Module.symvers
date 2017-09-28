@@ -1,0 +1,4 @@
+0xf571f87e	virgoktls_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL
+0xa541b17e	virgo_ktls_conf	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL
+0xc5e0fc76	virgoktls_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL
+0x65cc0b2d	read_virgo_ktls_config	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/ktls/virgo_ktls	EXPORT_SYMBOL

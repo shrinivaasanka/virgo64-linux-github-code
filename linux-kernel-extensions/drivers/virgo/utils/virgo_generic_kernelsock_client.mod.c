@@ -39,8 +39,10 @@ __attribute__((section("__versions"))) = {
 	{ 0xcfb82bbc, __VMLINUX_SYMBOL_STR(__asan_load1_noabort) },
 	{ 0x69acdf38, __VMLINUX_SYMBOL_STR(memcpy) },
 	{ 0x8fb63660, __VMLINUX_SYMBOL_STR(sock_create) },
+	{ 0x86d38e51, __VMLINUX_SYMBOL_STR(__asan_loadN_noabort) },
 	{ 0xe437a668, __VMLINUX_SYMBOL_STR(skb_put) },
 	{ 0xfd5d0082, __VMLINUX_SYMBOL_STR(__asan_load8_noabort) },
+	{ 0xa541b17e, __VMLINUX_SYMBOL_STR(virgo_ktls_conf) },
 	{ 0x961155d1, __VMLINUX_SYMBOL_STR(__asan_load4_noabort) },
 	{ 0xe914e41e, __VMLINUX_SYMBOL_STR(strcpy) },
 };
@@ -48,7 +50,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=";
+"depends=virgo_ktls";
 
 
-MODULE_INFO(srcversion, "B712E042FDE8925D7DD1335");
+MODULE_INFO(srcversion, "3464942542B139876CC1446");

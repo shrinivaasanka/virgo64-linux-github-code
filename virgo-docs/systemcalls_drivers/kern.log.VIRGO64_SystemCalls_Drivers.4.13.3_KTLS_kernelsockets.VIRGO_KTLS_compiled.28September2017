@@ -1,0 +1,39 @@
+Sep 28 09:35:55 localhost kernel: [ 1856.895028] tokenize_list_of_ip_addrs(): bufdup = 192.168.2.80
+Sep 28 09:35:55 localhost kernel: [ 1856.895028] 
+Sep 28 09:35:55 localhost kernel: [ 1856.895031] tokenize_list_of_ip_addrs(): 192.168.2.80
+Sep 28 09:35:55 localhost kernel: [ 1856.895031] 
+Sep 28 09:35:55 localhost kernel: [ 1856.895051] tokenize_list_of_ip_addrs(): virgoeventnet_node_ip_addrs_in_cloud[0] = 192.168.2.80
+Sep 28 09:35:55 localhost kernel: [ 1856.895051] 
+Sep 28 09:35:55 localhost kernel: [ 1856.895128] virgocloudexec_eventnet_init(): initializing KTLS kernel socket encryption from virgo_ktls.conf 
+Sep 28 09:35:55 localhost kernel: [ 1856.895131] virgocloudexec_eventnet_init(): initializing KTLS kernel socket options
+Sep 28 09:35:56 localhost kernel: [ 1857.153499] virgocloudexec_eventnet_init(): sock_create() returns error code: 0
+Sep 28 09:35:56 localhost kernel: [ 1857.153526] virgocloudexec_eventnet_init(): kernel_bind() returns error code: 0
+Sep 28 09:35:56 localhost kernel: [ 1857.153533] virgocloudexec_eventnet_init(): kernel_listen() returns error code: 0
+Sep 28 09:35:56 localhost kernel: [ 1857.153536] virgo_cloudexec_eventnet_service(): virgo_fs_ops.virgo_create() 
+Sep 28 09:36:43 localhost kernel: [ 1904.838853] virgo_generic_kernelsock_client_init(): initialising virgo cloud test kernel space module 
+Sep 28 09:36:43 localhost kernel: [ 1904.838860] virgocloudexec_init(): exported ktls variable: iv = iv1 
+Sep 28 09:36:43 localhost kernel: [ 1904.838863] virgocloudexec_init(): exported ktls variable: rec_seq = rec_seq1 
+Sep 28 09:36:43 localhost kernel: [ 1904.838866] virgocloudexec_init(): exported ktls variable: key = key1 
+Sep 28 09:36:43 localhost kernel: [ 1904.838869] virgocloudexec_init(): exported ktls variable: salt = salt1
+Sep 28 09:36:43 localhost kernel: [ 1904.838869]  
+Sep 28 09:36:43 localhost kernel: [ 1904.838872] virgocloudexec_init(): exported ktls variable: (null) = (null) 
+Sep 28 09:36:43 localhost kernel: [ 1904.838875] virgocloudexec_init(): exported ktls variable: (null) = (null) 
+Sep 28 09:36:43 localhost kernel: [ 1904.838878] virgocloudexec_init(): exported ktls variable: (null) = (null) 
+Sep 28 09:36:43 localhost kernel: [ 1904.838881] virgocloudexec_init(): exported ktls variable: (null) = (null) 
+Sep 28 09:36:43 localhost kernel: [ 1904.838883] virgocloudexec_init(): exported ktls variable: (null) = (null) 
+Sep 28 09:36:43 localhost kernel: [ 1904.838886] virgocloudexec_init(): exported ktls variable: (null) = (null) 
+Sep 28 09:36:43 localhost kernel: [ 1904.838894] eventnet_log() : after in4_pton and htons, hostip=192.168.2.80, port=20000, sin.sin_addr.s_addr=5002a8c0, sin.sin_port=204e
+Sep 28 09:36:43 localhost kernel: [ 1904.839376] eventnet_log() : created client kernel socket
+Sep 28 09:36:43 localhost kernel: [ 1904.839384] eventnet_log() : connected kernel client to virgo cloudexec EventNet kernel service
+Sep 28 09:36:43 localhost kernel: [ 1904.839384]  
+Sep 28 09:36:43 localhost kernel: [ 1904.839559] eventnet_log() : sent len=500; iov.iov_base=eventnet_edgemsg#1#2#, sent message: eventnet_edgemsg#1#2# 
+Sep 28 09:36:43 localhost kernel: [ 1904.839566] eventnet_log() : recv len=-107; received message buf: [eventnet_edgemsg#1#2#] 
+Sep 28 09:36:43 localhost kernel: [ 1904.839568] eventnet_log() : received iov.iov_base: eventnet_edgemsg#1#2# 
+Sep 28 09:36:43 localhost kernel: [ 1904.839571] eventnet_log() : le32_to_cpus(buf): eventnet_edgemsg#1#2# 
+Sep 28 09:36:43 localhost kernel: [ 1904.839573] eventnet_log() : invoking skbuff utility debug function ... 
+Sep 28 09:36:43 localhost kernel: [ 1904.839575] in skbuff_kernel_socket_debug() 
+Sep 28 09:36:43 localhost kernel: [ 1904.839578] skbuff_kernel_socket_debug(): sock = 715b8d00 
+Sep 28 09:36:43 localhost kernel: [ 1904.839581] skbuff_kernel_socket_debug(): sock->sk is not NULL : 9c425800 
+Sep 28 09:36:43 localhost kernel: [ 1904.839583] skbuff_kernel_socket_debug(): sock->ops is not NULL : 871e5120 
+Sep 28 09:36:43 localhost kernel: [ 1904.839586] skbuff_kernel_socket_debug(): sock->sk->sk_send_head is NULL, doing alloc_skb() to sk_send_head 
+

@@ -36,6 +36,7 @@
 #include <linux/netdevice.h>
 #include <net/tls.h>
 #include <linux/net.h>
+#include <linux/virgo_config.h>
 
 char *eventnet_kernel_service_host="192.168.2.80";
 
@@ -186,6 +187,12 @@ void virgo_eventnet_log(char* logmsg)
 	struct kvec iov;
 	mm_segment_t oldfs;
 
+	int i;
+        for(i=0; i < 10; i++)
+        {
+                printk(KERN_INFO "virgocloudexec_init(): exported ktls variable: %s = %s \n",virgo_ktls_conf[i].key,virgo_ktls_conf[i].value);
+        }
+
 	char* hostip = eventnet_kernel_service_host;
 	int port=20000;
 	struct socket *sock;
@@ -213,7 +220,20 @@ void virgo_eventnet_log(char* logmsg)
 	
 	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+
+	/************************ KTLS *****************************************/
+#ifdef VIRGO_KTLS
+	struct tls12_crypto_info_aes_gcm_128 crypto_info;
+  	crypto_info.info.version = TLS_1_2_VERSION;
+	crypto_info.info.cipher_type = TLS_CIPHER_AES_GCM_128;
+	memcpy(crypto_info.iv, virgo_ktls_conf[0].value, TLS_CIPHER_AES_GCM_128_IV_SIZE);
+	memcpy(crypto_info.rec_seq, virgo_ktls_conf[1].value, TLS_CIPHER_AES_GCM_128_REC_SEQ_SIZE);
+	memcpy(crypto_info.key, virgo_ktls_conf[2].value, TLS_CIPHER_AES_GCM_128_KEY_SIZE);
+	memcpy(crypto_info.salt, virgo_ktls_conf[3].value, TLS_CIPHER_AES_GCM_128_SALT_SIZE);
+	kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));
+        kernel_setsockopt(sock, SOL_TLS, TLS_TX, &crypto_info, sizeof(crypto_info));
+#endif
+	/************************ KTLS *****************************************/
 
 	printk(KERN_INFO "eventnet_log() : created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
