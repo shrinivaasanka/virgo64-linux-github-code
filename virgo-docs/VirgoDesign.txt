@@ -1430,6 +1430,58 @@ directories
 (*) virgofstest.txt written to by virgo_write() has also been committed. But a weird behaviour is still observed similar to previous linux kernel versions (4.1.5 and 4.10.3): Repetitive invocations are required to flush the filesystem buffer to force write the file.
 (*) No DRM GEM i915 panics are observed and stability of VIRGO64 + 4.13.3 linux kernel is more or equal to VIRGO64 + 4.10.3 linux kernel
 
+------------------------------------------------------------------------------------------------------------------------------------------
+Commits - VIRGO64 VIRGO_KTLS branch creation and rebase of master to previous commit - 30 September 2017
+------------------------------------------------------------------------------------------------------------------------------------------
+(*) New branch VIRGO_KTLS has been created after previous commit on 25 September 2017 and all 5 commits after 25 September 2017 till
+28 September 2017 have been branched to VIRGO_KTLS (which has the #ifdef for crypto_info, reads from /etc/virgo_ktls.conf and a new ktls
+driver module)
+(*) Following are the commit hashes and commandlines in GitHub and SourceForge:
+               git branch -b VIRGO_KTLS
+               git branch master
+               git rebase -i <SHA1_on_25September2017>
+               git rebase --continue
+               git commit --amend
+               git push --force
+--------------------------------------------------------------------------------------------- 
+1958  git checkout -b
+1959  git checkout -b VIRGO_KTLS
+1960  ls
+1961  git checkout VIRGO_KTLS
+1962  git push origin VIRGO_KTLS
+1963  git status
+1964  git checkout 
+1965  git checkout -b
+1966  git branch
+1967  git branch master
+1968  git branch -h
+1969  git branch
+1970  git checkout master
+1975  git checkout -b
+1976  git checkout -b VIRGO_KTLS
+1979  git push origin VIRGO_KTLS
+1990  git rebase -i bb661e908cba2a5357414e89166f29086a28bdf0
+1991  git status
+1992  git rebase -i bb661e908cba2a5357414e89166f29086a28bdf0
+1996  git rebase --continue
+1997  git commit --amend
+2019  git rebase -i bb661e908cba2a5357414e89166f29086a28bdf0
+2029  git rebase --continue
+2037  git push --force
+2091  git rebase -i bb661e908cba2a5357414e89166f29086a28bdf0
+2092  git rebase --continue
+2093  git commit --amend
+2094  git push --force
+2110  git branch
+2111  git branch master
+2112  git checkout master
+2113  git branch
+2114  git rebase -i e76b4089633223f610fddc0e0eaff8c2cef8b9f1
+2115  git commit --amend
+2116  git rebase --continue
+2117  git push --force
+
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
