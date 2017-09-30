@@ -1480,6 +1480,9 @@ driver module)
 2115  git commit --amend
 2116  git rebase --continue
 2117  git push --force
+-----------------------------------------------------------------------------------------------------------
+KTLS in 4.13.3 has support for only private symmetric encryption. It does not support Public Key Encryption yet. Since this might take a while
+mainstream VIRGO64 code might change a lot for other features. Therefore, VIRGO_KTLS specific crypto_info code has been branched off and would parallelly evolve if PKI features are available on KTLS in next versions of Linux kernel.
 
 
 
