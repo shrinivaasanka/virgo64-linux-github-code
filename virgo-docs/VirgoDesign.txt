@@ -1484,6 +1484,13 @@ driver module)
 KTLS in 4.13.3 has support for only private symmetric encryption. It does not support Public Key Encryption yet. Since this might take a while
 mainstream VIRGO64 code might change a lot for other features. Therefore, VIRGO_KTLS specific crypto_info code has been branched off and would parallelly evolve if PKI features are available on KTLS in next versions of Linux kernel.
 
+----------------------------------------------------------------------------------------------------------------------
+Commits - 1 October 2017
+----------------------------------------------------------------------------------------------------------------------
+kern.log(s) for VIRGO64 systemcalls-driver 4.13.3 64-bit upgrade tests on master branch after reversal and rebase of master HEAD yesterday for
+branching to VIRGO_KTLS. There is a weird General Protection Fault in intel atomic commit work not seen thus far. Also -32 and -107 socket errors are frequent after reversal though code remains same. But all virgo clone/kmemcache/fs systemcalls functionalities work in invocations after GPF.
+
+
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
