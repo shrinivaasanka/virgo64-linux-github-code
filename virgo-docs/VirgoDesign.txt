@@ -1490,7 +1490,15 @@ Commits - 1 October 2017
 kern.log(s) for VIRGO64 systemcalls-driver 4.13.3 64-bit upgrade tests on master branch after reversal and rebase of master HEAD yesterday for
 branching to VIRGO_KTLS. There is a weird General Protection Fault in intel atomic commit work not seen thus far. Also -32 and -107 socket errors are frequent after reversal though code remains same. But all virgo clone/kmemcache/fs systemcalls functionalities work in invocations after GPF.
 
-
+---------------------------------------------------------------------------------------------------------------------------------
+Commits - VIRGO64 Utils and EventNet Drivers Update for tcp_sendmsg() stack out-of-bounds error - 3 October 2017
+---------------------------------------------------------------------------------------------------------------------------------
+(*) Utils Generic Socket Client function virgo_eventnet_log() for EventNet kernel module listener was repeatedly failing in kernel_connect()
+emitting -32 and -107 errors.
+(*) kernel_connect() was guarded by set_fs() and get_fs() memory segment routines to prevent any memory corruption. After this stack out-of-bounds error was reported by kernel address sanitizer in tcp_sendmsg() and copy_from_iter_full() implying the message buffer was not properly read within kernel.
+(*) After replacing strlen(buf) by BUF_SIZE in msg flags before kernel_connect() stack out-of-bounds error has been remedied and Utils to EventNet virgo_eventnet_log() doesn't crash in tcp_sendmsg()
+(*) kern.log for this has been committed in drivers/virgo/utils/testlogs/
+(*) Both eventnet and utils drivers have been rebuilt
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
