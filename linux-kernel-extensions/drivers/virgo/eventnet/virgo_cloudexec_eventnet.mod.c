@@ -33,7 +33,6 @@ __attribute__((section("__versions"))) = {
 	{ 0xe2d5255a, __VMLINUX_SYMBOL_STR(strcmp) },
 	{ 0x9048017c, __VMLINUX_SYMBOL_STR(virgo_cloud_eventnet_vertexmsg_kernelspace) },
 	{ 0xdeb8291b, __VMLINUX_SYMBOL_STR(vfs_read) },
-	{ 0xc32f2bf0, __VMLINUX_SYMBOL_STR(kernel_setsockopt) },
 	{ 0xfb578fc5, __VMLINUX_SYMBOL_STR(memset) },
 	{ 0x57d0bb67, __VMLINUX_SYMBOL_STR(current_task) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
@@ -66,4 +65,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_eventnet_kernelspace";
 
 
-MODULE_INFO(srcversion, "F594236E5103C1EED5A255F");
+MODULE_INFO(srcversion, "F27A95C411BEE8329B8DA87");

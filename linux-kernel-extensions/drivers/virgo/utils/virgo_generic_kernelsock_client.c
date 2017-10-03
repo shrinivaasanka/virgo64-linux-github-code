@@ -37,7 +37,9 @@
 #include <net/tls.h>
 #include <linux/net.h>
 
-char *eventnet_kernel_service_host="192.168.2.80";
+char *eventnet_kernel_service_host="127.0.0.1";
+
+void virgo_eventnet_log(char* logmsg);
 
 static int __init
 virgo_generic_kernelsock_client_init(void)
@@ -197,7 +199,7 @@ void virgo_eventnet_log(char* logmsg)
 	strcpy(buf,logmsg);
 
 	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -213,10 +215,15 @@ void virgo_eventnet_log(char* logmsg)
 	
 	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "eventnet_log() : created client kernel socket\n");
+	skbuff_kernel_socket_debug2(sock);
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	set_fs(oldfs);
 	printk(KERN_INFO "eventnet_log() : connected kernel client to virgo cloudexec EventNet kernel service\n ");
 
 	oldfs=get_fs();
@@ -234,10 +241,12 @@ void virgo_eventnet_log(char* logmsg)
 	printk(KERN_INFO "eventnet_log() : recv len=%d; received message buf: [%s] \n", len, buf);
 	printk(KERN_INFO "eventnet_log() : received iov.iov_base: %s \n", iov.iov_base);
 
+	/*
 	le32_to_cpus(buf);
 	printk(KERN_INFO "eventnet_log() : le32_to_cpus(buf): %s \n", buf);
 	printk(KERN_INFO "eventnet_log() : invoking skbuff utility debug function ... \n");
-	skbuff_kernel_socket_debug(sock);
+	*/
+	skbuff_kernel_socket_debug2(sock);
 
 	/*
 	Mysteriously sock_release() causes kernel panic repeatedly. Hence commenting this

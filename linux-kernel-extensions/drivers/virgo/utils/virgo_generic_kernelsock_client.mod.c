@@ -23,7 +23,6 @@ __attribute__((section("__versions"))) = {
 	{ 0x754d539c, __VMLINUX_SYMBOL_STR(strlen) },
 	{ 0x73475f93, __VMLINUX_SYMBOL_STR(__asan_handle_no_return) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
-	{ 0xc32f2bf0, __VMLINUX_SYMBOL_STR(kernel_setsockopt) },
 	{ 0x66f53979, __VMLINUX_SYMBOL_STR(kernel_connect) },
 	{ 0x57d0bb67, __VMLINUX_SYMBOL_STR(current_task) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
@@ -51,4 +50,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "B712E042FDE8925D7DD1335");
+MODULE_INFO(srcversion, "E23E904151E823D2C1A7D35");

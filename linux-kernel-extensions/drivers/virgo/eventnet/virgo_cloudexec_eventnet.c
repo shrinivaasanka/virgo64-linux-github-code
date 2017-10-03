@@ -229,7 +229,7 @@ virgocloudexec_eventnet_init(void)
 	sin.sin_port=htons(20000);
 
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	/*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgocloudexec_eventnet_init(): sock_create() returns error code: %d\n",error);
 
