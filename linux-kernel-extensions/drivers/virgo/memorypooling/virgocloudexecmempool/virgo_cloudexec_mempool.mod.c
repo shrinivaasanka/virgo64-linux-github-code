@@ -34,7 +34,6 @@ __attribute__((section("__versions"))) = {
 	{ 0x39506191, __VMLINUX_SYMBOL_STR(virgo_cloud_get_kernelspace) },
 	{ 0x9cc701b9, __VMLINUX_SYMBOL_STR(virgo_cloud_malloc_kernelspace) },
 	{ 0xdeb8291b, __VMLINUX_SYMBOL_STR(vfs_read) },
-	{ 0xc32f2bf0, __VMLINUX_SYMBOL_STR(kernel_setsockopt) },
 	{ 0x4c62fd7, __VMLINUX_SYMBOL_STR(__memset) },
 	{ 0x57d0bb67, __VMLINUX_SYMBOL_STR(current_task) },
 	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
@@ -63,4 +62,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace,virgo_kernel_analytics,virgo_generic_kernelsock_client";
 
 
-MODULE_INFO(srcversion, "A0C977DE5BB85247F85B4EC");
+MODULE_INFO(srcversion, "701DC89FB075887464B77FF");

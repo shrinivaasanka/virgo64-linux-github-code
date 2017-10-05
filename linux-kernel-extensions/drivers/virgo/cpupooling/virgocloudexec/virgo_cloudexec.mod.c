@@ -68,4 +68,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_kernel_analytics  EXPORT_SYMBOL,virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "328D2C392A811BA2C3B5D47");
+MODULE_INFO(srcversion, "DF1ACE8355CC73ECBA7D7B2");

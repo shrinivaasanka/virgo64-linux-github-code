@@ -171,7 +171,7 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	strcpy(buf, func_signature);
 
 	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);	
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -186,10 +186,13 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	nr=1;
 
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	/*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_clone() syscall: created client kernel socket\n");
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	set_fs(oldfs);
 	printk(KERN_INFO "virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 
 	oldfs=get_fs();

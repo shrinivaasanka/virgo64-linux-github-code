@@ -197,10 +197,13 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 
 	/*strcpy(iov.iov_base,buf);*/	
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_read() syscall: created client kernel socket\n");
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	set_fs(oldfs);
 	printk(KERN_INFO "virgo_read() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 
 	oldfs=get_fs();
@@ -290,10 +293,13 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	
 	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_write() syscall: created client kernel socket\n");
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	set_fs(oldfs);
 	printk(KERN_INFO "virgo_write() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 
 	oldfs=get_fs();
@@ -395,10 +401,13 @@ asmlinkage long sys_virgo_open(char* filepath)
 	
 	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_open() syscall: created client kernel socket\n");
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	set_fs(oldfs);
 	printk(KERN_INFO "virgo_open() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 
 	oldfs=get_fs();
@@ -484,10 +493,13 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	
 	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_close() syscall: created client kernel socket\n");
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	set_fs(oldfs);
 	printk(KERN_INFO "virgo_close() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 
 	oldfs=get_fs();

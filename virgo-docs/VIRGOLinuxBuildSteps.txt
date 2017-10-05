@@ -24,6 +24,16 @@ Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO
 	- copy linux-kernel-extensions/drivers/virgo to linux-4.13.3/drivers
 	- copy linux-kernel-extensions/drivers/kingcobra to linux-4.13.3/drivers (for Module.symvers if use_as_kingcobra_service is enabled)
 	- copy VIRGO header files (virgo*.h,syscalls.h,init.h,kingcobra.h) in linux-kernel-extensions/include/linux to linux-4.13.3/include/linux
+	Example:
+	{
+		 cp -r virgo_* /media/ka_shrinivaasan/6944b01d-ff0d-43eb-8699-cca469511742/home/shrinivaasanka/Krishna_iResearch_OpenSource/GitHub/virgo64-linux-github-code/linux-kernel-extensions/
+		 cp -r drivers/virgo/ /media/ka_shrinivaasan/6944b01d-ff0d-43eb-8699-cca469511742/home/shrinivaasanka/Krishna_iResearch_OpenSource/GitHub/virgo64-linux-github-code/linux-kernel-extensions/drivers/
+		 cp -r include/linux/virgo* /media/ka_shrinivaasan/6944b01d-ff0d-43eb-8699-cca469511742/home/shrinivaasanka/Krishna_iResearch_OpenSource/GitHub/virgo64-linux-github-code/linux-kernel-extensions/include/linux/
+		 cp -r include/linux/kingcobra.h /media/ka_shrinivaasan/6944b01d-ff0d-43eb-8699-cca469511742/home/shrinivaasanka/Krishna_iResearch_OpenSource/GitHub/virgo64-linux-github-code/linux-kernel-extensions/include/linux/
+		 cp -r include/linux/init.h /media/ka_shrinivaasan/6944b01d-ff0d-43eb-8699-cca469511742/home/shrinivaasanka/Krishna_iResearch_OpenSource/GitHub/virgo64-linux-github-code/linux-kernel-extensions/include/linux/
+		 cp -r include/linux/syscalls.h /media/ka_shrinivaasan/6944b01d-ff0d-43eb-8699-cca469511742/home/shrinivaasanka/Krishna_iResearch_OpenSource/GitHub/virgo64-linux-github-code/linux-kernel-extensions/include/linux/
+	}
+
 	- Build each driver in linux-4.13.3/drivers/virgo/<driver> with <drivername>_driver_build.sh
 	- Some drivers require Module.symvers to be copied from other exporting drivers e.g kingcobra, virgo/kernel_analytics
 	- Copy Module.symvers from exporting driver to importing driver

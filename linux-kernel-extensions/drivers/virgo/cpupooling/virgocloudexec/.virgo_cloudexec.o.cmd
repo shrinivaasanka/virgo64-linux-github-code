@@ -1308,6 +1308,8 @@ deps_/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/dr
   /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/linux/virgo_config.h \
     $(wildcard include/config/h/.h) \
   /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/linux/kallsyms.h \
+  /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/net/tls.h \
+  /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/include/uapi/linux/tls.h \
 
 /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o: $(deps_/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o)
 

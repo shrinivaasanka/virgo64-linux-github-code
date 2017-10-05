@@ -326,7 +326,7 @@ virgocloudexec_mempool_init(void)
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	/*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgocloudexec_mempool_init(): sock_create() returns error code: %d, sock=%x\n",error,sock);
 

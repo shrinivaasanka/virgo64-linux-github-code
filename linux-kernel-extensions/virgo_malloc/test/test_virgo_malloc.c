@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 
 	/* virgo_malloc */
 	/*syscall(384,100,&virgo_unique_id);*/
-	syscall(549,1000,&virgo_unique_id);
+	syscall(549,100,&virgo_unique_id);
 	printf("vuid malloc-ed : %llu \n",virgo_unique_id);
 
 	/* virgo_set */

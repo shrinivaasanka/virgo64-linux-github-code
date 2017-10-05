@@ -166,7 +166,7 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
 	printk("virgo_get() system call: vuid=%ld, virgo address to retrieve data from is vaddr=%p\n",vuid, vaddr);
 
 	sin.sin_family=AF_INET;
-	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), (u8*)&sin.sin_addr.s_addr, '\0',NULL);
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* virgo_get_cmd;
@@ -196,10 +196,13 @@ asmlinkage long sys_virgo_get(unsigned long long vuid, char __user *data_out)
 
 	/*strcpy(iov.iov_base,buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_get() syscall: created client kernel socket\n");
-	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
+	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr) , 0);
+	set_fs(oldfs);
 
 	printk(KERN_INFO "virgo_get() syscall: connected kernel client to virgo cloudexec kernel service; iov.iov_base=%s\n ",iov.iov_base);
 	oldfs=get_fs();
@@ -234,7 +237,7 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 {
 	int nr;
 	struct kvec iov;
-	struct msghdr msg;
+	struct msghdr msg = {NULL,};
 	int error;
 	struct socket *sock;
 	struct sockaddr_in sin;
@@ -244,6 +247,7 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	mm_segment_t oldfs;
+	int ret;
 
 	virgomemorypooling_read_virgo_config_client();
 	memset(buf,0,BUF_SIZE);
@@ -266,11 +270,15 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 	memcpy(data,data_in,sizeof(data));
 	printk(KERN_INFO "virgo_set() system_call: after memcpy()\n");
 	printk(KERN_INFO "virgo_set() system call: vuid=%llu, data to set=%s\n", vuid, data);
+	printk(KERN_INFO "virgo_set() system call: before in4_pton() - sin.sin_addr.s_addr=%x, sin.sin_port=%x\n", sin.sin_addr.s_addr, sin.sin_port);
 	int chunk_size=0;
 	int sum_alloc_size=0;
 	sin.sin_family=AF_INET;
-	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+	/*ret=in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), (u8*)&sin.sin_addr.s_addr, '\0',NULL);*/
+	sin.sin_addr.s_addr=in_aton(vaddr->hstprt->hostip);
        	sin.sin_port=htons(vaddr->hstprt->port);
+	printk(KERN_INFO "virgo_set() system call: after in_aton() - sin.sin_addr.s_addr=%x, sin.sin_port=%x\n", sin.sin_addr.s_addr, sin.sin_port);
+
 
 	char* virgo_set_cmd;
 	char* vaddr_addr_str=addr_to_str(vaddr->addr);
@@ -309,22 +317,31 @@ asmlinkage long sys_virgo_set(unsigned long long vuid, const char __user *data_i
 
 	/*strcpy(iov.iov_base,buf);*/	
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_set() syscall: created client kernel socket\n");
-	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	printk(KERN_INFO "virgo_set() syscall: before kernel_connect() - sin.sin_addr.s_addr=%x, sin.sin_port=%x\n",sin.sin_addr.s_addr, sin.sin_port);
 
-	printk(KERN_INFO "virgo_set() syscall: connected kernel client to virgo cloudexec kernel service; before kernel_sendmsg(): iov.iov_base = %s\n ",iov.iov_base);
 	oldfs=get_fs();
 	set_fs(KERNEL_DS);
-	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+	ret=kernel_connect(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr) , 0);
 	set_fs(oldfs);
+
+	printk(KERN_INFO "virgo_set() syscall: after kernel_connect() - sin.sin_addr.s_addr=%x, sin.sin_port=%x\n",sin.sin_addr.s_addr, sin.sin_port);
+	printk(KERN_INFO "virgo_set() syscall: vaddr->hstprt->hostip = %s, vaddr->hstprt->port = %d", vaddr->hstprt->hostip, vaddr->hstprt->port);
+	printk(KERN_INFO "virgo_set() syscall: connected kernel client to virgo cloudexec kernel service; before kernel_sendmsg(): iov.iov_base = %s, ret=%d",iov.iov_base, ret);
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
+	ret=kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+	set_fs(oldfs);
+
+	printk(KERN_INFO "virgo_set() syscall: after kernel_sendmsg(): iov.iov_base = %s, ret=%d",iov.iov_base,ret);
 
 	oldfs=get_fs();
 	set_fs(KERNEL_DS);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 	set_fs(oldfs);
-	printk(KERN_INFO "virgo_set() syscall: received message: %s \n", iov.iov_base);
+	printk(KERN_INFO "virgo_set() syscall: received message: %s, len: %d", iov.iov_base, len);
 
 	/*
 	le32_to_cpus(buf);
@@ -383,7 +400,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 		}
 		printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->port=%d",leastloadedhostport->port);
 		printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->hostip=%s",leastloadedhostport->hostip);
-		in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+		in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), (u8*)&sin.sin_addr.s_addr, '\0',NULL);
 
 		sin.sin_family=AF_INET;
        		sin.sin_port=htons(leastloadedhostport->port);
@@ -431,10 +448,13 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long long __user *vuid)
 
 		/*strcpy(iov.iov_base, buf);*/ 	
 		error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+	        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 		printk(KERN_INFO "virgo_malloc() syscall: created client kernel socket\n");
-		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+		oldfs=get_fs();
+		set_fs(KERNEL_DS);
+		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr) , 0);
+		set_fs(oldfs);
 
 		printk(KERN_INFO "virgo_malloc() syscall: iov.iov_base=%s",iov.iov_base);
 
@@ -533,7 +553,7 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 
 	sin.sin_family=AF_INET;
-	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), (u8*)&sin.sin_addr.s_addr, '\0',NULL);
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* vaddr_addr_str=addr_to_str(vaddr->addr);
@@ -560,12 +580,15 @@ asmlinkage long sys_virgo_free(unsigned long long vuid)
 	msg.msg_flags = MSG_NOSIGNAL;
 	nr=1;
 
-	strcpy(iov.iov_base,buf);	
+	/*strcpy(iov.iov_base,buf);*/
 	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-        kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));
+        /*kernel_setsockopt(sock, SOL_TLS, TLS_TX, "tls", sizeof("tls"));*/
 
 	printk(KERN_INFO "virgo_free() syscall: created client kernel socket\n");
-	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
+	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr) , 0);
+	set_fs(oldfs);
 
 	printk(KERN_INFO "virgo_free() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	printk(KERN_INFO "virgo_free() syscall: sending message: %s \n", iov.iov_base);
