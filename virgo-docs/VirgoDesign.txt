@@ -1500,6 +1500,25 @@ emitting -32 and -107 errors.
 (*) kern.log for this has been committed in drivers/virgo/utils/testlogs/
 (*) Both eventnet and utils drivers have been rebuilt
 
+-------------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 system calls-drivers on linux kernel 4.13.3 - miscellaneous bugfixes - 5 October 2017
+-------------------------------------------------------------------------------------------------------------------------------------
+(*) kernel_setsockopt() for KTLS has been commented in all system calls and drivers because KTLS functionality has been branched to
+VIRGO_KTLS
+(*) In virgo_clone.c, iov.iov_len has been set to BUF_SIZE
+(*) kernel_connect() has been guarded by set_fs()/get_ds() in VIRGO64 system call clients
+(*) test_virgo_malloc.c testcase has been updated
+(*) There was a weird problem in in4_pton(): sin_addr.saddr was not set correctly from string IP address and this was randomly occurring only in virgo_set()
+(*) in4_pton() is implemented in net/core/utils.c and reads the string IP address digits and sums up the ASCII values to hex representation of the address. Bitwise operations within this functions were failing randomly.
+(*) Repeated builds were done trying different possible fixes but didn't work e.g casting saddr to (u8*)
+(*) There is an alternative in_aton() function which takes only String IP address and returns address as __be32
+(*) After in_aton() in virgo_set() random faulty address conversion does not occur - in_aton() is differently implemented compared to in4_pton()
+(*) msg_hdr has been initialized to NULL in virgo_set()
+(*) Lot of debug printk()s have been added
+(*) kern.log (.tar.gz) for RPC clone/KMemCache/Filesystem systemcalls-driver has been committed to virgo-docs/systemcalls_drivers
+(*) VIRGO Linux build steps have been updated for example commandlines to overlay mainline kernel tree by VIRGO64 source
+
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
