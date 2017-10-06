@@ -1518,6 +1518,35 @@ VIRGO_KTLS
 (*) kern.log (.tar.gz) for RPC clone/KMemCache/Filesystem systemcalls-driver has been committed to virgo-docs/systemcalls_drivers
 (*) VIRGO Linux build steps have been updated for example commandlines to overlay mainline kernel tree by VIRGO64 source
 
+commit 4e6681ade4ddbf1bed17f7c115b59a5ebf884256
+Author: K.Srinivasan <ka.shrinivaasan@gmail.com>
+Date:   Fri Oct 6 11:36:15 2017 +0530
+
+------------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 Queueing Kernel Module Listener - KingCobra64 - 4.13.3 - 6 October 2017
+------------------------------------------------------------------------------------------------------------------------------------
+(*) telnet client connection to VIRGO64 Queue and a subsequent workqueue routing (pub/sub) to KingCobra64 has been tested on 4.13.3
+(*) TX_TLS socket option has not been disabled and is a no-op because it has no effect on the socket.
+(*) REQUEST_REPLY.queue for this routing from VIRGO64 queue and persisted by KingCobra64 has been committed to KingCobra64 repositories in GitHub and SourceForge
+
+commit d4e95b58474838d65da9c69944c6287acbdfe72c
+Author: K.Srinivasan <ka.shrinivaasan@gmail.com>
+Date:   Fri Oct 6 11:05:21 2017 +0530
+
+----------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 System Calls to Drivers and Telnet Client to Drivers on 4.13.3 linux kernel - master branch (after KTLS has been reverted
+and branched to VIRGO_KTLS) - test case logs - 6 October 2017
+----------------------------------------------------------------------------------------------------------------------------------
+(*) VIRGO64 System calls - Clone, KMemCache and Filesystem system call primitives to Driver listeners invocations have been been tested
+by respective test_<systemcall> unit testcases
+(*) VIRGO64 Telnet Clients to Driver listeners invocations have been tested by telnet connections
+(*) Master branches in SourceForge and GitHub VIRGO64 do not have KTLS provisions. Only VIRGO_KTLS branch has crypto_info and setsockopt()
+ for TX_TLS for kernel sockets.
+(*) It has been already mentioned in NeuronRain Documentation in https://neuronrain-documentation.readthedocs.io/en/latest/ on securing
+VIRGO cloud nodes in the absence of KTLS - most obvious solution is to install VPN client-servers in all nodes which create Virtual IPs
+ on a secure tunnel (e.g OpenVPN).
+(*) VIRGO64 system call clients and driver listeners should read these Virtual IPs from /etc/virgo_client.conf and /etc/virgo_cloud.conf
+  and cloud traffic is confined to the VPN tunnel.
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
