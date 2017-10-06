@@ -1,0 +1,34 @@
+Oct  6 10:55:12 localhost kernel: [ 2972.010311] virgocloudexec_create(): kernel_accept() returns error code: 0
+Oct  6 10:55:12 localhost kernel: [ 2972.010324] virgocloudexec_create(): kernel_accept() clientsock: 1495279232
+Oct  6 10:55:12 localhost kernel: [ 2972.010330] virgo_cloudexec_service(): virgo client thread per request 
+Oct  6 10:55:12 localhost kernel: [ 2972.010613] virgo_cloudexec_service(): virgo_ops.virgo_create() 
+Oct  6 10:55:12 localhost kernel: [ 2972.010685] virgo_client_thread(): virgo_ops.virgo_recvfrom()
+Oct  6 10:55:12 localhost kernel: [ 2972.010691] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Oct  6 10:55:21 localhost kernel: [ 2980.982624] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 30
+Oct  6 10:55:21 localhost kernel: [ 2980.982710] virgocloudexec_cpupool_recvfrom(): client_ip_str = 1005a5a
+Oct  6 10:55:21 localhost kernel: [ 2980.982731] virgocloudexec_cpupool_recvfrom(): client_ip_str with # appended = 1005a5a#
+Oct  6 10:55:21 localhost kernel: [ 2980.982798] generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as 2980982794091:2980982793043
+Oct  6 10:55:21 localhost kernel: [ 2980.982835] virgocloudexec_cpupool_recvfrom(): use_as_kingcobra_service=1, cloneFunction with prepended request header and client ip=REQUEST#1005a5a#2980982794091:2980982793043virgo_cloud_test_kernelspace
+Oct  6 10:55:21 localhost kernel: [ 2980.982846] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: virgo_cloud_test_kernelspace
+Oct  6 10:55:21 localhost kernel: [ 2980.982846] 
+Oct  6 10:55:21 localhost kernel: [ 2980.982853] print_buffer(): 
+Oct  6 10:55:21 localhost kernel: [ 2980.982855] v
+Oct  6 10:55:21 localhost kernel: [ 2980.982859] i
+Oct  6 10:55:21 localhost kernel: [ 2980.982863] r
+Oct  6 10:55:21 localhost kernel: [ 2980.982867] g
+Oct  6 10:55:21 localhost kernel: [ 2980.982871] o
+Oct  6 10:55:21 localhost kernel: [ 2980.982875] _
+Oct  6 10:55:21 localhost kernel: [ 2980.982878] c
+Oct  6 10:55:21 localhost kernel: [ 2980.982882] l
+Oct  6 10:55:21 localhost kernel: [ 2980.982886] 
+Oct  6 10:55:21 localhost kernel: [ 2980.982894] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_test_kernelspace
+Oct  6 10:55:21 localhost kernel: [ 2980.982894] 
+Oct  6 10:55:21 localhost kernel: [ 2980.982903] virgocloudexec_recvfrom(): cloneFunction : REQUEST#1005a5a#2980982794091:2980982793043virgo_cloud_test_kernelspace 
+Oct  6 10:55:21 localhost kernel: [ 2980.982909] clone_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:55:21 localhost kernel: [ 2980.983450] virgo_client_thread(): virgo_ops.virgo_sendto()
+Oct  6 10:55:21 localhost kernel: [ 2980.983462] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Oct  6 10:55:21 localhost kernel: [ 2980.983462] 
+Oct  6 10:55:21 localhost kernel: [ 2980.983684] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:55:21 localhost kernel: [ 2980.983692] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Oct  6 10:55:21 localhost kernel: [ 2980.983795] virgocloudexec_sendto(): sock_release invoked on client socket 
+Oct  6 10:55:21 localhost kernel: [ 2980.992065] virgo_cloud_test_kernelspace(): virgo cloud kernel space test function invoked in this module by virgo_cloudexec kernel service

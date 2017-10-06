@@ -1,0 +1,702 @@
+Oct  6 10:22:52 localhost kernel: [ 1031.799469] virgo_cloud_fs_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Oct  6 10:22:59 localhost kernel: [ 1038.473249] virgocloudexec_fs_init(): exported kernel_analytics variable: kernel_analytics1 = v1 
+Oct  6 10:22:59 localhost kernel: [ 1038.473262] virgocloudexec_fs_init(): exported kernel_analytics variable: kernel_analytics2 = v2 
+Oct  6 10:22:59 localhost kernel: [ 1038.473269] virgocloudexec_fs_init(): exported kernel_analytics variable: kernel_analytics3 = v3
+Oct  6 10:22:59 localhost kernel: [ 1038.473269]  
+Oct  6 10:22:59 localhost kernel: [ 1038.473278] virgocloudexec_fs_init(): exported kernel_analytics variable: (null) = (null) 
+Oct  6 10:22:59 localhost kernel: [ 1038.473284] virgocloudexec_fs_init(): exported kernel_analytics variable: (null) = (null) 
+Oct  6 10:22:59 localhost kernel: [ 1038.473290] virgocloudexec_fs_init(): exported kernel_analytics variable: (null) = (null) 
+Oct  6 10:22:59 localhost kernel: [ 1038.473296] virgocloudexec_fs_init(): exported kernel_analytics variable: (null) = (null) 
+Oct  6 10:22:59 localhost kernel: [ 1038.473302] virgocloudexec_fs_init(): exported kernel_analytics variable: (null) = (null) 
+Oct  6 10:22:59 localhost kernel: [ 1038.473308] virgocloudexec_fs_init(): exported kernel_analytics variable: (null) = (null) 
+Oct  6 10:22:59 localhost kernel: [ 1038.473314] virgocloudexec_fs_init(): exported kernel_analytics variable: (null) = (null) 
+Oct  6 10:22:59 localhost kernel: [ 1038.473319] virgocloudexec_fs_init(): doing init() of virgocloudexec_fs kernel module
+Oct  6 10:22:59 localhost kernel: [ 1038.473324] virgocloudexec_fs_init(): starting virgo cloudexec service kernel thread
+Oct  6 10:22:59 localhost kernel: [ 1038.473329] virgocloudexec_fs_init(): invoking read_virgo_config()
+Oct  6 10:22:59 localhost kernel: [ 1038.473431] read_virgo_config(): virgo_cloud config file being read 
+Oct  6 10:22:59 localhost kernel: [ 1038.473448] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:22:59 localhost kernel: [ 1038.473448]  
+Oct  6 10:22:59 localhost kernel: [ 1038.473472] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:22:59 localhost kernel: [ 1038.473472] 
+Oct  6 10:22:59 localhost kernel: [ 1038.473480] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:22:59 localhost kernel: [ 1038.473480] 
+Oct  6 10:22:59 localhost kernel: [ 1038.473504] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud[0] = 0.0.0.0
+Oct  6 10:22:59 localhost kernel: [ 1038.473504] 
+Oct  6 10:22:59 localhost kernel: [ 1038.473583] virgocloudexec_fs_init(): sock_create() returns error code: 0
+Oct  6 10:22:59 localhost kernel: [ 1038.473610] virgocloudexec_fs_init(): kernel_bind() returns error code: 0
+Oct  6 10:22:59 localhost kernel: [ 1038.473619] virgocloudexec_fs_init(): kernel_listen() returns error code: 0
+Oct  6 10:22:59 localhost kernel: [ 1038.473625] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:19 localhost kernel: [ 1059.010537] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:19 localhost kernel: [ 1059.010559] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010559]  
+Oct  6 10:23:19 localhost kernel: [ 1059.010580] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010580] 
+Oct  6 10:23:19 localhost kernel: [ 1059.010589] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010589] 
+Oct  6 10:23:19 localhost kernel: [ 1059.010608] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010608] 
+Oct  6 10:23:19 localhost kernel: [ 1059.010632] get_host_from_cloud_PRG_fs() - get_random_int() returned 526769773 
+Oct  6 10:23:19 localhost kernel: [ 1059.010640] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010640]  
+Oct  6 10:23:19 localhost kernel: [ 1059.010649] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010649]  
+Oct  6 10:23:19 localhost kernel: [ 1059.010667] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010667]  
+Oct  6 10:23:19 localhost kernel: [ 1059.010676] virgo_open() syscall: leastloadedhostport->port=50000
+Oct  6 10:23:19 localhost kernel: [ 1059.010680] virgo_open() syscall: leastloadedhostport->hostip=0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010692] virgo_open() syscall: after in4_pton and htons, leastloadedhostport->hostip=0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.010692] , leastloadedhostport->port=50000, sin.sin_addr.s_addr=0, sin.sin_port=50c3
+Oct  6 10:23:19 localhost kernel: [ 1059.010707] virgo_open() syscall: open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), tempbuf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:19 localhost kernel: [ 1059.010712] virgo_open() syscall: buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:19 localhost kernel: [ 1059.010723] virgo_open() syscall: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:19 localhost kernel: [ 1059.010782] virgo_open() syscall: created client kernel socket
+Oct  6 10:23:19 localhost kernel: [ 1059.011346] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:19 localhost kernel: [ 1059.011578] virgo_open() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:19 localhost kernel: [ 1059.011578]  
+Oct  6 10:23:19 localhost kernel: [ 1059.011786] virgo_open() syscall: sent len=3000; iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:19 localhost kernel: [ 1059.011888] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:19 localhost kernel: [ 1059.011956] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:19 localhost kernel: [ 1059.011962] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:19 localhost kernel: [ 1059.011972] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:19 localhost kernel: [ 1059.011993] strip_control_M(): str=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) before strsep
+Oct  6 10:23:19 localhost kernel: [ 1059.012068] strip_control_M(): newstr=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) after carriage return newline strsep
+Oct  6 10:23:19 localhost kernel: [ 1059.012078] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buffer: virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:19 localhost kernel: [ 1059.012085] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:19 localhost kernel: [ 1059.012092] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) 
+Oct  6 10:23:19 localhost kernel: [ 1059.013895] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_open
+Oct  6 10:23:19 localhost kernel: [ 1059.013921] parse_virgofs_command: vmargs->fs_args[0]: /var/log/virgo_fs/virgofstest.txt
+Oct  6 10:23:19 localhost kernel: [ 1059.013928] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:19 localhost kernel: [ 1059.013937] Creating Kernel Thread for virgo_cloud_open in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=/var/log/virgo_fs/virgofstest.txt, fs_args[1]=(null)
+Oct  6 10:23:19 localhost kernel: [ 1059.013971] virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): file path to open=/var/log/virgo_fs/virgofstest.txt
+Oct  6 10:23:19 localhost kernel: [ 1059.037055] virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): f=ffff88009e0c45c0, no_of_openfiles=0, file struct=ffff88009e0c45c0
+Oct  6 10:23:19 localhost kernel: [ 1059.037099] toVFSString(): VFSString=0
+Oct  6 10:23:19 localhost kernel: [ 1059.037106] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=0
+Oct  6 10:23:19 localhost kernel: [ 1059.037113] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:19 localhost kernel: [ 1059.037119] virgocloudexec_fs_sendto(): virgo_fs_ret=0
+Oct  6 10:23:19 localhost kernel: [ 1059.037124] virgocloudexec_fs_sendto(): data sent=0
+Oct  6 10:23:19 localhost kernel: [ 1059.037129] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: 0
+Oct  6 10:23:19 localhost kernel: [ 1059.037308] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:19 localhost kernel: [ 1059.037440] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:19 localhost kernel: [ 1059.037821] virgo_open() syscall: recv len=500
+Oct  6 10:23:19 localhost kernel: [ 1059.037829] virgo_open() syscall: received iov.iov_base: 0 
+Oct  6 10:23:19 localhost kernel: [ 1059.037858] virgo_open() syscall: virgo_open() client socket_release() invoked
+Oct  6 10:23:19 localhost kernel: [ 1059.037865] virgo_parse_integer(): *s=0, res=0
+Oct  6 10:23:19 localhost kernel: [ 1059.038255] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038255] 
+Oct  6 10:23:19 localhost kernel: [ 1059.038267] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:19 localhost kernel: [ 1059.038284] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038284]  
+Oct  6 10:23:19 localhost kernel: [ 1059.038306] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038306] 
+Oct  6 10:23:19 localhost kernel: [ 1059.038314] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038314] 
+Oct  6 10:23:19 localhost kernel: [ 1059.038332] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038332] 
+Oct  6 10:23:19 localhost kernel: [ 1059.038358] get_host_from_cloud_PRG_fs() - get_random_int() returned 1053316655 
+Oct  6 10:23:19 localhost kernel: [ 1059.038367] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038367]  
+Oct  6 10:23:19 localhost kernel: [ 1059.038376] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038376]  
+Oct  6 10:23:19 localhost kernel: [ 1059.038394] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:19 localhost kernel: [ 1059.038394]  
+Oct  6 10:23:19 localhost kernel: [ 1059.038463] long_to_str(): n=0
+Oct  6 10:23:19 localhost kernel: [ 1059.038468] long_to_str(): ret=[0]
+Oct  6 10:23:19 localhost kernel: [ 1059.038489] int_to_str_vfs(): n=250
+Oct  6 10:23:19 localhost kernel: [ 1059.038494] int_to_str_vfs(): ret=[250]
+Oct  6 10:23:19 localhost kernel: [ 1059.038513] int_to_str_vfs(): n=0
+Oct  6 10:23:19 localhost kernel: [ 1059.038517] int_to_str_vfs(): ret=[0]
+Oct  6 10:23:19 localhost kernel: [ 1059.038526] virgo_read() system call: tempbuf=virgo_cloud_read(0,"none",250,0), buf=virgo_cloud_read(0,"none",250,0), virgo_read_cmd=virgo_cloud_read(0,"none",250,0)
+Oct  6 10:23:19 localhost kernel: [ 1059.038533] virgo_read() system call: iov.iov_base=virgo_cloud_read(0,"none",250,0)
+Oct  6 10:23:19 localhost kernel: [ 1059.038604] virgo_read() syscall: created client kernel socket
+Oct  6 10:23:19 localhost kernel: [ 1059.039295] virgo_read() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:19 localhost kernel: [ 1059.039295]  
+Oct  6 10:23:19 localhost kernel: [ 1059.039519] virgo_read() syscall: sent message: virgo_cloud_read(0,"none",250,0) 
+Oct  6 10:23:19 localhost kernel: [ 1059.039608] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:19 localhost kernel: [ 1059.041487] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:19 localhost kernel: [ 1059.041941] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:19 localhost kernel: [ 1059.041952] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:19 localhost kernel: [ 1059.041967] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:19 localhost kernel: [ 1059.041990] strip_control_M(): str=virgo_cloud_read(0,"none",250,0) before strsep
+Oct  6 10:23:19 localhost kernel: [ 1059.042014] strip_control_M(): newstr=virgo_cloud_read(0,"none",250,0) after carriage return newline strsep
+Oct  6 10:23:19 localhost kernel: [ 1059.042026] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_read(0,"none",250,0), buffer: virgo_cloud_read(0,"none",250,0)
+Oct  6 10:23:19 localhost kernel: [ 1059.042032] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_read(0,"none",250,0)
+Oct  6 10:23:19 localhost kernel: [ 1059.042039] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_read(0,"none",250,0) 
+Oct  6 10:23:19 localhost kernel: [ 1059.042096] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_read
+Oct  6 10:23:19 localhost kernel: [ 1059.042161] parse_virgofs_command: vmargs->fs_args[0]: 0
+Oct  6 10:23:19 localhost kernel: [ 1059.042167] parse_virgofs_command: vmargs->fs_args[1]: "none"
+Oct  6 10:23:19 localhost kernel: [ 1059.042172] parse_virgofs_command: vmargs->fs_args[2]: 536352032
+Oct  6 10:23:19 localhost kernel: [ 1059.042178] parse_virgofs_command: vmargs->fs_args[3]: 536349152
+Oct  6 10:23:19 localhost kernel: [ 1059.042184] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:19 localhost kernel: [ 1059.042191] Creating Kernel Thread for virgo_cloud_read in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=0, fs_args[1]="none"
+Oct  6 10:23:19 localhost kernel: [ 1059.042253] virgo_cloud_fs_kernelspace.c: virgo_cloud_read_kernelspace(): vmargs->fs_cmd=virgo_cloud_read, vmargs->fs_args[0] = 0
+Oct  6 10:23:19 localhost kernel: [ 1059.042253] , vmargs->fs_args[1]="none", vmargs->fs_args[2]=250, vmargs->fs_args[3]=0 
+Oct  6 10:23:19 localhost kernel: [ 1059.042262] virgo_parse_integer(): *s=0, res=0
+Oct  6 10:23:19 localhost kernel: [ 1059.042268] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:19 localhost kernel: [ 1059.042273] virgo_parse_integer(): *s=5, res=2
+Oct  6 10:23:19 localhost kernel: [ 1059.042278] virgo_parse_integer(): *s=0, res=25
+Oct  6 10:23:19 localhost kernel: [ 1059.042283] virgo_parse_integer(): *s=0, res=0
+Oct  6 10:23:19 localhost kernel: [ 1059.042298] virgo_cloud_read_kernelspace(): buf=kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk���������H��h
+Oct  6 10:23:19 localhost kernel: [ 1059.042312] virgo_cloud_read_kernelspace(): vfsdesc=0
+Oct  6 10:23:19 localhost kernel: [ 1059.042317] virgo_cloud_read_kernelspace(): cnt=250
+Oct  6 10:23:19 localhost kernel: [ 1059.042322] virgo_cloud_read_kernelspace(): pos=0
+Oct  6 10:23:19 localhost kernel: [ 1059.042328] virgo_cloud_read_kernelspace(): open_VFS_files[vfsdesc]=ffff88009e0c45c0
+Oct  6 10:23:20 localhost kernel: [ 1059.057559] virgo_cloud_read_kernelspace(): after vfs_read(): bytesread=250, buf=DataWritten25September2017
+Oct  6 10:23:20 localhost kernel: [ 1059.057579] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=DataWritten25September2017
+Oct  6 10:23:20 localhost kernel: [ 1059.057588] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:20 localhost kernel: [ 1059.057595] virgocloudexec_fs_sendto(): virgo_fs_ret=DataWritten25September2017
+Oct  6 10:23:20 localhost kernel: [ 1059.057601] virgocloudexec_fs_sendto(): data sent=DataWritten25September2017
+Oct  6 10:23:20 localhost kernel: [ 1059.057607] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: DataWritten25September2017
+Oct  6 10:23:20 localhost kernel: [ 1059.057862] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:20 localhost kernel: [ 1059.058020] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:20 localhost kernel: [ 1059.058482] virgo_read() syscall: received message: DataWritten25September2017 
+Oct  6 10:23:20 localhost kernel: [ 1059.058530] virgo_read() syscall: virgo_read() client socket_release() invoked
+Oct  6 10:23:20 localhost kernel: [ 1059.058544] virgo_read() syscall: copy_to_user() returns ret=0, data_out=DataWritten25September2017Q$�
+Oct  6 10:23:20 localhost kernel: [ 1059.058753] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058753] 
+Oct  6 10:23:20 localhost kernel: [ 1059.058763] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:20 localhost kernel: [ 1059.058785] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058785]  
+Oct  6 10:23:20 localhost kernel: [ 1059.058808] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058808] 
+Oct  6 10:23:20 localhost kernel: [ 1059.058816] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058816] 
+Oct  6 10:23:20 localhost kernel: [ 1059.058834] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058834] 
+Oct  6 10:23:20 localhost kernel: [ 1059.058846] virgo_write() system_call: before memcpy()
+Oct  6 10:23:20 localhost kernel: [ 1059.058853] virgo_write() system_call: after memcpy()
+Oct  6 10:23:20 localhost kernel: [ 1059.058859] virgo_write() system call: data to set=test_virgo_filesystem_25September2017rgofstest.txt)
+Oct  6 10:23:20 localhost kernel: [ 1059.058879] get_host_from_cloud_PRG_fs() - get_random_int() returned 2749017528 
+Oct  6 10:23:20 localhost kernel: [ 1059.058887] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058887]  
+Oct  6 10:23:20 localhost kernel: [ 1059.058896] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058896]  
+Oct  6 10:23:20 localhost kernel: [ 1059.058915] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.058915]  
+Oct  6 10:23:20 localhost kernel: [ 1059.058940] long_to_str(): n=0
+Oct  6 10:23:20 localhost kernel: [ 1059.058945] long_to_str(): ret=[0]
+Oct  6 10:23:20 localhost kernel: [ 1059.058965] int_to_str_vfs(): n=250
+Oct  6 10:23:20 localhost kernel: [ 1059.058970] int_to_str_vfs(): ret=[250]
+Oct  6 10:23:20 localhost kernel: [ 1059.058989] int_to_str_vfs(): n=0
+Oct  6 10:23:20 localhost kernel: [ 1059.058994] int_to_str_vfs(): ret=[0]
+Oct  6 10:23:20 localhost kernel: [ 1059.059006] virgo_write() system call: tempbuf=virgo_cloud_write(0,test_virgo_filesystem_25September2017rgofstest.txt),250,0), buf=virgo_cloud_write(0,test_virgo_filesystem_25September2017rgofstest.txt),250,0), virgo_write_cmd = virgo_cloud_write(0,test_virgo_filesystem_25September2017rgofstest.txt),250,0)
+Oct  6 10:23:20 localhost kernel: [ 1059.059014] virgo_write() system call: iov.iov_base=(g��
+Oct  6 10:23:20 localhost kernel: [ 1059.059081] virgo_write() syscall: created client kernel socket
+Oct  6 10:23:20 localhost kernel: [ 1059.059096] virgo_write() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:20 localhost kernel: [ 1059.059096]  
+Oct  6 10:23:20 localhost kernel: [ 1059.059105] virgo_write() syscall: sent message: virgo_cloud_write(0,test_virgo_filesystem_25September2017rgofstest.txt),250,0) 
+Oct  6 10:23:20 localhost kernel: [ 1059.059120] virgo_write() syscall: received message: virgo_cloud_write(0,test_virgo_filesystem_25September2017rgofstest.txt),250,0) 
+Oct  6 10:23:20 localhost kernel: [ 1059.059152] virgo_write() syscall: virgo_write() client socket_release() invoked
+Oct  6 10:23:20 localhost kernel: [ 1059.059244] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059244] 
+Oct  6 10:23:20 localhost kernel: [ 1059.059252] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:20 localhost kernel: [ 1059.059263] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059263]  
+Oct  6 10:23:20 localhost kernel: [ 1059.059283] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059283] 
+Oct  6 10:23:20 localhost kernel: [ 1059.059291] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059291] 
+Oct  6 10:23:20 localhost kernel: [ 1059.059309] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059309] 
+Oct  6 10:23:20 localhost kernel: [ 1059.059332] get_host_from_cloud_PRG_fs() - get_random_int() returned 3417415695 
+Oct  6 10:23:20 localhost kernel: [ 1059.059340] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059340]  
+Oct  6 10:23:20 localhost kernel: [ 1059.059349] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059349]  
+Oct  6 10:23:20 localhost kernel: [ 1059.059366] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:20 localhost kernel: [ 1059.059366]  
+Oct  6 10:23:20 localhost kernel: [ 1059.059388] long_to_str(): n=0
+Oct  6 10:23:20 localhost kernel: [ 1059.059392] long_to_str(): ret=[0]
+Oct  6 10:23:20 localhost kernel: [ 1059.059400] virgo_close() system call: tempbuf=1426912064, buf=virgo_cloud_close(0), close_cmd=virgo_cloud_close(0) 
+Oct  6 10:23:20 localhost kernel: [ 1059.059406] virgo_close() system call: iov.iov_base=virgo_cloud_close(0)
+Oct  6 10:23:20 localhost kernel: [ 1059.059459] virgo_close() syscall: created client kernel socket
+Oct  6 10:23:20 localhost kernel: [ 1059.062215] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:20 localhost kernel: [ 1059.062503] virgo_close() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:20 localhost kernel: [ 1059.062503]  
+Oct  6 10:23:20 localhost kernel: [ 1059.062781] virgo_close() syscall: sent message: virgo_cloud_close(0) 
+Oct  6 10:23:20 localhost kernel: [ 1059.067592] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:20 localhost kernel: [ 1059.067673] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:20 localhost kernel: [ 1059.067680] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:20 localhost kernel: [ 1059.067695] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:20 localhost kernel: [ 1059.067716] strip_control_M(): str=virgo_cloud_close(0) before strsep
+Oct  6 10:23:20 localhost kernel: [ 1059.067737] strip_control_M(): newstr=virgo_cloud_close(0) after carriage return newline strsep
+Oct  6 10:23:20 localhost kernel: [ 1059.067744] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_close(0), buffer: virgo_cloud_close(0)
+Oct  6 10:23:20 localhost kernel: [ 1059.067751] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_close(0)
+Oct  6 10:23:20 localhost kernel: [ 1059.067757] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_close(0) 
+Oct  6 10:23:20 localhost kernel: [ 1059.067811] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_close
+Oct  6 10:23:20 localhost kernel: [ 1059.067834] parse_virgofs_command: vmargs->fs_args[0]: 0
+Oct  6 10:23:20 localhost kernel: [ 1059.067840] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:20 localhost kernel: [ 1059.067848] Creating Kernel Thread for virgo_cloud_close in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=0, fs_args[1]=(null)
+Oct  6 10:23:20 localhost kernel: [ 1059.067883] virgo_cloud_fs_kernelspace.c: virgo_cloud_close_kernelspace(): vmargs->fs_args[0]=0
+Oct  6 10:23:20 localhost kernel: [ 1059.067889] virgo_parse_integer(): *s=0, res=0
+Oct  6 10:23:20 localhost kernel: [ 1059.067900] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=(null)
+Oct  6 10:23:20 localhost kernel: [ 1059.067905] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:20 localhost kernel: [ 1059.067910] virgocloudexec_fs_sendto(): virgo_fs_ret=(null)
+Oct  6 10:23:20 localhost kernel: [ 1059.067916] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: �'�������
+Oct  6 10:23:20 localhost kernel: [ 1059.068120] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:20 localhost kernel: [ 1059.069884] virgo_close() syscall: received message: �'������� 
+Oct  6 10:23:20 localhost kernel: [ 1059.069990] virgo_close() syscall: virgo_close() client socket_release() invoked
+Oct  6 10:23:20 localhost kernel: [ 1059.071973] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:31 localhost kernel: [ 1070.612607] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612607] 
+Oct  6 10:23:31 localhost kernel: [ 1070.612621] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:31 localhost kernel: [ 1070.612633] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612633]  
+Oct  6 10:23:31 localhost kernel: [ 1070.612654] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612654] 
+Oct  6 10:23:31 localhost kernel: [ 1070.612662] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612662] 
+Oct  6 10:23:31 localhost kernel: [ 1070.612681] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612681] 
+Oct  6 10:23:31 localhost kernel: [ 1070.612704] get_host_from_cloud_PRG_fs() - get_random_int() returned 1136631603 
+Oct  6 10:23:31 localhost kernel: [ 1070.612712] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612712]  
+Oct  6 10:23:31 localhost kernel: [ 1070.612722] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612722]  
+Oct  6 10:23:31 localhost kernel: [ 1070.612740] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612740]  
+Oct  6 10:23:31 localhost kernel: [ 1070.612750] virgo_open() syscall: leastloadedhostport->port=50000
+Oct  6 10:23:31 localhost kernel: [ 1070.612754] virgo_open() syscall: leastloadedhostport->hostip=0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612767] virgo_open() syscall: after in4_pton and htons, leastloadedhostport->hostip=0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.612767] , leastloadedhostport->port=50000, sin.sin_addr.s_addr=0, sin.sin_port=50c3
+Oct  6 10:23:31 localhost kernel: [ 1070.612781] virgo_open() syscall: open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), tempbuf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:31 localhost kernel: [ 1070.612786] virgo_open() syscall: buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:31 localhost kernel: [ 1070.612797] virgo_open() syscall: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:31 localhost kernel: [ 1070.612862] virgo_open() syscall: created client kernel socket
+Oct  6 10:23:31 localhost kernel: [ 1070.613405] virgo_open() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:31 localhost kernel: [ 1070.613405]  
+Oct  6 10:23:31 localhost kernel: [ 1070.613432] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:31 localhost kernel: [ 1070.613604] virgo_open() syscall: sent len=3000; iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:31 localhost kernel: [ 1070.613724] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:31 localhost kernel: [ 1070.613744] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:31 localhost kernel: [ 1070.613752] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:31 localhost kernel: [ 1070.613763] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:31 localhost kernel: [ 1070.613786] strip_control_M(): str=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) before strsep
+Oct  6 10:23:31 localhost kernel: [ 1070.613810] strip_control_M(): newstr=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) after carriage return newline strsep
+Oct  6 10:23:31 localhost kernel: [ 1070.613818] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buffer: virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:31 localhost kernel: [ 1070.613826] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:31 localhost kernel: [ 1070.613833] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) 
+Oct  6 10:23:31 localhost kernel: [ 1070.613891] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_open
+Oct  6 10:23:31 localhost kernel: [ 1070.613914] parse_virgofs_command: vmargs->fs_args[0]: /var/log/virgo_fs/virgofstest.txt
+Oct  6 10:23:31 localhost kernel: [ 1070.613920] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:31 localhost kernel: [ 1070.613928] Creating Kernel Thread for virgo_cloud_open in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=/var/log/virgo_fs/virgofstest.txt, fs_args[1]=(null)
+Oct  6 10:23:31 localhost kernel: [ 1070.613963] virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): file path to open=/var/log/virgo_fs/virgofstest.txt
+Oct  6 10:23:31 localhost kernel: [ 1070.614075] virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): f=ffff8800643e4300, no_of_openfiles=1, file struct=ffff8800643e4300
+Oct  6 10:23:31 localhost kernel: [ 1070.614109] toVFSString(): VFSString=1
+Oct  6 10:23:31 localhost kernel: [ 1070.614114] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=1
+Oct  6 10:23:31 localhost kernel: [ 1070.614120] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:31 localhost kernel: [ 1070.614125] virgocloudexec_fs_sendto(): virgo_fs_ret=1
+Oct  6 10:23:31 localhost kernel: [ 1070.614130] virgocloudexec_fs_sendto(): data sent=1
+Oct  6 10:23:31 localhost kernel: [ 1070.614135] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: 1
+Oct  6 10:23:31 localhost kernel: [ 1070.614237] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:31 localhost kernel: [ 1070.614363] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:31 localhost kernel: [ 1070.614500] virgo_open() syscall: recv len=500
+Oct  6 10:23:31 localhost kernel: [ 1070.614507] virgo_open() syscall: received iov.iov_base: 1 
+Oct  6 10:23:31 localhost kernel: [ 1070.614535] virgo_open() syscall: virgo_open() client socket_release() invoked
+Oct  6 10:23:31 localhost kernel: [ 1070.614542] virgo_parse_integer(): *s=1, res=0
+Oct  6 10:23:31 localhost kernel: [ 1070.614874] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.614874] 
+Oct  6 10:23:31 localhost kernel: [ 1070.614883] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:31 localhost kernel: [ 1070.614896] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.614896]  
+Oct  6 10:23:31 localhost kernel: [ 1070.614916] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.614916] 
+Oct  6 10:23:31 localhost kernel: [ 1070.614925] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.614925] 
+Oct  6 10:23:31 localhost kernel: [ 1070.614944] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.614944] 
+Oct  6 10:23:31 localhost kernel: [ 1070.614968] get_host_from_cloud_PRG_fs() - get_random_int() returned 856819706 
+Oct  6 10:23:31 localhost kernel: [ 1070.614976] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.614976]  
+Oct  6 10:23:31 localhost kernel: [ 1070.614985] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.614985]  
+Oct  6 10:23:31 localhost kernel: [ 1070.615003] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.615003]  
+Oct  6 10:23:31 localhost kernel: [ 1070.615027] long_to_str(): n=1
+Oct  6 10:23:31 localhost kernel: [ 1070.615032] long_to_str(): ret=[1]
+Oct  6 10:23:31 localhost kernel: [ 1070.615052] int_to_str_vfs(): n=250
+Oct  6 10:23:31 localhost kernel: [ 1070.615057] int_to_str_vfs(): ret=[250]
+Oct  6 10:23:31 localhost kernel: [ 1070.615076] int_to_str_vfs(): n=0
+Oct  6 10:23:31 localhost kernel: [ 1070.615081] int_to_str_vfs(): ret=[0]
+Oct  6 10:23:31 localhost kernel: [ 1070.615089] virgo_read() system call: tempbuf=virgo_cloud_read(1,"none",250,0), buf=virgo_cloud_read(1,"none",250,0), virgo_read_cmd=virgo_cloud_read(1,"none",250,0)
+Oct  6 10:23:31 localhost kernel: [ 1070.615096] virgo_read() system call: iov.iov_base=virgo_cloud_read(1,"none",250,0)
+Oct  6 10:23:31 localhost kernel: [ 1070.615151] virgo_read() syscall: created client kernel socket
+Oct  6 10:23:31 localhost kernel: [ 1070.615625] virgo_read() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:31 localhost kernel: [ 1070.615625]  
+Oct  6 10:23:31 localhost kernel: [ 1070.615645] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:31 localhost kernel: [ 1070.615810] virgo_read() syscall: sent message: virgo_cloud_read(1,"none",250,0) 
+Oct  6 10:23:31 localhost kernel: [ 1070.615913] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:31 localhost kernel: [ 1070.615924] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:31 localhost kernel: [ 1070.615931] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:31 localhost kernel: [ 1070.615941] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:31 localhost kernel: [ 1070.615964] strip_control_M(): str=virgo_cloud_read(1,"none",250,0) before strsep
+Oct  6 10:23:31 localhost kernel: [ 1070.615986] strip_control_M(): newstr=virgo_cloud_read(1,"none",250,0) after carriage return newline strsep
+Oct  6 10:23:31 localhost kernel: [ 1070.615994] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_read(1,"none",250,0), buffer: virgo_cloud_read(1,"none",250,0)
+Oct  6 10:23:31 localhost kernel: [ 1070.616001] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_read(1,"none",250,0)
+Oct  6 10:23:31 localhost kernel: [ 1070.616171] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_read(1,"none",250,0) 
+Oct  6 10:23:31 localhost kernel: [ 1070.622149] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_read
+Oct  6 10:23:31 localhost kernel: [ 1070.622221] parse_virgofs_command: vmargs->fs_args[0]: 1
+Oct  6 10:23:31 localhost kernel: [ 1070.622227] parse_virgofs_command: vmargs->fs_args[1]: "none"
+Oct  6 10:23:31 localhost kernel: [ 1070.622233] parse_virgofs_command: vmargs->fs_args[2]: 1516524472
+Oct  6 10:23:31 localhost kernel: [ 1070.622239] parse_virgofs_command: vmargs->fs_args[3]: 1516522672
+Oct  6 10:23:31 localhost kernel: [ 1070.622244] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:31 localhost kernel: [ 1070.622252] Creating Kernel Thread for virgo_cloud_read in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=1, fs_args[1]="none"
+Oct  6 10:23:31 localhost kernel: [ 1070.622316] virgo_cloud_fs_kernelspace.c: virgo_cloud_read_kernelspace(): vmargs->fs_cmd=virgo_cloud_read, vmargs->fs_args[0] = 1
+Oct  6 10:23:31 localhost kernel: [ 1070.622316] , vmargs->fs_args[1]="none", vmargs->fs_args[2]=250, vmargs->fs_args[3]=0 
+Oct  6 10:23:31 localhost kernel: [ 1070.622326] virgo_parse_integer(): *s=1, res=0
+Oct  6 10:23:31 localhost kernel: [ 1070.622332] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:31 localhost kernel: [ 1070.622337] virgo_parse_integer(): *s=5, res=2
+Oct  6 10:23:31 localhost kernel: [ 1070.622342] virgo_parse_integer(): *s=0, res=25
+Oct  6 10:23:31 localhost kernel: [ 1070.622347] virgo_parse_integer(): *s=0, res=0
+Oct  6 10:23:31 localhost kernel: [ 1070.622361] virgo_cloud_read_kernelspace(): buf=kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk���������
+Oct  6 10:23:31 localhost kernel: [ 1070.622371] virgo_cloud_read_kernelspace(): vfsdesc=1
+Oct  6 10:23:31 localhost kernel: [ 1070.622376] virgo_cloud_read_kernelspace(): cnt=250
+Oct  6 10:23:31 localhost kernel: [ 1070.622381] virgo_cloud_read_kernelspace(): pos=0
+Oct  6 10:23:31 localhost kernel: [ 1070.622388] virgo_cloud_read_kernelspace(): open_VFS_files[vfsdesc]=ffff8800643e4300
+Oct  6 10:23:31 localhost kernel: [ 1070.622403] virgo_cloud_read_kernelspace(): after vfs_read(): bytesread=250, buf=DataWritten25September2017
+Oct  6 10:23:31 localhost kernel: [ 1070.622409] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=DataWritten25September2017
+Oct  6 10:23:31 localhost kernel: [ 1070.622415] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:31 localhost kernel: [ 1070.622421] virgocloudexec_fs_sendto(): virgo_fs_ret=DataWritten25September2017
+Oct  6 10:23:31 localhost kernel: [ 1070.622426] virgocloudexec_fs_sendto(): data sent=DataWritten25September2017
+Oct  6 10:23:31 localhost kernel: [ 1070.622432] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: DataWritten25September2017
+Oct  6 10:23:31 localhost kernel: [ 1070.622570] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:31 localhost kernel: [ 1070.622718] virgo_read() syscall: received message: DataWritten25September2017 
+Oct  6 10:23:31 localhost kernel: [ 1070.622814] virgo_read() syscall: virgo_read() client socket_release() invoked
+Oct  6 10:23:31 localhost kernel: [ 1070.622825] virgo_read() syscall: copy_to_user() returns ret=0, data_out=DataWritten25September2017Z��
+Oct  6 10:23:31 localhost kernel: [ 1070.622992] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.622992] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623001] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:31 localhost kernel: [ 1070.623014] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623014]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623034] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623034] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623042] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623042] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623060] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623060] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623069] virgo_write() system_call: before memcpy()
+Oct  6 10:23:31 localhost kernel: [ 1070.623076] virgo_write() system_call: after memcpy()
+Oct  6 10:23:31 localhost kernel: [ 1070.623082] virgo_write() system call: data to set=test_virgo_filesystem_25September2017rgofstest.txt)
+Oct  6 10:23:31 localhost kernel: [ 1070.623102] get_host_from_cloud_PRG_fs() - get_random_int() returned 3456480199 
+Oct  6 10:23:31 localhost kernel: [ 1070.623110] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623110]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623120] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623120]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623139] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623139]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623162] long_to_str(): n=1
+Oct  6 10:23:31 localhost kernel: [ 1070.623167] long_to_str(): ret=[1]
+Oct  6 10:23:31 localhost kernel: [ 1070.623188] int_to_str_vfs(): n=250
+Oct  6 10:23:31 localhost kernel: [ 1070.623193] int_to_str_vfs(): ret=[250]
+Oct  6 10:23:31 localhost kernel: [ 1070.623213] int_to_str_vfs(): n=0
+Oct  6 10:23:31 localhost kernel: [ 1070.623218] int_to_str_vfs(): ret=[0]
+Oct  6 10:23:31 localhost kernel: [ 1070.623229] virgo_write() system call: tempbuf=virgo_cloud_write(1,test_virgo_filesystem_25September2017rgofstest.txt),250,0), buf=virgo_cloud_write(1,test_virgo_filesystem_25September2017rgofstest.txt),250,0), virgo_write_cmd = virgo_cloud_write(1,test_virgo_filesystem_25September2017rgofstest.txt),250,0)
+Oct  6 10:23:31 localhost kernel: [ 1070.623237] virgo_write() system call: iov.iov_baseK�{
+Oct  6 10:23:31 localhost kernel: [ 1070.623297] virgo_write() syscall: created client kernel socket
+Oct  6 10:23:31 localhost kernel: [ 1070.623307] virgo_write() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:31 localhost kernel: [ 1070.623307]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623313] virgo_write() syscall: sent message: virgo_cloud_write(1,test_virgo_filesystem_25September2017rgofstest.txt),250,0) 
+Oct  6 10:23:31 localhost kernel: [ 1070.623327] virgo_write() syscall: received message: virgo_cloud_write(1,test_virgo_filesystem_25September2017rgofstest.txt),250,0) 
+Oct  6 10:23:31 localhost kernel: [ 1070.623358] virgo_write() syscall: virgo_write() client socket_release() invoked
+Oct  6 10:23:31 localhost kernel: [ 1070.623450] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623450] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623459] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:31 localhost kernel: [ 1070.623469] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623469]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623488] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623488] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623495] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623495] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623514] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623514] 
+Oct  6 10:23:31 localhost kernel: [ 1070.623536] get_host_from_cloud_PRG_fs() - get_random_int() returned 825257658 
+Oct  6 10:23:31 localhost kernel: [ 1070.623544] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623544]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623553] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623553]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623571] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:31 localhost kernel: [ 1070.623571]  
+Oct  6 10:23:31 localhost kernel: [ 1070.623593] long_to_str(): n=1
+Oct  6 10:23:31 localhost kernel: [ 1070.623597] long_to_str(): ret=[1]
+Oct  6 10:23:31 localhost kernel: [ 1070.623605] virgo_close() system call: tempbuf=2073817920, buf=virgo_cloud_close(1), close_cmd=virgo_cloud_close(1) 
+Oct  6 10:23:31 localhost kernel: [ 1070.623611] virgo_close() system call: iov.iov_base=virgo_cloud_close(1)
+Oct  6 10:23:31 localhost kernel: [ 1070.623664] virgo_close() syscall: created client kernel socket
+Oct  6 10:23:31 localhost kernel: [ 1070.626498] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:31 localhost kernel: [ 1070.626746] virgo_close() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:31 localhost kernel: [ 1070.626746]  
+Oct  6 10:23:31 localhost kernel: [ 1070.626963] virgo_close() syscall: sent message: virgo_cloud_close(1) 
+Oct  6 10:23:31 localhost kernel: [ 1070.632229] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:31 localhost kernel: [ 1070.632321] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:31 localhost kernel: [ 1070.632330] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:31 localhost kernel: [ 1070.632350] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:31 localhost kernel: [ 1070.632372] strip_control_M(): str=virgo_cloud_close(1) before strsep
+Oct  6 10:23:31 localhost kernel: [ 1070.632394] strip_control_M(): newstr=virgo_cloud_close(1) after carriage return newline strsep
+Oct  6 10:23:31 localhost kernel: [ 1070.632401] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_close(1), buffer: virgo_cloud_close(1)
+Oct  6 10:23:31 localhost kernel: [ 1070.632408] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_close(1)
+Oct  6 10:23:31 localhost kernel: [ 1070.632414] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_close(1) 
+Oct  6 10:23:31 localhost kernel: [ 1070.632470] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_close
+Oct  6 10:23:31 localhost kernel: [ 1070.632494] parse_virgofs_command: vmargs->fs_args[0]: 1
+Oct  6 10:23:31 localhost kernel: [ 1070.632501] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:31 localhost kernel: [ 1070.632509] Creating Kernel Thread for virgo_cloud_close in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=1, fs_args[1]=(null)
+Oct  6 10:23:31 localhost kernel: [ 1070.632545] virgo_cloud_fs_kernelspace.c: virgo_cloud_close_kernelspace(): vmargs->fs_args[0]=1
+Oct  6 10:23:31 localhost kernel: [ 1070.632552] virgo_parse_integer(): *s=1, res=0
+Oct  6 10:23:31 localhost kernel: [ 1070.632564] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=(null)
+Oct  6 10:23:31 localhost kernel: [ 1070.632570] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:31 localhost kernel: [ 1070.632575] virgocloudexec_fs_sendto(): virgo_fs_ret=(null)
+Oct  6 10:23:31 localhost kernel: [ 1070.632581] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: p/�������
+
+Oct  6 10:23:31 localhost kernel: [ 1070.632715] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:31 localhost kernel: [ 1070.632783] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:31 localhost kernel: [ 1070.632832] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:31 localhost kernel: [ 1070.633182] virgo_close() syscall: received message: p/�������
+                                                                                                      
+Oct  6 10:23:31 localhost kernel: [ 1070.633213] virgo_close() syscall: virgo_close() client socket_release() invoked
+Oct  6 10:23:37 localhost kernel: [ 1076.168644] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168644] 
+Oct  6 10:23:37 localhost kernel: [ 1076.168658] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:37 localhost kernel: [ 1076.168671] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168671]  
+Oct  6 10:23:37 localhost kernel: [ 1076.168692] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168692] 
+Oct  6 10:23:37 localhost kernel: [ 1076.168700] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168700] 
+Oct  6 10:23:37 localhost kernel: [ 1076.168718] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168718] 
+Oct  6 10:23:37 localhost kernel: [ 1076.168740] get_host_from_cloud_PRG_fs() - get_random_int() returned 3230193963 
+Oct  6 10:23:37 localhost kernel: [ 1076.168748] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168748]  
+Oct  6 10:23:37 localhost kernel: [ 1076.168757] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168757]  
+Oct  6 10:23:37 localhost kernel: [ 1076.168776] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168776]  
+Oct  6 10:23:37 localhost kernel: [ 1076.168785] virgo_open() syscall: leastloadedhostport->port=50000
+Oct  6 10:23:37 localhost kernel: [ 1076.168788] virgo_open() syscall: leastloadedhostport->hostip=0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168801] virgo_open() syscall: after in4_pton and htons, leastloadedhostport->hostip=0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.168801] , leastloadedhostport->port=50000, sin.sin_addr.s_addr=0, sin.sin_port=50c3
+Oct  6 10:23:37 localhost kernel: [ 1076.168815] virgo_open() syscall: open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), tempbuf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.168821] virgo_open() syscall: buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.168832] virgo_open() syscall: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.168893] virgo_open() syscall: created client kernel socket
+Oct  6 10:23:37 localhost kernel: [ 1076.169426] virgo_open() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:37 localhost kernel: [ 1076.169426]  
+Oct  6 10:23:37 localhost kernel: [ 1076.169447] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:37 localhost kernel: [ 1076.169621] virgo_open() syscall: sent len=3000; iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.169732] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:37 localhost kernel: [ 1076.169743] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:37 localhost kernel: [ 1076.169751] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:37 localhost kernel: [ 1076.169762] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.169784] strip_control_M(): str=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) before strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.169808] strip_control_M(): newstr=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) after carriage return newline strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.169817] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buffer: virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.169824] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.169831] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) 
+Oct  6 10:23:37 localhost kernel: [ 1076.169887] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_open
+Oct  6 10:23:37 localhost kernel: [ 1076.169909] parse_virgofs_command: vmargs->fs_args[0]: /var/log/virgo_fs/virgofstest.txt
+Oct  6 10:23:37 localhost kernel: [ 1076.169916] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:37 localhost kernel: [ 1076.169924] Creating Kernel Thread for virgo_cloud_open in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=/var/log/virgo_fs/virgofstest.txt, fs_args[1]=(null)
+Oct  6 10:23:37 localhost kernel: [ 1076.169960] virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): file path to open=/var/log/virgo_fs/virgofstest.txt
+Oct  6 10:23:37 localhost kernel: [ 1076.170073] virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): f=ffff88006917a6c0, no_of_openfiles=2, file struct=ffff88006917a6c0
+Oct  6 10:23:37 localhost kernel: [ 1076.170109] toVFSString(): VFSString=2
+Oct  6 10:23:37 localhost kernel: [ 1076.170114] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=2
+Oct  6 10:23:37 localhost kernel: [ 1076.170119] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:37 localhost kernel: [ 1076.170124] virgocloudexec_fs_sendto(): virgo_fs_ret=2
+Oct  6 10:23:37 localhost kernel: [ 1076.170129] virgocloudexec_fs_sendto(): data sent=2
+Oct  6 10:23:37 localhost kernel: [ 1076.170135] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: 2
+Oct  6 10:23:37 localhost kernel: [ 1076.170239] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.170362] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:37 localhost kernel: [ 1076.170480] virgo_open() syscall: recv len=500
+Oct  6 10:23:37 localhost kernel: [ 1076.170486] virgo_open() syscall: received iov.iov_base: 2 
+Oct  6 10:23:37 localhost kernel: [ 1076.170513] virgo_open() syscall: virgo_open() client socket_release() invoked
+Oct  6 10:23:37 localhost kernel: [ 1076.170520] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.171442] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171442] 
+Oct  6 10:23:37 localhost kernel: [ 1076.171452] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:37 localhost kernel: [ 1076.171465] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171465]  
+Oct  6 10:23:37 localhost kernel: [ 1076.171485] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171485] 
+Oct  6 10:23:37 localhost kernel: [ 1076.171493] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171493] 
+Oct  6 10:23:37 localhost kernel: [ 1076.171511] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171511] 
+Oct  6 10:23:37 localhost kernel: [ 1076.171535] get_host_from_cloud_PRG_fs() - get_random_int() returned 2639941897 
+Oct  6 10:23:37 localhost kernel: [ 1076.171543] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171543]  
+Oct  6 10:23:37 localhost kernel: [ 1076.171552] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171552]  
+Oct  6 10:23:37 localhost kernel: [ 1076.171571] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.171571]  
+Oct  6 10:23:37 localhost kernel: [ 1076.171593] long_to_str(): n=2
+Oct  6 10:23:37 localhost kernel: [ 1076.171598] long_to_str(): ret=[2]
+Oct  6 10:23:37 localhost kernel: [ 1076.171616] int_to_str_vfs(): n=250
+Oct  6 10:23:37 localhost kernel: [ 1076.171621] int_to_str_vfs(): ret=[250]
+Oct  6 10:23:37 localhost kernel: [ 1076.171639] int_to_str_vfs(): n=0
+Oct  6 10:23:37 localhost kernel: [ 1076.171644] int_to_str_vfs(): ret=[0]
+Oct  6 10:23:37 localhost kernel: [ 1076.171652] virgo_read() system call: tempbuf=virgo_cloud_read(2,"none",250,0), buf=virgo_cloud_read(2,"none",250,0), virgo_read_cmd=virgo_cloud_read(2,"none",250,0)
+Oct  6 10:23:37 localhost kernel: [ 1076.171659] virgo_read() system call: iov.iov_base=virgo_cloud_read(2,"none",250,0)
+Oct  6 10:23:37 localhost kernel: [ 1076.171715] virgo_read() syscall: created client kernel socket
+Oct  6 10:23:37 localhost kernel: [ 1076.176892] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:37 localhost kernel: [ 1076.177138] virgo_read() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:37 localhost kernel: [ 1076.177138]  
+Oct  6 10:23:37 localhost kernel: [ 1076.177379] virgo_read() syscall: sent message: virgo_cloud_read(2,"none",250,0) 
+Oct  6 10:23:37 localhost kernel: [ 1076.181013] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:37 localhost kernel: [ 1076.181110] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:37 localhost kernel: [ 1076.181118] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:37 localhost kernel: [ 1076.181133] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.181154] strip_control_M(): str=virgo_cloud_read(2,"none",250,0) before strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.181176] strip_control_M(): newstr=virgo_cloud_read(2,"none",250,0) after carriage return newline strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.181184] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_read(2,"none",250,0), buffer: virgo_cloud_read(2,"none",250,0)
+Oct  6 10:23:37 localhost kernel: [ 1076.181193] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_read(2,"none",250,0)
+Oct  6 10:23:37 localhost kernel: [ 1076.181199] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_read(2,"none",250,0) 
+Oct  6 10:23:37 localhost kernel: [ 1076.181271] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_read
+Oct  6 10:23:37 localhost kernel: [ 1076.181343] parse_virgofs_command: vmargs->fs_args[0]: 2
+Oct  6 10:23:37 localhost kernel: [ 1076.181348] parse_virgofs_command: vmargs->fs_args[1]: "none"
+Oct  6 10:23:37 localhost kernel: [ 1076.181354] parse_virgofs_command: vmargs->fs_args[2]: 1471164648
+Oct  6 10:23:37 localhost kernel: [ 1076.181360] parse_virgofs_command: vmargs->fs_args[3]: 1471163208
+Oct  6 10:23:37 localhost kernel: [ 1076.181366] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:37 localhost kernel: [ 1076.181374] Creating Kernel Thread for virgo_cloud_read in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=2, fs_args[1]="none"
+Oct  6 10:23:37 localhost kernel: [ 1076.181570] virgo_cloud_fs_kernelspace.c: virgo_cloud_read_kernelspace(): vmargs->fs_cmd=virgo_cloud_read, vmargs->fs_args[0] = 2
+Oct  6 10:23:37 localhost kernel: [ 1076.181570] , vmargs->fs_args[1]="none", vmargs->fs_args[2]=250, vmargs->fs_args[3]=0 
+Oct  6 10:23:37 localhost kernel: [ 1076.181581] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.181586] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.181592] virgo_parse_integer(): *s=5, res=2
+Oct  6 10:23:37 localhost kernel: [ 1076.181597] virgo_parse_integer(): *s=0, res=25
+Oct  6 10:23:37 localhost kernel: [ 1076.181602] virgo_parse_integer(): *s=0, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.181617] virgo_cloud_read_kernelspace(): buf=kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk���������h��t
+Oct  6 10:23:37 localhost kernel: [ 1076.181627] virgo_cloud_read_kernelspace(): vfsdesc=2
+Oct  6 10:23:37 localhost kernel: [ 1076.181633] virgo_cloud_read_kernelspace(): cnt=250
+Oct  6 10:23:37 localhost kernel: [ 1076.181638] virgo_cloud_read_kernelspace(): pos=0
+Oct  6 10:23:37 localhost kernel: [ 1076.181649] virgo_cloud_read_kernelspace(): open_VFS_files[vfsdesc]=ffff88006917a6c0
+Oct  6 10:23:37 localhost kernel: [ 1076.181664] virgo_cloud_read_kernelspace(): after vfs_read(): bytesread=250, buf=DataWritten25September2017
+Oct  6 10:23:37 localhost kernel: [ 1076.181670] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=DataWritten25September2017
+Oct  6 10:23:37 localhost kernel: [ 1076.181676] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:37 localhost kernel: [ 1076.181681] virgocloudexec_fs_sendto(): virgo_fs_ret=DataWritten25September2017
+Oct  6 10:23:37 localhost kernel: [ 1076.181687] virgocloudexec_fs_sendto(): data sent=DataWritten25September2017
+Oct  6 10:23:37 localhost kernel: [ 1076.181693] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: DataWritten25September2017
+Oct  6 10:23:37 localhost kernel: [ 1076.181852] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.189797] virgo_read() syscall: received message: DataWritten25September2017 
+Oct  6 10:23:37 localhost kernel: [ 1076.189913] virgo_read() syscall: virgo_read() client socket_release() invoked
+Oct  6 10:23:37 localhost kernel: [ 1076.189925] virgo_read() syscall: copy_to_user() returns ret=0, data_out=DataWritten25September2017���
+Oct  6 10:23:37 localhost kernel: [ 1076.197856] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.197856] 
+Oct  6 10:23:37 localhost kernel: [ 1076.197870] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:37 localhost kernel: [ 1076.197885] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.197885]  
+Oct  6 10:23:37 localhost kernel: [ 1076.197908] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.197908] 
+Oct  6 10:23:37 localhost kernel: [ 1076.197916] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.197916] 
+Oct  6 10:23:37 localhost kernel: [ 1076.197934] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.197934] 
+Oct  6 10:23:37 localhost kernel: [ 1076.197944] virgo_write() system_call: before memcpy()
+Oct  6 10:23:37 localhost kernel: [ 1076.197951] virgo_write() system_call: after memcpy()
+Oct  6 10:23:37 localhost kernel: [ 1076.197957] virgo_write() system call: data to set=test_virgo_filesystem_25September2017rgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.197977] get_host_from_cloud_PRG_fs() - get_random_int() returned 1496375714 
+Oct  6 10:23:37 localhost kernel: [ 1076.197985] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.197985]  
+Oct  6 10:23:37 localhost kernel: [ 1076.197995] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.197995]  
+Oct  6 10:23:37 localhost kernel: [ 1076.198013] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.198013]  
+Oct  6 10:23:37 localhost kernel: [ 1076.198037] long_to_str(): n=2
+Oct  6 10:23:37 localhost kernel: [ 1076.198042] long_to_str(): ret=[2]
+Oct  6 10:23:37 localhost kernel: [ 1076.198063] int_to_str_vfs(): n=250
+Oct  6 10:23:37 localhost kernel: [ 1076.198069] int_to_str_vfs(): ret=[250]
+Oct  6 10:23:37 localhost kernel: [ 1076.198087] int_to_str_vfs(): n=0
+Oct  6 10:23:37 localhost kernel: [ 1076.198092] int_to_str_vfs(): ret=[0]
+Oct  6 10:23:37 localhost kernel: [ 1076.198104] virgo_write() system call: tempbuf=virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0), buf=virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0), virgo_write_cmd = virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0)
+Oct  6 10:23:37 localhost kernel: [ 1076.198111] virgo_write() system call: iov.iov_base=�	
+Oct  6 10:23:37 localhost kernel: [ 1076.198170] virgo_write() syscall: created client kernel socket
+Oct  6 10:23:37 localhost kernel: [ 1076.198702] virgo_write() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:37 localhost kernel: [ 1076.198702]  
+Oct  6 10:23:37 localhost kernel: [ 1076.198715] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:37 localhost kernel: [ 1076.198892] virgo_write() syscall: sent message: virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0) 
+Oct  6 10:23:37 localhost kernel: [ 1076.200841] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:37 localhost kernel: [ 1076.206075] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:37 localhost kernel: [ 1076.206152] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:37 localhost kernel: [ 1076.206159] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:37 localhost kernel: [ 1076.206173] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.206196] strip_control_M(): str=virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0) before strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.206221] strip_control_M(): newstr=virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0) after carriage return newline strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.206231] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0), buffer: virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0)
+Oct  6 10:23:37 localhost kernel: [ 1076.206239] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0)
+Oct  6 10:23:37 localhost kernel: [ 1076.206246] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_write(2,test_virgo_filesystem_25September2017rgofstest.txt),250,0) 
+Oct  6 10:23:37 localhost kernel: [ 1076.206303] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_write
+Oct  6 10:23:37 localhost kernel: [ 1076.206373] parse_virgofs_command: vmargs->fs_args[0]: 2
+Oct  6 10:23:37 localhost kernel: [ 1076.206379] parse_virgofs_command: vmargs->fs_args[1]: test_virgo_filesystem_25September2017rgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.206385] parse_virgofs_command: vmargs->fs_args[2]: 1471161768
+Oct  6 10:23:37 localhost kernel: [ 1076.206391] parse_virgofs_command: vmargs->fs_args[3]: 1471162128
+Oct  6 10:23:37 localhost kernel: [ 1076.206397] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:37 localhost kernel: [ 1076.206405] Creating Kernel Thread for virgo_cloud_write in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=2, fs_args[1]=test_virgo_filesystem_25September2017rgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.206446] virgo_cloud_fs_kernelspace.c: virgo_cloud_write_kernelspace(): vmargs->fs_cmd=virgo_cloud_write, vmargs->fs_args[0] = 2
+Oct  6 10:23:37 localhost kernel: [ 1076.206446] , vmargs->fs_args[1]=test_virgo_filesystem_25September2017rgofstest.txt), vmargs->fs_args[2]=1471161768, vmargs->fs_args[3]=1471162128 
+Oct  6 10:23:37 localhost kernel: [ 1076.206456] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.206462] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.206467] virgo_parse_integer(): *s=5, res=2
+Oct  6 10:23:37 localhost kernel: [ 1076.206472] virgo_parse_integer(): *s=0, res=25
+Oct  6 10:23:37 localhost kernel: [ 1076.206477] virgo_parse_integer(): *s=0, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.206483] virgo_cloud_read_kernelspace(): vmargs->fs_args[1]=test_virgo_filesystem_25September2017rgofstest.txt)
+Oct  6 10:23:37 localhost kernel: [ 1076.206489] virgo_cloud_read_kernelspace(): vfsdesc=2
+Oct  6 10:23:37 localhost kernel: [ 1076.206494] virgo_cloud_read_kernelspace(): cnt=250
+Oct  6 10:23:37 localhost kernel: [ 1076.206499] virgo_cloud_read_kernelspace(): cnt=250
+Oct  6 10:23:37 localhost kernel: [ 1076.206504] virgo_cloud_read_kernelspace(): pos=0
+Oct  6 10:23:37 localhost kernel: [ 1076.206511] virgo_cloud_read_kernelspace(): open_VFS_files[vfsdesc]=ffff88006917a6c0
+Oct  6 10:23:37 localhost kernel: [ 1076.206670] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=(null)
+Oct  6 10:23:37 localhost kernel: [ 1076.206676] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:37 localhost kernel: [ 1076.206682] virgocloudexec_fs_sendto(): virgo_fs_ret=(null)
+Oct  6 10:23:37 localhost kernel: [ 1076.206687] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: Y�������χ
+Oct  6 10:23:37 localhost kernel: [ 1076.206845] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.206976] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Oct  6 10:23:37 localhost kernel: [ 1076.207112] virgo_write() syscall: received message: Y�������χ 
+Oct  6 10:23:37 localhost kernel: [ 1076.207144] virgo_write() syscall: virgo_write() client socket_release() invoked
+Oct  6 10:23:37 localhost kernel: [ 1076.209523] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209523] 
+Oct  6 10:23:37 localhost kernel: [ 1076.209537] read_virgo_config(): virgo_client.config file being read 
+Oct  6 10:23:37 localhost kernel: [ 1076.209550] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209550]  
+Oct  6 10:23:37 localhost kernel: [ 1076.209571] tokenize_list_of_ip_addrs(): bufdup = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209571] 
+Oct  6 10:23:37 localhost kernel: [ 1076.209579] tokenize_list_of_ip_addrs(): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209579] 
+Oct  6 10:23:37 localhost kernel: [ 1076.209597] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209597] 
+Oct  6 10:23:37 localhost kernel: [ 1076.209622] get_host_from_cloud_PRG_fs() - get_random_int() returned 2616351857 
+Oct  6 10:23:37 localhost kernel: [ 1076.209630] get_host_from_cloud_PRG_fs() range mapping for 1 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209630]  
+Oct  6 10:23:37 localhost kernel: [ 1076.209639] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209639]  
+Oct  6 10:23:37 localhost kernel: [ 1076.209657] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 0.0.0.0
+Oct  6 10:23:37 localhost kernel: [ 1076.209657]  
+Oct  6 10:23:37 localhost kernel: [ 1076.209681] long_to_str(): n=2
+Oct  6 10:23:37 localhost kernel: [ 1076.209686] long_to_str(): ret=[2]
+Oct  6 10:23:37 localhost kernel: [ 1076.209694] virgo_close() system call: tempbuf=1674638072, buf=virgo_cloud_close(2), close_cmd=virgo_cloud_close(2) 
+Oct  6 10:23:37 localhost kernel: [ 1076.209700] virgo_close() system call: iov.iov_base=virgo_cloud_close(2)
+Oct  6 10:23:37 localhost kernel: [ 1076.209762] virgo_close() syscall: created client kernel socket
+Oct  6 10:23:37 localhost kernel: [ 1076.210308] virgo_close() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  6 10:23:37 localhost kernel: [ 1076.210308]  
+Oct  6 10:23:37 localhost kernel: [ 1076.210325] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Oct  6 10:23:37 localhost kernel: [ 1076.210502] virgo_close() syscall: sent message: virgo_cloud_close(2) 
+Oct  6 10:23:37 localhost kernel: [ 1076.222851] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Oct  6 10:23:37 localhost kernel: [ 1076.222943] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Oct  6 10:23:37 localhost kernel: [ 1076.222951] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Oct  6 10:23:37 localhost kernel: [ 1076.222973] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.223001] strip_control_M(): str=virgo_cloud_close(2) before strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.223023] strip_control_M(): newstr=virgo_cloud_close(2) after carriage return newline strsep
+Oct  6 10:23:37 localhost kernel: [ 1076.223032] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_close(2), buffer: virgo_cloud_close(2)
+Oct  6 10:23:37 localhost kernel: [ 1076.223038] virgocloudexec_fs_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_close(2)
+Oct  6 10:23:37 localhost kernel: [ 1076.223044] virgocloudexec_fs_recvfrom(): fsFunction : virgo_cloud_close(2) 
+Oct  6 10:23:37 localhost kernel: [ 1076.223102] parse_virgofs_command: vmargs->fs_cmd: virgo_cloud_close
+Oct  6 10:23:37 localhost kernel: [ 1076.223127] parse_virgofs_command: vmargs->fs_args[0]: 2
+Oct  6 10:23:37 localhost kernel: [ 1076.223134] fs_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  6 10:23:37 localhost kernel: [ 1076.223141] Creating Kernel Thread for virgo_cloud_close in virgo_cloud_fs_kernelspace fs driver module with fs_args[0]=2, fs_args[1]=(null)
+Oct  6 10:23:37 localhost kernel: [ 1076.223178] virgo_cloud_fs_kernelspace.c: virgo_cloud_close_kernelspace(): vmargs->fs_args[0]=2
+Oct  6 10:23:37 localhost kernel: [ 1076.223185] virgo_parse_integer(): *s=2, res=0
+Oct  6 10:23:37 localhost kernel: [ 1076.223201] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=(null)
+Oct  6 10:23:37 localhost kernel: [ 1076.223207] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Oct  6 10:23:37 localhost kernel: [ 1076.223213] virgocloudexec_fs_sendto(): virgo_fs_ret=(null)
+Oct  6 10:23:37 localhost kernel: [ 1076.223219] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: �������χ
+Oct  6 10:23:37 localhost kernel: [ 1076.223433] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Oct  6 10:23:37 localhost kernel: [ 1076.223619] virgo_close() syscall: received message: �������χ 
+Oct  6 10:23:37 localhost kernel: [ 1076.223734] virgo_close() syscall: virgo_close() client socket_release() invoked
+Oct  6 10:23:37 localhost kernel: [ 1076.225760] test_virgo_file (2410) used greatest stack depth: 18888 bytes left
+Oct  6 10:23:37 localhost kernel: [ 1076.232103] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+
