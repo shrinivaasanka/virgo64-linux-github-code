@@ -1548,6 +1548,17 @@ VIRGO cloud nodes in the absence of KTLS - most obvious solution is to install V
 (*) VIRGO64 system call clients and driver listeners should read these Virtual IPs from /etc/virgo_client.conf and /etc/virgo_cloud.conf
   and cloud traffic is confined to the VPN tunnel.
 
+-------------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 SystemCalls-Drivers endtoend invocations unit case tests - on 4.13.3 - VIRGO64 main branch - 11 October 2017
+-------------------------------------------------------------------------------------------------------------------------------------
+(*) VIRGO64 systemcalls have been invoked from unit test cases (test_<system_call>) in a loop of few hundred iterations
+(*) No DRM GEM i915 panics or random crashes are observed and stability is good
+(*) This is probably the first loop iterative testing of VIRGO system calls and drivers.
+(*) Kernel logs for this have been committed to virgo-docs/systemcalls_drivers directory.
+(*) Note on concurrency: Presently mutexing within system calls have been commented because in past linux versions mutexing within kernel was causing strange panic issues. As a design choice and feature-stability tradeoff (stability is more important than introducing additional code) mutexing has been lifted up to userspace. It is upto the user applications invoking the system calls to synchronize multiple user threads invoking VIRGO64 system calls i.e VIRGO64 system calls are not re-entrant. This would allow just one kernel thread (mapped 1:1 to a user thread)
+ to execute in kernel space. Mostly this is relevant only to kmemcache system calls which have global in-kernel-memory address translation tables and next_id variable. VIRGO clone/filesystem calls do not have global in-kernel-memory datastructures.
+
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
