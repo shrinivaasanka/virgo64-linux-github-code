@@ -1558,6 +1558,18 @@ VIRGO64 SystemCalls-Drivers endtoend invocations unit case tests - on 4.13.3 - V
 (*) Note on concurrency: Presently mutexing within system calls have been commented because in past linux versions mutexing within kernel was causing strange panic issues. As a design choice and feature-stability tradeoff (stability is more important than introducing additional code) mutexing has been lifted up to userspace. It is upto the user applications invoking the system calls to synchronize multiple user threads invoking VIRGO64 system calls i.e VIRGO64 system calls are not re-entrant. This would allow just one kernel thread (mapped 1:1 to a user thread)
  to execute in kernel space. Mostly this is relevant only to kmemcache system calls which have global in-kernel-memory address translation tables and next_id variable. VIRGO clone/filesystem calls do not have global in-kernel-memory datastructures.
 
+-----------------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 SystemCalls-Drivers concurrent invocations - 2 processes having shared mutex - 14 October 2017
+-----------------------------------------------------------------------------------------------------------------------------------------
+(*) VIRGO64 systemcalls are invoked in a function which is called from 2 processes concurrently
+(*) Mutexes between the processes are PTHREAD_PROCESS_SHARED attribute set.
+(*) test_virgo_malloc.c unit testcase has been enhanced to fork() a process and invoke systemcalls in a function for 100 iterations each
+(*) Logs for the Virgo Unique IDs malloc/set/get/free in the systemcalls side and kern.logs for the drivers have been committed to test/testlogs/
+(*) No DRM GEM i915 crashes were observed
+(*) test_virgo_malloc.c testcase demonstrates the coarse grained critical section lock/unlock for kmemcache systemcalls and is a template
+that should be followed for any userspace application.
+
+
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
