@@ -1,0 +1,1002 @@
+root@localhost:/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/virgo_malloc/test# ./test_virgo_malloc 
+process id: 1979
+process id: 0
+vuid malloc-ed : 18446744072398023744 
+virgo_set() data to set for vuid 18446744072398023744 : DataSet_process2
+vuid malloc-ed : 18446744072398023744 
+virgo_set() data to set for vuid 18446744072398023744 : DataSet_process1
+virgo_get() data for vuid 18446744072398023744 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398023744 : DataSet_process1////////////////
+vuid freed : 18446744072398023744 
+process id: 1979
+vuid freed : 18446744072398023744 
+process id: 0
+vuid malloc-ed : 18446744072398023808 
+virgo_set() data to set for vuid 18446744072398023808 : DataSet_process2
+vuid malloc-ed : 18446744072398023808 
+virgo_set() data to set for vuid 18446744072398023808 : DataSet_process1
+virgo_get() data for vuid 18446744072398023808 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398023808 : DataSet_process1////////////////
+vuid freed : 18446744072398023808 
+process id: 1979
+vuid freed : 18446744072398023808 
+process id: 0
+vuid malloc-ed : 18446744072398023872 
+virgo_set() data to set for vuid 18446744072398023872 : DataSet_process2
+vuid malloc-ed : 18446744072398023872 
+virgo_set() data to set for vuid 18446744072398023872 : DataSet_process1
+virgo_get() data for vuid 18446744072398023872 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398023872 : DataSet_process1////////////////
+vuid freed : 18446744072398023872 
+process id: 1979
+vuid freed : 18446744072398023872 
+process id: 0
+vuid malloc-ed : 18446744072398023936 
+virgo_set() data to set for vuid 18446744072398023936 : DataSet_process2
+vuid malloc-ed : 18446744072398023936 
+virgo_set() data to set for vuid 18446744072398023936 : DataSet_process1
+virgo_get() data for vuid 18446744072398023936 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398023936 : DataSet_process1////////////////
+vuid freed : 18446744072398023936 
+process id: 0
+vuid freed : 18446744072398023936 
+process id: 1979
+vuid malloc-ed : 18446744072398024000 
+virgo_set() data to set for vuid 18446744072398024000 : DataSet_process1
+vuid malloc-ed : 18446744072398024000 
+virgo_set() data to set for vuid 18446744072398024000 : DataSet_process2
+virgo_get() data for vuid 18446744072398024000 : DataSet_process1////////////////
+vuid freed : 18446744072398024000 
+process id: 0
+virgo_get() data for vuid 18446744072398024000 : (cSSet_process1////////////////
+vuid malloc-ed : 18446744072398024064 
+virgo_set() data to set for vuid 18446744072398024064 : DataSet_process1
+vuid freed : 18446744072398024000 
+process id: 1979
+virgo_get() data for vuid 18446744072398024064 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398024096 
+virgo_set() data to set for vuid 18446744072398024096 : DataSet_process2
+vuid freed : 18446744072398024064 
+process id: 0
+vuid malloc-ed : 18446744072398024128 
+virgo_set() data to set for vuid 18446744072398024128 : DataSet_process1
+virgo_get() data for vuid 18446744072398024128 : DataSet_process1////////////////
+vuid freed : 18446744072398024128 
+process id: 0
+vuid malloc-ed : 18446744072398024160 
+virgo_set() data to set for vuid 18446744072398024160 : DataSet_process1
+virgo_get() data for vuid 18446744072398024096 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398024160 : DataSet_process1////////////////
+vuid freed : 18446744072398024096 
+process id: 1979
+vuid freed : 18446744072398024160 
+process id: 0
+vuid malloc-ed : 18446744072398024192 
+virgo_set() data to set for vuid 18446744072398024192 : DataSet_process2
+vuid malloc-ed : 18446744072398024192 
+virgo_set() data to set for vuid 18446744072398024192 : DataSet_process1
+virgo_get() data for vuid 18446744072398024192 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398024192 : DataSet_process1////////////////
+vuid freed : 18446744072398024192 
+process id: 1979
+vuid freed : 18446744072398024192 
+process id: 0
+vuid malloc-ed : 18446744072398024256 
+virgo_set() data to set for vuid 18446744072398024256 : DataSet_process2
+vuid malloc-ed : 18446744072398024256 
+virgo_set() data to set for vuid 18446744072398024256 : DataSet_process1
+virgo_get() data for vuid 18446744072398024256 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398024256 : DataSet_process1////////////////
+vuid freed : 18446744072398024256 
+process id: 0
+vuid malloc-ed : 18446744072398024320 
+virgo_set() data to set for vuid 18446744072398024320 : DataSet_process1
+vuid freed : 18446744072398024256 
+process id: 1979
+vuid malloc-ed : 18446744072398024352 
+virgo_set() data to set for vuid 18446744072398024352 : DataSet_process2
+virgo_get() data for vuid 18446744072398024320 : DataSet_process1////////////////
+vuid freed : 18446744072398024320 
+process id: 0
+virgo_get() data for vuid 18446744072398024352 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398024384 
+virgo_set() data to set for vuid 18446744072398024384 : DataSet_process1
+virgo_get() data for vuid 18446744072398024384 : DataSet_process1////////////////
+vuid freed : 18446744072398024352 
+process id: 1979
+vuid freed : 18446744072398024384 
+process id: 0
+vuid malloc-ed : 18446744072398024416 
+virgo_set() data to set for vuid 18446744072398024416 : DataSet_process1
+vuid malloc-ed : 18446744072398024416 
+virgo_set() data to set for vuid 18446744072398024416 : DataSet_process2
+virgo_get() data for vuid 18446744072398024416 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398024416 : DataSet_process2////////////////
+vuid freed : 18446744072398024416 
+process id: 0
+vuid freed : 18446744072398024416 
+process id: 1979
+vuid malloc-ed : 18446744072398024480 
+virgo_set() data to set for vuid 18446744072398024480 : DataSet_process1
+vuid malloc-ed : 18446744072398024480 
+virgo_set() data to set for vuid 18446744072398024480 : DataSet_process2
+virgo_get() data for vuid 18446744072398024480 : DataSet_process1////////////////
+vuid freed : 18446744072398024480 
+process id: 0
+virgo_get() data for vuid 18446744072398024480 : �pu`Set_process2////////////////
+vuid malloc-ed : 18446744072398024544 
+virgo_set() data to set for vuid 18446744072398024544 : DataSet_process1
+vuid freed : 18446744072398024480 
+process id: 1979
+vuid malloc-ed : 18446744072398024576 
+virgo_set() data to set for vuid 18446744072398024576 : DataSet_process2
+virgo_get() data for vuid 18446744072398024544 : DataSet_process1////////////////
+vuid freed : 18446744072398024544 
+process id: 0
+virgo_get() data for vuid 18446744072398024576 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398024608 
+virgo_set() data to set for vuid 18446744072398024608 : DataSet_process1
+vuid freed : 18446744072398024576 
+process id: 1979
+vuid malloc-ed : 18446744072398024640 
+virgo_set() data to set for vuid 18446744072398024640 : DataSet_process2
+virgo_get() data for vuid 18446744072398024608 : DataSet_process1////////////////
+vuid freed : 18446744072398024608 
+process id: 0
+virgo_get() data for vuid 18446744072398024640 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398024672 
+virgo_set() data to set for vuid 18446744072398024672 : DataSet_process1
+vuid freed : 18446744072398024640 
+process id: 1979
+vuid malloc-ed : 18446744072398024704 
+virgo_set() data to set for vuid 18446744072398024704 : DataSet_process2
+virgo_get() data for vuid 18446744072398024672 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398024704 : DataSet_process2////////////////
+vuid freed : 18446744072398024672 
+process id: 0
+vuid freed : 18446744072398024704 
+process id: 1979
+vuid malloc-ed : 18446744072398024736 
+virgo_set() data to set for vuid 18446744072398024736 : DataSet_process1
+vuid malloc-ed : 18446744072398024736 
+virgo_set() data to set for vuid 18446744072398024736 : DataSet_process2
+virgo_get() data for vuid 18446744072398024736 : DataSet_process1////////////////
+vuid freed : 18446744072398024736 
+process id: 0
+virgo_get() data for vuid 18446744072398024736 : (��sSet_process2////////////////
+vuid malloc-ed : 18446744072398024800 
+virgo_set() data to set for vuid 18446744072398024800 : DataSet_process1
+vuid freed : 18446744072398024736 
+process id: 1979
+virgo_get() data for vuid 18446744072398024800 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398024832 
+virgo_set() data to set for vuid 18446744072398024832 : DataSet_process2
+virgo_get() data for vuid 18446744072398024832 : DataSet_process2////////////////
+vuid freed : 18446744072398024800 
+process id: 0
+vuid freed : 18446744072398024832 
+process id: 1979
+vuid malloc-ed : 18446744072398024864 
+virgo_set() data to set for vuid 18446744072398024864 : DataSet_process1
+vuid malloc-ed : 18446744072398024864 
+virgo_set() data to set for vuid 18446744072398024864 : DataSet_process2
+virgo_get() data for vuid 18446744072398024864 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398024864 : DataSet_process1////////////////
+vuid freed : 18446744072398024864 
+process id: 1979
+vuid freed : 18446744072398024864 
+process id: 0
+vuid malloc-ed : 18446744072398024928 
+virgo_set() data to set for vuid 18446744072398024928 : DataSet_process2
+vuid malloc-ed : 18446744072398024928 
+virgo_set() data to set for vuid 18446744072398024928 : DataSet_process1
+virgo_get() data for vuid 18446744072398024928 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398024928 : DataSet_process1////////////////
+vuid freed : 18446744072398024928 
+process id: 1979
+vuid freed : 18446744072398024928 
+process id: 0
+vuid malloc-ed : 18446744072398024992 
+virgo_set() data to set for vuid 18446744072398024992 : DataSet_process2
+vuid malloc-ed : 18446744072398024992 
+virgo_set() data to set for vuid 18446744072398024992 : DataSet_process1
+virgo_get() data for vuid 18446744072398024992 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398024992 : DataSet_process2////////////////
+vuid freed : 18446744072398024992 
+process id: 0
+vuid freed : 18446744072398024992 
+process id: 1979
+vuid malloc-ed : 18446744072398025056 
+virgo_set() data to set for vuid 18446744072398025056 : DataSet_process1
+vuid malloc-ed : 18446744072398025056 
+virgo_set() data to set for vuid 18446744072398025056 : DataSet_process2
+virgo_get() data for vuid 18446744072398025056 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398025056 : DataSet_process2////////////////
+vuid freed : 18446744072398025056 
+process id: 1979
+vuid freed : 18446744072398025056 
+process id: 0
+vuid malloc-ed : 18446744072398025120 
+virgo_set() data to set for vuid 18446744072398025120 : DataSet_process2
+vuid malloc-ed : 18446744072398025120 
+virgo_set() data to set for vuid 18446744072398025120 : DataSet_process1
+virgo_get() data for vuid 18446744072398025120 : DataSet_process2////////////////
+vuid freed : 18446744072398025120 
+process id: 1979
+vuid malloc-ed : 18446744072398025184 
+virgo_set() data to set for vuid 18446744072398025184 : DataSet_process2
+virgo_get() data for vuid 18446744072398025120 :�!Set_process2////////////////
+vuid freed : 18446744072398025120 
+process id: 0
+virgo_get() data for vuid 18446744072398025184 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025216 
+virgo_set() data to set for vuid 18446744072398025216 : DataSet_process1
+vuid freed : 18446744072398025184 
+process id: 1979
+vuid malloc-ed : 18446744072398025248 
+virgo_set() data to set for vuid 18446744072398025248 : DataSet_process2
+virgo_get() data for vuid 18446744072398025216 : DataSet_process1////////////////
+vuid freed : 18446744072398025216 
+process id: 0
+virgo_get() data for vuid 18446744072398025248 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025280 
+virgo_set() data to set for vuid 18446744072398025280 : DataSet_process1
+vuid freed : 18446744072398025248 
+process id: 1979
+vuid malloc-ed : 18446744072398025312 
+virgo_set() data to set for vuid 18446744072398025312 : DataSet_process2
+virgo_get() data for vuid 18446744072398025280 : DataSet_process1////////////////
+vuid freed : 18446744072398025280 
+process id: 0
+virgo_get() data for vuid 18446744072398025312 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025344 
+virgo_set() data to set for vuid 18446744072398025344 : DataSet_process1
+vuid freed : 18446744072398025312 
+process id: 1979
+virgo_get() data for vuid 18446744072398025344 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398025376 
+virgo_set() data to set for vuid 18446744072398025376 : DataSet_process2
+vuid freed : 18446744072398025344 
+process id: 0
+vuid malloc-ed : 18446744072398025408 
+virgo_set() data to set for vuid 18446744072398025408 : DataSet_process1
+virgo_get() data for vuid 18446744072398025376 : DataSet_process2////////////////
+vuid freed : 18446744072398025376 
+process id: 1979
+virgo_get() data for vuid 18446744072398025408 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398025440 
+virgo_set() data to set for vuid 18446744072398025440 : DataSet_process2
+vuid freed : 18446744072398025408 
+process id: 0
+virgo_get() data for vuid 18446744072398025440 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025472 
+virgo_set() data to set for vuid 18446744072398025472 : DataSet_process1
+vuid freed : 18446744072398025440 
+process id: 1979
+vuid malloc-ed : 18446744072398025504 
+virgo_set() data to set for vuid 18446744072398025504 : DataSet_process2
+virgo_get() data for vuid 18446744072398025472 : DataSet_process1////////////////
+vuid freed : 18446744072398025472 
+process id: 0
+virgo_get() data for vuid 18446744072398025504 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025536 
+virgo_set() data to set for vuid 18446744072398025536 : DataSet_process1
+vuid freed : 18446744072398025504 
+process id: 1979
+vuid malloc-ed : 18446744072398025568 
+virgo_set() data to set for vuid 18446744072398025568 : DataSet_process2
+virgo_get() data for vuid 18446744072398025536 : DataSet_process1////////////////
+vuid freed : 18446744072398025536 
+process id: 0
+virgo_get() data for vuid 18446744072398025568 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025600 
+virgo_set() data to set for vuid 18446744072398025600 : DataSet_process1
+vuid freed : 18446744072398025568 
+process id: 1979
+virgo_get() data for vuid 18446744072398025600 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398025632 
+virgo_set() data to set for vuid 18446744072398025632 : DataSet_process2
+vuid freed : 18446744072398025600 
+process id: 0
+vuid malloc-ed : 18446744072398025664 
+virgo_set() data to set for vuid 18446744072398025664 : DataSet_process1
+virgo_get() data for vuid 18446744072398025632 : DataSet_process2////////////////
+vuid freed : 18446744072398025632 
+process id: 1979
+virgo_get() data for vuid 18446744072398025664 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398025696 
+virgo_set() data to set for vuid 18446744072398025696 : DataSet_process2
+vuid freed : 18446744072398025664 
+process id: 0
+virgo_get() data for vuid 18446744072398025696 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025728 
+virgo_set() data to set for vuid 18446744072398025728 : DataSet_process1
+vuid freed : 18446744072398025696 
+process id: 1979
+vuid malloc-ed : 18446744072398025760 
+virgo_set() data to set for vuid 18446744072398025760 : DataSet_process2
+virgo_get() data for vuid 18446744072398025728 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398025760 : DataSet_process2////////////////
+vuid freed : 18446744072398025728 
+process id: 0
+vuid freed : 18446744072398025760 
+process id: 1979
+vuid malloc-ed : 18446744072398025792 
+virgo_set() data to set for vuid 18446744072398025792 : DataSet_process1
+vuid malloc-ed : 18446744072398025792 
+virgo_set() data to set for vuid 18446744072398025792 : DataSet_process2
+virgo_get() data for vuid 18446744072398025792 : DataSet_process2////////////////
+vuid freed : 18446744072398025792 
+process id: 0
+virgo_get() data for vuid 18446744072398025792 : ���xSet_process2////////////////
+vuid malloc-ed : 18446744072398025856 
+virgo_set() data to set for vuid 18446744072398025856 : DataSet_process1
+vuid freed : 18446744072398025792 
+process id: 1979
+vuid malloc-ed : 18446744072398025888 
+virgo_set() data to set for vuid 18446744072398025888 : DataSet_process2
+virgo_get() data for vuid 18446744072398025856 : DataSet_process1////////////////
+vuid freed : 18446744072398025856 
+process id: 0
+virgo_get() data for vuid 18446744072398025888 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398025920 
+virgo_set() data to set for vuid 18446744072398025920 : DataSet_process1
+vuid freed : 18446744072398025888 
+process id: 1979
+vuid malloc-ed : 18446744072398025952 
+virgo_set() data to set for vuid 18446744072398025952 : DataSet_process2
+virgo_get() data for vuid 18446744072398025920 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398025952 : DataSet_process2////////////////
+vuid freed : 18446744072398025920 
+process id: 0
+vuid freed : 18446744072398025952 
+process id: 1979
+vuid malloc-ed : 18446744072398025984 
+virgo_set() data to set for vuid 18446744072398025984 : DataSet_process1
+vuid malloc-ed : 18446744072398025984 
+virgo_set() data to set for vuid 18446744072398025984 : DataSet_process2
+virgo_get() data for vuid 18446744072398025984 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398025984 : DataSet_process2////////////////
+vuid freed : 18446744072398025984 
+process id: 0
+vuid freed : 18446744072398025984 
+process id: 1979
+vuid malloc-ed : 18446744072398026048 
+virgo_set() data to set for vuid 18446744072398026048 : DataSet_process1
+vuid malloc-ed : 18446744072398026048 
+virgo_set() data to set for vuid 18446744072398026048 : DataSet_process2
+virgo_get() data for vuid 18446744072398026048 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398026048 : DataSet_process2////////////////
+vuid freed : 18446744072398026048 
+process id: 1979
+vuid freed : 18446744072398026048 
+process id: 0
+vuid malloc-ed : 18446744072398026112 
+virgo_set() data to set for vuid 18446744072398026112 : DataSet_process2
+vuid malloc-ed : 18446744072398026112 
+virgo_set() data to set for vuid 18446744072398026112 : DataSet_process1
+virgo_get() data for vuid 18446744072398026112 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398026112 : DataSet_process2////////////////
+vuid freed : 18446744072398026112 
+process id: 0
+vuid freed : 18446744072398026112 
+process id: 1979
+vuid malloc-ed : 18446744072398026176 
+virgo_set() data to set for vuid 18446744072398026176 : DataSet_process1
+vuid malloc-ed : 18446744072398026176 
+virgo_set() data to set for vuid 18446744072398026176 : DataSet_process2
+virgo_get() data for vuid 18446744072398026176 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398026176 : DataSet_process2////////////////
+vuid freed : 18446744072398026176 
+process id: 0
+vuid freed : 18446744072398026176 
+process id: 1979
+vuid malloc-ed : 18446744072398026240 
+virgo_set() data to set for vuid 18446744072398026240 : DataSet_process1
+vuid malloc-ed : 18446744072398026240 
+virgo_set() data to set for vuid 18446744072398026240 : DataSet_process2
+virgo_get() data for vuid 18446744072398026240 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398026240 : DataSet_process2////////////////
+vuid freed : 18446744072398026240 
+process id: 0
+vuid freed : 18446744072398026240 
+process id: 1979
+vuid malloc-ed : 18446744072398026304 
+virgo_set() data to set for vuid 18446744072398026304 : DataSet_process2
+vuid malloc-ed : 18446744072398026304 
+virgo_set() data to set for vuid 18446744072398026304 : DataSet_process1
+virgo_get() data for vuid 18446744072398026304 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398026304 : DataSet_process1////////////////
+vuid freed : 18446744072398026304 
+process id: 1979
+vuid freed : 18446744072398026304 
+process id: 0
+vuid malloc-ed : 18446744072398026368 
+virgo_set() data to set for vuid 18446744072398026368 : DataSet_process2
+vuid malloc-ed : 18446744072398026368 
+virgo_set() data to set for vuid 18446744072398026368 : DataSet_process1
+virgo_get() data for vuid 18446744072398026368 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398026368 : DataSet_process1////////////////
+vuid freed : 18446744072398026368 
+process id: 1979
+vuid freed : 18446744072398026368 
+process id: 0
+vuid malloc-ed : 18446744072398026432 
+virgo_set() data to set for vuid 18446744072398026432 : DataSet_process1
+vuid malloc-ed : 18446744072398026432 
+virgo_set() data to set for vuid 18446744072398026432 : DataSet_process2
+virgo_get() data for vuid 18446744072398026432 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398026432 : DataSet_process2////////////////
+vuid freed : 18446744072398026432 
+process id: 0
+vuid malloc-ed : 18446744072398026496 
+virgo_set() data to set for vuid 18446744072398026496 : DataSet_process1
+vuid freed : 18446744072398026432 
+process id: 1979
+virgo_get() data for vuid 18446744072398026496 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398026528 
+virgo_set() data to set for vuid 18446744072398026528 : DataSet_process2
+vuid freed : 18446744072398026496 
+process id: 0
+vuid malloc-ed : 18446744072398026560 
+virgo_set() data to set for vuid 18446744072398026560 : DataSet_process1
+virgo_get() data for vuid 18446744072398026528 : DataSet_process2////////////////
+vuid freed : 18446744072398026528 
+process id: 1979
+virgo_get() data for vuid 18446744072398026560 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398026592 
+virgo_set() data to set for vuid 18446744072398026592 : DataSet_process2
+vuid freed : 18446744072398026560 
+process id: 0
+vuid malloc-ed : 18446744072398026624 
+virgo_set() data to set for vuid 18446744072398026624 : DataSet_process1
+virgo_get() data for vuid 18446744072398026592 : DataSet_process2////////////////
+vuid freed : 18446744072398026592 
+process id: 1979
+vuid malloc-ed : 18446744072398026656 
+virgo_set() data to set for vuid 18446744072398026656 : DataSet_process2
+virgo_get() data for vuid 18446744072398026624 : DataSet_process1////////////////
+vuid freed : 18446744072398026624 
+process id: 0
+virgo_get() data for vuid 18446744072398026656 : DataSet_process2////////////////
+vuid freed : 18446744072398026656 
+process id: 1979
+vuid malloc-ed : 18446744072398026688 
+virgo_set() data to set for vuid 18446744072398026688 : DataSet_process1
+vuid malloc-ed : 18446744072398026688 
+virgo_set() data to set for vuid 18446744072398026688 : DataSet_process2
+virgo_get() data for vuid 18446744072398026688 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398026688 : DataSet_process2////////////////
+vuid freed : 18446744072398026688 
+process id: 1979
+vuid freed : 18446744072398026688 
+process id: 0
+vuid malloc-ed : 18446744072398026752 
+virgo_set() data to set for vuid 18446744072398026752 : DataSet_process2
+vuid malloc-ed : 18446744072398026752 
+virgo_set() data to set for vuid 18446744072398026752 : DataSet_process1
+virgo_get() data for vuid 18446744072398026752 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398026752 : DataSet_process1////////////////
+vuid freed : 18446744072398026752 
+process id: 1979
+vuid malloc-ed : 18446744072398026816 
+vuid freed : 18446744072398026752 
+process id: 0
+virgo_set() data to set for vuid 18446744072398026816 : DataSet_process2
+vuid malloc-ed : 18446744072398026848 
+virgo_set() data to set for vuid 18446744072398026848 : DataSet_process1
+virgo_get() data for vuid 18446744072398026816 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398026848 : DataSet_process1////////////////
+vuid freed : 18446744072398026816 
+process id: 1979
+vuid freed : 18446744072398026848 
+process id: 0
+vuid malloc-ed : 18446744072398026880 
+virgo_set() data to set for vuid 18446744072398026880 : DataSet_process2
+vuid malloc-ed : 18446744072398026880 
+virgo_set() data to set for vuid 18446744072398026880 : DataSet_process1
+virgo_get() data for vuid 18446744072398026880 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398026880 : DataSet_process1////////////////
+vuid freed : 18446744072398026880 
+process id: 1979
+vuid malloc-ed : 18446744072398026944 
+virgo_set() data to set for vuid 18446744072398026944 : DataSet_process2
+vuid freed : 18446744072398026880 
+process id: 0
+vuid malloc-ed : 18446744072398026976 
+virgo_set() data to set for vuid 18446744072398026976 : DataSet_process1
+virgo_get() data for vuid 18446744072398026944 : DataSet_process2////////////////
+vuid freed : 18446744072398026944 
+process id: 1979
+virgo_get() data for vuid 18446744072398026976 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398027008 
+virgo_set() data to set for vuid 18446744072398027008 : DataSet_process2
+vuid freed : 18446744072398026976 
+process id: 0
+virgo_get() data for vuid 18446744072398027008 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398027040 
+virgo_set() data to set for vuid 18446744072398027040 : DataSet_process1
+vuid freed : 18446744072398027008 
+process id: 1979
+vuid malloc-ed : 18446744072398027072 
+virgo_set() data to set for vuid 18446744072398027072 : DataSet_process2
+virgo_get() data for vuid 18446744072398027040 : DataSet_process1////////////////
+vuid freed : 18446744072398027040 
+process id: 0
+virgo_get() data for vuid 18446744072398027072 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398027104 
+virgo_set() data to set for vuid 18446744072398027104 : DataSet_process1
+vuid freed : 18446744072398027072 
+process id: 1979
+vuid malloc-ed : 18446744072398027136 
+virgo_set() data to set for vuid 18446744072398027136 : DataSet_process2
+virgo_get() data for vuid 18446744072398027104 : DataSet_process1////////////////
+vuid freed : 18446744072398027104 
+process id: 0
+virgo_get() data for vuid 18446744072398027136 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398027168 
+virgo_set() data to set for vuid 18446744072398027168 : DataSet_process1
+vuid freed : 18446744072398027136 
+process id: 1979
+vuid malloc-ed : 18446744072398027200 
+virgo_set() data to set for vuid 18446744072398027200 : DataSet_process2
+virgo_get() data for vuid 18446744072398027168 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398027200 : DataSet_process2////////////////
+vuid freed : 18446744072398027168 
+process id: 0
+vuid malloc-ed : 18446744072398027232 
+virgo_set() data to set for vuid 18446744072398027232 : DataSet_process1
+vuid freed : 18446744072398027200 
+process id: 1979
+vuid malloc-ed : 18446744072398027264 
+virgo_set() data to set for vuid 18446744072398027264 : DataSet_process2
+virgo_get() data for vuid 18446744072398027232 : DataSet_process1////////////////
+vuid freed : 18446744072398027232 
+process id: 0
+virgo_get() data for vuid 18446744072398027264 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398027296 
+virgo_set() data to set for vuid 18446744072398027296 : DataSet_process1
+vuid freed : 18446744072398027264 
+process id: 1979
+vuid malloc-ed : 18446744072398027328 
+virgo_set() data to set for vuid 18446744072398027328 : DataSet_process2
+virgo_get() data for vuid 18446744072398027296 : DataSet_process1////////////////
+vuid freed : 18446744072398027296 
+process id: 0
+virgo_get() data for vuid 18446744072398027328 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398027360 
+virgo_set() data to set for vuid 18446744072398027360 : DataSet_process1
+vuid freed : 18446744072398027328 
+process id: 1979
+vuid malloc-ed : 18446744072398027392 
+virgo_set() data to set for vuid 18446744072398027392 : DataSet_process2
+virgo_get() data for vuid 18446744072398027360 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398027392 : DataSet_process2////////////////
+vuid freed : 18446744072398027360 
+process id: 0
+vuid freed : 18446744072398027392 
+process id: 1979
+vuid malloc-ed : 18446744072398027424 
+virgo_set() data to set for vuid 18446744072398027424 : DataSet_process1
+vuid malloc-ed : 18446744072398027424 
+virgo_set() data to set for vuid 18446744072398027424 : DataSet_process2
+virgo_get() data for vuid 18446744072398027424 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398027424 : DataSet_process2////////////////
+vuid freed : 18446744072398027424 
+process id: 1979
+vuid freed : 18446744072398027424 
+process id: 0
+vuid malloc-ed : 18446744072398027488 
+virgo_set() data to set for vuid 18446744072398027488 : DataSet_process2
+vuid malloc-ed : 18446744072398027488 
+virgo_set() data to set for vuid 18446744072398027488 : DataSet_process1
+virgo_get() data for vuid 18446744072398027488 : DataSet_process1////////////////
+vuid freed : 18446744072398027488 
+process id: 1979
+virgo_get() data for vuid 18446744072398027488 : �P��Set_process2////////////////
+vuid malloc-ed : 18446744072398027552 
+virgo_set() data to set for vuid 18446744072398027552 : DataSet_process2
+vuid freed : 18446744072398027488 
+process id: 0
+vuid malloc-ed : 18446744072398027584 
+virgo_set() data to set for vuid 18446744072398027584 : DataSet_process1
+virgo_get() data for vuid 18446744072398027552 : DataSet_process2////////////////
+vuid freed : 18446744072398027552 
+process id: 1979
+virgo_get() data for vuid 18446744072398027584 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398027616 
+virgo_set() data to set for vuid 18446744072398027616 : DataSet_process2
+vuid freed : 18446744072398027584 
+process id: 0
+vuid malloc-ed : 18446744072398027648 
+virgo_set() data to set for vuid 18446744072398027648 : DataSet_process1
+virgo_get() data for vuid 18446744072398027616 : DataSet_process2////////////////
+vuid freed : 18446744072398027616 
+process id: 1979
+virgo_get() data for vuid 18446744072398027648 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398027680 
+virgo_set() data to set for vuid 18446744072398027680 : DataSet_process2
+vuid freed : 18446744072398027648 
+process id: 0
+vuid malloc-ed : 18446744072398027712 
+virgo_set() data to set for vuid 18446744072398027712 : DataSet_process1
+virgo_get() data for vuid 18446744072398027680 : DataSet_process2////////////////
+vuid freed : 18446744072398027680 
+process id: 1979
+virgo_get() data for vuid 18446744072398027712 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398027744 
+virgo_set() data to set for vuid 18446744072398027744 : DataSet_process2
+vuid freed : 18446744072398027712 
+process id: 0
+vuid malloc-ed : 18446744072398027776 
+virgo_set() data to set for vuid 18446744072398027776 : DataSet_process1
+virgo_get() data for vuid 18446744072398027744 : DataSet_process2////////////////
+vuid freed : 18446744072398027744 
+process id: 1979
+virgo_get() data for vuid 18446744072398027776 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398027808 
+virgo_set() data to set for vuid 18446744072398027808 : DataSet_process2
+vuid freed : 18446744072398027776 
+process id: 0
+vuid malloc-ed : 18446744072398027840 
+virgo_set() data to set for vuid 18446744072398027840 : DataSet_process1
+virgo_get() data for vuid 18446744072398027808 : DataSet_process2////////////////
+vuid freed : 18446744072398027808 
+process id: 1979
+virgo_get() data for vuid 18446744072398027840 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398027872 
+virgo_set() data to set for vuid 18446744072398027872 : DataSet_process2
+vuid freed : 18446744072398027840 
+process id: 0
+vuid malloc-ed : 18446744072398027904 
+virgo_set() data to set for vuid 18446744072398027904 : DataSet_process1
+virgo_get() data for vuid 18446744072398027872 : DataSet_process2////////////////
+vuid freed : 18446744072398027872 
+process id: 1979
+virgo_get() data for vuid 18446744072398027904 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398027936 
+virgo_set() data to set for vuid 18446744072398027936 : DataSet_process2
+vuid freed : 18446744072398027904 
+process id: 0
+vuid malloc-ed : 18446744072398027968 
+virgo_set() data to set for vuid 18446744072398027968 : DataSet_process1
+virgo_get() data for vuid 18446744072398027936 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398027968 : DataSet_process1////////////////
+vuid freed : 18446744072398027936 
+process id: 1979
+vuid freed : 18446744072398027968 
+process id: 0
+vuid malloc-ed : 18446744072398028000 
+virgo_set() data to set for vuid 18446744072398028000 : DataSet_process2
+vuid malloc-ed : 18446744072398028000 
+virgo_set() data to set for vuid 18446744072398028000 : DataSet_process1
+virgo_get() data for vuid 18446744072398028000 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398028000 : DataSet_process1////////////////
+vuid freed : 18446744072398028000 
+process id: 1979
+vuid freed : 18446744072398028000 
+process id: 0
+vuid malloc-ed : 18446744072398028064 
+virgo_set() data to set for vuid 18446744072398028064 : DataSet_process2
+vuid malloc-ed : 18446744072398028064 
+virgo_set() data to set for vuid 18446744072398028064 : DataSet_process1
+virgo_get() data for vuid 18446744072398028064 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398028064 : DataSet_process1////////////////
+vuid freed : 18446744072398028064 
+process id: 1979
+vuid freed : 18446744072398028064 
+process id: 0
+vuid malloc-ed : 18446744072398028128 
+virgo_set() data to set for vuid 18446744072398028128 : DataSet_process1
+vuid malloc-ed : 18446744072398028128 
+virgo_set() data to set for vuid 18446744072398028128 : DataSet_process2
+virgo_get() data for vuid 18446744072398028128 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398028128 : DataSet_process2////////////////
+vuid freed : 18446744072398028128 
+process id: 0
+vuid freed : 18446744072398028128 
+process id: 1979
+vuid malloc-ed : 18446744072398028192 
+virgo_set() data to set for vuid 18446744072398028192 : DataSet_process1
+vuid malloc-ed : 18446744072398028192 
+virgo_set() data to set for vuid 18446744072398028192 : DataSet_process2
+virgo_get() data for vuid 18446744072398028192 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398028192 : DataSet_process2////////////////
+vuid freed : 18446744072398028192 
+process id: 1979
+vuid freed : 18446744072398028192 
+process id: 0
+vuid malloc-ed : 18446744072398028256 
+virgo_set() data to set for vuid 18446744072398028256 : DataSet_process2
+vuid malloc-ed : 18446744072398028256 
+virgo_set() data to set for vuid 18446744072398028256 : DataSet_process1
+virgo_get() data for vuid 18446744072398028256 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398028256 : DataSet_process1////////////////
+vuid freed : 18446744072398028256 
+process id: 1979
+vuid freed : 18446744072398028256 
+process id: 0
+vuid malloc-ed : 18446744072398028320 
+virgo_set() data to set for vuid 18446744072398028320 : DataSet_process2
+vuid malloc-ed : 18446744072398028320 
+virgo_set() data to set for vuid 18446744072398028320 : DataSet_process1
+virgo_get() data for vuid 18446744072398028320 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398028320 : DataSet_process1////////////////
+vuid freed : 18446744072398028320 
+process id: 1979
+vuid freed : 18446744072398028320 
+process id: 0
+vuid malloc-ed : 18446744072398028384 
+virgo_set() data to set for vuid 18446744072398028384 : DataSet_process2
+vuid malloc-ed : 18446744072398028384 
+virgo_set() data to set for vuid 18446744072398028384 : DataSet_process1
+virgo_get() data for vuid 18446744072398028384 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398028384 : DataSet_process1////////////////
+vuid freed : 18446744072398028384 
+process id: 1979
+vuid freed : 18446744072398028384 
+process id: 0
+vuid malloc-ed : 18446744072398028448 
+virgo_set() data to set for vuid 18446744072398028448 : DataSet_process2
+vuid malloc-ed : 18446744072398028448 
+virgo_set() data to set for vuid 18446744072398028448 : DataSet_process1
+virgo_get() data for vuid 18446744072398028448 : DataSet_process1////////////////
+virgo_get() data for vuid 18446744072398028448 : DataSet_process1////////////////
+vuid freed : 18446744072398028448 
+process id: 1979
+vuid freed : 18446744072398028448 
+process id: 0
+vuid malloc-ed : 18446744072398028512 
+virgo_set() data to set for vuid 18446744072398028512 : DataSet_process1
+vuid malloc-ed : 18446744072398028512 
+virgo_set() data to set for vuid 18446744072398028512 : DataSet_process2
+virgo_get() data for vuid 18446744072398028512 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398028512 : DataSet_process2////////////////
+vuid freed : 18446744072398028512 
+process id: 0
+vuid freed : 18446744072398028512 
+process id: 1979
+vuid malloc-ed : 18446744072398028576 
+virgo_set() data to set for vuid 18446744072398028576 : DataSet_process1
+vuid malloc-ed : 18446744072398028576 
+virgo_set() data to set for vuid 18446744072398028576 : DataSet_process2
+virgo_get() data for vuid 18446744072398028576 : DataSet_process2////////////////
+vuid freed : 18446744072398028576 
+process id: 1979
+et_process2////////////////
+vuid malloc-ed : 18446744072398028640 
+virgo_set() data to set for vuid 18446744072398028640 : DataSet_process2
+vuid freed : 18446744072398028576 
+process id: 0
+vuid malloc-ed : 18446744072398028672 
+virgo_set() data to set for vuid 18446744072398028672 : DataSet_process1
+virgo_get() data for vuid 18446744072398028640 : DataSet_process2////////////////
+vuid freed : 18446744072398028640 
+process id: 1979
+virgo_get() data for vuid 18446744072398028672 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398028704 
+virgo_set() data to set for vuid 18446744072398028704 : DataSet_process2
+vuid freed : 18446744072398028672 
+process id: 0
+vuid malloc-ed : 18446744072398028736 
+virgo_set() data to set for vuid 18446744072398028736 : DataSet_process1
+virgo_get() data for vuid 18446744072398028704 : DataSet_process2////////////////
+vuid freed : 18446744072398028704 
+process id: 1979
+virgo_get() data for vuid 18446744072398028736 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398028768 
+virgo_set() data to set for vuid 18446744072398028768 : DataSet_process2
+vuid freed : 18446744072398028736 
+process id: 0
+vuid malloc-ed : 18446744072398028800 
+virgo_set() data to set for vuid 18446744072398028800 : DataSet_process1
+virgo_get() data for vuid 18446744072398028768 : DataSet_process2////////////////
+vuid freed : 18446744072398028768 
+process id: 1979
+virgo_get() data for vuid 18446744072398028800 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398028832 
+virgo_set() data to set for vuid 18446744072398028832 : DataSet_process2
+vuid freed : 18446744072398028800 
+process id: 0
+vuid malloc-ed : 18446744072398028864 
+virgo_set() data to set for vuid 18446744072398028864 : DataSet_process1
+virgo_get() data for vuid 18446744072398028832 : DataSet_process2////////////////
+vuid freed : 18446744072398028832 
+process id: 1979
+virgo_get() data for vuid 18446744072398028864 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398028896 
+virgo_set() data to set for vuid 18446744072398028896 : DataSet_process2
+vuid freed : 18446744072398028864 
+process id: 0
+vuid malloc-ed : 18446744072398028928 
+virgo_set() data to set for vuid 18446744072398028928 : DataSet_process1
+virgo_get() data for vuid 18446744072398028896 : DataSet_process2////////////////
+vuid freed : 18446744072398028896 
+process id: 1979
+virgo_get() data for vuid 18446744072398028928 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398028960 
+virgo_set() data to set for vuid 18446744072398028960 : DataSet_process2
+vuid freed : 18446744072398028928 
+process id: 0
+vuid malloc-ed : 18446744072398028992 
+virgo_set() data to set for vuid 18446744072398028992 : DataSet_process1
+virgo_get() data for vuid 18446744072398028960 : DataSet_process2////////////////
+vuid freed : 18446744072398028960 
+process id: 1979
+virgo_get() data for vuid 18446744072398028992 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029024 
+virgo_set() data to set for vuid 18446744072398029024 : DataSet_process2
+vuid freed : 18446744072398028992 
+process id: 0
+vuid malloc-ed : 18446744072398029056 
+virgo_set() data to set for vuid 18446744072398029056 : DataSet_process1
+virgo_get() data for vuid 18446744072398029024 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398029056 : DataSet_process1////////////////
+vuid freed : 18446744072398029024 
+process id: 1979
+vuid freed : 18446744072398029056 
+process id: 0
+vuid malloc-ed : 18446744072398029088 
+virgo_set() data to set for vuid 18446744072398029088 : DataSet_process1
+vuid malloc-ed : 18446744072398029088 
+virgo_set() data to set for vuid 18446744072398029088 : DataSet_process2
+virgo_get() data for vuid 18446744072398029088 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398029088 : DataSet_process2////////////////
+vuid freed : 18446744072398029088 
+process id: 0
+vuid freed : 18446744072398029088 
+process id: 1979
+vuid malloc-ed : 18446744072398029152 
+virgo_set() data to set for vuid 18446744072398029152 : DataSet_process1
+vuid malloc-ed : 18446744072398029152 
+virgo_set() data to set for vuid 18446744072398029152 : DataSet_process2
+virgo_get() data for vuid 18446744072398029152 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398029152 : DataSet_process2////////////////
+vuid freed : 18446744072398029152 
+process id: 0
+vuid freed : 18446744072398029152 
+process id: 1979
+vuid malloc-ed : 18446744072398029216 
+virgo_set() data to set for vuid 18446744072398029216 : DataSet_process1
+vuid malloc-ed : 18446744072398029216 
+virgo_set() data to set for vuid 18446744072398029216 : DataSet_process2
+virgo_get() data for vuid 18446744072398029216 : DataSet_process2////////////////
+virgo_get() data for vuid 18446744072398029216 : DataSet_process2////////////////
+vuid freed : 18446744072398029216 
+process id: 0
+vuid freed : 18446744072398029216 
+process id: 1979
+vuid malloc-ed : 18446744072398029280 
+virgo_set() data to set for vuid 18446744072398029280 : DataSet_process1
+vuid malloc-ed : 18446744072398029280 
+virgo_set() data to set for vuid 18446744072398029280 : DataSet_process2
+virgo_get() data for vuid 18446744072398029280 : DataSet_process1////////////////
+vuid freed : 18446744072398029280 
+process id: 0
+virgo_get() data for vuid 18446744072398029280 : ��Set_process2////////////////
+vuid malloc-ed : 18446744072398029344 
+virgo_set() data to set for vuid 18446744072398029344 : DataSet_process1
+vuid freed : 18446744072398029280 
+process id: 1979
+vuid malloc-ed : 18446744072398029376 
+virgo_set() data to set for vuid 18446744072398029376 : DataSet_process2
+virgo_get() data for vuid 18446744072398029344 : DataSet_process1////////////////
+vuid freed : 18446744072398029344 
+process id: 0
+virgo_get() data for vuid 18446744072398029376 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398029408 
+virgo_set() data to set for vuid 18446744072398029408 : DataSet_process1
+vuid freed : 18446744072398029376 
+process id: 1979
+vuid malloc-ed : 18446744072398029440 
+virgo_set() data to set for vuid 18446744072398029440 : DataSet_process2
+virgo_get() data for vuid 18446744072398029408 : DataSet_process1////////////////
+vuid freed : 18446744072398029408 
+process id: 0
+virgo_get() data for vuid 18446744072398029440 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398029472 
+virgo_set() data to set for vuid 18446744072398029472 : DataSet_process1
+vuid freed : 18446744072398029440 
+process id: 1979
+vuid malloc-ed : 18446744072398029504 
+virgo_set() data to set for vuid 18446744072398029504 : DataSet_process2
+virgo_get() data for vuid 18446744072398029472 : DataSet_process1////////////////
+vuid freed : 18446744072398029472 
+process id: 0
+virgo_get() data for vuid 18446744072398029504 : DataSet_process2////////////////
+vuid malloc-ed : 18446744072398029536 
+virgo_set() data to set for vuid 18446744072398029536 : DataSet_process1
+vuid freed : 18446744072398029504 
+process id: 1979
+virgo_get() data for vuid 18446744072398029536 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029568 
+virgo_set() data to set for vuid 18446744072398029568 : DataSet_process2
+vuid freed : 18446744072398029536 
+process id: 0
+vuid malloc-ed : 18446744072398029600 
+virgo_set() data to set for vuid 18446744072398029600 : DataSet_process1
+virgo_get() data for vuid 18446744072398029568 : DataSet_process2////////////////
+vuid freed : 18446744072398029568 
+process id: 1979
+virgo_get() data for vuid 18446744072398029600 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029632 
+virgo_set() data to set for vuid 18446744072398029632 : DataSet_process2
+vuid freed : 18446744072398029600 
+process id: 0
+vuid malloc-ed : 18446744072398029664 
+virgo_set() data to set for vuid 18446744072398029664 : DataSet_process1
+virgo_get() data for vuid 18446744072398029632 : DataSet_process2////////////////
+vuid freed : 18446744072398029632 
+process id: 1979
+virgo_get() data for vuid 18446744072398029664 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029696 
+virgo_set() data to set for vuid 18446744072398029696 : DataSet_process2
+vuid freed : 18446744072398029664 
+process id: 0
+vuid malloc-ed : 18446744072398029728 
+virgo_set() data to set for vuid 18446744072398029728 : DataSet_process1
+virgo_get() data for vuid 18446744072398029696 : DataSet_process2////////////////
+vuid freed : 18446744072398029696 
+process id: 1979
+virgo_get() data for vuid 18446744072398029728 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029760 
+virgo_set() data to set for vuid 18446744072398029760 : DataSet_process2
+vuid freed : 18446744072398029728 
+process id: 0
+vuid malloc-ed : 18446744072398029792 
+virgo_set() data to set for vuid 18446744072398029792 : DataSet_process1
+virgo_get() data for vuid 18446744072398029760 : DataSet_process2////////////////
+vuid freed : 18446744072398029760 
+process id: 1979
+virgo_get() data for vuid 18446744072398029792 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029824 
+virgo_set() data to set for vuid 18446744072398029824 : DataSet_process2
+vuid freed : 18446744072398029792 
+process id: 0
+vuid malloc-ed : 18446744072398029856 
+virgo_set() data to set for vuid 18446744072398029856 : DataSet_process1
+virgo_get() data for vuid 18446744072398029824 : DataSet_process2////////////////
+vuid freed : 18446744072398029824 
+process id: 1979
+virgo_get() data for vuid 18446744072398029856 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029888 
+virgo_set() data to set for vuid 18446744072398029888 : DataSet_process2
+vuid freed : 18446744072398029856 
+process id: 0
+vuid malloc-ed : 18446744072398029920 
+virgo_set() data to set for vuid 18446744072398029920 : DataSet_process1
+virgo_get() data for vuid 18446744072398029888 : DataSet_process2////////////////
+vuid freed : 18446744072398029888 
+process id: 1979
+virgo_get() data for vuid 18446744072398029920 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398029952 
+virgo_set() data to set for vuid 18446744072398029952 : DataSet_process2
+vuid freed : 18446744072398029920 
+process id: 0
+vuid malloc-ed : 18446744072398029984 
+virgo_set() data to set for vuid 18446744072398029984 : DataSet_process1
+virgo_get() data for vuid 18446744072398029952 : DataSet_process2////////////////
+vuid freed : 18446744072398029952 
+process id: 1979
+virgo_get() data for vuid 18446744072398029984 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398030016 
+virgo_set() data to set for vuid 18446744072398030016 : DataSet_process2
+vuid freed : 18446744072398029984 
+process id: 0
+vuid malloc-ed : 18446744072398030048 
+virgo_set() data to set for vuid 18446744072398030048 : DataSet_process1
+virgo_get() data for vuid 18446744072398030016 : DataSet_process2////////////////
+vuid freed : 18446744072398030016 
+process id: 1979
+virgo_get() data for vuid 18446744072398030048 : DataSet_process1////////////////
+vuid malloc-ed : 18446744072398030080 
+virgo_set() data to set for vuid 18446744072398030080 : DataSet_process2
+vuid freed : 18446744072398030048 
+virgo_get() data for vuid 18446744072398030080 : DataSet_process2////////////////
+vuid freed : 18446744072398030080 
+process id: 1979
+vuid malloc-ed : 18446744072398030112 
+virgo_set() data to set for vuid 18446744072398030112 : DataSet_process2
+virgo_get() data for vuid 18446744072398030112 : DataSet_process2////////////////
+vuid freed : 18446744072398030112 
+

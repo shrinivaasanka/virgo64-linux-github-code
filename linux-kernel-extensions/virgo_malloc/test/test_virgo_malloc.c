@@ -29,6 +29,7 @@
 #include <syscall.h>
 #include <unistd.h>
 #include <string.h>
+#include <pthread.h>
 
 struct virgo_address
 {
@@ -43,36 +44,62 @@ struct hostport
         int port;
 };
 
+void virgo_systemcalls(pthread_mutex_t* lock,int process);
 
 int main(int argc, char* argv[])
 {
+	pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+	pthread_mutexattr_t mattr;
+	pthread_mutex_init(&lock,NULL);
+	pthread_mutexattr_init(&mattr);
+	pthread_mutexattr_setpshared(&mattr,PTHREAD_PROCESS_SHARED);
+
 	/*
 	virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls called by syscall numbers
 	- Ka.Shrinivaasan
 	*/
 
-	unsigned long long virgo_unique_id;
+	int pret=fork();
 
-	/* virgo_malloc */
-	/*syscall(384,100,&virgo_unique_id);*/
-	syscall(549,100,&virgo_unique_id);
-	printf("vuid malloc-ed : %llu \n",virgo_unique_id);
-
-	/* virgo_set */
-	char set_data[256];
-	strcpy(set_data,"DataSet");
-	printf("virgo_set() data to set: %s\n",set_data);
-	/*long set_ret=syscall(385,virgo_unique_id,set_data);*/
-	long set_ret=syscall(550,virgo_unique_id,set_data);
-
-	/*virgo_get*/
-	char get_data[256];
-	/*long get_ret=syscall(386,virgo_unique_id,get_data);*/
-	long get_ret=syscall(551,virgo_unique_id,get_data);
-	printf("virgo_get() data : %s\n",get_data);
-
-	/*virgo_free*/
-	/*long free_ret=syscall(387,virgo_unique_id);*/
-	long free_ret=syscall(552,virgo_unique_id);
-	return 0;
+	virgo_systemcalls(&lock,pret);
 }
+
+void virgo_systemcalls(pthread_mutex_t* lock,int process)
+{
+	int iterations=0;
+	while(iterations++ < 100)
+	{
+		pthread_mutex_lock(lock);
+		printf("process id: %d\n",process);
+		unsigned long long virgo_unique_id;
+
+		/* virgo_malloc */
+		/*syscall(384,100,&virgo_unique_id);*/
+		syscall(549,100,&virgo_unique_id);
+		printf("vuid malloc-ed : %llu \n",virgo_unique_id);
+	
+		/* virgo_set */
+		char set_data[256];
+		if(process==0)
+			strcpy(set_data,"DataSet_process1");
+		else
+			strcpy(set_data,"DataSet_process2");
+		printf("virgo_set() data to set for vuid %llu : %s\n",virgo_unique_id,set_data);
+		/*long set_ret=syscall(385,virgo_unique_id,set_data);*/
+		long set_ret=syscall(550,virgo_unique_id,set_data);
+	
+		/*virgo_get*/
+		char get_data[256];
+		/*long get_ret=syscall(386,virgo_unique_id,get_data);*/
+		long get_ret=syscall(551,virgo_unique_id,get_data);
+		printf("virgo_get() data for vuid %llu : %s\n",virgo_unique_id,get_data);
+
+
+		/*virgo_free*/
+		/*long free_ret=syscall(387,virgo_unique_id);*/
+		long free_ret=syscall(552,virgo_unique_id);
+		printf("vuid freed : %llu \n",virgo_unique_id);
+		pthread_mutex_unlock(lock);
+	}
+}
+
