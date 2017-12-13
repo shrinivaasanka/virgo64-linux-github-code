@@ -1571,6 +1571,26 @@ VIRGO64 SystemCalls-Drivers concurrent invocations - 2 processes having shared m
 (*) test_virgo_malloc.c testcase demonstrates the coarse grained critical section lock/unlock for kmemcache systemcalls and is a template
 that should be followed for any userspace application.
 
+------------------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 Kernel Analytics - Streaming Implementation - 13 December 2017
+------------------------------------------------------------------------------------------------------------------------------------------
+(#) Presently kernel analytics config have to be read from a file storage. This is a huge performance bottleneck when frequency of
+analytics variables written to is realtime. For example autonomous vehicles/drones write gigabytes of navigation data in few minutes.
+(#) Because of this /etc/virgo_kernel_analytics.conf grows tremendously. File I/O in linux kernel module is also fragile and not recommended.
+(#) Previous latency limitations necessitate an alternative high performance analytics config variable read algorithm
+(#) This commit introduces new streaming kernel analytics config reading function - It connects to a kernel analytics streaming IP address
+on hardcoded port 64000 and reads analytics key-value pairs in an infinite loop.
+(#) These read key-value pairs are stored in a kernel global ring buffer exported symbol (by modulus operator). Because of circular buffer, older kernel analytics variables are overwritten repetitively.
+(#) kernel socket message flags are set to MSG_MORE | MSG_FASTOPEN | MSG_NOSIGNAL for high response time. MSG_FASTOPEN works with no panic
+in 4.13.3 64-bit which was a problem in previous kernel versions.
+(#) kern.log for this has been committed to kernel_analytics/testlogs/
+(#) include/linux/virgo_kernel_analytics.h header file has been updated for declarations related to streaming analytics.
+(#) Webserver used for this is netcat started on port 64000 as:
+		nc -l 64000
+		>k1=v1
+		>k2=v2
+		...
+
 
 
 
