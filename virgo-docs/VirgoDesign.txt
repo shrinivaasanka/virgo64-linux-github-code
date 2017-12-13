@@ -1591,7 +1591,17 @@ in 4.13.3 64-bit which was a problem in previous kernel versions.
 		>k2=v2
 		...
 
-
+----------------------------------------------------------------------------------------------------------------
+VIRGO64 Kernel Analytics - Reading Stream of Analytic Variables made a kernel thread - 13 December 2017
+----------------------------------------------------------------------------------------------------------------
+(#) This is sequel to previous commit for Stream reading Kernel Analytics variables over a network socket
+(#) read_streaming_virgo_kernel_analytics_conf() function is invoked in a separate kernel thread because module init is blocked
+(#) VIRGO64 config module was loaded and exported kernel analytics variables read over socket by previous spin-off kernel thread are
+imported in VIRGO64 config init.
+(#) kern.log for this has been committed to testlogs/
+(#) Pre-requisite: Webservice serving kernel_analytics variables must be started before kernel_analytics module is loaded in kernel.
+(#) By this a minimum facility for live reading analytics anywhere on cloud (it can be userspace or kernelspace) and exporting them
+to modules on a local cloud node kernel has been achieved - ideal for cloud-analytics-driven IoT
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
