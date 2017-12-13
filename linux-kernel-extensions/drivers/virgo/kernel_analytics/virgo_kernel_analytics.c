@@ -114,13 +114,104 @@ void read_virgo_kernel_analytics_config()
 }
 EXPORT_SYMBOL(read_virgo_kernel_analytics_config);
 
+void read_streaming_virgo_kernel_analytics_config()
+{
+        char buf[BUF_SIZE];
+	char tempbuf[BUF_SIZE];
+        int sfd, s, j;
+        size_t len;
+        ssize_t nread;
+	struct msghdr msg;
+	int error;
+	int nr;
+	struct kvec iov;
+	mm_segment_t oldfs;
+	const char* handshakemsg="KERNEL_ANALYTICS_STREAMING_START";
+
+	char* hostip = streaming_kernel_analytics_host;
+	int port=64000;
+	struct socket *sock;
+	struct sockaddr_in sin;
+	in4_pton(hostip, strlen(hostip), &sin.sin_addr.s_addr, '\0',NULL);
+	sin.sin_family=AF_INET;
+       	sin.sin_port=htons(port);
+	printk(KERN_INFO "read_streaming_virgo_kernel_analytics_config() : after in4_pton and htons, hostip=%s, port=%d, sin.sin_addr.s_addr=%x, sin.sin_port=%x\n", hostip, port, sin.sin_addr.s_addr, sin.sin_port);
+	strcpy(buf,handshakemsg);
+
+	iov.iov_base=buf;
+	iov.iov_len=BUF_SIZE;
+	msg.msg_name = (struct sockaddr *) &sin;
+	msg.msg_namelen = sizeof(struct sockaddr);
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
+	msg.msg_control = NULL;
+	msg.msg_controllen = 0;
+	msg.msg_flags = MSG_MORE | MSG_FASTOPEN | MSG_NOSIGNAL;
+	nr=1;
+	
+	/*strcpy(iov.iov_base, buf);*/
+	error = sock_create(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+        /*kernel_setsockopt(sock, SOL_TCP, TCP_ULP, "tls", sizeof("tls"));*/
+
+	printk(KERN_INFO "read_streaming_virgo_kernel_analytics_config() : created client kernel socket\n");
+	/*skbuff_kernel_socket_debug2(sock);*/
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
+	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	set_fs(oldfs);
+	printk(KERN_INFO "read_streaming_virgo_kernel_analytics_config() : connected kernel client to virgo streaming kernel analytics service\n ");
+
+	oldfs=get_fs();
+	set_fs(KERNEL_DS);
+	len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+	set_fs(oldfs);
+
+	printk(KERN_INFO "read_streaming_virgo_kernel_analytics_config() : sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
+	strcpy(buf,"");
+
+	int i=0;
+	while(true)
+	{
+		oldfs=get_fs();
+		set_fs(KERNEL_DS);
+       		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+		set_fs(oldfs);
+
+		printk(KERN_INFO "read_streaming_virgo_kernel_analytics_config() : recv len=%d; received message buf: [%s] \n", len, buf);
+		printk(KERN_INFO "read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: %s \n", iov.iov_base);
+        	char* confdelim=",";
+		char* keyvaluedelim="=";
+        	char* confvar=NULL;
+        	char* bufdup=kstrdup(iov.iov_base,GFP_KERNEL);
+        	while(bufdup != NULL)
+        	{
+               		confvar=strsep(&bufdup, confdelim);
+			char* confvardup=kstrdup(confvar,GFP_ATOMIC);
+			char* confkey=strsep(&confvardup, keyvaluedelim);
+			char* confvalue=confvardup;	
+                	virgo_kernel_analytics_conf[i].key=kstrdup(confkey,GFP_KERNEL);
+                	virgo_kernel_analytics_conf[i].value=kstrdup(confvalue,GFP_KERNEL);
+			printk(KERN_INFO "read_streaming_virgo_kernel_analytics_config() parsed analytics variable: %s = %s \n",virgo_kernel_analytics_conf[i].key,virgo_kernel_analytics_conf[i].value);
+                	i=(i+1) % MAX_ANALYTICS_CONF;
+        	}
+	}
+}
+EXPORT_SYMBOL(read_streaming_virgo_kernel_analytics_config);
 
 static int __init
 virgokernel_analytics_init(void)
 {
 	printk(KERN_INFO "virgokernel_analytics_init(): initializing virgo kernel_analytics kernel module \n");
 	printk(KERN_INFO "virgokernel_analytics_init(): invoking read_virgo_kernel_analytics()\n");
-	read_virgo_kernel_analytics_config();
+	if(read_from_stream==0)
+		read_virgo_kernel_analytics_config();
+	else
+		read_streaming_virgo_kernel_analytics_config();
 
 	return 0;
 }

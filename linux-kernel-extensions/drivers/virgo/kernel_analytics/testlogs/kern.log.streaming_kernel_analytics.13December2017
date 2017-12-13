@@ -1,0 +1,129 @@
+Dec 13 12:44:14 localhost kernel: [  415.578808] virgokernel_analytics_init(): initializing virgo kernel_analytics kernel module 
+Dec 13 12:44:14 localhost kernel: [  415.578811] virgokernel_analytics_init(): invoking read_virgo_kernel_analytics()
+Dec 13 12:44:14 localhost kernel: [  415.578820] read_streaming_virgo_kernel_analytics_config() : after in4_pton and htons, hostip=127.0.0.1, port=64000, sin.sin_addr.s_addr=100007f, sin.sin_port=fa
+Dec 13 12:44:14 localhost kernel: [  415.578898] read_streaming_virgo_kernel_analytics_config() : created client kernel socket
+Dec 13 12:44:14 localhost kernel: [  415.579719] read_streaming_virgo_kernel_analytics_config() : connected kernel client to virgo streaming kernel analytics service
+Dec 13 12:44:14 localhost kernel: [  415.579719]  
+Dec 13 12:44:14 localhost kernel: [  415.579758] read_streaming_virgo_kernel_analytics_config() : sent len=-106; iov.iov_base=KERNEL_ANALYTICS_STREAMING_START, sent message: KERNEL_ANALYTICS_STREAMING_START 
+Dec 13 12:44:14 localhost kernel: [  415.579782] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k1=v1
+Dec 13 12:44:14 localhost kernel: [  415.579782] _ANALYTICS_STREAMING_START] 
+Dec 13 12:44:14 localhost kernel: [  415.579785] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k1=v1
+Dec 13 12:44:14 localhost kernel: [  415.579785] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:14 localhost kernel: [  415.579851] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k1 = v1
+Dec 13 12:44:14 localhost kernel: [  415.579851] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:37 localhost kernel: [  438.411943] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k2=v2
+Dec 13 12:44:37 localhost kernel: [  438.411943] _ANALYTICS_STREAMING_START] 
+Dec 13 12:44:37 localhost kernel: [  438.411948] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k2=v2
+Dec 13 12:44:37 localhost kernel: [  438.411948] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:37 localhost kernel: [  438.412079] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k2 = v2
+Dec 13 12:44:37 localhost kernel: [  438.412079] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:40 localhost kernel: [  442.169583] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k3=v3
+Dec 13 12:44:40 localhost kernel: [  442.169583] _ANALYTICS_STREAMING_START] 
+Dec 13 12:44:40 localhost kernel: [  442.169589] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k3=v3
+Dec 13 12:44:40 localhost kernel: [  442.169589] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:40 localhost kernel: [  442.169668] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k3 = v3
+Dec 13 12:44:40 localhost kernel: [  442.169668] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:45 localhost kernel: [  446.743575] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k4=v4
+Dec 13 12:44:45 localhost kernel: [  446.743575] _ANALYTICS_STREAMING_START] 
+Dec 13 12:44:45 localhost kernel: [  446.743581] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k4=v4
+Dec 13 12:44:45 localhost kernel: [  446.743581] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:45 localhost kernel: [  446.743656] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k4 = v4
+Dec 13 12:44:45 localhost kernel: [  446.743656] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:49 localhost kernel: [  450.600511] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k5=v5
+Dec 13 12:44:49 localhost kernel: [  450.600511] _ANALYTICS_STREAMING_START] 
+Dec 13 12:44:49 localhost kernel: [  450.600517] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k5=v5
+Dec 13 12:44:49 localhost kernel: [  450.600517] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:49 localhost kernel: [  450.600592] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k5 = v5
+Dec 13 12:44:49 localhost kernel: [  450.600592] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:56 localhost kernel: [  457.542643] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k6=v6
+Dec 13 12:44:56 localhost kernel: [  457.542643] _ANALYTICS_STREAMING_START] 
+Dec 13 12:44:56 localhost kernel: [  457.542648] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k6=v6
+Dec 13 12:44:56 localhost kernel: [  457.542648] _ANALYTICS_STREAMING_START 
+Dec 13 12:44:56 localhost kernel: [  457.542726] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k6 = v6
+Dec 13 12:44:56 localhost kernel: [  457.542726] _ANALYTICS_STREAMING_START 
+Dec 13 12:45:00 localhost kernel: [  461.807256] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k7=v7
+Dec 13 12:45:00 localhost kernel: [  461.807256] _ANALYTICS_STREAMING_START] 
+Dec 13 12:45:00 localhost kernel: [  461.807262] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k7=v7
+Dec 13 12:45:00 localhost kernel: [  461.807262] _ANALYTICS_STREAMING_START 
+Dec 13 12:45:00 localhost kernel: [  461.807337] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k7 = v7
+Dec 13 12:45:00 localhost kernel: [  461.807337] _ANALYTICS_STREAMING_START 
+Dec 13 12:45:06 localhost kernel: [  467.690847] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k8=v8
+Dec 13 12:45:06 localhost kernel: [  467.690847] _ANALYTICS_STREAMING_START] 
+Dec 13 12:45:06 localhost kernel: [  467.690852] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k8=v8
+Dec 13 12:45:06 localhost kernel: [  467.690852] _ANALYTICS_STREAMING_START 
+Dec 13 12:45:06 localhost kernel: [  467.690929] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k8 = v8
+Dec 13 12:45:06 localhost kernel: [  467.690929] _ANALYTICS_STREAMING_START 
+Dec 13 12:45:11 localhost kernel: [  472.627178] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k9=v9
+Dec 13 12:45:11 localhost kernel: [  472.627178] _ANALYTICS_STREAMING_START] 
+Dec 13 12:45:11 localhost kernel: [  472.627184] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k9=v9
+Dec 13 12:45:11 localhost kernel: [  472.627184] _ANALYTICS_STREAMING_START 
+Dec 13 12:45:11 localhost kernel: [  472.627258] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k9 = v9
+Dec 13 12:45:11 localhost kernel: [  472.627258] _ANALYTICS_STREAMING_START 
+Dec 13 12:45:15 localhost kernel: [  476.323012] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k10=v10
+Dec 13 12:45:15 localhost kernel: [  476.323012] NALYTICS_STREAMING_START] 
+Dec 13 12:45:15 localhost kernel: [  476.323017] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k10=v10
+Dec 13 12:45:15 localhost kernel: [  476.323017] NALYTICS_STREAMING_START 
+Dec 13 12:45:15 localhost kernel: [  476.323093] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k10 = v10
+Dec 13 12:45:15 localhost kernel: [  476.323093] NALYTICS_STREAMING_START 
+Dec 13 12:45:19 localhost kernel: [  480.741173] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k11=v11
+Dec 13 12:45:19 localhost kernel: [  480.741173] NALYTICS_STREAMING_START] 
+Dec 13 12:45:19 localhost kernel: [  480.741178] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k11=v11
+Dec 13 12:45:19 localhost kernel: [  480.741178] NALYTICS_STREAMING_START 
+Dec 13 12:45:19 localhost kernel: [  480.741254] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k11 = v11
+Dec 13 12:45:19 localhost kernel: [  480.741254] NALYTICS_STREAMING_START 
+Dec 13 12:45:22 localhost kernel: [  484.313453] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k12=v12
+Dec 13 12:45:22 localhost kernel: [  484.313453] NALYTICS_STREAMING_START] 
+Dec 13 12:45:22 localhost kernel: [  484.313459] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k12=v12
+Dec 13 12:45:22 localhost kernel: [  484.313459] NALYTICS_STREAMING_START 
+Dec 13 12:45:22 localhost kernel: [  484.313537] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k12 = v12
+Dec 13 12:45:22 localhost kernel: [  484.313537] NALYTICS_STREAMING_START 
+Dec 13 12:45:27 localhost kernel: [  488.928499] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k13=v13
+Dec 13 12:45:27 localhost kernel: [  488.928499] NALYTICS_STREAMING_START] 
+Dec 13 12:45:27 localhost kernel: [  488.928505] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k13=v13
+Dec 13 12:45:27 localhost kernel: [  488.928505] NALYTICS_STREAMING_START 
+Dec 13 12:45:27 localhost kernel: [  488.928585] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k13 = v13
+Dec 13 12:45:27 localhost kernel: [  488.928585] NALYTICS_STREAMING_START 
+Dec 13 12:45:33 localhost kernel: [  495.161218] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k14=v14
+Dec 13 12:45:33 localhost kernel: [  495.161218] NALYTICS_STREAMING_START] 
+Dec 13 12:45:33 localhost kernel: [  495.161223] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k14=v14
+Dec 13 12:45:33 localhost kernel: [  495.161223] NALYTICS_STREAMING_START 
+Dec 13 12:45:33 localhost kernel: [  495.161299] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k14 = v14
+Dec 13 12:45:33 localhost kernel: [  495.161299] NALYTICS_STREAMING_START 
+Dec 13 12:45:39 localhost kernel: [  500.572877] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k15=v15
+Dec 13 12:45:39 localhost kernel: [  500.572877] NALYTICS_STREAMING_START] 
+Dec 13 12:45:39 localhost kernel: [  500.572882] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k15=v15
+Dec 13 12:45:39 localhost kernel: [  500.572882] NALYTICS_STREAMING_START 
+Dec 13 12:45:39 localhost kernel: [  500.572963] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k15 = v15
+Dec 13 12:45:39 localhost kernel: [  500.572963] NALYTICS_STREAMING_START 
+Dec 13 12:45:43 localhost kernel: [  505.304325] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k16=v16
+Dec 13 12:45:43 localhost kernel: [  505.304325] NALYTICS_STREAMING_START] 
+Dec 13 12:45:43 localhost kernel: [  505.304331] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k16=v16
+Dec 13 12:45:43 localhost kernel: [  505.304331] NALYTICS_STREAMING_START 
+Dec 13 12:45:43 localhost kernel: [  505.304410] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k16 = v16
+Dec 13 12:45:43 localhost kernel: [  505.304410] NALYTICS_STREAMING_START 
+Dec 13 12:45:55 localhost kernel: [  516.374902] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k17=v17
+Dec 13 12:45:55 localhost kernel: [  516.374902] NALYTICS_STREAMING_START] 
+Dec 13 12:45:55 localhost kernel: [  516.374908] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k17=v17
+Dec 13 12:45:55 localhost kernel: [  516.374908] NALYTICS_STREAMING_START 
+Dec 13 12:45:55 localhost kernel: [  516.374984] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k17 = v17
+Dec 13 12:45:55 localhost kernel: [  516.374984] NALYTICS_STREAMING_START 
+Dec 13 12:46:00 localhost kernel: [  522.010864] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k18=v18
+Dec 13 12:46:00 localhost kernel: [  522.010864] NALYTICS_STREAMING_START] 
+Dec 13 12:46:00 localhost kernel: [  522.010870] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k18=v18
+Dec 13 12:46:00 localhost kernel: [  522.010870] NALYTICS_STREAMING_START 
+Dec 13 12:46:00 localhost kernel: [  522.010947] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k18 = v18
+Dec 13 12:46:00 localhost kernel: [  522.010947] NALYTICS_STREAMING_START 
+Dec 13 12:46:05 localhost kernel: [  526.523409] perf: interrupt took too long (3955 > 3953), lowering kernel.perf_event_max_sample_rate to 50500
+Dec 13 12:46:05 localhost kernel: [  527.175750] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k19=v19
+Dec 13 12:46:05 localhost kernel: [  527.175750] NALYTICS_STREAMING_START] 
+Dec 13 12:46:05 localhost kernel: [  527.175755] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k19=v19
+Dec 13 12:46:05 localhost kernel: [  527.175755] NALYTICS_STREAMING_START 
+Dec 13 12:46:05 localhost kernel: [  527.175836] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k19 = v19
+Dec 13 12:46:05 localhost kernel: [  527.175836] NALYTICS_STREAMING_START 
+Dec 13 12:46:09 localhost kernel: [  530.618239] read_streaming_virgo_kernel_analytics_config() : recv len=8; received message buf: [k20=v20
+Dec 13 12:46:09 localhost kernel: [  530.618239] NALYTICS_STREAMING_START] 
+Dec 13 12:46:09 localhost kernel: [  530.618244] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k20=v20
+Dec 13 12:46:09 localhost kernel: [  530.618244] NALYTICS_STREAMING_START 
+Dec 13 12:46:09 localhost kernel: [  530.618319] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k20 = v20
+Dec 13 12:46:09 localhost kernel: [  530.618319] NALYTICS_STREAMING_START 
+
