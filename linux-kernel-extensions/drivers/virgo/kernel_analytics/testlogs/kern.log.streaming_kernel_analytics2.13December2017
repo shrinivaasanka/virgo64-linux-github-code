@@ -1,0 +1,54 @@
+Dec 13 15:31:40 localhost kernel: [ 5235.557996] virgokernel_analytics_init(): initializing virgo kernel_analytics kernel module 
+Dec 13 15:31:40 localhost kernel: [ 5235.558001] virgokernel_analytics_init(): invoking read_virgo_kernel_analytics()
+Dec 13 15:31:40 localhost kernel: [ 5235.558003] virgokernel_analytics_init(): streaming kernel analytics thread  
+Dec 13 15:31:40 localhost kernel: [ 5235.558979] read_streaming_virgo_kernel_analytics_config() : after in4_pton and htons, hostip=127.0.0.1, port=64000, sin.sin_addr.s_addr=100007f, sin.sin_port=fa
+Dec 13 15:31:40 localhost kernel: [ 5235.559040] read_streaming_virgo_kernel_analytics_config() : created client kernel socket
+Dec 13 15:31:40 localhost kernel: [ 5235.560762] read_streaming_virgo_kernel_analytics_config() : connected kernel client to virgo streaming kernel analytics service
+Dec 13 15:31:40 localhost kernel: [ 5235.560762]  
+Dec 13 15:31:40 localhost kernel: [ 5235.560797] read_streaming_virgo_kernel_analytics_config() : sent len=-106; iov.iov_base=KERNEL_ANALYTICS_STREAMING_START, sent message: KERNEL_ANALYTICS_STREAMING_START 
+Dec 13 15:31:40 localhost kernel: [ 5235.560817] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k1=v1
+Dec 13 15:31:40 localhost kernel: [ 5235.560817] _ANALYTICS_STREAMING_START] 
+Dec 13 15:31:40 localhost kernel: [ 5235.560821] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k1=v1
+Dec 13 15:31:40 localhost kernel: [ 5235.560821] _ANALYTICS_STREAMING_START 
+Dec 13 15:31:40 localhost kernel: [ 5235.560871] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k1 = v1
+Dec 13 15:31:40 localhost kernel: [ 5235.560871] _ANALYTICS_STREAMING_START 
+Dec 13 15:31:59 localhost kernel: [ 5254.339899] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k2=v2
+Dec 13 15:31:59 localhost kernel: [ 5254.339899] _ANALYTICS_STREAMING_START] 
+Dec 13 15:31:59 localhost kernel: [ 5254.339904] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k2=v2
+Dec 13 15:31:59 localhost kernel: [ 5254.339904] _ANALYTICS_STREAMING_START 
+Dec 13 15:31:59 localhost kernel: [ 5254.339963] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k2 = v2
+Dec 13 15:31:59 localhost kernel: [ 5254.339963] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:03 localhost kernel: [ 5258.463677] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k3=v3
+Dec 13 15:32:03 localhost kernel: [ 5258.463677] _ANALYTICS_STREAMING_START] 
+Dec 13 15:32:03 localhost kernel: [ 5258.463682] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k3=v3
+Dec 13 15:32:03 localhost kernel: [ 5258.463682] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:03 localhost kernel: [ 5258.463740] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k3 = v3
+Dec 13 15:32:03 localhost kernel: [ 5258.463740] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:07 localhost kernel: [ 5262.411211] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k4=v4
+Dec 13 15:32:07 localhost kernel: [ 5262.411211] _ANALYTICS_STREAMING_START] 
+Dec 13 15:32:07 localhost kernel: [ 5262.411216] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k4=v4
+Dec 13 15:32:07 localhost kernel: [ 5262.411216] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:07 localhost kernel: [ 5262.411275] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k4 = v4
+Dec 13 15:32:07 localhost kernel: [ 5262.411275] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:11 localhost kernel: [ 5266.789907] read_streaming_virgo_kernel_analytics_config() : recv len=6; received message buf: [k5=v5
+Dec 13 15:32:11 localhost kernel: [ 5266.789907] _ANALYTICS_STREAMING_START] 
+Dec 13 15:32:11 localhost kernel: [ 5266.789912] read_streaming_virgo_kernel_analytics_config() : received iov.iov_base: k5=v5
+Dec 13 15:32:11 localhost kernel: [ 5266.789912] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:11 localhost kernel: [ 5266.789970] read_streaming_virgo_kernel_analytics_config() parsed analytics variable: k5 = v5
+Dec 13 15:32:11 localhost kernel: [ 5266.789970] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:38 localhost kernel: [ 5293.096313] virgoconfig_init(): initializing virgo config kernel module 
+Dec 13 15:32:38 localhost kernel: [ 5293.096321] virgo_config_init() exported kernel_analytics variable: k1 = v1
+Dec 13 15:32:38 localhost kernel: [ 5293.096321] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:38 localhost kernel: [ 5293.096324] virgo_config_init() exported kernel_analytics variable: k2 = v2
+Dec 13 15:32:38 localhost kernel: [ 5293.096324] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:38 localhost kernel: [ 5293.096328] virgo_config_init() exported kernel_analytics variable: k3 = v3
+Dec 13 15:32:38 localhost kernel: [ 5293.096328] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:38 localhost kernel: [ 5293.096332] virgo_config_init() exported kernel_analytics variable: k4 = v4
+Dec 13 15:32:38 localhost kernel: [ 5293.096332] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:38 localhost kernel: [ 5293.096335] virgo_config_init() exported kernel_analytics variable: k5 = v5
+Dec 13 15:32:38 localhost kernel: [ 5293.096335] _ANALYTICS_STREAMING_START 
+Dec 13 15:32:38 localhost kernel: [ 5293.096338] virgo_config_init() exported kernel_analytics variable: (null) = (null) 
+Dec 13 15:32:38 localhost kernel: [ 5293.096341] virgo_config_init() exported kernel_analytics variable: (null) = (null) 
+Dec 13 15:32:38 localhost kernel: [ 5293.096344] virgo_config_init() exported kernel_analytics variable: (null) = (null) 
+Dec 13 15:32:38 localhost kernel: [ 5293.096347] virgo_config_init() exported kernel_analytics variable: (null) = (null) 
+Dec 13 15:32:38 localhost kernel: [ 5293.096349] virgo_config_init() exported kernel_analytics variable: (null) = (null)

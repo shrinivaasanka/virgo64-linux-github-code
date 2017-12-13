@@ -211,7 +211,19 @@ virgokernel_analytics_init(void)
 	if(read_from_stream==0)
 		read_virgo_kernel_analytics_config();
 	else
-		read_streaming_virgo_kernel_analytics_config();
+	{
+		/*
+			Reading Streamed Kernel Analytics variable-value pairs is spun-off as separate thread so that
+			module init does not block
+		*/
+		struct task_struct *task;
+                int woken_up=0;
+		void* args;
+                printk(KERN_INFO "virgokernel_analytics_init(): streaming kernel analytics thread  \n");
+                task=kthread_create(read_streaming_virgo_kernel_analytics_config, (void*)args, "streaming kernel analytics thread");
+                woken_up=wake_up_process(task);
+		/*read_streaming_virgo_kernel_analytics_config();*/
+	}
 
 	return 0;
 }
