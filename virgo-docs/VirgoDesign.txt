@@ -1603,6 +1603,15 @@ imported in VIRGO64 config init.
 (#) By this a minimum facility for live reading analytics anywhere on cloud (it can be userspace or kernelspace) and exporting them
 to modules on a local cloud node kernel has been achieved - ideal for cloud-analytics-driven IoT
 
+------------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 System Calls - Drivers - Kernel Analytics Streaming - on 4.13.3 kernel - 15 December 2017
+------------------------------------------------------------------------------------------------------------------------------------
+(#) VIRGO64 System Calls to Drivers invocations on 4.13.3 kernel have been executed after enabling streaming kernel analytics
+(#) VIRGO64 RPC/KMemCache/CloudFS Drivers import, streamed variable-value pairs exported from kernel_analytics read from netcat webservice
+(#) VIRGO64 KMemCache testcase has 2 concurrent processes invoking kememcache systemcalls in a loop.
+(#) kern.log for this has been committed to virgo-docs/systemcalls_drivers
+(#) virgofstest.txt written by CloudFS systemcalls-drivers invocation is also committed to virgo-docs/systemcalls_drivers
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
