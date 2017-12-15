@@ -8,3 +8,8 @@ VIRGO filesystems driver -------     50000
 
 VIRGO queueing driver ----------     60000
   and KingCobra
+
+VIRGO64 streaming kernel analytics webservice port ----- 64000
+
+KingCobra Neuro Currency (Message-as-Currency) Perfect Forwarding Cloud Move Server port ----- 55555
+
