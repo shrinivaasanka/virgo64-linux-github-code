@@ -12,16 +12,9 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #--------------------------------------------------------------------------------------------------------
-#Copyleft (Copyright+):
-#Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-#Ph: 9791499106, 9003082186
-#Krishna iResearch Open Source Products Profiles:
-#http://sourceforge.net/users/ka_shrinivaasan,
-#https://github.com/shrinivaasanka,
-#https://www.openhub.net/accounts/ka_shrinivaasan
+#K.Srinivasan
+#NeuronRain Documentation and Licensing: http://neuronrain-documentation.readthedocs.io/en/latest/
 #Personal website(research): https://sites.google.com/site/kuja27/
-#emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com,
-#kashrinivaasan@live.com
 #--------------------------------------------------------------------------------------------------------
 *****************************************************************************************/
 
@@ -1612,6 +1605,20 @@ VIRGO64 System Calls - Drivers - Kernel Analytics Streaming - on 4.13.3 kernel -
 (#) kern.log for this has been committed to virgo-docs/systemcalls_drivers
 (#) virgofstest.txt written by CloudFS systemcalls-drivers invocation is also committed to virgo-docs/systemcalls_drivers
 
+-------------------------------------------------------------------------------------------------------------------------------------
+VIRGO64 system calls and drivers - Quadcore 64bit - Known Issues - documentation only - 26 May 2019
+-------------------------------------------------------------------------------------------------------------------------------------
+1. VIRGO64 system calls to drivers interactions so far have been tested only on dual core 64 bit architecture.
+2. In quad core 64 bit there have been random -32,-107, -101 errors in kernel_connect() from system call clients to driver services in
+almost all three types of VIRGO64 system calls - clone/kmemcache/filesystem - to respective drivers
+3. These errors do not occur if following in4_pton() invocation is changed to in_aton() before kernel_connect() in system call clients and kernel is rebuilt with following change before kernel_connect():
+
+	 /*in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), (u8*)&sin.sin_addr.s_addr, '\0',NULL);*/
+	sin.sin_addr.s_addr=in_aton(vaddr->hstprt->hostip);
+
+4. Since this problem occurs erratically and only on quadcore 64-bit and reasons for these random -32,-101,-107 errors are still unknown, no commit for this code change has been made and this issue is left as documented known issue. 
+5. Most likely the u8* cast causes client socket address corruption.
+6. Because of random -32,-101,-107 errors, in quadcore, system calls sometimes do not transmit client side commandline primitive strings to driver services.
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
