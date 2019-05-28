@@ -1620,6 +1620,36 @@ almost all three types of VIRGO64 system calls - clone/kmemcache/filesystem - to
 5. Most likely the u8* cast causes client socket address corruption.
 6. Because of random -32,-101,-107 errors, in quadcore, system calls sometimes do not transmit client side commandline primitive strings to driver services.
 
+--------------------------------------------------------------------------------------------------------------------------------------
+Linux Kernel 5.1.4, PXRC Drone/UAV/Flight Controller, UVC Video WebCam driver, Kernel Analytics, NeuronRain Usecases - 28 May 2019
+--------------------------------------------------------------------------------------------------------------------------------------
+1. Two analytics usecases mentioned in NeuronRainUsecases.txt in NeuronRain AsFer asfer-docs/ have been illustrated in this commit by 
+2 example drivers for PXRC Drone controller Driver and UVC Video WebCam Driver.
+2. PXRC Phoenix RC flight controller is part of linux kernel from 4.17 and kernel major version has been bumped to 5.x.x recently.
+3. Linux kernel 5.1.4 has been built by a new build script - buildscript_5.1.4.sh. 
+4. Linux kernel 5.1.4 has recent versions of PXRC drone controller driver and a UVC video webcam 
+driver (http://www.ideasonboard.org/uvc/faq/) 
+5. New directory linux-kernel-5.1.4-extensions/ has been created for VIRGO64 code built on kernel mainline version 5.1.4. No branch is created
+for version 5.1.4 because pxrc driver is part of kernel only from 4.17 while code in linux-kernel-extensions/ is based on kernel 4.13.3 for 
+dual core 64-bit architecture.
+6. New VIRGO64 build on 5.1.4 kernel is necessary only for PXRC, UVC and kernel_analytics drivers while other VIRGO64 drivers have not been
+ported to 5.1.4 and are still on 4.13.3 kernel.
+7. Two drivers for PXRC and UVC Webcam in 5.1.4 have been committed under linux-kernel-5.1.4-extensions/drivers/media/usb/uvc and linux-kernel-5.1.4-extensions/drivers/input/joystick 
+8. VIRGO64 kernel_analytics driver for 5.1.4 has been committed under linux-kernel-5.1.4-extensions/drivers/virgo/kernel_analytics. 
+9. Porting VIRGO64 kernel_analytics driver from 4.13.3 to 5.1.4 required changing vfs_read() of /etc/virgo_kernel_analytics.conf to
+kernel_read() in config file read.
+10. Drivers code for PXRC is in drivers/input/joystick/pxrc.c has been instrumented with few printk() statements that print the
+virgo_kernel_analytics_conf array variable-value pairs exported by VIRGO64 kernel_analytics driver. Kernel analytics variables are
+imported by #include of virgo_config.h
+11. Drivers code for UVC Video WebCam is in drivers/media/usb/uvc. File drivers/media/usb/uvc/uvc_video.c has been instrumented with lot of
+uvc_trace() statements which print kernel_analytics driver exported analytics variable "match" and its boolean value. Kernel analytics variables are imported  by #include of virgo_config.h. Variable "match" has been set to "True" assuming a face recognition or retinal scan match by userspace analytics and /etc/virgo_kernel_analytics.conf has been written to.
+12. UVC Video WebCam traces are enabled by:
+	 echo 0xffff > /sys/module/uvcvideo/parameters/trace
+13. Example kern.log(s) for PXRC and UVC drivers are committed under drivers/input/joystick/testlogs/kern.log.pxrc.28May2019 and drivers/media/usb/uvc/kern.log.uvcvideo.28May2019 which show UVC traces printing the imported kernel analytics variable "match=True" and PXRC driver registration. No other PXRC traces are printed because of lack of drones and drone licensing dependency
+14. Both UVC and PXRC drivers, VIRGO64 kernel_analytics driver and linux kernel 5.1.4 have been built on quadcore 64-bit architecture.
+15. This example import of VIRGO64 kernel analytics variables into PXRC drone and UVC webcam drivers demonstrate passing of userspace analytics information to kernel for suitable action.
+16. Driver build shell scripts have been committed to UVC and PXRC driver directories.
+
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
 
