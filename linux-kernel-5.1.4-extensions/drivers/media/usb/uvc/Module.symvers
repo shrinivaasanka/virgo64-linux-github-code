@@ -1,0 +1,4 @@
+0x00000000	virgokernel_analytics_init	/home/ksrinivasan/linux-5.1.4/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x00000000	virgokernel_analytics_exit	/home/ksrinivasan/linux-5.1.4/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x00000000	read_virgo_kernel_analytics_config	/home/ksrinivasan/linux-5.1.4/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x00000000	virgo_kernel_analytics_conf	/home/ksrinivasan/linux-5.1.4/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL

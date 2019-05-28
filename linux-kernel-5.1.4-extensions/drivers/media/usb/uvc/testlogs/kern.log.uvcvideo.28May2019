@@ -1,0 +1,24 @@
+May 28 13:10:52  kernel: [  356.504141] uvcvideo: uvc_v4l2_open
+May 28 13:10:52  kernel: [  356.581652] uvcvideo: Trying format 0x56595559 (YUYV): 640x480.
+May 28 13:10:52  kernel: [  356.581657] uvcvideo: Using default frame interval 33333.3 us (30.0 fps).
+May 28 13:10:52  kernel: [  356.581660] uvcvideo: uvc_probe_video(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.581662] uvcvideo: uvc_set_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.582162] uvcvideo: uvc_get_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.582372] uvcvideo: uvc_get_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.582635] uvcvideo: uvc_set_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.582996] uvcvideo: uvc_get_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.583446] uvcvideo: Setting frame interval to 1/30 (333333).
+May 28 13:10:52  kernel: [  356.583449] uvcvideo: uvc_probe_video(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.583450] uvcvideo: uvc_set_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.584644] uvcvideo: uvc_get_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.585161] uvcvideo: uvc_get_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.585372] uvcvideo: uvc_set_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.585761] uvcvideo: uvc_get_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.586146] uvcvideo: Control 0x00980927 not found.
+May 28 13:10:52  kernel: [  356.623616] uvcvideo: Control 0x00980927 not found.
+May 28 13:10:52  kernel: [  356.625650] uvcvideo: uvc_video_start_streaming(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.625657] uvcvideo: uvc_set_video_ctrl(): kernel analytics variable-value : match = True 
+May 28 13:10:52  kernel: [  356.626168] uvcvideo: Device requested 3072 B/frame bandwidth.
+May 28 13:10:52  kernel: [  356.626172] uvcvideo: Selecting alternate setting 7 (3072 B/frame bandwidth).
+May 28 13:10:52  kernel: [  356.626535] uvcvideo: Allocated 5 URB buffers of 32x3072 bytes each.
+
