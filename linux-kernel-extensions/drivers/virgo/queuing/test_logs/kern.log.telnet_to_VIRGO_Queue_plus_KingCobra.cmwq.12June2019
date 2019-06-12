@@ -1,0 +1,230 @@
+Jun 12 15:19:40 -- kernel: [  455.910018] virgo_kernel_analytics: module verification failed: signature and/or required key missing - tainting kernel
+Jun 12 15:19:40 -- kernel: [  455.913425] virgokernel_analytics_init(): initializing virgo kernel_analytics kernel module 
+Jun 12 15:19:40 -- kernel: [  455.913432] virgokernel_analytics_init(): invoking read_virgo_kernel_analytics()
+Jun 12 15:19:40 -- kernel: [  455.913438] virgo kernel_analytics kernel service: read_virgo_kernel_analytics(): virgo_cloud kernel_analytics being read... 
+Jun 12 15:19:40 -- kernel: [  455.913685] read_virgo_kernel_analytics(): virgo_cloud kernel_analytics file being read 
+Jun 12 15:19:40 -- kernel: [  455.925713] read_virgo_kernel_analytics_config() parsed analytics variable: match = True 
+Jun 12 15:19:40 -- kernel: [  455.925765] read_virgo_kernel_analytics_config() parsed analytics variable: kernel_analytics1 = v1 
+Jun 12 15:19:40 -- kernel: [  455.925812] read_virgo_kernel_analytics_config() parsed analytics variable: kernel_analytics2 = v2 
+Jun 12 15:19:40 -- kernel: [  455.925858] read_virgo_kernel_analytics_config() parsed analytics variable: kernel_analytics3 = v3
+Jun 12 15:19:40 -- kernel: [  455.925858]  
+Jun 12 15:20:16 -- kernel: [  491.902751] kingcobra_kernelspace_init(): initializing KingCobra kernel module
+Jun 12 15:20:16 -- kernel: [  491.902762] kingcobra_kernelspace_init(): Initializing disk persistence file for KingCobra
+Jun 12 15:20:16 -- kernel: [  491.917052] kingcobra_servicerequest_kernelspace(): KingCobra service request received from kernel KingCobra workqueue: REQUEST#1000000#1408964032:335925644#kingcobra_kernelspace_init
+Jun 12 15:20:16 -- kernel: [  491.917067] kingcobra_servicerequest_kernelspace(): disk persistence enabled, writing incoming request to KingCobra disk file:REQUEST#1000000#1408964032:335925644#kingcobra_kernelspace_init $$
+Jun 12 15:20:16 -- kernel: [  491.917067] 
+Jun 12 15:20:16 -- kernel: [  491.917962] parse_ip_address(): request_dup = REQUEST#1000000#1408964032:335925644#kingcobra_kernelspace_init
+Jun 12 15:20:16 -- kernel: [  491.917969] parse_ip_address(): request_header= REQUEST
+Jun 12 15:20:16 -- kernel: [  491.917973] parse_ip_address(): token = 1000000
+Jun 12 15:20:16 -- kernel: [  491.917982] parse_ip_address(): ll2=16777216
+Jun 12 15:20:16 -- kernel: [  491.918014] parse_timestamp(): request = REQUEST#1000000#1408964032:335925644#kingcobra_kernelspace_init $$
+Jun 12 15:20:16 -- kernel: [  491.918014] 
+Jun 12 15:20:16 -- kernel: [  491.918018] parse_timestamp(): requestheader parsed = REQUEST
+Jun 12 15:20:16 -- kernel: [  491.918022] parse_timestamp(): ipaddr parsed  = 1000000
+Jun 12 15:20:16 -- kernel: [  491.918026] parse_timestamp(): timestamp parsed  = 1408964032:335925644
+Jun 12 15:20:16 -- kernel: [  491.918167] reply_to_publisher() : created client kernel socket
+Jun 12 15:20:16 -- kernel: [  491.918182] reply_to_publisher() : connected kernel client to virgo cloudexec kernel service
+Jun 12 15:20:16 -- kernel: [  491.918182]  
+Jun 12 15:20:16 -- kernel: [  491.918190] ==================================================================
+Jun 12 15:20:16 -- kernel: [  491.918224] BUG: KASAN: stack-out-of-bounds in tcp_sendmsg+0x116/0x1cf0
+Jun 12 15:20:16 -- kernel: [  491.918239] Read of size 4 at addr ffff880098cef4a0 by task insmod/3326
+Jun 12 15:20:16 -- kernel: [  491.918247] 
+Jun 12 15:20:16 -- kernel: [  491.918267] CPU: 0 PID: 3326 Comm: insmod Tainted: G           OE   4.13.3 #2
+Jun 12 15:20:16 -- kernel: [  491.918273] Hardware name:   One 14 Z422/ One 14 Z422, BIOS 1.01 07/13/2018
+Jun 12 15:20:16 -- kernel: [  491.918277] Call Trace:
+Jun 12 15:20:16 -- kernel: [  491.918297]  dump_stack+0xb8/0x12d
+Jun 12 15:20:16 -- kernel: [  491.918311]  ? dma_virt_map_sg+0xd3/0xd3
+Jun 12 15:20:16 -- kernel: [  491.918326]  ? show_regs_print_info+0x41/0x41
+Jun 12 15:20:16 -- kernel: [  491.918344]  print_address_description+0x6f/0x280
+Jun 12 15:20:16 -- kernel: [  491.918359]  kasan_report+0x27a/0x370
+Jun 12 15:20:16 -- kernel: [  491.918371]  ? tcp_sendmsg+0x116/0x1cf0
+Jun 12 15:20:16 -- kernel: [  491.918385]  __asan_load4+0x78/0x80
+Jun 12 15:20:16 -- kernel: [  491.918397]  tcp_sendmsg+0x116/0x1cf0
+Jun 12 15:20:16 -- kernel: [  491.918417]  ? ip_route_output_key_hash+0x11b/0x170
+Jun 12 15:20:16 -- kernel: [  491.918432]  ? ip_route_output_key_hash_rcu+0x1480/0x1480
+Jun 12 15:20:16 -- kernel: [  491.918445]  ? up+0xce/0x120
+Jun 12 15:20:16 -- kernel: [  491.918456]  ? down+0x60/0x60
+Jun 12 15:20:16 -- kernel: [  491.918468]  ? tcp_sendpage+0xf0/0xf0
+Jun 12 15:20:16 -- kernel: [  491.918480]  ? tcp_v4_connect+0xa56/0xac0
+Jun 12 15:20:16 -- kernel: [  491.918498]  ? console_trylock+0x20/0x20
+Jun 12 15:20:16 -- kernel: [  491.918513]  ? sched_clock+0x9/0x10
+Jun 12 15:20:16 -- kernel: [  491.918523]  ? sched_clock+0x9/0x10
+Jun 12 15:20:16 -- kernel: [  491.918535]  ? down_trylock+0x3d/0x50
+Jun 12 15:20:16 -- kernel: [  491.918549]  ? vprintk_emit+0x437/0x490
+Jun 12 15:20:16 -- kernel: [  491.918562]  ? kmsg_dump_rewind+0xb0/0xb0
+Jun 12 15:20:16 -- kernel: [  491.918573]  ? tcp_release_cb+0x37/0x100
+Jun 12 15:20:16 -- kernel: [  491.918588]  inet_sendmsg+0xce/0x220
+Jun 12 15:20:16 -- kernel: [  491.918602]  ? inet_recvmsg+0x2b0/0x2b0
+Jun 12 15:20:16 -- kernel: [  491.918615]  ? vprintk_func+0x27/0x60
+Jun 12 15:20:16 -- kernel: [  491.918625]  ? printk+0x9c/0xc3
+Jun 12 15:20:16 -- kernel: [  491.918637]  ? show_regs_print_info+0x41/0x41
+Jun 12 15:20:16 -- kernel: [  491.918650]  ? inet_recvmsg+0x2b0/0x2b0
+Jun 12 15:20:16 -- kernel: [  491.918662]  sock_sendmsg+0x74/0x80
+Jun 12 15:20:16 -- kernel: [  491.918673]  kernel_sendmsg+0x2b/0x30
+Jun 12 15:20:16 -- kernel: [  491.918700]  reply_to_publisher+0x29a/0x380 [kingcobra_main_kernelspace]
+Jun 12 15:20:16 -- kernel: [  491.918724]  ? parse_ip_address+0x160/0x160 [kingcobra_main_kernelspace]
+Jun 12 15:20:16 -- kernel: [  491.918740]  ? unwind_get_return_address+0x36/0x50
+Jun 12 15:20:16 -- kernel: [  491.918752]  ? __save_stack_trace+0x92/0x100
+Jun 12 15:20:16 -- kernel: [  491.918767]  ? depot_save_stack+0x3a6/0x470
+Jun 12 15:20:16 -- kernel: [  491.918781]  ? save_stack+0xa3/0xd0
+Jun 12 15:20:16 -- kernel: [  491.918792]  ? save_stack_trace+0x1b/0x20
+Jun 12 15:20:16 -- kernel: [  491.918805]  ? __asan_loadN+0xf/0x20
+Jun 12 15:20:16 -- kernel: [  491.918823]  ? string+0xbd/0xf0
+Jun 12 15:20:16 -- kernel: [  491.918835]  ? memcpy+0x45/0x50
+Jun 12 15:20:16 -- kernel: [  491.918849]  ? vsnprintf+0x38c/0x950
+Jun 12 15:20:16 -- kernel: [  491.918861]  ? vprintk_default+0x3e/0x70
+Jun 12 15:20:16 -- kernel: [  491.918875]  ? pointer+0x6f0/0x6f0
+Jun 12 15:20:16 -- kernel: [  491.918888]  ? __kmalloc_track_caller+0xe5/0x220
+Jun 12 15:20:16 -- kernel: [  491.918902]  ? sprintf+0x9b/0xd0
+Jun 12 15:20:16 -- kernel: [  491.918914]  ? scnprintf+0xf0/0xf0
+Jun 12 15:20:16 -- kernel: [  491.918938]  ? kingcobra_servicerequest_kernelspace+0x11d/0x220 [kingcobra_main_kernelspace]
+Jun 12 15:20:16 -- kernel: [  491.918949]  ? kmem_cache_alloc_trace+0xec/0x1f0
+Jun 12 15:20:16 -- kernel: [  491.918970]  ? kingcobra_servicerequest_kernelspace+0x11d/0x220 [kingcobra_main_kernelspace]
+Jun 12 15:20:16 -- kernel: [  491.918994]  kingcobra_servicerequest_kernelspace+0x140/0x220 [kingcobra_main_kernelspace]
+Jun 12 15:20:16 -- kernel: [  491.919015]  ? reply_to_publisher+0x380/0x380 [kingcobra_main_kernelspace]
+Jun 12 15:20:16 -- kernel: [  491.919036]  ? kasan_slab_free+0x88/0xc0
+Jun 12 15:20:16 -- kernel: [  491.919047]  ? kmem_cache_free+0x81/0x1f0
+Jun 12 15:20:16 -- kernel: [  491.919062]  ? putname+0x72/0x80
+Jun 12 15:20:16 -- kernel: [  491.919074]  ? 0xffffffffc0d78000
+Jun 12 15:20:16 -- kernel: [  491.919096]  kingcobra_kernelspace_init+0x9b/0x1000 [kingcobra_main_kernelspace]
+Jun 12 15:20:16 -- kernel: [  491.919110]  do_one_initcall+0x9f/0x220
+Jun 12 15:20:16 -- kernel: [  491.919123]  ? initcall_blacklisted+0x1a0/0x1a0
+Jun 12 15:20:16 -- kernel: [  491.919136]  ? kasan_unpoison_shadow+0x35/0x50
+Jun 12 15:20:16 -- kernel: [  491.919147]  ? kasan_kmalloc+0xad/0xe0
+Jun 12 15:20:16 -- kernel: [  491.919159]  ? kasan_unpoison_shadow+0x35/0x50
+Jun 12 15:20:16 -- kernel: [  491.919173]  ? __asan_register_globals+0x7b/0xa0
+Jun 12 15:20:16 -- kernel: [  491.919191]  do_init_module+0x15d/0x3e3
+Jun 12 15:20:16 -- kernel: [  491.919206]  ? kzalloc.constprop.58+0x10/0x10
+Jun 12 15:20:16 -- kernel: [  491.919218]  ? __vunmap+0xdb/0x110
+Jun 12 15:20:16 -- kernel: [  491.919234]  load_module+0x3aef/0x4590
+Jun 12 15:20:16 -- kernel: [  491.919262]  ? module_frob_arch_sections+0x20/0x20
+Jun 12 15:20:16 -- kernel: [  491.919279]  ? __fsnotify_update_child_dentry_flags.part.1+0x160/0x160
+Jun 12 15:20:16 -- kernel: [  491.919295]  ? ima_post_read_file+0xa4/0xc0
+Jun 12 15:20:16 -- kernel: [  491.919312]  ? security_kernel_post_read_file+0x7c/0x90
+Jun 12 15:20:16 -- kernel: [  491.919325]  ? kernel_read_file+0x187/0x410
+Jun 12 15:20:16 -- kernel: [  491.919338]  ? __register_binfmt+0x210/0x210
+Jun 12 15:20:16 -- kernel: [  491.919348]  ? down_write_killable+0xaa/0xf0
+Jun 12 15:20:16 -- kernel: [  491.919359]  ? cap_capable+0xb1/0xf0
+Jun 12 15:20:16 -- kernel: [  491.919373]  ? kernel_read_file_from_fd+0x49/0x80
+Jun 12 15:20:16 -- kernel: [  491.919387]  SYSC_finit_module+0x20c/0x230
+Jun 12 15:20:16 -- kernel: [  491.919401]  ? SYSC_init_module+0x270/0x270
+Jun 12 15:20:16 -- kernel: [  491.919415]  ? vfs_statx_fd+0x4a/0x80
+Jun 12 15:20:16 -- kernel: [  491.919438]  SyS_finit_module+0xe/0x10
+Jun 12 15:20:16 -- kernel: [  491.919452]  entry_SYSCALL_64_fastpath+0x1e/0xa9
+Jun 12 15:20:16 -- kernel: [  491.919460] RIP: 0033:0x7fb8d40a7839
+Jun 12 15:20:16 -- kernel: [  491.919466] RSP: 002b:00007ffe609b3068 EFLAGS: 00000246 ORIG_RAX: 0000000000000139
+Jun 12 15:20:16 -- kernel: [  491.919478] RAX: ffffffffffffffda RBX: 0000000000001021 RCX: 00007fb8d40a7839
+Jun 12 15:20:16 -- kernel: [  491.919484] RDX: 0000000000000000 RSI: 000055ee46c81d2e RDI: 0000000000000003
+Jun 12 15:20:16 -- kernel: [  491.919491] RBP: 0000000000000004 R08: 0000000000000000 R09: 00007fb8d437a000
+Jun 12 15:20:16 -- kernel: [  491.919497] R10: 0000000000000003 R11: 0000000000000246 R12: 0000000000000100
+Jun 12 15:20:16 -- kernel: [  491.919503] R13: 00007fb8d4377ca0 R14: 00007fb8d4377c40 R15: 0000000000000000
+Jun 12 15:20:16 -- kernel: [  491.919513] 
+Jun 12 15:20:16 -- kernel: [  491.919523] The buggy address belongs to the page:
+Jun 12 15:20:16 -- kernel: [  491.919541] page:ffffea0002633bc0 count:0 mapcount:0 mapping:          (null) index:0x0
+Jun 12 15:20:16 -- kernel: [  491.919555] flags: 0xfffffc0000000()
+Jun 12 15:20:16 -- kernel: [  491.919576] raw: 000fffffc0000000 0000000000000000 0000000000000000 00000000ffffffff
+Jun 12 15:20:16 -- kernel: [  491.919593] raw: 0000000000000000 dead000000000200 0000000000000000 0000000000000000
+Jun 12 15:20:16 -- kernel: [  491.919603] page dumped because: kasan: bad access detected
+Jun 12 15:20:16 -- kernel: [  491.919611] 
+Jun 12 15:20:16 -- kernel: [  491.919619] Memory state around the buggy address:
+Jun 12 15:20:16 -- kernel: [  491.919633]  ffff880098cef380: 00 00 00 00 00 00 00 f1 f1 f1 f1 00 f2 f2 f2 f2
+Jun 12 15:20:16 -- kernel: [  491.919647]  ffff880098cef400: f2 f2 f2 00 00 f2 f2 f2 f2 f2 f2 00 00 00 00 00
+Jun 12 15:20:16 -- kernel: [  491.919662] >ffff880098cef480: 00 00 f2 f2 f2 f2 f2 00 00 f2 f2 f2 f2 f2 f2 00
+Jun 12 15:20:16 -- kernel: [  491.919671]                                ^
+Jun 12 15:20:16 -- kernel: [  491.919685]  ffff880098cef500: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jun 12 15:20:16 -- kernel: [  491.919700]  ffff880098cef580: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+Jun 12 15:20:16 -- kernel: [  491.919710] ==================================================================
+Jun 12 15:20:16 -- kernel: [  491.919719] Disabling lock debugging due to kernel taint
+Jun 12 15:20:16 -- kernel: [  491.919762] reply_to_publisher() : sent message: REPLY#1000000#1408964032:335925644 :--- from kingcobra_servicerequest_kernelspace() to client 
+Jun 12 15:20:16 -- kernel: [  491.919772] reply_to_publisher() : received message: REPLY#1000000#1408964032:335925644 :--- from kingcobra_servicerequest_kernelspace() to client 
+Jun 12 15:20:16 -- kernel: [  491.919779] reply_to_publisher() : le32_to_cpus(buf): REPLY#1000000#1408964032:335925644 :--- from kingcobra_servicerequest_kernelspace() to client 
+Jun 12 15:20:16 -- kernel: [  491.919826] reply_to_publisher() : reply_to_publisher() client socket_release() invoked
+Jun 12 15:20:52 -- kernel: [  528.453493] virgoqueue_init(): exported kernel_analytics variable: match = True 
+Jun 12 15:20:52 -- kernel: [  528.453503] virgoqueue_init(): exported kernel_analytics variable: kernel_analytics1 = v1 
+Jun 12 15:20:52 -- kernel: [  528.453509] virgoqueue_init(): exported kernel_analytics variable: kernel_analytics2 = v2 
+Jun 12 15:20:52 -- kernel: [  528.453515] virgoqueue_init(): exported kernel_analytics variable: kernel_analytics3 = v3
+Jun 12 15:20:52 -- kernel: [  528.453515]  
+Jun 12 15:20:52 -- kernel: [  528.453521] virgoqueue_init(): exported kernel_analytics variable: (null) = (null) 
+Jun 12 15:20:52 -- kernel: [  528.453526] virgoqueue_init(): exported kernel_analytics variable: (null) = (null) 
+Jun 12 15:20:52 -- kernel: [  528.453531] virgoqueue_init(): exported kernel_analytics variable: (null) = (null) 
+Jun 12 15:20:52 -- kernel: [  528.453536] virgoqueue_init(): exported kernel_analytics variable: (null) = (null) 
+Jun 12 15:20:52 -- kernel: [  528.453541] virgoqueue_init(): exported kernel_analytics variable: (null) = (null) 
+Jun 12 15:20:52 -- kernel: [  528.453546] virgoqueue_init(): exported kernel_analytics variable: (null) = (null) 
+Jun 12 15:20:52 -- kernel: [  528.453558] virgo_queue_init(): use_workqueue=1
+Jun 12 15:20:52 -- kernel: [  528.453564] virgo_queue_init(): use_workqueue=1, virgo_kernel_wq=NULL, creating a kernel workqueue
+Jun 12 15:20:52 -- kernel: [  528.453706] virgoqueue_init(): doing init() of virgocloudexec kernel module
+Jun 12 15:20:52 -- kernel: [  528.453710] virgoqueue_init(): starting virgo cloudexec service kernel thread
+Jun 12 15:20:52 -- kernel: [  528.453714] virgoqueue_init(): invoking read_virgo_config()
+Jun 12 15:20:52 -- kernel: [  528.453969] virgoqueue_read_virgo_config(): virgo_cloud config file being read 
+Jun 12 15:20:52 -- kernel: [  528.466837]  virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Jun 12 15:20:52 -- kernel: [  528.466837]  
+Jun 12 15:20:52 -- kernel: [  528.466869] bufdup = 127.0.0.1,127.0.0.1
+Jun 12 15:20:52 -- kernel: [  528.466869] 
+Jun 12 15:20:52 -- kernel: [  528.466980] virgoqueue_init(): sock_create() returns error code: 0
+Jun 12 15:20:52 -- kernel: [  528.467019] virgoqueue_init(): kernel_bind() returns error code: 0
+Jun 12 15:20:52 -- kernel: [  528.467032] virgoqueue_init(): kernel_listen() returns error code: 0
+Jun 12 15:20:52 -- kernel: [  528.467037] virgoqueue_cloudexec_service(): virgoqueue_ops.virgoqueue_create() 
+Jun 12 15:21:39 -- kernel: [  574.980719] virgoqueue_create(): kernel_accept() returns error code: 0
+Jun 12 15:21:39 -- kernel: [  574.980729] virgoqueue_create(): kernel_accept() clientsock: 2656824576
+Jun 12 15:21:39 -- kernel: [  574.980737] virgoqueue_cloudexec_service(): virgoqueue_ops.virgo_queue_create() returns 2656824576 
+Jun 12 15:21:39 -- kernel: [  574.980740] virgoqueue_cloudexec_service(): virgo client thread per request 
+Jun 12 15:21:39 -- kernel: [  574.981950] virgoqueue_cloudexec_service(): virgoqueue_ops.virgoqueue_create() 
+Jun 12 15:21:39 -- kernel: [  574.981967] virgoqueue_client_thread(): virgoqueue_ops.virgo_recvfrom()
+Jun 12 15:21:39 -- kernel: [  574.981973] virgoqueue_recvfrom(): before kernel_recvmsg()
+Jun 12 15:21:39 -- kernel: [  574.982003] virgoqueue_cpupool_recvfrom(): client_ip_str = 1000000
+Jun 12 15:21:39 -- kernel: [  574.982019] virgoqueue_cpupool_recvfrom(): client_ip_str with # appended = 1000000#
+Jun 12 15:21:39 -- kernel: [  574.982072] generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as 574982121246:574982121006
+Jun 12 15:21:39 -- kernel: [  574.982093] virgoqueue_recvfrom(): after appending logical timestamp, request_header=REQUEST#1000000#574982121246:574982121006
+Jun 12 15:21:39 -- kernel: [  574.982098] virgoqueue_recvfrom(); clientsocket state = 3
+Jun 12 15:21:48 -- kernel: [  584.190154] virgoqueue_recvfrom(): kernel_recvmsg() returns len: 24
+Jun 12 15:21:48 -- kernel: [  584.190204] virgoqueue_recvfrom(): use_as_kingcobra_service=1, queueFunction with prepended request header and client ip=REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190209] virgoqueue_recvfrom(): kernel_recvmsg() returns in recv buffer: virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190209] 
+Jun 12 15:21:48 -- kernel: [  584.190212] print_buffer(): 
+Jun 12 15:21:48 -- kernel: [  584.190216] v
+Jun 12 15:21:48 -- kernel: [  584.190218] i
+Jun 12 15:21:48 -- kernel: [  584.190221] r
+Jun 12 15:21:48 -- kernel: [  584.190223] g
+Jun 12 15:21:48 -- kernel: [  584.190225] o
+Jun 12 15:21:48 -- kernel: [  584.190228] _
+Jun 12 15:21:48 -- kernel: [  584.190230] q
+Jun 12 15:21:48 -- kernel: [  584.190232] u
+Jun 12 15:21:48 -- kernel: [  584.190235] 
+Jun 12 15:21:48 -- kernel: [  584.190240] virgoqueue_recvfrom(): kernel_recvmsg() le32 to cpu virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190240] 
+Jun 12 15:21:48 -- kernel: [  584.190246] virgoqueue_recvfrom(): queueFunction : REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019 
+Jun 12 15:21:48 -- kernel: [  584.190251] queue_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Jun 12 15:21:48 -- kernel: [  584.190259] queue_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190335] push_request(): use_workqueue=1, enqueueing req in the kernel workqueue which will invoke handler, req->data = REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019, vwqreq->work=ffff88009a911128, vwqreq->data = REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190358] virgoqueue_client_thread(): virgoqueue_ops.virgo_sendto()
+Jun 12 15:21:48 -- kernel: [  584.190364] virgoqueue_sendto(): before kernel_sendmsg() for send buffer: 
+Jun 12 15:21:48 -- kernel: [  584.190388] virgo_workqueue_handler(): invoked for work_struct w=ffff88009a911128, dequeueing enqueued vwqrq->data=REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190395] virgo_workqueue_handler(): kingcobra_in_userspace=0, before invoking kingcobra_servicerequest_kernelspace()
+Jun 12 15:21:48 -- kernel: [  584.190403] kingcobra_servicerequest_kernelspace(): KingCobra service request received from kernel KingCobra workqueue: REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190414] kingcobra_servicerequest_kernelspace(): disk persistence enabled, writing incoming request to KingCobra disk file:REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019 $$
+Jun 12 15:21:48 -- kernel: [  584.190414] 
+Jun 12 15:21:48 -- kernel: [  584.190664] parse_ip_address(): request_dup = REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019
+Jun 12 15:21:48 -- kernel: [  584.190670] parse_ip_address(): request_header= REQUEST
+Jun 12 15:21:48 -- kernel: [  584.190674] parse_ip_address(): token = 1000000
+Jun 12 15:21:48 -- kernel: [  584.190680] parse_ip_address(): ll2=16777216
+Jun 12 15:21:48 -- kernel: [  584.190712] parse_timestamp(): request = REQUEST#1000000#574982121246:574982121006virgo_queue_12June2019 $$
+Jun 12 15:21:48 -- kernel: [  584.190712] 
+Jun 12 15:21:48 -- kernel: [  584.190716] parse_timestamp(): requestheader parsed = REQUEST
+Jun 12 15:21:48 -- kernel: [  584.190719] parse_timestamp(): ipaddr parsed  = 1000000
+Jun 12 15:21:48 -- kernel: [  584.190724] parse_timestamp(): timestamp parsed  = 574982121246:574982121006virgo_queue_12June2019 $$
+Jun 12 15:21:48 -- kernel: [  584.190724] 
+Jun 12 15:21:48 -- kernel: [  584.190836] reply_to_publisher() : created client kernel socket
+Jun 12 15:21:48 -- kernel: [  584.190850] reply_to_publisher() : connected kernel client to virgo cloudexec kernel service
+Jun 12 15:21:48 -- kernel: [  584.190850]  
+Jun 12 15:21:48 -- kernel: [  584.190869] reply_to_publisher() : sent message: REPLY#1000000#574982121246:574982121006virgo_queue_12June2019 $$
+Jun 12 15:21:48 -- kernel: [  584.190869]  :--- from kingcobra_servicerequest_kernelspace() to client 
+Jun 12 15:21:48 -- kernel: [  584.190880] reply_to_publisher() : received message: REPLY#1000000#574982121246:574982121006virgo_queue_12June2019 $$
+Jun 12 15:21:48 -- kernel: [  584.190880]  :--- from kingcobra_servicerequest_kernelspace() to client 
+Jun 12 15:21:48 -- kernel: [  584.190887] reply_to_publisher() : le32_to_cpus(buf): REPLY#1000000#574982121246:574982121006virgo_queue_12June2019 $$
+Jun 12 15:21:48 -- kernel: [  584.190887]  :--- from kingcobra_servicerequest_kernelspace() to client 
+Jun 12 15:21:48 -- kernel: [  584.190942] reply_to_publisher() : reply_to_publisher() client socket_release() invoked
+Jun 12 15:21:48 -- kernel: [  584.190947] virgo_workqueue_handler(): after invoking kingcobra_servicerequest_kernelspace()
+Jun 12 15:21:48 -- kernel: [  584.191218] virgoqueue_sendto(): kernel_sendmsg() returns ret: 500
+Jun 12 15:21:48 -- kernel: [  584.191224] virgoqueue_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Jun 12 15:21:48 -- kernel: [  584.191333] virgoqueue_sendto(): sock_release invoked on client socket 
+

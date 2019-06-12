@@ -102,7 +102,7 @@ struct virgo_kernel_analytics_config virgo_kernel_analytics_conf[MAX_ANALYTICS_C
 void read_virgo_kernel_analytics_config();
 void read_streaming_virgo_kernel_analytics_config();
 char* streaming_kernel_analytics_host="127.0.0.1";
-int read_from_stream=1;
+int read_from_stream=0;
 
 EXPORT_SYMBOL(virgo_kernel_analytics_conf);
 

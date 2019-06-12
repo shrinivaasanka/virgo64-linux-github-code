@@ -1,14 +1,15 @@
-0xe3fe0694	kingcobra_servicerequest_kernelspace	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
-0x939829f2	virgokernel_analytics_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
-0x5773170b	virgokernel_analytics_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
-0x70958967	virgoqueue_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x20350e7e	kingcobra_kernelspace_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
-0xe4de3087	kingcobra_kernelspace_init	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
-0x147e9cfc	virgoqueue_sendto	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x81c90249	push_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x2d944a7b	virgoqueue_recvfrom	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x9a410671	read_virgo_kernel_analytics_config	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
-0x5f58edf1	pop_request	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x69e59c53	virgo_kernel_analytics_conf	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.10.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics  EXPORT_SYMBOL	(unknown)
-0x8045952f	virgoqueue_exit	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
-0x8dc7daa8	virgoqueue_create	/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	kingcobra_servicerequest_kernelspace	/home/ksrinivasan/linux-4.13.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
+0x00000000	virgokernel_analytics_exit	/home/ksrinivasan/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x00000000	virgokernel_analytics_init	/home/ksrinivasan/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x00000000	virgoqueue_init	/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	kingcobra_kernelspace_exit	/home/ksrinivasan/linux-4.13.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
+0x00000000	kingcobra_kernelspace_init	/home/ksrinivasan/linux-4.13.3/drivers/kingcobra/kingcobra_main_kernelspace	EXPORT_SYMBOL
+0x00000000	virgoqueue_sendto	/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	push_request	/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	virgoqueue_recvfrom	/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	read_virgo_kernel_analytics_config	/home/ksrinivasan/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x00000000	pop_request	/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	virgo_kernel_analytics_conf	/home/ksrinivasan/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL
+0x00000000	virgoqueue_exit	/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	virgoqueue_create	/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x00000000	read_streaming_virgo_kernel_analytics_config	/home/ksrinivasan/linux-4.13.3/drivers/virgo/kernel_analytics/virgo_kernel_analytics	EXPORT_SYMBOL

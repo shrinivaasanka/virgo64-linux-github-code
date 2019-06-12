@@ -174,7 +174,7 @@ virgoqueue_init(void)
 		if(virgo_kernel_wq==NULL)
 		{
 			printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, virgo_kernel_wq=NULL, creating a kernel workqueue\n");
-			virgo_kernel_wq = create_workqueue("virgo_kernel_workqueue");
+			virgo_kernel_wq = alloc_workqueue("virgo_kernel_workqueue",WQ_HIGHPRI,2);
 		}
 		/*
 		printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, enqueueing work %p to kernel workqueue\n",&virgo_work);

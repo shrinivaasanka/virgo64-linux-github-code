@@ -1,1 +1,1 @@
-cmd_/media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/built-in.o :=  rm -f /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/built-in.o; ar rcSTPD /media/ka_shrinivaasan/cbddc062-a016-4828-8780-21bc64cef1e8/linux-4.13.3/drivers/virgo/queuing/built-in.o
+cmd_/home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/built-in.o :=  rm -f /home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/built-in.o; ar rcSTPD /home/ksrinivasan/linux-4.13.3/drivers/virgo/queuing/built-in.o
