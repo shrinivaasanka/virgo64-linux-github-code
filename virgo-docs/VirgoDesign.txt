@@ -114,22 +114,22 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 (FEATURE - DONE) 6. Sophisticated queuing and persistence of CPU and Memory pooling requests in Kernel Side (by possibly improving already existing kernel workqueues). Either open source implementations like ZeroMQ/ActiveMQ can be used or Queuing implementation has to be written from scratch or both. ActiveMQ supports REST APIs and is JMS implementation. This feature has been marked completed because recently NeuronRain AsFer backend has been updated to support KingCobra REQUEST_REPLY.queue as a datasource for Streaming Abstract Generator. By enabling use_as_kingcobra_service=1 in cpupooling and memorypooling VIRGO drivers, any incoming CPU and Memory related request can be routed to KingCobra by linux workqueue in VIRGO queue and disk persisted (/var/log/REQUEST_REPLY.queue) by KingCobra servicerequest recipient. Also Kafka Publisher/Subscriber have been implemented in NeuronRain AsFer which invoke Streaming Abstract Generator with KingCobra REQUEST_REPLY.queue as datasource to publish persisted already received CPU and Memory requests to Kafka Message Queue. Thus queuing and persistence for VIRGO CPU and Memory is in place. ZeroMQ does not have persistence and is used for NeuronRain client side Router-Dealer concurrent request servicing pattern.
 
-(FEATURE - DONE-Minimum Functionality) 7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.  Initial commits for Kernel Analytics Module which reads the /etc/virgo_kernel_analytics.conf config have been done. This config file virgo_kernel_analytics.conf having csv(s) of key-value pairs of analytics variables is set by AsFer or any other Machine Learning code.  With this VIRGO Linux Kernel is endowed with abilities to dynamically evolve than being just a platform for user code. Implications are huge - for example, a config variable "MaxNetworkBandwidth=255" set by the ML miner in userspace based on a Perceptron or Logistic Regression executed on network logs can be read by a kernel module that limits the network traffic to 255Mbps. Thus kernel is no longer a static predictable blob behemoth. With this, VIRGO is an Internet-of-Things kernel that does analytics and based on analytics variable values integrated hardware can be controlled across the cloud through remote kernel module function invocation. This facility has been made dynamic with Boost::Python C++ and CPython extensions that permit flow of objects from machine learnt AsFer kernel analytics variables to VIRGO Linux Kernel memory drivers via VIRGO system calls directly and back - Commits on 29 January 2016 - this should obviate re-reading /etc/virgo_kernel_analytics.conf and is an exemplary implementation which unifies C++/Python into C/Kernel.
+(FEATURE - DONE-Minimum Functionality - this section is an extended draft on respective topics in NeuronRain AstroInfer design -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt) 7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.  Initial commits for Kernel Analytics Module which reads the /etc/virgo_kernel_analytics.conf config have been done. This config file virgo_kernel_analytics.conf having csv(s) of key-value pairs of analytics variables is set by AsFer or any other Machine Learning code.  With this VIRGO Linux Kernel is endowed with abilities to dynamically evolve than being just a platform for user code. Implications are huge - for example, a config variable "MaxNetworkBandwidth=255" set by the ML miner in userspace based on a Perceptron or Logistic Regression executed on network logs can be read by a kernel module that limits the network traffic to 255Mbps. Thus kernel is no longer a static predictable blob behemoth. With this, VIRGO is an Internet-of-Things kernel that does analytics and based on analytics variable values integrated hardware can be controlled across the cloud through remote kernel module function invocation. This facility has been made dynamic with Boost::Python C++ and CPython extensions that permit flow of objects from machine learnt AsFer kernel analytics variables to VIRGO Linux Kernel memory drivers via VIRGO system calls directly and back - Commits on 29 January 2016 - this should obviate re-reading /etc/virgo_kernel_analytics.conf and is an exemplary implementation which unifies C++/Python into C/Kernel.
 
 -----------------------------------------
-Example scenario 1 without implementation: 
+Example scenario 7.1 without implementation: 
 -----------------------------------------
 - Philips Hue IoT mobile app controlled bulb - http://www2.meethue.com/en-xx/
 - kernel_analytics module learns key-value pairs from the AsFer code and exports it VIRGO kernel wide
 - A driver function with in bulb embedded device driver can be invoked through VIRGO cpupooling (invoked from remote virgo_clone() system_call)
 based on if-else clause of the kernel_analytics variable i.e remote_client invokes virgo_clone() with function argument "lights on" which is routed to another cloud node. The recipient cloud node "learns" from AsFer kernel_analytics that Voltage is low or Battery is low from logs and decides to switch in high beam or low beam.
 -----------------------------------------
-Example scenario 2 without implementation: 
+Example scenario 7.2 without implementation: 
 -----------------------------------------
 - A swivel security camera driver is remotely invoked via virgo_clone() in the VIRGO cloud.
 - The camera driver uses a machine learnt variable exported by kernel_analytics-and-AsFer to pan the camera by how much degrees.
 -------------------------------------------------------------------------------------------------------
-Example scenario 3 without implementation - probably one of the best applications of NeuronRain IoT OS:
+Example scenario 7.3 without implementation - probably one of the best applications of NeuronRain IoT OS:
 -------------------------------------------------------------------------------------------------------
 - Autonomous Driverless Automobiles - a VIRGO driver for a vehicle which learns kernel analytics variables (driving directions) set by kernel_analytics driver and AsFer Machine Learning. A naive algorithm for Driverless Car (with some added modifications over A-Star and Motion planning algorithms):
 	- AsFer analytics receives obstacle distance data 360+360 degrees (vertical and horizontal) around the vehicle (e.g ultrasound sensors) which is updated in a Spark DataFrame table with high frequency (100 times per second).
@@ -144,11 +144,11 @@ E.g. Autopilot in Tesla Cars processes Petabytes of information (Smooth-as-Silk 
 ----------------------------------------------
 References for Machine Learning + Linux Kernel
 ----------------------------------------------
-7.1 KernTune - http://repository.uwc.ac.za/xmlui/bitstream/handle/10566/53/Yi_KernTune(2007).pdf?sequence=3
-7.2 Self-learning, Predictive Systems - https://icri-ci.technion.ac.il/projects/past-projects/machine-learning-for-architecture-self-learning-predictive-computer-systems/
-7.3 Linux Process Scheduling and Machine Learning - http://www.cs.ucr.edu/~kishore/papers/tencon.pdf
-7.4 Network Latency and Machine Learning - https://users.soe.ucsc.edu/~slukin/rtt_paper.pdf
-7.5 Machine Learning based Meta-Scheduler for Multicore processors - https://books.google.co.in/books?id=1GWcHmCrl0QC&pg=PA528&lpg=PA528&dq=linux+kernel+machine+learning&source=bl&ots=zfJsq_uu5q&sig=mMIUZ-oyJIwZXtYj4HntrQE8NSk&hl=en&sa=X&ved=0CCAQ6AEwATgKahUKEwjs9sqF9vPIAhVBFZQKHbNtA6A 
+7.4 KernTune - http://repository.uwc.ac.za/xmlui/bitstream/handle/10566/53/Yi_KernTune(2007).pdf?sequence=3
+7.5 Self-learning, Predictive Systems - https://icri-ci.technion.ac.il/projects/past-projects/machine-learning-for-architecture-self-learning-predictive-computer-systems/
+7.6 Linux Process Scheduling and Machine Learning - http://www.cs.ucr.edu/~kishore/papers/tencon.pdf
+7.7 Network Latency and Machine Learning - https://users.soe.ucsc.edu/~slukin/rtt_paper.pdf
+7.8 Machine Learning based Meta-Scheduler for Multicore processors - https://books.google.co.in/books?id=1GWcHmCrl0QC&pg=PA528&lpg=PA528&dq=linux+kernel+machine+learning&source=bl&ots=zfJsq_uu5q&sig=mMIUZ-oyJIwZXtYj4HntrQE8NSk&hl=en&sa=X&ved=0CCAQ6AEwATgKahUKEwjs9sqF9vPIAhVBFZQKHbNtA6A 
  
 8. A Symmetric Multi Processing subsystem Scheduler that virtualizes all nodes in cloud (probably this would involve improving the loadbalancer into a scheduler with priority queues)
 
@@ -168,20 +168,20 @@ References for Machine Learning + Linux Kernel
 
 16(FEATURE - DONE-Minimum Functionality). Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from the log. Kernel_Analytics VIRGO module reads /etc/virgo_kernel_analytics.conf config key-value pairs which are set by AsFer or other Machine Learning Software. At present an Apache Spark usecase that mines Uncomplicated Fire Wall logs in kern.log for most prominent source IP has been implemented in AsFer codebase : http://sourceforge.net/p/asfer/code/704/tree/python-src/SparkKernelLogMapReduceParser.py . This is set as a key-value config in /etc/virgo_kernel_analytics.conf read and exported by kernel_analytics module.
 
-17. Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
+17. (USERSPACE C++ usecase implemented in GRAFIT course material - https://gitlab.com/shrinivaasanka/Grafit) Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
 
 18. Scalability features for Multicore machines - references:
 (http://halobates.de/lk09-scalability.pdf, http://pdos.csail.mit.edu/papers/linux:osdi10.pdf)
 
-19. Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
+19. (USERSPACE C++ usecase implemented in GRAFIT course material - https://gitlab.com/shrinivaasanka/Grafit) Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
 
 20. (FEATURE - SATURN integration - minimum functionality DONE) Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0. SATURN program analysis has been integrated into VIRGO linux with a stub driver.
 
 21. (FEATURE - DONE) Bakery Algorithm implementation - cloudsync kernel module
 
-22. (FEATURE - ONGOING) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Termination Detection, Snapshots, Cache Coherency subsystem etc.,(as part of cloudsync driver module). Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
+22. (FEATURE - minimal EventNet Logical Clock primitive implemented in AstroInfer and this section is an extended draft on respective topics in NeuronRain AstroInfer design -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Termination Detection, Snapshots, Cache Coherency subsystem etc.,(as part of cloudsync driver module). Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
 
-23. (FEATURE - minimum functionality DONE) Enhancements to kmem if it makes sense, because it is better to rely on virgo_malloc() for per machine memory management and wrap it around with a cloudwide VIRGO Unique ID based address lookup implementation of which is already in place.
+23. (FEATURE - minimum functionality DONE - this section is an extended draft on respective packing/filling/tiling topics in NeuronRain AstroInfer design specific to kernel SLAB allocator -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt) Enhancements to kmem if it makes sense, because it is better to rely on virgo_malloc() for per machine memory management and wrap it around with a cloudwide VIRGO Unique ID based address lookup implementation of which is already in place.
 Kernel Malloc syscall kmalloc() internally works as follows:
 	- kmem_cache_t object has pointers to 3 lists
 	- These 3 lists are full objects SLAB list, partial objects SLAB list and free objects SLAB list - all are lists of objects of same size
@@ -762,7 +762,7 @@ VIRGO version 15.1.8 release tagged on 8 January 2015
 ------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------------------
-Commits as on 3 March 2015 - Initial commits for Kernel Analytics Module which reads the /etc/virgo_kernel_analytics.conf config (and) VIRGO memorypooling Key-Value Store Architecture Diagram
+772. (FEATURE) Commits as on 3 March 2015 - Initial commits for Kernel Analytics Module which reads the /etc/virgo_kernel_analytics.conf config (and) VIRGO memorypooling Key-Value Store Architecture Diagram - - this section is an extended draft on respective topics in NeuronRain AstroInfer design -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt
 ----------------------------------------------------------------------------------------------------
 - Architecture of Key-Value Store in memorypooling (virgo_malloc,virgo_get,virgo_set,virgo_free) has been
 uploaded as a diagram at http://sourceforge.net/p/virgo-linux/code-0/HEAD/tree/trunk/virgo-docs/VIRGOLinuxKernel_KeyValueStore_and_Modules_Interaction.jpg
@@ -1116,7 +1116,7 @@ skbuff debug function in utils/ driver:
 Commits as on 29 February 2016
 --------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
-(FEATURE-DONE) Software Analytics - SATURN Program Analysis added to VIRGO Linux kernel drivers
+771. (FEATURE-DONE) Software Analytics - SATURN Program Analysis added to VIRGO Linux kernel drivers - this section is an extended draft on respective topics in NeuronRain AstroInfer design -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt
 -------------------------------------------------------------------------------------
 - SATURN (saturn.stanford.edu) Program Analysis and Verification software has been
 integrated into VIRGO Kernel as a Verification+SoftwareAnalytics subsystem
@@ -1565,7 +1565,7 @@ VIRGO64 SystemCalls-Drivers concurrent invocations - 2 processes having shared m
 that should be followed for any userspace application.
 
 ------------------------------------------------------------------------------------------------------------------------------------------
-VIRGO64 Kernel Analytics - Streaming Implementation - 13 December 2017
+775. (FEATURE) VIRGO64 Kernel Analytics - Streaming Implementation - 13 December 2017 - this section is an extended draft on respective topics in NeuronRain AstroInfer design -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt
 ------------------------------------------------------------------------------------------------------------------------------------------
 (#) Presently kernel analytics config have to be read from a file storage. This is a huge performance bottleneck when frequency of
 analytics variables written to is realtime. For example autonomous vehicles/drones write gigabytes of navigation data in few minutes.
@@ -1621,7 +1621,7 @@ almost all three types of VIRGO64 system calls - clone/kmemcache/filesystem - to
 6. Because of random -32,-101,-107 errors, in quadcore, system calls sometimes do not transmit client side commandline primitive strings to driver services.
 
 --------------------------------------------------------------------------------------------------------------------------------------
-Linux Kernel 5.1.4, PXRC Drone/UAV/Flight Controller, UVC Video WebCam driver, Kernel Analytics, NeuronRain Usecases - 28 May 2019
+773. (FEATURE) Linux Kernel 5.1.4, PXRC Drone/UAV/Flight Controller, UVC Video WebCam driver, Kernel Analytics, NeuronRain Usecases - 28 May 2019 - this section is an extended draft on respective topics in NeuronRain AstroInfer design -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt
 --------------------------------------------------------------------------------------------------------------------------------------
 1. Two analytics usecases mentioned in NeuronRainUsecases.txt in NeuronRain AsFer asfer-docs/ have been illustrated in this commit by 
 2 example drivers for PXRC Drone controller Driver and UVC Video WebCam Driver.
@@ -1651,7 +1651,7 @@ uvc_trace() statements which print kernel_analytics driver exported analytics va
 16. Driver build shell scripts have been committed to UVC and PXRC driver directories.
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-Concurrent Managed Workqueue(CMWQ), VIRGO64 Queueing and KingCobra64 messaging - 12 June 2019
+774. (FEATURE) Concurrent Managed Workqueue(CMWQ), VIRGO64 Queueing and KingCobra64 messaging - 12 June 2019 - this section is an extended draft on respective topics in NeuronRain AstroInfer design and KingCobra design -  https://github.com/shrinivaasanka/asfer-github-code/blob/master/asfer-docs/AstroInferDesign.txt,https://github.com/shrinivaasanka/kingcobra64-github-code/blob/master/KingCobraDesignNotes.txt
 ---------------------------------------------------------------------------------------------------------------------------------------------
 1. Existing workqueue underneath VIRGO64 queueing and requests routed by it to KingCobra64 messaging are old legacy workqueues which
 have been revamped to Concurrent Managed Workqueue which supports concurrent messaging and lot of other options in queue creation.
