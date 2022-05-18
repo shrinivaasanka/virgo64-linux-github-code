@@ -1,5 +1,6 @@
-VIRGO Linux Build Steps
-------------------------
+-----------------------------
+1250. VIRGO Linux Build Steps
+------------------------------
 1. Download and build 4.1.5 kernel from www.kernel.org mainline (build commandlines as in buildscript.sh)
 2. Overlay the virgo-linux source tree (from linux-kernel-extensions subtree) on linux kernel src root.
 3. Invoke the driver build scripts in each driver folder to build with path updates.
