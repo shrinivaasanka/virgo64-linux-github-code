@@ -1,3 +1,6 @@
+-------------------------------------------------------------------------------------------------------------------------
+1299a. Linux Kernel 3.7.8 Build commandline reference
+-------------------------------------------------------------------------------------------------------------------------
 kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8$ ls
 arch     crypto              firmware  ipc      lib          modules.builtin      net             scripts           sound       virt
 block    Documentation       fs        Kbuild   MAINTAINERS  modules.order        README          security          System.map  vmlinux
